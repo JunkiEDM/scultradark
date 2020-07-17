@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD
 @namespace    100photos
-@version      0.9.3
+@version      0.9.4
 @homepageURL  https://github.com/StylishThemes/Quora-Dark
 @updateURL    https://raw.githubusercontent.com/100photos/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -1188,7 +1188,7 @@
         border-color: #fff
     }
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent) {
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost) {
         border-color: #1a1a1a;
         /*background: #111;*/
         border: 0;
@@ -1197,8 +1197,8 @@
         color: #fff !important;
         padding: 0 15px
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost) {
         border-color: #fff;
         /*background: #111*/
         border: 0;
@@ -1207,7 +1207,7 @@
         color: #fff !important;
         padding: 0 15px
     }
-    .sc-button-selected:before {
+    .sc-button-selected:not(.sc-button-like):not(.sc-button-repost):before {
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij4KICA8cGF0aCBmaWxsPSJyZ2IoMjU1LCAyNTUsIDI1NSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTUuNTQyIDEuMTY3YzIuMTA3IDAgMi43OTUgMi4yNDYgMS42MSA1LjMzMi0uNDQ0Ljc5My4wMyAxLjIxMS4zMjIgMS4zMzIgMi4wMjYuODM2IDIuODc1IDIuMjEzIDMuMDI2IDMuODM2di41ODNILjU4M3YtLjU4M2MuMTUxLTEuNjIzIDEtMyAzLjAyNi0zLjgzNi4yOTItLjEyLjc2Ni0uNTQuMzIyLTEuMzMxLTEuMTg0LTMuMDk1LS40OTctNS4zMzMgMS42MS01LjMzM3pNMTMuNDcgMy4xOGwuMDU4LjA1LjIzLjIyOGEuNDE1LjQxNSAwIDAgMSAuMDU3LjUyNmwtLjA1My4wNjUtMi43MTQgMi43MTRhLjQwOS40MDkgMCAwIDEtLjUuMDY2bC0uMDQ1LS4wMy0uMDQzLS4wMzgtMS40NzItMS40NzJhLjQyMi40MjIgMCAwIDEtLjA1MS0uNTI3bC4wNTQtLjA2Ni4yMjktLjIzYS40MTUuNDE1IDAgMCAxIC41MjgtLjA1NWwuMDY1LjA1My45NDIuOTQzIDIuMTgyLTIuMTgzYS40MS40MSAwIDAgMSAuNTMzLS4wNDR6Ii8+Cjwvc3ZnPgo=) !important;
         filter: invert(0)!important
     }
