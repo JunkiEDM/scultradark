@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD
 @namespace    100photos
-@version      0.9.1
+@version      0.9.2
 @homepageURL  https://github.com/StylishThemes/Quora-Dark
 @updateURL    https://raw.githubusercontent.com/100photos/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -2020,14 +2020,14 @@
             -o-filter: hue-rotate(340deg);
         }
     }
-    
+    /*
     @keyframes rainbow {
         from	{-ms-filter: hue-rotate(340deg);}
         to		{-ms-filter: hue-rotate(340deg);}}
     @keyframes rainbow {
         from	{filter: hue-rotate(340deg);}
         to		{filter: hue-rotate(340deg);}}
-    
+    */
     canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon, .g-tabs-link.active, .g-required-label:after /* ---[ colors everything ]--- */ {
         -webkit-animation: rainbow 4s steps(36) infinite!IMPORTANT;
            -moz-animation: rainbow 4s steps(36) infinite!IMPORTANT;
