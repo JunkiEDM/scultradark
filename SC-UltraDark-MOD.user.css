@@ -1,4 +1,3 @@
-@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections).*)") {
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark (MOD)
 @namespace    github.com/100photos/scultradark
@@ -7,6 +6,8 @@
 @preprocessor default
 @var color link-color "Link Color" red
 ==/UserStyle== */
+
+@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections).*)") {
 /* Modification of SoundCloud Ultra Dark by IgChi: userstyles.org/styles/176264 */
 .l-collection,
 .listenNetwork {
