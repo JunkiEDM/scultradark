@@ -1996,38 +1996,56 @@
     /* Custom Waveform Hue by CriAsuDre: userstyles.org/styles/123974 *
      * Original Concept by 4reeeal: userstyles.org/users/297063       *
      * RED HUE                                                        */
+    /* ↓----------------------[ custom section ]----------------------↓ */
+        /* ----↓ DIY option <ignore if not enabled> ↓---- */
+
     @-webkit-keyframes rainbow {
-        from {
-            -webkit-filter: hue-rotate(340deg);
+        from	{-webkit-f/* ---[ Disabled ]--- */: contrast(4) brightness(1) opacity(.6) invert(.1) hue-rotate(90deg) sepia(1) saturate(8) /**/ /**/;}
+        to		{-webkit-f/* ---[ Disabled ]--- */: contrast(4) brightness(1) opacity(.6) invert(.1) hue-rotate(90deg) sepia(1) saturate(8) /**/ /**/;}
         }
-        to {
-            -webkit-filter: hue-rotate(340deg);
-        }
-    }
     @-moz-keyframes rainbow {
-        from {
-            -moz-filter: hue-rotate(340deg);
+        from	{-moz-f/* ---[ Disabled ]--- */: contrast(4) brightness(1) opacity(.6) invert(.1) hue-rotate(90deg) sepia(1) saturate(8) /**/ /**/;}
+        to		{-moz-f/* ---[ Disabled ]--- */: contrast(4) brightness(1) opacity(.6) invert(.1) hue-rotate(90deg) sepia(1) saturate(8) /**/ /**/;}
         }
-        to {
-            -moz-filter: hue-rotate(340deg);
-        }
-    }
     @-o-keyframes rainbow {
-        from {
-            -o-filter: hue-rotate(340deg);
+        from	{-o-f/* ---[ Disabled ]--- */: contrast(4) brightness(1) opacity(.6) invert(.1) hue-rotate(90deg) sepia(1) saturate(8) /**/ /**/;}
+        to		{-o-f/* ---[ Disabled ]--- */: contrast(4) brightness(1) opacity(.6) invert(.1) hue-rotate(90deg) sepia(1) saturate(8) /**/ /**/;}
         }
-        to {
-            -o-filter: hue-rotate(340deg);
-        }
-    }
-    /*
+    /* ---[ Disabled ]--- */
+
+    /* ----↑ DIY option <ignore if not enabled> ↑---- */
+    /* ↑----------------------[ custom section ]----------------------↑ */
+    /* ↓----------------------[ pre-chosen section <light> ]----------------------↓ */
+
+    /* ---[ RED hued ]--- */
+
+    @-webkit-keyframes rainbow {
+        from	{-webkit-filter: hue-rotate(340deg);}
+        to		{-webkit-filter: hue-rotate(340deg);}}
+    @-moz-keyframes rainbow {
+        from	{-moz-filter: hue-rotate(340deg);}
+        to		{-moz-filter: hue-rotate(340deg);}}
+    @-o-keyframes rainbow {
+        from	{-o-filter: hue-rotate(340deg);}
+        to		{-o-filter: hue-rotate(340deg);}}
+
+        /* -- for Firefox & IE8+ -- *
+
     @keyframes rainbow {
         from	{-ms-filter: hue-rotate(340deg);}
         to		{-ms-filter: hue-rotate(340deg);}}
     @keyframes rainbow {
         from	{filter: hue-rotate(340deg);}
         to		{filter: hue-rotate(340deg);}}
-    */
+
+    /* ↑----------------------[ pre-chosen section <light> ]----------------------↑ */
+    /* ↓----------------------[ pre-chosen section <dark> ]----------------------↓ */
+
+    /* ---[ Disabled ]--- */
+
+    /* ↑----------------------[ pre-chosen section <dark> ]----------------------↑ */
+    /* ↓----------------------[ general ]----------------------↓ */
+
     canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon, .g-tabs-link.active, .g-required-label:after /* ---[ colors everything ]--- */ {
         -webkit-animation: rainbow 4s steps(36) infinite!IMPORTANT;
            -moz-animation: rainbow 4s steps(36) infinite!IMPORTANT;
@@ -2042,6 +2060,8 @@
             -ms-animation: 0s!IMPORTANT;
              -o-animation: 0s!IMPORTANT;
                 animation: 0s!IMPORTANT;}
+
+    /* ↑----------------------[ general ]----------------------↑ */
 
 }
 
