@@ -1994,6 +1994,24 @@
         color: #ccc;
         transition-duration: 0.25s
     }
+    .notificationBadge--unread {
+        background: linear-gradient(220deg, rgb(255 0 35 / 15%) 0%, rgb(255 0 141 / 0.05) 30%, #1110 75%)!important;
+    }
+    .notificationBadge__link:hover {
+        box-shadow: 24px -4px 16px #0004 inset;
+        transition-duration: 0.25s;
+    }
+    .notificationBadge__link {
+        transition-duration: 3s;
+    }
+    .latestActivities__container:hover, .unreadConversations__container:hover, .profileMenu:hover, .moreMenu:hover {
+        box-shadow: 2px 2px 12px #0009;
+        transition-duration: 0.25s;
+    }
+    .latestActivities__container, .unreadConversations__container, .profileMenu, .moreMenu {
+        box-shadow: 2px 2px 24px #0003;
+        transition-duration: 3s;
+    }
 }
 
 @-moz-document regexp("https?://(?:www.)?soundcloud.com.*") {
