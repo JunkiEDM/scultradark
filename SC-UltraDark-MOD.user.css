@@ -1195,7 +1195,8 @@
         border-radius: 120px;
         background: #f50 !important;
         color: #fff !important;
-        padding: 0 15px
+        padding: 0 15px;
+        transition-duration: 1s
     }
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost),
     .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost) {
@@ -1205,7 +1206,8 @@
         border-radius: 120px;
         background: #f30 !important;
         color: #fff !important;
-        padding: 0 15px
+        padding: 0 15px;
+        transition-duration: 0.25s
     }
     .sc-button-selected:not(.sc-button-like):not(.sc-button-repost):before {
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij4KICA8cGF0aCBmaWxsPSJyZ2IoMjU1LCAyNTUsIDI1NSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTUuNTQyIDEuMTY3YzIuMTA3IDAgMi43OTUgMi4yNDYgMS42MSA1LjMzMi0uNDQ0Ljc5My4wMyAxLjIxMS4zMjIgMS4zMzIgMi4wMjYuODM2IDIuODc1IDIuMjEzIDMuMDI2IDMuODM2di41ODNILjU4M3YtLjU4M2MuMTUxLTEuNjIzIDEtMyAzLjAyNi0zLjgzNi4yOTItLjEyLjc2Ni0uNTQuMzIyLTEuMzMxLTEuMTg0LTMuMDk1LS40OTctNS4zMzMgMS42MS01LjMzM3pNMTMuNDcgMy4xOGwuMDU4LjA1LjIzLjIyOGEuNDE1LjQxNSAwIDAgMSAuMDU3LjUyNmwtLjA1My4wNjUtMi43MTQgMi43MTRhLjQwOS40MDkgMCAwIDEtLjUuMDY2bC0uMDQ1LS4wMy0uMDQzLS4wMzgtMS40NzItMS40NzJhLjQyMi40MjIgMCAwIDEtLjA1MS0uNTI3bC4wNTQtLjA2Ni4yMjktLjIzYS40MTUuNDE1IDAgMCAxIC41MjgtLjA1NWwuMDY1LjA1My45NDIuOTQzIDIuMTgyLTIuMTgzYS40MS40MSAwIDAgMSAuNTMzLS4wNDR6Ii8+Cjwvc3ZnPgo=) !important;
@@ -1890,15 +1892,19 @@
     .profileMenu__list {
         background-color: #222
     }
-    .headerMenu.m-light {
+    .headerMenu.m-light {  /*modified*/
         background-color: #111;
-        border-color: #333
+        border-color: #333;
+        transition-duration: 1s;
+        box-shadow: none;
     }
     .m-light .headerMenu__link:focus,
     .m-light .headerMenu__link:hover {
-        background-color: #0a0a0a
+        background-color: #0d0d0d;
+        transition-duration: 0.25s;
+        box-shadow: 16px -4px 12px #0004 inset;
     }
-    .m-light .headerMenu__link,
+    .m-light .headerMenu__link, /*unmodified*/
     .m-light .headerMenu__link:focus,
     .m-light .headerMenu__link:hover {
         color: #ccc
@@ -2005,13 +2011,47 @@
         transition-duration: 3s;
     }
     .latestActivities__container:hover, .unreadConversations__container:hover, .profileMenu:hover, .moreMenu:hover {
-        box-shadow: 2px 2px 12px #0009;
+        box-shadow: 2px 1px 16px #000;
         transition-duration: 0.25s;
     }
     .latestActivities__container, .unreadConversations__container, .profileMenu, .moreMenu {
-        box-shadow: 2px 2px 24px #0003;
-        transition-duration: 3s;
+        box-shadow: 8px 4px 32px #000a;
+        transition-duration: 1s;
     }
+    .visualSound.listenContext .visualSound__wrapper {
+        background: #111;
+    }
+    .dropdownContent__container, .headerMenu.m-light {
+        border: none!important;
+        border-radius: 4px;
+    }
+    .sc-button-follow:hover:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected) {
+        border-color: #fff;
+        border: 0;
+        border-radius: 120px;
+        background: #f30 !important;
+        color: #fff !important;
+        transition-duration: 0.25s
+    }
+    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected) {
+        border-color: #1a1a1a;
+        border: 0;
+        border-radius: 120px;
+        background: #f50 !important;
+        color: #fff !important;
+        transition-duration: 1s
+    }
+    .audibleAttributeDesc, .listenInfo__releaseTitle, .listenInfo__releaseData {
+        color: #b3b3b3;
+    }
+    .playButton.m-stretch {
+        transition-duration: 1s
+    }
+    .playButton.m-stretch:hover {
+        filter: drop-shadow(2px 2px 6px #000);
+        transition-duration: 0.25s
+    }
+    
 }
 
 @-moz-document regexp("https?://(?:www.)?soundcloud.com.*") {
