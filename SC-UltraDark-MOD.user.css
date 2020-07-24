@@ -1179,13 +1179,13 @@
         border: 1px solid #1a1a1a;
         transition: border-color .1s
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.sc-button-group > .sc-button-medium) {
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton) {
         border-color: #1a1a1a;
         background: #111;
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.sc-button-group > .sc-button-medium):hover {
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):hover {
         border-color: #fff6;
         background: #222;
         color: #eee;
@@ -2094,19 +2094,15 @@
     .modal__content {
         border-radius: 16px;
     }
-    .sc-button-group > .sc-button-medium:hover {
-        outline: none;
-        transition-duration: 0.25s
-    }
-    .sc-button-group > .sc-button-medium {
-        transition-duration: 0.25s
-    }
     .tabs__tabs {
         border-radius: 16px 16px 0px 0px;
     }
     /*.visuals__container {
         filter: brightness(0.3) blur(6px);
     }*/
+    .sc-button-group > .sc-button-medium:not(.sc-button-follow) {
+        filter: brightness(1)!important;
+    }
 }
 
 @-moz-document regexp("https?://(?:www.)?soundcloud.com.*") {
