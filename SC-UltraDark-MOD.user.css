@@ -1179,7 +1179,7 @@
         border: 1px solid #1a1a1a;
         transition: border-color .1s
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton) {
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.sc-button-medium) {
         border-color: #1a1a1a;
         background: #111;
         color: #ccc;
@@ -1195,7 +1195,7 @@
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue),
     .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost) {
         border-color: #1a1a1a;
-        /*background: #111; */
+        /*background: #111;*/
         border: 0;
         border-radius: 120px;
         background: #f50 !important;
@@ -2061,11 +2061,11 @@
     }
     .featuredProfiles {
         z-index: 10;
-        backdrop-filter: blur(18px);
+        backdrop-filter: blur(8px);
         border-radius: 8px;
     }
     .modal.modalWhiteout {
-        backdrop-filter: blur(18px);
+        backdrop-filter: blur(8px);
     }
     .g-tabs-link, .g-tabs-link:visited {
         color: #ccca;
@@ -2089,6 +2089,9 @@
     }
     .modal__content {
         border-radius: 16px;
+    }
+    .sc-button-medium:hover {
+        outline: none
     }
 }
 
