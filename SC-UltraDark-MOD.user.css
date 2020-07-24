@@ -2104,6 +2104,9 @@
     .tabs__tabs {
         border-radius: 16px 16px 0px 0px;
     }
+    .visuals__container {
+        filter: brightness(0.3) blur(6px);
+    }
 }
 
 @-moz-document regexp("https?://(?:www.)?soundcloud.com.*") {
