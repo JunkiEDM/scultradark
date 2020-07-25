@@ -535,8 +535,9 @@
     #app .l-container #content .l-vertical-bar {
         z-index: 9;
         position: absolute;
-        top: 325px;
-        width: 100%
+        top: 290px;
+        width: 100%;
+        padding-bottom: 40px;
     }
     #app .l-container #content .l-vertical-bar .userInfoBar {
         position: unset
@@ -1348,7 +1349,8 @@
     .sc-button-medium.sc-button-share:before,
     .sc-button-queue:before,
     .sc-button-small.sc-button-cta.sc-button-follow:before,
-    .sc-ministats-small.sc-ministats-sounds:before {
+    .sc-ministats-small.sc-ministats-sounds:before,
+    .sc-button-medium.sc-button-mastering:before {
         filter: brightness(10)
     }
     .gritter-close,
@@ -2009,11 +2011,11 @@
         background: linear-gradient(220deg, rgb(255 0 35 / 15%) 0%, rgb(255 0 141 / 0.05) 30%, #1110 75%)!important;
     }
     .notificationBadge__link:hover {
-        box-shadow: 24px -4px 16px #0004 inset;
+        box-shadow: 12px 8px 18px #000c;
         transition-duration: 0.25s;
     }
     .notificationBadge__link {
-        transition-duration: 3s;
+        transition-duration: 1s;
     }
     .latestActivities__container:hover, .unreadConversations__container:hover, .profileMenu:hover, .moreMenu:hover, .dialog:hover {
         box-shadow: 2px 1px 16px #000;
@@ -2029,7 +2031,7 @@
     .dropdownContent__container, .headerMenu.m-light, .dialog {
         border: none!important;
         border-radius: 12px;
-        background-color: rgba(0,0,0,.6);
+        background-color: #1118;
         backdrop-filter: blur(18px);
     }
     .sc-button-follow:hover:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected) {
@@ -2114,7 +2116,7 @@
     .profileHeaderInfo__additional {
         border-radius: 6px;
     }
-    .sc-artwork:not(.image__rounded), .visuals__container, .directSupport__box  {
+    .sc-artwork:not(.image__rounded), .visuals__container, .directSupport__box, .fullHero {
         border-radius: 8px;
     }
     .directSupport__copy {
@@ -2123,8 +2125,19 @@
     .directSupport__box {
         filter: hue-rotate(15deg);
     }
-    .sc-label.sc-label-clearance, .sc-label.sc-label-geoblocked, .sc-label.sc-label-mastered, .sc-label.sc-label-monetizable, .sc-label.sc-label-restricted, .sc-label.sc-label-scheduled {
+    .sc-label.sc-label-clearance, .sc-label.sc-label-geoblocked, .sc-label.sc-label-mastered, .sc-label.sc-label-monetizable, .sc-label.sc-label-restricted, .sc-label.sc-label-scheduled, .sc-label-blue {
         filter: hue-rotate(15deg);
+    }
+    .sc-label.sc-label-private {
+        filter: hue-rotate(340deg);
+    }
+    .sc-label.sc-label-private:not(.sc-label-icon-only) {
+        border-radius: 20px
+    }
+    .sc-label.sc-label-monetizable-possible, .sc-label.sc-label-monetization-restriction {
+        background: #f5f5f5;
+        border: 1px solid #d6d6d6;
+        filter: invert(1) brightness(1.75);
     }
     .imageChooser__chooseButton, .imageChooser__chooseButton:hover {
         border-color: none;
@@ -2146,6 +2159,15 @@
     .dialog__arrow {
         border: none;
         background: #222;
+    }
+    .soundEditForm, .audibleEditForm__audio, .audibleEditForm__progress {
+        background: #0d0d0d;
+    }
+    .listenEngagement {
+        box-shadow: none;
+    }
+    .dropdownContent__listItem {
+        border-bottom: none;
     }
 }
 
