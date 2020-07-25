@@ -480,7 +480,8 @@
         position: absolute;
         left: 25px;
         top: 120px;
-        filter: drop-shadow(5px 5px 3px #090909)
+        filter: drop-shadow(5px 5px 3px #090909);
+        z-index: 9;
     }
     .imageContent h2 {
         color: #ccc
@@ -490,7 +491,9 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        align-items: center
+        align-items: center;
+        z-index: 2;
+        position: relative;
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h3 {
         margin-top: -100px;
@@ -533,7 +536,7 @@
         border: 0
     }
     #app .l-container #content .l-vertical-bar {
-        z-index: 9;
+        /*z-index: 9;*/
         position: absolute;
         top: 290px;
         width: 100%;
@@ -549,7 +552,8 @@
         height: 40px;
         bottom: 95px;
         display: flex;
-        justify-content: center
+        justify-content: center;
+        z-index: 9;
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-more:before {
         background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iNCIgdmlld0JveD0iMCAwIDE0IDQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPm1vcmU8L3RpdGxlPjxnIGZpbGw9IiMyMjIiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiLz48Y2lyY2xlIGN4PSI3IiBjeT0iMiIgcj0iMiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMiIgcj0iMiIvPjwvZz48L3N2Zz4=)
@@ -2168,6 +2172,12 @@
     }
     .dropdownContent__listItem {
         border-bottom: none;
+    }
+    .profileHeader__info {
+        z-index: auto;
+    }
+    .g-tabs-item {
+        z-index: 9;
     }
 }
 
