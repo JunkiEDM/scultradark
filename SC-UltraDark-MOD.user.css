@@ -2015,20 +2015,22 @@
     .notificationBadge__link {
         transition-duration: 3s;
     }
-    .latestActivities__container:hover, .unreadConversations__container:hover, .profileMenu:hover, .moreMenu:hover {
+    .latestActivities__container:hover, .unreadConversations__container:hover, .profileMenu:hover, .moreMenu:hover, .dialog:hover {
         box-shadow: 2px 1px 16px #000;
         transition-duration: 0.25s;
     }
-    .latestActivities__container, .unreadConversations__container, .profileMenu, .moreMenu {
+    .latestActivities__container, .unreadConversations__container, .profileMenu, .moreMenu, .dialog {
         box-shadow: 8px 4px 32px #000a;
         transition-duration: 1s;
     }
     .visualSound.listenContext .visualSound__wrapper {
         background: #111;
     }
-    .dropdownContent__container, .headerMenu.m-light {
+    .dropdownContent__container, .headerMenu.m-light, .dialog {
         border: none!important;
-        border-radius: 4px;
+        border-radius: 8px;
+        background-color: rgba(0,0,0,.75);
+        backdrop-filter: blur(12px);
     }
     .sc-button-follow:hover:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected) {
         border-color: #fff;
@@ -2062,6 +2064,7 @@
     .featuredProfiles {
         z-index: 10;
         border-radius: 8px;
+        backdrop-filter: blur(12px);
         transition-duration: 0.4s
     }
     .featuredProfiles:hover {
@@ -2138,6 +2141,13 @@
         background: #1118;
         transform: scale(1.1);
         opacity: 1;
+    }
+    .dialog.rounded {
+        border-radius: 8px;
+    }
+    .dialog__arrow {
+        border: none;
+        background: #222;
     }
 }
 
