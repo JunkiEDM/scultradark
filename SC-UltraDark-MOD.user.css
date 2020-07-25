@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD
 @namespace    100photos
-@version      0.9.3
+@version      0.9.3b
 @homepageURL  https://github.com/100photos/scultradark
 @updateURL    https://raw.githubusercontent.com/100photos/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -2017,13 +2017,11 @@
     }
     .latestActivities__container:hover, .unreadConversations__container:hover, .profileMenu:hover, .moreMenu:hover, .dialog:hover {
         box-shadow: 2px 1px 16px #000;
-        transition-duration: 0.25s;
-        transition: top 0s, left 0s;
+        transition: top 0s, left 0s, box-shadow 0.25s;
     }
     .latestActivities__container, .unreadConversations__container, .profileMenu, .moreMenu, .dialog {
         box-shadow: 8px 4px 32px #000a;
-        transition-duration: 1s;
-        transition: top 0s, left 0s;
+        transition: top 0s, left 0s, box-shadow 1s;
     }
     .visualSound.listenContext .visualSound__wrapper {
         background: #111;
@@ -2031,8 +2029,8 @@
     .dropdownContent__container, .headerMenu.m-light, .dialog {
         border: none!important;
         border-radius: 12px;
-        background-color: rgba(0,0,0,.5);
-        backdrop-filter: blur(12px);
+        background-color: rgba(0,0,0,.6);
+        backdrop-filter: blur(18px);
     }
     .sc-button-follow:hover:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected) {
         border-color: #fff;
