@@ -2018,18 +2018,20 @@
     .latestActivities__container:hover, .unreadConversations__container:hover, .profileMenu:hover, .moreMenu:hover, .dialog:hover {
         box-shadow: 2px 1px 16px #000;
         transition-duration: 0.25s;
+        transition: top 0s, left 0s;
     }
     .latestActivities__container, .unreadConversations__container, .profileMenu, .moreMenu, .dialog {
         box-shadow: 8px 4px 32px #000a;
         transition-duration: 1s;
+        transition: top 0s, left 0s;
     }
     .visualSound.listenContext .visualSound__wrapper {
         background: #111;
     }
     .dropdownContent__container, .headerMenu.m-light, .dialog {
         border: none!important;
-        border-radius: 8px;
-        background-color: rgba(0,0,0,.75);
+        border-radius: 12px;
+        background-color: rgba(0,0,0,.5);
         backdrop-filter: blur(12px);
     }
     .sc-button-follow:hover:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected) {
@@ -2038,7 +2040,7 @@
         border-radius: 120px;
         background: #f30 !important;
         color: #fff !important;
-        transition-duration: 0.25s
+        transition-duration: 0.25s;
     }
     .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected) {
         border-color: #1a1a1a;
@@ -2046,7 +2048,7 @@
         border-radius: 120px;
         background: #f50 !important;
         color: #fff !important;
-        transition-duration: 1s
+        transition-duration: 1s;
     }
     .audibleAttributeDesc, .listenInfo__releaseTitle, .listenInfo__releaseData {
         color: #b3b3b3;
@@ -2063,7 +2065,7 @@
     }
     .featuredProfiles {
         z-index: 10;
-        border-radius: 8px;
+        border-radius: 12px;
         backdrop-filter: blur(12px);
         transition-duration: 0.4s
     }
@@ -2141,7 +2143,7 @@
         opacity: 1;
     }
     .dialog.rounded {
-        border-radius: 8px;
+        border-radius: 12px;
     }
     .dialog__arrow {
         border: none;
