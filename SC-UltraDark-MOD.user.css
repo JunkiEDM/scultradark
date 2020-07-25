@@ -2134,12 +2134,10 @@
     }
     .imageChooser__chooseButton {
         background: #0006;
-        transform: scale(0.95);
         opacity: 0.75;
     }
     .imageChooser__chooseButton:hover {
         background: #1118;
-        transform: scale(1.1);
         opacity: 1;
     }
     .dialog.rounded {
