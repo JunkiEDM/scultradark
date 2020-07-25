@@ -2062,7 +2062,8 @@
     .featuredProfiles {
         z-index: 10;
         border-radius: 8px;
-        transition-duration: 0.25s
+        backdrop-filter: blur(4px);
+        transition-duration: 3s
     }
     .featuredProfiles:hover {
         backdrop-filter: blur(12px);
@@ -2079,7 +2080,8 @@
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton) {
+    .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), 
+    .sc-button-selected.sc-button-like:hover, .sc-button-selected.sc-button-repost:hover {
         border-color: #f506;
         background: #310;
         filter: drop-shadow(2px 2px 6px #000);
@@ -2102,6 +2104,36 @@
     }*/
     .sc-button-group > .sc-button-medium:not(.sc-button-follow) {
         filter: brightness(1)!important;
+    }
+    .g-type-shrinkwrap-block, .g-type-shrinkwrap-inline {
+        background-color: rgba(0,0,0,.5);
+        backdrop-filter: blur(6px);
+        border-radius: 3px;
+    }
+    .sc-artwork, .visuals__container, .directSupport__box  {
+        border-radius: 8px;
+    }
+    .directSupport__copy {
+        color: #eee;
+    }
+    .directSupport__box {
+        filter: hue-rotate(15deg);
+    }
+    .sc-label.sc-label-clearance, .sc-label.sc-label-geoblocked, .sc-label.sc-label-mastered, .sc-label.sc-label-monetizable, .sc-label.sc-label-restricted, .sc-label.sc-label-scheduled {
+        filter: hue-rotate(15deg);
+    }
+    .imageChooser__chooseButton, .imageChooser__chooseButton:hover {
+        border-color: none;
+        border-radius: 12px;
+        backdrop-filter: blur(6px);
+    }
+    .imageChooser__chooseButton {
+        background: #0006;
+        transform: scale(0.9);
+    }
+    .imageChooser__chooseButton:hover {
+        background: #1118;
+        transform: scale(1.0);
     }
 }
 
