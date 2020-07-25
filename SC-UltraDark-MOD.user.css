@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD
 @namespace    100photos
-@version      0.9.2
+@version      0.9.3
 @homepageURL  https://github.com/100photos/scultradark
 @updateURL    https://raw.githubusercontent.com/100photos/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -659,7 +659,7 @@
         background: 0 0;
         border: 0
     }
-    #app .l-container #content a,
+    #app .l-container #content a:not(.sc-button-startstation),
     #app .l-container #content h1,
     #app .l-container #content h2,
     #app .l-container #content h3 {
@@ -2062,12 +2062,11 @@
     .featuredProfiles {
         z-index: 10;
         border-radius: 8px;
-        backdrop-filter: blur(4px);
-        transition-duration: 3s
+        transition-duration: 0.4s
     }
     .featuredProfiles:hover {
         backdrop-filter: blur(12px);
-        transition-duration: 0.25s
+        transition-duration: 0.2s
     }
     .modal.modalWhiteout {
         backdrop-filter: blur(12px);
@@ -2105,10 +2104,12 @@
     .sc-button-group > .sc-button-medium:not(.sc-button-follow) {
         filter: brightness(1)!important;
     }
-    .g-type-shrinkwrap-block, .g-type-shrinkwrap-inline {
+    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):not(.soundTitle__info), .g-type-shrinkwrap-inline {
         background-color: rgba(0,0,0,.5);
         backdrop-filter: blur(6px);
-        border-radius: 3px;
+    }
+    .profileHeaderInfo__additional {
+        border-radius: 6px;
     }
     .sc-artwork:not(.image__rounded), .visuals__container, .directSupport__box  {
         border-radius: 8px;
@@ -2126,14 +2127,17 @@
         border-color: none;
         border-radius: 12px;
         backdrop-filter: blur(6px);
+        transition-duration: 0.25s;
     }
     .imageChooser__chooseButton {
         background: #0006;
-        transform: scale(0.9);
+        transform: scale(0.95);
+        opacity: 0.75;
     }
     .imageChooser__chooseButton:hover {
         background: #1118;
-        transform: scale(1.0);
+        transform: scale(1.1);
+        opacity: 1;
     }
 }
 
