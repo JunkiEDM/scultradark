@@ -2197,6 +2197,15 @@
     .progressBar.blue .progressBar__inner {
         filter: hue-rotate(25deg) saturate(1.1);
     }
+    .spotlight.editing .spotlight__item {
+        background: transparent;
+        transition-duration: 1s
+    }
+    .spotlight.editing .spotlight__item:hover {
+        background: #0006;
+        border: #3336;
+        transition-duration: 0.25s
+    }
 }
 
 @-moz-document regexp("https?://(?:www.)?soundcloud.com.*") {
