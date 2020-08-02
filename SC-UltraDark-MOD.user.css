@@ -1348,6 +1348,7 @@
     .commentItem.m-creatorComment {
         background: #151515
     }
+    /* brighten buttons */
     .sc-button-medium.sc-button-more:before,
     .sc-button-medium.sc-button-repost:before,
     .sc-button-medium.sc-button-share:before,
@@ -1356,7 +1357,9 @@
     .sc-ministats-small.sc-ministats-sounds:before,
     .sc-button-medium.sc-button-mastering:before,
     .sc-button-small.sc-button-download:before,
-    .sc-button-small.sc-button-upload:before {
+    .sc-button-small.sc-button-upload:before,
+    .sc-button-medium.sc-button-delete:before,
+    .sc-button-medium.sc-button-download:before {
         filter: brightness(7.5)
     }
     .gritter-close,
@@ -2100,9 +2103,6 @@
     .sc-border-light {
         border: 1px solid #0006;
     }
-    .createPlaylistSuggestion__addContainer {
-        background: none;
-    }
     .modal__content {
         border-radius: 16px;
     }
@@ -2122,9 +2122,17 @@
     .profileHeaderInfo__additional {
         border-radius: 6px;
     }
-    .sc-artwork:not(.image__rounded), .visuals__container, .directSupport__box, .fullHero {
+    /* rounded album art */
+    .sc-artwork:not(.image__rounded), .visuals__container, .directSupport__box, .fullHero { 
         border-radius: 8px;
     }
+    .soundBadge__artwork>div>.sc-artwork:not(.image__rounded) {
+        border-radius: 6px
+    }
+    .trackItem__image>div>.sc-artwork:not(.image__rounded) {
+        border-radius: 4px;
+    }
+    /* slight blue shift */
     .directSupport__copy {
         color: #eee;
     }
@@ -2145,6 +2153,7 @@
         border: 1px solid #d6d6d6;
         filter: invert(1) brightness(1.75);
     }
+    /* fix choose image culling */
     .imageChooser__chooseButton, .imageChooser__chooseButton:hover {
         border-color: none;
         border-radius: 12px;
@@ -2205,6 +2214,36 @@
         background: #0006;
         border: #3336;
         transition-duration: 0.25s
+    }
+    .keyboardShortcuts__shortcutsGroup>dl>dt>kbd>kbd {
+        background: #fff1;
+        color: #fff;
+        font-weight: 400;
+        border-radius: 5px;
+        box-shadow: 2px 4px 6px #000a;
+    }
+    #app .l-container #content {
+        overflow: visible;
+    }
+    .createPlaylistSuggestion__addContainer, .editTrackItem__additional { /*Remove linear-gradient background on some selection areas*/
+        background: none;
+    }
+    .commentFormDisabled {
+        background: #0003;
+        border-radius: 8px;
+    }
+    /*fix infobar wrapping mess*/
+    .listenEngagement__footer {
+        flex-wrap: wrap-reverse;
+    }
+    .listenEngagement__stats {
+        flex-wrap: nowrap;
+    }
+    .soundActions {
+        flex-wrap: wrap;
+    }
+    .sc-ministats-item {
+        white-space: nowrap;
     }
 }
 
