@@ -1198,7 +1198,7 @@
         transition-duration: 0.25s;
     }
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost) {
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton) {
         border-color: #1a1a1a;
         /*background: #111;*/
         border: 0;
@@ -1209,7 +1209,7 @@
         transition-duration: 1s
     }
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost) {
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton) {
         border-color: #fff;
         /*background: #111*/
         border: 0;
