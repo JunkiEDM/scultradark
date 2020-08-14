@@ -739,7 +739,7 @@
     }
     #app .l-container #content .soundTitle__usernameTitleContainer .soundTitle__title {
         font-size: 14px;
-        line-height: 20px;
+        line-height: 16px;
         letter-spacing: .015em;
         color: #eee;
         transition-duration: 0.2s
@@ -787,11 +787,12 @@
     #app .l-container #content .soundTitle__usernameTitleContainer .soundTitle__title:hover {
         text-decoration: none;
         color: #fff!important;
+        filter: drop-shadow(0px 0px 6px #fff8);
         transition-duration: 0.1s;
     }
     #app .l-container #content .soundTitle__usernameTitleContainer .soundTitle__username {
         font-size: 12px;
-        line-height: 16px;
+        line-height: 20px;
         letter-spacing: .015em;
         color: #b3b3b3;
         width: auto;
@@ -2306,7 +2307,7 @@
     .webProfileControl__icon {
         border-radius: 8px;
     }
-    .sc-social-logo, .sc-social-logo-interactive.sc-social-logo:after, .sc-social-logo-interactive .sc-social-logo:after, .sc-social-logo-interactive.sc-social-logo:before, .sc-social-logo-interactive .sc-social-logo:before { /*make website profile link blue on hover instead of dark grey*/
+    .sc-social-logo-interactive>.sc-social-logo-personal:after {
         background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+c2gtd2Vic2l0ZS0xNi1jb2xvcjwvdGl0bGU+PHBhdGggZD0iTTggMkM0LjY4OCAyIDIgNC42ODggMiA4czIuNjg4IDYgNiA2IDYtMi42ODggNi02LTIuNjg4LTYtNi02em0tLjYgMTAuNzU4QTQuNzkzIDQuNzkzIDAgMCAxIDMuMiA4YzAtLjM3Mi4wNDgtLjcyNi4xMjYtMS4wNzRMNi4yIDkuOHYuNmMwIC42Ni41NCAxLjIgMS4yIDEuMnYxLjE1OHptNC4xNC0xLjUyNGExLjE5IDEuMTkgMCAwIDAtMS4xNC0uODM0aC0uNlY4LjZjMC0uMzMtLjI3LS42LS42LS42SDUuNlY2LjhoMS4yYy4zMyAwIC42LS4yNy42LS42VjVoMS4yYy42NiAwIDEuMi0uNTQgMS4yLTEuMnYtLjI0NmMxLjc1OC43MTQgMyAyLjQzNiAzIDQuNDQ2IDAgMS4yNDgtLjQ4IDIuMzgyLTEuMjYgMy4yMzR6IiBmaWxsPSIjNThmIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=) no-repeat 50% 50%;
     }
     .moreActions__group:not(:first-child) {
