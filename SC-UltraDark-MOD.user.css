@@ -2110,7 +2110,10 @@
     }
     .modal__content {
         border-radius: 16px;
-        margin-bottom: 60px;
+    }
+    .modal__modal {
+        border-radius: 16px;
+        margin-bottom: 120px;
     }
     .tabs__tabs {
         border-radius: 16px 16px 0px 0px;
@@ -2266,10 +2269,13 @@
         color: #999;
     }
     .g-modal-section {
-        margin-bottom: 80px;
+        margin-bottom: 2px;
     }
-    ::-webkit-scrollbar-thumb, div::-webkit-scrollbar-thumb {
-        background: #222;
+    .g-modal-section:last-child {
+        border-radius: 0px 0px 16px 16px;
+    }
+    ::-webkit-resizer, div::-webkit-resizer {
+        background: #181818;
     }
     input[type=date]:focus, input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=text]:focus, input[type=url]:focus, select:focus, textarea:focus {
         border-color: #333;
@@ -2279,7 +2285,7 @@
     input[type=date], input[type=email], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], select, textarea {
         transition-duration: 0.25s;
     }    
-    .comboBoxList {
+    .comboBoxList { /* dark autocomplete */
         background-color: #333;
         border: 1px solid #222;
         border-top: 0 solid #222;
@@ -2300,7 +2306,7 @@
     .webProfileControl__icon {
         border-radius: 8px;
     }
-    .sc-social-logo, .sc-social-logo-interactive.sc-social-logo:after, .sc-social-logo-interactive .sc-social-logo:after, .sc-social-logo-interactive.sc-social-logo:before, .sc-social-logo-interactive .sc-social-logo:before {
+    .sc-social-logo, .sc-social-logo-interactive.sc-social-logo:after, .sc-social-logo-interactive .sc-social-logo:after, .sc-social-logo-interactive.sc-social-logo:before, .sc-social-logo-interactive .sc-social-logo:before { /*make website profile link blue on hover instead of dark grey*/
         background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+c2gtd2Vic2l0ZS0xNi1jb2xvcjwvdGl0bGU+PHBhdGggZD0iTTggMkM0LjY4OCAyIDIgNC42ODggMiA4czIuNjg4IDYgNiA2IDYtMi42ODggNi02LTIuNjg4LTYtNi02em0tLjYgMTAuNzU4QTQuNzkzIDQuNzkzIDAgMCAxIDMuMiA4YzAtLjM3Mi4wNDgtLjcyNi4xMjYtMS4wNzRMNi4yIDkuOHYuNmMwIC42Ni41NCAxLjIgMS4yIDEuMnYxLjE1OHptNC4xNC0xLjUyNGExLjE5IDEuMTkgMCAwIDAtMS4xNC0uODM0aC0uNlY4LjZjMC0uMzMtLjI3LS42LS42LS42SDUuNlY2LjhoMS4yYy4zMyAwIC42LS4yNy42LS42VjVoMS4yYy42NiAwIDEuMi0uNTQgMS4yLTEuMnYtLjI0NmMxLjc1OC43MTQgMyAyLjQzNiAzIDQuNDQ2IDAgMS4yNDgtLjQ4IDIuMzgyLTEuMjYgMy4yMzR6IiBmaWxsPSIjNThmIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=) no-repeat 50% 50%;
     }
     .moreActions__group:not(:first-child) {
@@ -2326,6 +2332,9 @@
         text-decoration: none;
         color: #fff!important;
         transition-duration: 0.25s;
+    }
+    .ext-emoji { /*compatibility with third-party emoji scripts*/
+        display: inline-block!important;
     }
 }
 
