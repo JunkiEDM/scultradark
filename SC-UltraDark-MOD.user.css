@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD
 @namespace    100photos
-@version      0.9.4
+@version      0.9.5
 @homepageURL  https://github.com/100photos/scultradark
 @updateURL    https://raw.githubusercontent.com/100photos/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -741,7 +741,8 @@
         font-size: 14px;
         line-height: 20px;
         letter-spacing: .015em;
-        color: #fff
+        color: #eee;
+        transition-duration: 0.2s
     }
     .l-search .l-fixed-left {
         z-index: 1000;
@@ -784,8 +785,9 @@
         transition-duration: 1s!important
     }
     #app .l-container #content .soundTitle__usernameTitleContainer .soundTitle__title:hover {
-        text-decoration: underline;
-        color: #fff!important
+        text-decoration: none;
+        color: #fff!important;
+        transition-duration: 0.1s;
     }
     #app .l-container #content .soundTitle__usernameTitleContainer .soundTitle__username {
         font-size: 12px;
@@ -793,11 +795,13 @@
         letter-spacing: .015em;
         color: #b3b3b3;
         width: auto;
-        flex: 0
+        flex: 0;
+        transition-duration: 0.2s;
     }
     #app .l-container #content .soundTitle__usernameTitleContainer .soundTitle__username:hover {
-        text-decoration: underline;
-        color: #fff!important
+        text-decoration: none;
+        color: #fff!important;
+        transition-duration: 0.1s;
     }
     #app .l-container #content .playableTile__playButton {
         top: 0;
@@ -2089,13 +2093,13 @@
         filter: drop-shadow(2px 2px 6px #000);
         transition-duration: 0.25s;
     }
-    .sc-button-selected.sc-button-like, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton {
+    .sc-button-selected.sc-button-like, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
         border-color: #1a1a1a;
         background: #111;
         transition-duration: 0.25s;
     }
     .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), 
-    .sc-button-selected.sc-button-like:hover, .sc-button-selected.sc-button-repost:hover, .sc-button-selected.addToPlaylistButton:hover {
+    .sc-button-selected.sc-button-like:hover, .sc-button-selected.sc-button-repost:hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover {
         border-color: #f506;
         background: #310;
         filter: drop-shadow(2px 2px 6px #000);
@@ -2106,6 +2110,7 @@
     }
     .modal__content {
         border-radius: 16px;
+        margin-bottom: 60px;
     }
     .tabs__tabs {
         border-radius: 16px 16px 0px 0px;
@@ -2130,7 +2135,7 @@
     .soundBadge__artwork>div>.sc-artwork:not(.image__rounded) {
         border-radius: 6px
     }
-    .trackItem__image>div>.sc-artwork:not(.image__rounded) {
+    .trackItem__image>div>.sc-artwork:not(.image__rounded), div.compactTrackListItem__image>.sc-artwork:not(.image__rounded) {
         border-radius: 4px;
     }
     /* slight blue shift */
@@ -2246,6 +2251,82 @@
     .sc-ministats-item {
         white-space: nowrap;
     }
+    .sc-radio-radio {
+        background-color: #333;
+        border: 1px solid #222;
+    }
+    .sc-radio-input:checked+.sc-radio-radio {
+        background-color: #ff4637;
+        box-shadow: inset 0 0 0 2px #333;
+    }
+    .compactTrackListItem__user {
+        color: #ccc;
+    }
+    .compactTrackListItem__trackTitle {
+        color: #999;
+    }
+    .g-modal-section {
+        margin-bottom: 80px;
+    }
+    ::-webkit-scrollbar-thumb, div::-webkit-scrollbar-thumb {
+        background: #222;
+    }
+    input[type=date]:focus, input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=text]:focus, input[type=url]:focus, select:focus, textarea:focus {
+        border-color: #333;
+        box-shadow: 0px 0px 12px #0008;
+        transition-duration: 0.25s;
+    }
+    input[type=date], input[type=email], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], select, textarea {
+        transition-duration: 0.25s;
+    }    
+    .comboBoxList {
+        background-color: #333;
+        border: 1px solid #222;
+        border-top: 0 solid #222;
+        transition-duration: 0.25s;
+    }
+    .comboBoxList__item.selected {
+        background-color: #222;
+        transition-duration: 0.25s;
+    }
+    .textfield.invalid .textfield__input {
+        border-color: #c02;
+        box-shadow: 0px 0px 12px #8004;
+        transition-duration: 0.25s;
+    }
+    .g-input-validation {
+        color: #c34;
+    }
+    .webProfileControl__icon {
+        border-radius: 8px;
+    }
+    .sc-social-logo, .sc-social-logo-interactive.sc-social-logo:after, .sc-social-logo-interactive .sc-social-logo:after, .sc-social-logo-interactive.sc-social-logo:before, .sc-social-logo-interactive .sc-social-logo:before {
+        background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+c2gtd2Vic2l0ZS0xNi1jb2xvcjwvdGl0bGU+PHBhdGggZD0iTTggMkM0LjY4OCAyIDIgNC42ODggMiA4czIuNjg4IDYgNiA2IDYtMi42ODggNi02LTIuNjg4LTYtNi02em0tLjYgMTAuNzU4QTQuNzkzIDQuNzkzIDAgMCAxIDMuMiA4YzAtLjM3Mi4wNDgtLjcyNi4xMjYtMS4wNzRMNi4yIDkuOHYuNmMwIC42Ni41NCAxLjIgMS4yIDEuMnYxLjE1OHptNC4xNC0xLjUyNGExLjE5IDEuMTkgMCAwIDAtMS4xNC0uODM0aC0uNlY4LjZjMC0uMzMtLjI3LS42LS42LS42SDUuNlY2LjhoMS4yYy4zMyAwIC42LS4yNy42LS42VjVoMS4yYy42NiAwIDEuMi0uNTQgMS4yLTEuMnYtLjI0NmMxLjc1OC43MTQgMyAyLjQzNiAzIDQuNDQ2IDAgMS4yNDgtLjQ4IDIuMzgyLTEuMjYgMy4yMzR6IiBmaWxsPSIjNThmIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=) no-repeat 50% 50%;
+    }
+    .moreActions__group:not(:first-child) {
+        border-top: 6px solid #6661;
+    }
+    .g-type-shrinkwrap-block, .g-type-shrinkwrap-block:hover, .g-type-shrinkwrap-block:visited, .g-type-shrinkwrap-inline, .g-type-shrinkwrap-inline:hover, .g-type-shrinkwrap-inline:visited {
+        background-color: rgba(0,0,0,.5);
+        backdrop-filter: blur(6px);
+    }    
+    .sound.streamContext .soundTitle.m-visualSound .soundTitle__info {
+        margin-left: -3px;
+        padding-left: 3px;
+        padding-bottom: 3px;
+    }
+    .soundTitle__info {
+        padding-left: 3px;
+    }
+    .sc-ministats-reposts {
+        color: #b3b3b3;
+        transition-duration: 0.25s;
+    }
+    .sc-ministats-reposts:hover {
+        text-decoration: none;
+        color: #fff!important;
+        transition-duration: 0.25s;
+    }
 }
 
 @-moz-document regexp("https?://(?:www.)?soundcloud.com.*") {
@@ -2302,7 +2383,7 @@
     /* ↑----------------------[ pre-chosen section <dark> ]----------------------↑ */
     /* ↓----------------------[ general ]----------------------↓ */
 
-    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon, .g-tabs-link.active, .g-required-label:after /* ---[ colors everything ]--- */ {
+    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon, .g-tabs-link.active, .g-required-label:after, .sc-button-startstation, .sc-orange /* ---[ colors everything ]--- */ {
         -webkit-animation: rainbow 4s steps(36) infinite!IMPORTANT;
            -moz-animation: rainbow 4s steps(36) infinite!IMPORTANT;
             -ms-animation: rainbow 4s steps(36) infinite!IMPORTANT;
