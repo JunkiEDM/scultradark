@@ -742,7 +742,7 @@
         line-height: 16px;
         letter-spacing: .015em;
         color: #eee;
-        transition-duration: 0.2s
+        transition-duration: 0.2s!important
     }
     .l-search .l-fixed-left {
         z-index: 1000;
@@ -788,7 +788,7 @@
         text-decoration: none;
         color: #fff!important;
         filter: drop-shadow(0px 0px 6px #fff8);
-        transition-duration: 0.1s;
+        transition-duration: 0.1s!important;
     }
     #app .l-container #content .soundTitle__usernameTitleContainer .soundTitle__username {
         font-size: 12px;
@@ -2313,7 +2313,7 @@
     .moreActions__group:not(:first-child) {
         border-top: 6px solid #6661;
     }
-    .g-type-shrinkwrap-block, .g-type-shrinkwrap-block:hover, .g-type-shrinkwrap-block:visited, .g-type-shrinkwrap-inline, .g-type-shrinkwrap-inline:hover, .g-type-shrinkwrap-inline:visited {
+    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, .g-type-shrinkwrap-block:visited, .g-type-shrinkwrap-inline, .g-type-shrinkwrap-inline:hover, .g-type-shrinkwrap-inline:visited {
         background-color: rgba(0,0,0,.5);
         backdrop-filter: blur(6px);
     }    
@@ -2336,6 +2336,12 @@
     }
     .ext-emoji { /*compatibility with third-party emoji scripts*/
         display: inline-block!important;
+    }
+    .g-scrollbar {
+        box-shadow: none;
+    }
+    @media (max-width: 1000px) #app .l-container #content .truncatedUserDescription.m-overflow.m-collapsed .truncatedUserDescription__wrapper::after {
+        background: linear-gradient(rgba(255, 255, 255, 0), #181818);
     }
 }
 
