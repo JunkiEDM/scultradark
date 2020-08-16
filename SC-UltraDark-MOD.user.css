@@ -2340,8 +2340,10 @@
     .g-scrollbar {
         box-shadow: none;
     }
-    @media (max-width: 1000px) #app .l-container #content .truncatedUserDescription.m-overflow.m-collapsed .truncatedUserDescription__wrapper::after {
-        background: linear-gradient(rgba(255, 255, 255, 0), #181818);
+    @media (max-width: 1000px) {
+        #app .l-container #content .truncatedUserDescription.m-overflow.m-collapsed .truncatedUserDescription__wrapper::after {
+            background: linear-gradient(rgba(255, 255, 255, 0), #181818);
+        }
     }
 }
 
