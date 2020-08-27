@@ -212,7 +212,7 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, .3)
     }
     .listenArtworkWrapper__artwork .image__lightOutline .image__full {
-        box-shadow: 0 0 15px 0 #000
+        box-shadow: 0 0 20px 0 #0008; /*box-shadow: 0 0 15px 0 #000*/
     }
     .moreActions {
         /*border: 1px solid rgba(0, 0, 0, .15);*/
@@ -607,7 +607,7 @@
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation,
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights {
-        transition-duration: .2s;
+        transition-duration: 0.5s;
         background: #f50;
         border-radius: 500px;
         color: #fff
@@ -615,7 +615,7 @@
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation:hover,
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights:hover {
         background: #ff3d00;
-        transition-duration: .2s        
+        transition-duration: .25s
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation:before,
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights:before {
@@ -1334,9 +1334,10 @@
         background: #222
     }
     .backgroundGradient__buffer[style] {
-        background: #200122!important;
+        /*background: #200122!important;
         background: -webkit-linear-gradient(to right, #1d0101, #200122)!important;
-        background: linear-gradient(to right, #1d0101, #200122)!important
+        background: linear-gradient(to right, #1d0101, #200122)!important*/
+        filter: saturate(2) contrast(0.75) brightness(0.5);
     }
     .commentItem.m-creatorComment {
         background: #151515
@@ -2086,13 +2087,13 @@
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton) {
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), .sc-button-group .sc-button-insights.sc-button-cta{
         border-color: #1a1a1a;
         background: #111;
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):hover {
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):hover, .sc-button-group .sc-button-insights.sc-button-cta:hover {
         border-color: #fff6;
         background: #222;
         color: #eee;
@@ -2352,6 +2353,27 @@
     }
     .l-product-banners {
         display: none;
+    }
+    /* dumbass insights update */
+    .insightsSidebarModule__title {
+        font-size: 14px;
+        color: #999;
+        margin-bottom: -8px;
+        margin-top: -12px;
+    }
+    .insightsSidebarModule__plays {
+        font-size: 36px;
+        margin-bottom: 0px;
+    }
+    .insightsSidebarModule__timeframe {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+    header.g-flex-row-spread {
+        height: revert;
+    }
+    .g-oscp-section {
+        border-bottom: 1px solid #0a0a0a;
     }
 }
 
