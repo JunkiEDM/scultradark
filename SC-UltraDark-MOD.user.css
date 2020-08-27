@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD
 @namespace    100photos
-@version      0.9.5
+@version      0.9.6
 @homepageURL  https://github.com/100photos/scultradark
 @updateURL    https://raw.githubusercontent.com/100photos/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -572,7 +572,8 @@
         cursor: default
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-follow,
-    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation {
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation,
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights {
         border: 0;
         min-width: 130px;
         white-space: normal;
@@ -604,16 +605,20 @@
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-follow.sc-button-selected {
         color: #f50
     }
-    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation {
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation,
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights {
         transition-duration: .2s;
         background: #f50;
         border-radius: 500px;
         color: #fff
     }
-    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation:hover {
-        background: #ff3d00
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation:hover,
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights:hover {
+        background: #ff3d00;
+        transition-duration: .2s        
     }
-    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation:before {
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation:before,
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights:before {
         left: 40px;
         background-position: center 3px;
         background-size: 16px 12px;
@@ -2347,6 +2352,40 @@
     }
     .l-product-banners {
         display: none;
+    }
+}
+
+@-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
+    :root { /* Messy new insights page update */
+        --soundcloudOrange: #ff4637;
+        --text-color-main: var(--white);
+        --text-color-secondary: var(--platinum);
+        --icon-color: var(--white);
+        --background-color: #111;
+        --container-background-color: #222;
+        --divider-color-outer: #111;
+        --divider-color-inner: #111;
+        --graph-legend-background: hsla(0,0%,0%,0.25);
+        --graph-marker: var(--text-color-secondary);
+        
+    }
+    .TotalCounts_TotalCounts__3AozJ {
+        background: none!important;
+    }
+    .Layout_MainSection__3PvQn {
+        background-color: #111!important;
+    }
+    .Graph_InfoMarkerText__1qCMH, .TotalCounts_CountContainer__1Vqqo, .index_CellWithBorder__3iz2K:not(:empty) {
+        border-radius: 16px!important;
+        box-shadow: 0px 4px 18px #0006;
+        transition: box-shadow 1s;
+    }
+    .Graph_InfoMarkerText__1qCMH:hover, .TotalCounts_CountContainer__1Vqqo:hover, .index_CellWithBorder__3iz2K:hover:not(:empty) {
+        box-shadow: 0px 2px 15px #000a;
+        transition: box-shadow 0.5s;
+    }
+    .WorldMap_Container__3K07t {
+        filter: hue-rotate(-20deg) brightness(0.95);
     }
 }
 
