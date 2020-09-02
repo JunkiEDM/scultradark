@@ -2354,6 +2354,11 @@
     .l-product-banners {
         display: none;
     }
+    .spotlightRemove, .g-button-remove {
+        filter: brightness(0.55) contrast(6.4);
+        border-radius: 100%;
+        box-shadow: inset 0 0 1px 3px #d7d7d7;
+    }
     /* dumbass insights update */
     .insightsSidebarModule__title {
         font-size: 14px;
