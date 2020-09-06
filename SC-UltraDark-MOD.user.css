@@ -2377,8 +2377,82 @@
     header.g-flex-row-spread {
         height: revert;
     }
-    .g-oscp-section {
-        border-bottom: 1px solid #0a0a0a;
+    .trackMonetizationResources__item {
+        border-radius: 16px;
+    }
+    .sc-button.sc-button-transparent {
+        border-radius: 8px;
+    }
+    .sc-button-small.sc-button-transparent {
+        border-color: #0000;
+    }
+    .trackMonetizationResources__payment {
+        filter: invert(1) contrast(0.05) brightness(1.5);
+    }
+    .g-oscp-section-header:before {
+        background-color: #222;
+    }
+    .creatorsNavigation__onSoundCloudLinkNewBadge {
+        border: 0px;
+        color: #fff;
+        font-size: 11px;
+        padding-right: 4px;
+        background-color: #f50;
+        border-radius: 12px;
+        filter: hue-rotate(-25deg);
+        text-align: center;
+        display: none; /* just get rid of it, its ugly and only shows on the 'promote' tab, which isnt new */
+    }
+    .profileMenu__newBadge {
+        border-radius: 8px;
+        filter: hue-rotate(-25deg);
+        padding-right: 4px;
+        display: none;
+    }
+    /* make the discover tile carousel less empty */
+    .tileGallery__sliderPanel {
+        margin-right: 7.8vw;
+    }
+    .tileGallery .playableTile {
+        width: 8.5vw;
+        transform: scale(1.25);
+        transform-origin: top left;
+        height: 192px;
+    }
+    .tileGallery {
+        width: 100%;
+    }
+    .tileGallery__slider--large, .tileGallery__slider--normal {
+        transform: scale(0.96);
+    }
+    .tileGallery__sliderPeekForward {
+        background: linear-gradient(to right, #0000 5%, #1119 60%, #111 80%);
+        left: auto!important;
+    }
+    .tileGallery__sliderPeekBackward {
+        right: auto!important;
+        background: linear-gradient(to left, #0000 10%, #1119 60%, #111 80%);
+    }
+    .tileGallery__sliderPeek {
+        width: 96px;
+    }
+    .tileGallery__sliderButton {
+        background-color: #333;
+        border-radius: 50%;
+    }
+    .tileGallery__sliderButton:after {
+        border-right: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+    }
+    .tileGallery__sliderPeek {
+        display: block;
+        opacity: 0;
+        transition: opacity ease-in 0.6s;
+    }
+    .tileGallery.m-hasItemsBackward .tileGallery__sliderPeekBackward, .tileGallery.m-hasItemsForward .tileGallery__sliderPeekForward {
+        display: block;
+        opacity: 1;
+        transition: opacity ease-out 0.3s;
     }
 }
 
@@ -2414,83 +2488,9 @@
     .WorldMap_Container__3K07t {
         filter: hue-rotate(-20deg) brightness(0.95);
     }
-    .trackMonetizationResources__item {
-        border-radius: 16px;
+    .g-oscp-section {
+        border-bottom: 1px solid #0a0a0a;
     }
-    .sc-button.sc-button-transparent {
-        border-radius: 8px;
-    }
-    .sc-button-small.sc-button-transparent {
-        border-color: #0000;
-    }
-    .trackMonetizationResources__payment {
-        filter: invert(1) contrast(0.05) brightness(1.5);
-    }
-    .g-oscp-section-header:before {
-        background-color: #222;
-    }
-    .creatorsNavigation__onSoundCloudLinkNewBadge {
-        border: 0px;
-        color: #fff;
-        font-size: 11px;
-        padding-right: 4px;
-        background-color: #f50;
-        border-radius: 12px;
-        filter: hue-rotate(-25deg);
-        text-align: center;
-        display: none; /* just get rid of it, its ugly and only shows on the 'promote' tab, which isnt new */
-    }
-    .profileMenu__newBadge {
-        border-radius: 8px;
-        filter: hue-rotate(-25deg);
-        padding-right: 4px;
-        display: none;
-    }
-    .tileGallery__sliderPanel {
-        margin-right: 7.8vw;
-    }
-    .tileGallery .playableTile {
-        width: 8.5vw;
-        transform: scale(1.25);
-        transform-origin: top left;
-        height: 192px;
-    }
-    .tileGallery {
-        width: 100%;
-    }
-    .tileGallery__slider--large, .tileGallery__slider--normal {
-        transform: scale(0.96);
-    }
-    .tileGallery__sliderPeekForward {
-        background: linear-gradient(to right, #0000 5%, #1119 60%, #111 80%)
-        left: auto!important;
-    }
-    .tileGallery__sliderPeekBackward {
-        right: auto!important;
-        background: linear-gradient(to left, #0000 10%, #1119 60%, #111 80%);
-    }
-    .tileGallery__sliderPeek {
-        width: 96px;
-    }
-    .tileGallery__sliderButton {
-        background-color: #333;
-        border-radius: 50%;
-    }
-    .tileGallery__sliderButton:after {
-        border-right: 1px solid #ccc;
-        border-top: 1px solid #ccc;
-    }
-    .tileGallery__sliderPeek {
-        display: block;
-        opacity: 0;
-        transition: opacity ease-in 0.6s;
-    }
-    .tileGallery.m-hasItemsBackward .tileGallery__sliderPeekBackward, .tileGallery.m-hasItemsForward .tileGallery__sliderPeekForward {
-        display: block;
-        opacity: 1;
-        transition: opacity ease-out 0.3s;
-    }
-    
 }
 
 @-moz-document regexp("https?://(?:www.)?soundcloud.com.*") {
