@@ -2437,8 +2437,9 @@
         width: 96px;
     }
     .tileGallery__sliderButton, .tileGallery__sliderButton:focus {
-        background-color: #333!important;
+        /* background-color: #333!important; */
         border: none;
+        outline: none;
         border-radius: 50%;
         transition: background-color 0.2s transform 0.2s brightness 0.4s;
         transform: scale(1.5);
