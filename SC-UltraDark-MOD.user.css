@@ -2436,12 +2436,11 @@
     .tileGallery__sliderPeek {
         width: 96px;
     }
-    .tileGallery__sliderButton, .tileGallery__sliderButton:focus {
-        /* background-color: #333!important; */
+    .tileGallery__sliderButton, .tileGallery__sliderButton:focus { /* background-color: #333; */
         border: none;
         outline: none;
         border-radius: 50%;
-        transition: background-color 0.2s transform 0.2s brightness 0.4s;
+        transition: background-color 0.2s, transform 0.2s, brightness 0.4s;
         transform: scale(1.5);
         transform-origin: center;
         top: 48px;
@@ -2449,7 +2448,7 @@
     .tileGallery__sliderPeek:hover .tileGallery__sliderButton, .tileGallery__sliderButton:hover {
         transform: scale(1.6);
         filter: brightness(1.2);
-        transition: transform 0.2s filter 0.3s;
+        transition: transform 0.2s, filter 0.3s;
     }
     .tileGallery__sliderButton:after {
         border-right: 1px solid #ccc;
