@@ -693,14 +693,14 @@
     #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected), .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected) {
         border: 0;
         border-radius: 120px;
-        background: #ff4637 !important;
+        background: #f50 !important;
         color: #fff !important;
         padding: 0 15px;
         transition-duration: 0.25s;
     }
     #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):hover {
-        background: #ff263e !important;
-        filter: drop-shadow(2px 2px 6px #000);
+        background: #f30 !important;
+        filter: drop-shadow(2px 2px 6px #000) hue-rotate(340deg);;
         transition-duration: 0.25s;
     }
 
@@ -1549,16 +1549,19 @@
         background: #131313;
         border: 1px solid #1d1d1d!important
     }
-    .removeFromNextUp {
+    /* .removeFromNextUp {
         filter: invert(1) brightness(2.2)
     }
     .removeFromNextUp:hover {
         filter: none
-    }
+    } */
     .sc-button-medium.sc-button-like:before,
     .sc-toggle,
     .sc-toggle:before {
         filter: invert(1)
+    }
+    .queueFallback__toggle .sc-toggle, .queueFallback__toggle .sc-toggle:before {
+        filter: none;
     }
     .searchOptions__scrollable {
         width: 220px!important;
@@ -2037,6 +2040,34 @@
         background-color: #1118;
         backdrop-filter: blur(18px);
     }
+    .dropdownContent__listItem:hover, .queueItemView:hover {
+        box-shadow: inset 6px -4px 64px #0006;
+    }
+    .dropdownContent__listItem, .dropdownContent__listItem:hover, .queueItemView, .queueItemView:hover {
+        transition: box-shadow ease-out 0.3s;
+    }
+    .playbackSoundBadge__like.sc-button-small.sc-button-icon:before {
+        filter: invert(1) hue-rotate(180deg) contrast(1.5);
+    }
+    .playbackSoundBadge__showQueue {
+        filter: invert(1) hue-rotate(160deg) contrast(1.5);
+    }
+    .queue__panel, .queueItemView, .queue__fallback.queue__itemWrapper {
+        background-color: inherit;
+    }
+    .queueItemView.m-active, .queueItemView:hover {
+        background-color: #1114!important;
+    }
+    .queueItemView.m-active, .queueItemView:hover, .queueItemView {
+        transition: box-shadow ease-out 0.3s, background-color ease-out 0.3s;
+    }
+    .queueItemView:hover.m-active, .uploadMain__chooserContainer, .uploadMain__foot {
+        background-color: #1116!important;
+        border: none!important;
+    }
+    .moreActions .moreActions__button.sc-button-medium.sc-button-like:before {
+        filter: invert(1) brightness(0.5);
+    }
     .sc-button-follow:hover:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected) {
         border-color: #fff;
         border: 0;
@@ -2049,9 +2080,10 @@
         border-color: #1a1a1a;
         border: 0;
         border-radius: 120px;
-        background: #f50 !important;
+        background: #ff4637 !important;
         color: #fff !important;
         transition-duration: 1s;
+        filter: hue-rotate(340deg);
     }
     .audibleAttributeDesc, .listenInfo__releaseTitle, .listenInfo__releaseData {
         color: #b3b3b3;
