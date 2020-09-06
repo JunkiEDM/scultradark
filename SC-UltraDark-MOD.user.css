@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD
 @namespace    100photos
-@version      0.9.6
+@version      0.9.7
 @homepageURL  https://github.com/100photos/scultradark
 @updateURL    https://raw.githubusercontent.com/100photos/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -865,8 +865,11 @@
         color: #b3b3b3;
         width: auto;
         flex: 0;
-        background: #0a0a0a;
-        padding: 5px
+        /* background: #0a0a0a; */
+        padding: 5px;
+        background-color: #0006;
+        /* backdrop-filter: blur(6px); */
+        border-radius: 8px;
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__lightLink:hover {
         text-decoration: underline;
@@ -883,9 +886,12 @@
         line-height: 20px;
         letter-spacing: .015em;
         color: #fff;
-        background: #0a0a0a;
+        /* background: #0a0a0a; */
         padding: 5px;
-        margin-bottom: 3px
+        margin-bottom: 3px;
+        background-color: #0006;
+        /* backdrop-filter: blur(6px); */
+        border-radius: 8px;
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__title a:hover {
         text-decoration: underline
@@ -1161,8 +1167,9 @@
     .playControls__inner {
         width: 100%;
         border: 0;
-        background: #09090990;
-        box-shadow: 0 0 5px #111
+        background: #1114;
+        box-shadow: 0 0 5px #111;
+        backdrop-filter: blur(18px);
     }
     input,
     select,
