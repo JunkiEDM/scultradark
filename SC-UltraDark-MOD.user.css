@@ -2050,6 +2050,7 @@
     .visualSound.listenContext .visualSound__wrapper {
         background: #111;
     }
+    /* queue and dropdowns */
     .dropdownContent__container, .headerMenu.m-light, .dialog, .playControls__queue {
         border: none!important;
         border-radius: 12px;
@@ -2090,6 +2091,12 @@
     .queueItemView:hover.m-active, .uploadMain__chooserContainer, .uploadMain__foot {
         background-color: #1116!important;
         border: none!important;
+    }
+    .queueItemView__username {
+        color: #ccc!important;
+    }
+    .queueItemView__title a {
+        color: #fff!important;
     }
     .moreActions .moreActions__button.sc-button-medium.sc-button-like:before {
         filter: invert(1) brightness(0.5);
