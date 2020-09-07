@@ -1169,7 +1169,6 @@
         border: 0;
         background: #1112;
         box-shadow: 0 0 5px #111;
-        backdrop-filter: brightness(0.4) blur(36px);
     }
     input,
     select,
@@ -2412,6 +2411,9 @@
     }
     .l-product-banners {
         display: none;
+    }
+    .playControls__bg {
+        backdrop-filter: brightness(0.4) blur(36px);
     }
     .spotlightRemove, .g-button-remove {
         filter: brightness(0.55) contrast(6.4);
