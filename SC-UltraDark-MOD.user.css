@@ -898,7 +898,7 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__actions {
         position: relative;
-        background: #0a0a0a;
+        background: #0006;
         border-radius: 5px;
         top: -2px
     }
@@ -1167,9 +1167,9 @@
     .playControls__inner {
         width: 100%;
         border: 0;
-        background: #1114;
+        background: #1112;
         box-shadow: 0 0 5px #111;
-        backdrop-filter: blur(18px);
+        backdrop-filter: brightness(0.4) blur(36px);
     }
     input,
     select,
@@ -1902,6 +1902,16 @@
     .uploadLoggedOut__testimonials {
         background-color: #111!important
     }
+    a.soundActions__purchaseLink {
+        color: #ccc!important;
+        font-size: 1em;
+        top: 1.5px;
+        transition: color 0.25s;
+    }
+    a.soundActions__purchaseLink:hover {
+        color: #fff!important;
+        transition: color 0.25s;
+    }
 }
 
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections).*)") {
@@ -2041,7 +2051,7 @@
     .visualSound.listenContext .visualSound__wrapper {
         background: #111;
     }
-    .dropdownContent__container, .headerMenu.m-light, .dialog {
+    .dropdownContent__container, .headerMenu.m-light, .dialog, .playControls__queue {
         border: none!important;
         border-radius: 12px;
         background-color: #1118;
@@ -2053,11 +2063,21 @@
     .dropdownContent__listItem, .dropdownContent__listItem:hover, .queueItemView, .queueItemView:hover {
         transition: box-shadow ease-out 0.3s;
     }
-    .playbackSoundBadge__like.sc-button-small.sc-button-icon:before {
+    .playbackSoundBadge__like.sc-button-small.sc-button-icon:before, .playbackSoundBadge__like.sc-button-small.sc-button-icon:not(.sc-button-selected):hover:before {
         filter: invert(1) hue-rotate(180deg) contrast(1.5);
+        transition-duration: 0.25s;
     }
-    .playbackSoundBadge__showQueue {
+    .playbackSoundBadge__like.sc-button-small.sc-button-icon:not(.sc-button-selected):before {
+        filter: invert(1) hue-rotate(180deg) contrast(1.5) brightness(0.7);
+        transition-duration: 0.25s;
+    }
+    .playbackSoundBadge__showQueue, .playbackSoundBadge__showQueue:not(.sc-button-selected):hover, .m-queueVisible .playbackSoundBadge__actions .playbackSoundBadge__showQueue:not(.sc-button-selected) {
         filter: invert(1) hue-rotate(160deg) contrast(1.5);
+        transition-duration: 0.25s;
+    }
+    .playbackSoundBadge__showQueue:not(.sc-button-selected) {
+        filter: invert(1) hue-rotate(180deg) contrast(1.5) brightness(0.7);
+        transition-duration: 0.25s;
     }
     .queue__panel, .queueItemView, .queue__fallback.queue__itemWrapper {
         background-color: inherit;
