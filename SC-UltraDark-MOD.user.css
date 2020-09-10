@@ -749,12 +749,6 @@
         color: #eee;
         transition-duration: 0.2s!important
     }
-    .l-search .l-fixed-left {
-        z-index: 1000;
-        position: absolute;
-        left: -225px;
-        top: 390px
-    }
     .searchOptions__container {
         width: 220px
     }
@@ -2420,7 +2414,7 @@
         display: none;
     }
     .playControls__bg {
-        backdrop-filter: brightness(0.4) blur(36px);
+        backdrop-filter: brightness(0.4) blur(18px);
     }
     .spotlightRemove, .g-button-remove {
         filter: brightness(0.55) contrast(6.4);
@@ -2532,6 +2526,12 @@
         opacity: 1;
         transition: opacity ease-out 0.3s;
     }
+    .l-search .l-fixed-left {
+        z-index: 1000;
+        position: fixed;
+        top: 390px;
+        filter: hue-rotate(340deg);
+    }
 }
 
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
@@ -2568,6 +2568,10 @@
     }
     .g-oscp-section {
         border-bottom: 1px solid #0a0a0a;
+    }
+    .soundBadge__additional {
+        right: auto!important;
+        background: none;
     }
 }
 
