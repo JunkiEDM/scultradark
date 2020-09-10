@@ -2532,6 +2532,10 @@
         top: 390px;
         filter: hue-rotate(340deg);
     }
+    .createPlaylist__savedContainer > div > div > div > div > .soundBadge__extraItem.soundBadge__audibleAttributes.sc-label-group {
+        margin-right: -10vw;
+        padding-left: 4vw;
+    }
 }
 
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
