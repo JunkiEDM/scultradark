@@ -2532,15 +2532,16 @@
         top: 390px;
         filter: hue-rotate(340deg);
     }
-    .soundBadge__additional {
+    /*.soundBadge__additional {
         background: none;
-    }
+    }*/
     /*.createPlaylist__savedContainer > div > div > div > div > .soundBadge__extraItem.soundBadge__audibleAttributes.sc-label-group {
         margin-right: -10vw;
         padding-left: 4vw;
     }*/
     .createPlaylist__savedContainer > div > div > .soundBadge__additional {
         right: -200px;
+        background: none;
     }
 }
 
