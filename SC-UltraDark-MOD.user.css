@@ -2532,9 +2532,15 @@
         top: 390px;
         filter: hue-rotate(340deg);
     }
-    .createPlaylist__savedContainer > div > div > div > div > .soundBadge__extraItem.soundBadge__audibleAttributes.sc-label-group {
+    .soundBadge__additional {
+        background: none;
+    }
+    /*.createPlaylist__savedContainer > div > div > div > div > .soundBadge__extraItem.soundBadge__audibleAttributes.sc-label-group {
         margin-right: -10vw;
         padding-left: 4vw;
+    }*/
+    .createPlaylist__savedContainer > div > div > .soundBadge__additional {
+        right: -200px;
     }
 }
 
@@ -2572,10 +2578,6 @@
     }
     .g-oscp-section {
         border-bottom: 1px solid #0a0a0a;
-    }
-    .soundBadge__additional {
-        right: auto!important;
-        background: none;
     }
 }
 
