@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD
 @namespace    100photos
-@version      0.9.7
+@version      0.9.107
 @homepageURL  https://github.com/100photos/scultradark
 @updateURL    https://raw.githubusercontent.com/100photos/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -456,7 +456,7 @@
     }*/
     #app .l-container #content .l-user-hero {
         z-index: 9998;
-        min-height: 405px
+        min-height: 320px
     }
     #app .l-container #content .l-user-hero:after {
         z-index: -1;
@@ -469,7 +469,7 @@
         background: #111
     }
     #app .l-container #content .l-user-hero .profileHeader {
-        min-height: 405px;
+        min-height: 250px;
         margin: 0
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo,
@@ -478,27 +478,32 @@
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__avatar.sc-media-image {
         position: absolute;
-        left: 25px;
-        top: 120px;
-        filter: drop-shadow(5px 5px 3px #090909);
+        left: 40px;
+        top: 40px;
+        /* filter: drop-shadow(5px 5px 3px #090909);*/
         z-index: 9;
+        transform: scale(1.075);
     }
     .imageContent h2 {
         color: #ccc
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content {
         height: 100%;
-        display: flex;
+        display: inline-flex;
         justify-content: center;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
         z-index: 2;
         position: relative;
+        left: 66%;
+        bottom: 16px;
+        /*bottom: 45px;
+        left: 87%;*/
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h3 {
         margin-top: -100px;
         background: 0;
-        font-size: 72px;
+        font-size: 6em;
         line-height: 82px;
         letter-spacing: -.005em;
         font-weight: 900;
@@ -511,12 +516,12 @@
         min-height: 405px;
         background: #111
     }
-    #app .l-container #content .l-user-hero .profileHeader .profileHeaderBackground .profileHeaderBackground__visual {
+    /*#app .l-container #content .l-user-hero .profileHeader .profileHeaderBackground .profileHeaderBackground__visual {
         background-size: cover;
         background-position: center;
         min-height: 405px;
         position: relative
-    }
+    }*/
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderBackground .profileHeaderBackground__visual:before {
         content: "";
         position: absolute;
@@ -524,7 +529,7 @@
         right: 0;
         left: 0;
         bottom: 0;
-        background: linear-gradient(transparent -70%, #111)
+        background: linear-gradient(transparent 80%, #1112 90%, #111 100%);
     }
     #app .l-container #content .commentForm__wrapper {
         border: 0;
@@ -546,11 +551,11 @@
         position: unset
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons {
-        right: 25%;
-        left: 25%;
+        right: 5%;
+        /*ft: 25%;*/
         width: 50%;
         height: 40px;
-        bottom: 95px;
+        bottom: 84px;
         display: flex;
         justify-content: center;
         z-index: 9;
@@ -627,7 +632,9 @@
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium {
         display: flex;
         justify-content: center;
-        border: 0
+        border: 0;
+        padding-right: 50%;
+        margin-top: -80px;
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link {
         font-size: 12px;
@@ -1257,7 +1264,8 @@
         padding: 15px 15px 0 0
     }
     .l-fluid-fixed .l-sidebar-right {
-        top: 15px
+        /*top: 15px*/
+        top: 0;
     }
     .g-tabs-link:focus,
     .g-tabs-link:hover {
@@ -1669,7 +1677,7 @@
         background: #fff0
     }
     .featuredProfiles {
-        background: #00000022
+        background: #0000
     }
     .dropdownMenu.g-z-index-overlay {
         z-index: 9999
@@ -2129,7 +2137,9 @@
         z-index: 10;
         border-radius: 12px;
         backdrop-filter: blur(12px);
-        transition-duration: 0.4s
+        transition-duration: 0.4s;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
     }
     .featuredProfiles:hover {
         backdrop-filter: blur(12px);
@@ -2543,6 +2553,46 @@
         right: -200px;
         background: none;
     }
+    .profileHeaderInfo__additional {
+        margin-right: 30px;
+        background: none!important;
+        backdrop-filter: none!important;
+        color: #fff;
+        font-weight: 400;
+        font-size: 2em;
+        opacity: 0.9;
+    }
+    .featuredProfiles .featuredProfiles__title {
+        border-bottom: none!important;
+        color: #fff;
+        padding-left: 10px;
+    }
+    .featuredProfiles.expanded .featuredProfiles__title {
+        border-bottom: none!important;
+    }
+    .sc-icon-large.sc-icon-user {
+        background-size: 18px 18px;
+        margin-top: 3px;
+        margin-right: 2px;
+    }
+    .featuredProfiles__item {
+        border-bottom: none!important;
+    }
+    .profileHeaderInfo__premiumIndicator, .profileHeaderInfo__verifiedBadge {
+        margin-left: -10px;
+    }
+    .profileHeader__chooserWrapper.right {
+        margin-right: 340px;
+        margin-top: -15px;
+    }
+    button.imageEditDropdownButton.sc-button-camera.sc-button-translucent.profileHeader__headerImageEditChooser.right.sc-button.sc-button-medium.sc-button-responsive {
+        background: none!important;
+        border-color: #0000!important;
+        transition: 0.3s ease-out!important;
+    }
+    .sound__content {
+        overflow-x: visible!important;
+    }
 }
 
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
@@ -2579,6 +2629,16 @@
     }
     .g-oscp-section {
         border-bottom: 1px solid #0a0a0a;
+    }
+    .profileHeader { 
+        padding: 0;
+    }
+    .featuredProfiles {
+        right: 360px!important;
+    }
+    .sc-button-group {
+        display: inline-flex!important;
+        flex-direction: row;
     }
 }
 
