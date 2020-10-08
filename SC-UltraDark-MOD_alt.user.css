@@ -495,7 +495,7 @@
         align-items: flex-end;
         z-index: 2;
         position: relative;
-        padding-right: 360px;
+        margin-right: 360px;
         float: right;
         bottom: 16px;
         /*bottom: 45px;
@@ -509,7 +509,8 @@
         line-height: 82px;
         letter-spacing: -.005em;
         font-weight: 900;
-        color: #fff
+        color: #fff;
+        margin-right: 30px;
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h4 {
         margin-top: -25px
@@ -553,7 +554,7 @@
         position: unset
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons {
-        padding-right: 340px;
+        margin-right: 340px;
         /*left: calc(100vw - 875px);*/
         /*left: 25%;*/
         width: 50%;
@@ -2590,7 +2591,8 @@
         border-bottom: none!important;
     }
     .profileHeaderInfo__premiumIndicator, .profileHeaderInfo__verifiedBadge {
-        margin-left: -10px;
+        margin-left: -40px;
+        left: 50px;
     }
     .profileHeader__chooserWrapper.right {
         margin-right: 340px;
