@@ -2602,10 +2602,11 @@
     }
     .profileHeader { 
         padding: 0!important;
+        overflow: visible!important;
     }
-    .featuredProfiles {
+    /*.featuredProfiles {
         right: 360px!important;
-    }
+    }*/
     .sc-button-group {
         display: inline-flex!important;
         flex-direction: row;
@@ -2616,6 +2617,8 @@
     .profileHeaderBackground__visual {
         border-radius: 0px 0px 32px 32px!important;
         box-shadow: inset 0px -10px 24px 4px #1118;
+        height: 69.5%;
+        width: 70vw;
     }
 }
 
