@@ -551,8 +551,8 @@
         position: unset
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons {
-        right: calc(100vw - 875px);
-        /*ft: 25%;*/
+        left: calc(100vw - 875px);
+        /*left: 25%;*/
         width: 50%;
         height: 40px;
         bottom: 84px;
