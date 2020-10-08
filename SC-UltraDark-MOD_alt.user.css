@@ -2145,8 +2145,8 @@
         border-radius: 12px;
         backdrop-filter: blur(12px);
         transition-duration: 0.4s;
-        -webkit-transform: translateY(-220);
-        transform: translateY(-220);
+        -webkit-transform: translateY(-220px);
+        transform: translateY(-220px);
     }
     .featuredProfiles:hover {
         backdrop-filter: blur(12px);
@@ -2641,6 +2641,11 @@
     }
     .l-fluid-fixed .l-sidebar-right {
         top: -240px!important;
+    }
+    .profileHeader__link {
+        left: 0!important;
+        bottom: 144px!important;
+        z-index: 3;
     }
 }
 
