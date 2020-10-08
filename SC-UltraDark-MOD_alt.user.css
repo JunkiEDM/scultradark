@@ -2576,7 +2576,8 @@
         border-bottom: none!important;
         color: #fff;
         padding-left: 10px;
-        margin-bottom: -114%;
+        margin-bottom: -92%;
+        /*margin-bottom: -114%; 5 profiles */
         margin-top: 118%;
     }
     .featuredProfiles.expanded .featuredProfiles__title {
