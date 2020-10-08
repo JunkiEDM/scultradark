@@ -2543,6 +2543,19 @@
         right: -200px;
         background: none;
     }
+    
+    .header__navWrapper .header__navMenu li a.selected {
+        filter: hue-rotate(-21deg) contrast(0.8) brightness(1.2) contrast(1.5) saturate(1.5);
+    }
+    .backgroundGradient__buffer {
+        border-radius: 24px;
+    }
+    .selectionPlaylistBanner {
+        border-radius: 32px;
+        /* box-shadow: 3px 5px 24px -2px #000; */
+        /* filter: drop-shadow(-3px -6px 4px #fff1); */
+        box-shadow: 2px 4px 16px -4px #0005;
+    }
 }
 
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
