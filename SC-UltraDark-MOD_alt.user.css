@@ -495,7 +495,7 @@
         align-items: flex-end;
         z-index: 2;
         position: relative;
-        left: 66%;
+        left: calc(100vw - 810px);
         bottom: 16px;
         /*bottom: 45px;
         left: 87%;*/
@@ -551,13 +551,13 @@
         position: unset
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons {
-        right: 5%;
+        right: calc(100vw - 875px);
         /*ft: 25%;*/
         width: 50%;
         height: 40px;
         bottom: 84px;
         display: flex;
-        justify-content: center;
+        justify-content: end;
         z-index: 9;
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-more:before {
@@ -631,10 +631,13 @@
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium {
         display: flex;
-        justify-content: center;
+        justify-content: end;
+        align-items: center;
         border: 0;
-        padding-right: 50%;
+        padding-right: calc(105vw - 100%);
+        padding-left: 25px;
         margin-top: -80px;
+        flex-flow: wrap-reverse;
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link {
         font-size: 12px;
@@ -2618,7 +2621,8 @@
         border-radius: 0px 0px 32px 32px!important;
         box-shadow: inset 0px -10px 24px 4px #1118;
         height: 69.5%;
-        width: 70vw;
+        width: calc(100vw - 580px);
+        background-color: #1110!important;
     }
 }
 
