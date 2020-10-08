@@ -2649,6 +2649,9 @@
         bottom: 144px!important;
         z-index: 3;
     }
+    div#content>div>div.l-fluid-fixed .l-sidebar-right {
+        top: 15px!important;
+    }
 }
 
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
