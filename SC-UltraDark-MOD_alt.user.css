@@ -456,7 +456,7 @@
     }*/
     #app .l-container #content .l-user-hero {
         z-index: 9998;
-        min-height: 320px
+        min-height: 0px
     }
     #app .l-container #content .l-user-hero:after {
         z-index: -1;
@@ -501,7 +501,7 @@
         left: 87%;*/
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h3 {
-        margin-top: -100px;
+        margin-top: 0px;
         background: 0;
         font-size: 6em;
         line-height: 82px;
@@ -510,7 +510,7 @@
         color: #fff
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h4 {
-        margin-top: -10px
+        margin-top: -25px
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderBackground {
         min-height: 405px;
@@ -529,7 +529,7 @@
         right: 0;
         left: 0;
         bottom: 0;
-        background: linear-gradient(transparent 80%, #1112 90%, #111 100%);
+        /*background: linear-gradient(transparent 80%, #1112 90%, #111 100%);*/
     }
     #app .l-container #content .commentForm__wrapper {
         border: 0;
@@ -2271,6 +2271,7 @@
     }
     .profileHeader__info {
         z-index: auto;
+        position: initial!important;
     }
     .g-tabs-item {
         z-index: 9;
@@ -2593,6 +2594,29 @@
     .sound__content {
         overflow-x: visible!important;
     }
+    .userBadge.m-horizontal .userBadge__avatar {
+        margin-left: 10px;
+    }
+    .featuredProfiles {
+        right: 6px!important;
+    }
+    .profileHeader { 
+        padding: 0!important;
+    }
+    .featuredProfiles {
+        right: 360px!important;
+    }
+    .sc-button-group {
+        display: inline-flex!important;
+        flex-direction: row;
+    }
+    .userInfoBar {
+        padding-top: 15px!important;
+    }
+    .profileHeaderBackground__visual {
+        border-radius: 0px 0px 32px 32px!important;
+        box-shadow: inset 0px -10px 24px 4px #1118;
+    }
 }
 
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
@@ -2629,16 +2653,6 @@
     }
     .g-oscp-section {
         border-bottom: 1px solid #0a0a0a;
-    }
-    .profileHeader { 
-        padding: 0;
-    }
-    .featuredProfiles {
-        right: 360px!important;
-    }
-    .sc-button-group {
-        display: inline-flex!important;
-        flex-direction: row;
     }
 }
 
