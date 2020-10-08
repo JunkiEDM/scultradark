@@ -2690,6 +2690,15 @@
     .g-oscp-section {
         border-bottom: 1px solid #0a0a0a;
     }
+    .backgroundGradient__buffer {
+        border-radius: 24px;
+    }
+    .selectionPlaylistBanner {
+        border-radius: 32px;
+        /* box-shadow: 3px 5px 24px -2px #000; */
+        /* filter: drop-shadow(-3px -6px 4px #fff1); */
+        box-shadow: 2px 4px 16px -4px #0005;
+    }
 }
 
 @-moz-document regexp("https?://(?:www.)?soundcloud.com.*") {
