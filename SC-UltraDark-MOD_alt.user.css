@@ -495,10 +495,12 @@
         align-items: flex-end;
         z-index: 2;
         position: relative;
-        left: calc(100vw - 810px);
+        padding-right: 360px;
+        float: right;
         bottom: 16px;
         /*bottom: 45px;
         left: 87%;*/
+        filter: drop-shadow(2px 6px 12px #0006);
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h3 {
         margin-top: 0px;
@@ -551,14 +553,16 @@
         position: unset
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons {
-        left: calc(100vw - 875px);
+        padding-right: 340px;
+        /*left: calc(100vw - 875px);*/
         /*left: 25%;*/
         width: 50%;
         height: 40px;
         bottom: 84px;
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         z-index: 9;
+        filter: drop-shadow(2px 6px 6px #000);
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-more:before {
         background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iNCIgdmlld0JveD0iMCAwIDE0IDQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPm1vcmU8L3RpdGxlPjxnIGZpbGw9IiMyMjIiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiLz48Y2lyY2xlIGN4PSI3IiBjeT0iMiIgcj0iMiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMiIgcj0iMiIvPjwvZz48L3N2Zz4=)
@@ -635,7 +639,7 @@
         align-items: center;
         border: 0;
         padding-right: calc(105vw - 100%);
-        padding-left: 25px;
+        padding-left: 10px;
         margin-top: -80px;
         flex-flow: wrap-reverse;
     }
@@ -2141,8 +2145,8 @@
         border-radius: 12px;
         backdrop-filter: blur(12px);
         transition-duration: 0.4s;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
+        -webkit-transform: translateY(-220);
+        transform: translateY(-220);
     }
     .featuredProfiles:hover {
         backdrop-filter: blur(12px);
@@ -2278,6 +2282,7 @@
     }
     .g-tabs-item {
         z-index: 9;
+        filter: drop-shadow(2px 6px 6px #000);
     }
     .sc-button:disabled, .sc-button:disabled:hover {
         border: none;
@@ -2570,6 +2575,8 @@
         border-bottom: none!important;
         color: #fff;
         padding-left: 10px;
+        margin-bottom: -300px;
+        margin-top: 385px;
     }
     .featuredProfiles.expanded .featuredProfiles__title {
         border-bottom: none!important;
@@ -2602,6 +2609,7 @@
     }
     .featuredProfiles {
         right: 6px!important;
+        height: 420px!important;
     }
     .profileHeader { 
         padding: 0!important;
@@ -2623,6 +2631,16 @@
         height: 69.5%;
         width: calc(100vw - 580px);
         background-color: #1110!important;
+    }
+    .featuredProfiles.expanded {
+        -webkit-transform: translateY(60px)!important;
+        transform: translateY(60px)!important;
+    }
+    .featuredProfiles__wrapper.g-scrollable-inner {
+        height: 420px!important;
+    }
+    .l-fluid-fixed .l-sidebar-right {
+        top: -240px!important;
     }
 }
 
