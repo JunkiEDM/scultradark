@@ -511,6 +511,7 @@
         font-weight: 900;
         color: #fff;
         margin-right: 30px;
+        text-align: right;
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h4 {
         margin-top: -25px
@@ -2592,8 +2593,11 @@
         border-bottom: none!important;
     }
     .profileHeaderInfo__premiumIndicator, .profileHeaderInfo__verifiedBadge {
-        margin-left: -40px;
-        left: 50px;
+        /*margin-left: -40px;
+        left: 50px;*/
+        right: -20px;
+        position: absolute!important;
+        padding-right: 0!important;
     }
     .profileHeader__chooserWrapper.right {
         margin-right: 340px;
@@ -2702,6 +2706,7 @@
     .g-oscp-section {
         border-bottom: 1px solid #0a0a0a;
     }
+    
 }
 
 @-moz-document regexp("https?://(?:www.)?soundcloud.com.*") {
