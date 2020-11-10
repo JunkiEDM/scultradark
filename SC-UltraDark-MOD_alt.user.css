@@ -396,7 +396,8 @@
         overflow: hidden;
         box-sizing: border-box;
         position: relative;
-        margin-bottom: 90px
+        margin-bottom: 90px;
+        padding-bottom: 40px;
     }
     #app .l-container #content .l-about-rows,
     #app .l-container #content .listenEngagement {
@@ -2321,7 +2322,7 @@
     #app .l-container #content {
         overflow: visible;
     }
-    .createPlaylistSuggestion__addContainer, .editTrackItem__additional { /*Remove linear-gradient background on some selection areas*/
+    .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional { /*Remove linear-gradient background on some selection areas*/
         background: none;
     }
     .commentFormDisabled {
@@ -2435,7 +2436,7 @@
         display: none;
     }
     .playControls__bg {
-        backdrop-filter: brightness(0.4) blur(18px);
+        backdrop-filter: brightness(0.4) blur(12px);
     }
     .spotlightRemove, .g-button-remove {
         filter: brightness(0.55) contrast(6.4);
@@ -2669,7 +2670,33 @@
         /* filter: drop-shadow(-3px -6px 4px #fff1); */
         box-shadow: 2px 4px 16px -4px #0005;
     }
+    .repostOverlay__container {
+        backdrop-filter: brightness(0.5) blur(12px);
+        background-color: #4444;
+        border-radius: 8px;
+    }
+    .repostOverlay__youReposted {
+        color: #ccc;
+    }
+    .sc-ministats-small.sc-ministats-reposts.repostOverlay__messageRepostIcon:before {
+        filter: brightness(2.2);
+    }
+    .repostOverlay__close:hover {
+        filter: brightness(1.25);
+        transition: filter 0.2s;
+    }
+    .repostOverlay__close {
+        transition: filter 0.4s;
+    }
+    .repostOverlay__message {
+        overflow-x: visible;
+    }
+    .editTrackItem.m-active, .editTrackItem.m-hover {
+        background: linear-gradient(60deg, #563526 -10%, #48202b 160%)!important;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Hind+Guntur&family=Inter&family=Istok+Web&family=Kumbh+Sans&family=M+PLUS+1p&family=Manrope&family=Mulish&family=Prompt&family=Sarabun&display=swap');
 }
+
 
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
     :root { /* Messy new insights page update */
