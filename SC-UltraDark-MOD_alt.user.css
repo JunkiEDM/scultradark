@@ -717,7 +717,7 @@
     }
     #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):hover {
         background: #f30 !important;
-        filter: drop-shadow(2px 2px 6px #000) hue-rotate(340deg);;
+        filter: drop-shadow(2px 2px 6px #000) hue-rotate(340deg);
         transition-duration: 0.25s;
     }
 
