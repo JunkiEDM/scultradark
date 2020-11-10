@@ -9,6 +9,7 @@
 @preprocessor default
 ==/UserStyle== */
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Hind+Guntur&family=Inter&family=Istok+Web&family=Kumbh+Sans&family=M+PLUS+1p&family=Manrope&family=Mulish&family=Prompt&family=Sarabun&display=swap');
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections).*)") {
     /* Modification of SoundCloud Ultra Dark by IgChi: userstyles.org/styles/176264 */
     .l-collection,
@@ -2694,7 +2695,6 @@
     .editTrackItem.m-active, .editTrackItem.m-hover {
         background: linear-gradient(60deg, #563526 -10%, #48202b 160%)!important;
     }
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Hind+Guntur&family=Inter&family=Istok+Web&family=Kumbh+Sans&family=M+PLUS+1p&family=Manrope&family=Mulish&family=Prompt&family=Sarabun&display=swap');
 }
 
 
