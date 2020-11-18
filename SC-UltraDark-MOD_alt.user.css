@@ -2623,7 +2623,7 @@
     .userInfoBar {
         padding-top: 15px!important;
     }
-    .profileHeaderBackground__visual {
+    .profileHeaderBackground > div {
         border-radius: 0px 0px 32px 32px!important;
         box-shadow: inset 0px -10px 24px 4px #1118;
         height: 69.5%;
@@ -2652,7 +2652,7 @@
         filter: hue-rotate(-21deg) contrast(0.8) brightness(1.2) contrast(1.5) saturate(1.5);
     }
     .backgroundGradient__buffer {
-        border-radius: 24px;
+        border-radius: 0px 0px 32px 32px;
     }
     .selectionPlaylistBanner {
         border-radius: 32px;
