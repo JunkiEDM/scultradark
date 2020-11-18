@@ -2732,8 +2732,8 @@
     .infoStats__title {
         font-size: 14px!important;
     }
-    a.sc-button-startstation.sc-button.sc-button-medium.sc-button-responsive {
-        padding-top: 12px;
+    .userInfoBar__buttons .sc-button-group a.sc-button-startstation.sc-button.sc-button-medium.sc-button-responsive {
+        padding-top: 12px!important;
     }
     .sc-status-icon-verified.sc-status-icon-small {
         width: 15px;
