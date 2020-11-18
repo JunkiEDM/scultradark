@@ -9,7 +9,8 @@
 @preprocessor default
 ==/UserStyle== */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Hind+Guntur&family=Inter&family=Istok+Web&family=Kumbh+Sans&family=M+PLUS+1p&family=Manrope&family=Mulish&family=Prompt&family=Sarabun&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Manrope&family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Product+Sans');
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections).*)") {
     /* Modification of SoundCloud Ultra Dark by IgChi: userstyles.org/styles/176264 */
     .l-collection,
@@ -121,18 +122,6 @@
     body {
         background: #111;
         overflow: auto
-    }
-    a,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    h7,
-    h8,
-    p {
-        font-family: spotify-circular, spotify-circular-cyrillic, spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important
     }
     ::-webkit-scrollbar,
     div::-webkit-scrollbar {
@@ -566,7 +555,7 @@
         display: flex;
         justify-content: flex-end;
         z-index: 9;
-        filter: drop-shadow(2px 6px 6px #000);
+        filter: drop-shadow(2px 6px 8px #0006);
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-more:before {
         background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iNCIgdmlld0JveD0iMCAwIDE0IDQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPm1vcmU8L3RpdGxlPjxnIGZpbGw9IiMyMjIiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiLz48Y2lyY2xlIGN4PSI3IiBjeT0iMiIgcj0iMiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMiIgcj0iMiIvPjwvZz48L3N2Zz4=)
@@ -632,7 +621,7 @@
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation:before,
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights:before {
-        left: 40px;
+        /*left: 40px;*/
         background-position: center 3px;
         background-size: 16px 12px;
         filter: brightness(10)
@@ -2286,7 +2275,7 @@
     }
     .g-tabs-item {
         z-index: 9;
-        filter: drop-shadow(2px 6px 6px #000);
+        filter: drop-shadow(2px 4px 6px #000);
     }
     .sc-button:disabled, .sc-button:disabled:hover {
         border: none;
@@ -2694,6 +2683,65 @@
     }
     .editTrackItem.m-active, .editTrackItem.m-hover {
         background: linear-gradient(60deg, #563526 -10%, #48202b 160%)!important;
+    }
+    .profileHeaderInfo__premiumIndicator, .profileHeaderInfo__verifiedBadge {
+        filter: contrast(1.2) brightness(1.1) hue-rotate(32deg);
+        top: 8px!important;
+    }
+    .sc-status-icon-verified.sc-status-icon-medium {
+        width: 24px;
+        height: 24px;
+        background-size: 24px;
+    }
+    .proUnlimitedBadge {
+        display: none;
+    }
+    .profileHeaderInfo__avatar.sc-media-image {
+        transition: filter 1s;
+    }
+    .profileHeaderInfo__avatar.sc-media-image:hover {
+        filter: drop-shadow(5px 5px 12px #0006);
+        transition: filter 0.4s;
+    }
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    h7,
+    h8,
+    p {
+        font-family: spotify-circular, spotify-circular-cyrillic, spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important
+        /*font-family: Product Sans, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
+    }
+    .sc-font-light, .sc-button, .notificationBadge, .sc-input, .sc-type-medium, .sc-type-small {
+        /*font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;*/
+    }
+    .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6 {
+        /*font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
+    }
+    .sc-button-small:not(.sc-button-cta) {
+        /*font-family: Product Sans,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
+        font-size: 12px;
+    }
+    .infoStats__value {
+        font-size: 24px!important;
+    }
+    .infoStats__title {
+        font-size: 14px!important;
+    }
+    a.sc-button-startstation.sc-button.sc-button-medium.sc-button-responsive {
+        padding-top: 12px;
+    }
+    .sc-status-icon-verified.sc-status-icon-small {
+        width: 15px;
+        height: 15px;
+        background-size: 15px;
+    }
+    span.verifiedBadge {
+        filter: contrast(1.2) brightness(1.1) hue-rotate(32deg);
     }
 }
 
