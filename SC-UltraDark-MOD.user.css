@@ -204,7 +204,7 @@
     .listenArtworkWrapper__artwork .image__lightOutline .image__full {
         box-shadow: 0 0 20px 0 #0008; /*box-shadow: 0 0 15px 0 #000*/
     }
-    .moreActions {
+    .moreActions, .imageEditDropdown {
         /*border: 1px solid rgba(0, 0, 0, .15);*/
         border: 1px solid #0001;
         border-radius: .5rem;
@@ -212,7 +212,7 @@
         padding: 5px 0;
         box-shadow: 2px 2px 12px #0006;
     }
-    .moreActions .moreActions__button.sc-button-medium {
+    .moreActions .moreActions__button.sc-button-medium, .imageEditDropdown .sc-button {
         border: 0;
         background: 0 0;
         color: #b3b3b3;
@@ -222,7 +222,7 @@
     .moreActions .moreActions__button.sc-button-medium:before {
         filter: brightness(3)
     }
-    .moreActions .moreActions__button.sc-button-medium:hover {
+    .moreActions .moreActions__button.sc-button-medium:hover, .imageEditDropdown .sc-button:hover {
         color: #fff;
         background: #333
     }
@@ -697,7 +697,7 @@
     }
 
     /*follow button*/
-    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected), .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected) {
+    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected), .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow) {
         border: 0;
         border-radius: 120px;
         background: #f50 !important;
@@ -705,7 +705,7 @@
         padding: 0 15px;
         transition-duration: 0.25s;
     }
-    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):hover {
+    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):hover {
         background: #f30 !important;
         filter: drop-shadow(2px 2px 6px #000) hue-rotate(340deg);
         transition-duration: 0.25s;
@@ -1201,8 +1201,8 @@
         border: 1px solid #1a1a1a;
         transition: border-color .1s
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow) {
         border-color: #1a1a1a;
         /*background: #111;*/
         border: 0;
@@ -1212,8 +1212,8 @@
         padding: 0 15px;
         transition-duration: 1s
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow) {
         border-color: #fff;
         /*background: #111*/
         border: 0;
@@ -2065,11 +2065,11 @@
     .dropdownContent__listItem, .dropdownContent__listItem:hover, .queueItemView, .queueItemView:hover {
         transition: box-shadow ease-out 0.3s;
     }
-    .playbackSoundBadge__like.sc-button-small.sc-button-icon:before, .playbackSoundBadge__like.sc-button-small.sc-button-icon:not(.sc-button-selected):hover:before {
+    .playbackSoundBadge__like.sc-button-small.sc-button-icon:before, .playbackSoundBadge__like.sc-button-small.sc-button-icon:not(.sc-button-selected):hover:before, .playbackSoundBadge__follow:before, .playbackSoundBadge__follow:hover:before {
         filter: invert(1) hue-rotate(180deg) contrast(1.5);
         transition-duration: 0.25s;
     }
-    .playbackSoundBadge__like.sc-button-small.sc-button-icon:not(.sc-button-selected):before {
+    .playbackSoundBadge__like.sc-button-small.sc-button-icon:not(.sc-button-selected):before, .playbackSoundBadge__follow:before {
         filter: invert(1) hue-rotate(180deg) contrast(1.5) brightness(0.7);
         transition-duration: 0.25s;
     }
@@ -2103,7 +2103,7 @@
     .moreActions .moreActions__button.sc-button-medium.sc-button-like:before {
         filter: invert(1) brightness(0.5);
     }
-    .sc-button-follow:hover:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected) {
+    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected):not(.playbackSoundBadge__follow):hover {
         border-color: #fff;
         border: 0;
         border-radius: 120px;
@@ -2111,7 +2111,7 @@
         color: #fff !important;
         transition-duration: 0.25s;
     }
-    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected) {
+    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected):not(.playbackSoundBadge__follow) {
         border-color: #1a1a1a;
         border: 0;
         border-radius: 120px;
@@ -2156,26 +2156,26 @@
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton), .sc-button-group .sc-button-insights.sc-button-cta{
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow), .sc-button-group .sc-button-insights.sc-button-cta, .imageEditDropdown .sc-button{
         border-color: #1a1a1a;
         background: #111;
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):hover, .sc-button-group .sc-button-insights.sc-button-cta:hover {
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):hover, .sc-button-group .sc-button-insights.sc-button-cta:hover, .imageEditDropdown .sc-button:hover {
         border-color: #fff6;
         background: #222;
         color: #eee;
         filter: drop-shadow(2px 2px 6px #000);
         transition-duration: 0.25s;
     }
-    .sc-button-selected.sc-button-like, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
+    .sc-button-selected.sc-button-like, .sc-button-selected.playbackSoundBadge__follow, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
         border-color: #1a1a1a;
         background: #111;
         transition-duration: 0.25s;
     }
     .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), 
-    .sc-button-selected.sc-button-like:hover, .sc-button-selected.sc-button-repost:hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover {
+    .sc-button-selected.sc-button-like:hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover {
         border-color: #f506;
         background: #310;
         filter: drop-shadow(2px 2px 6px #000);
@@ -2693,9 +2693,7 @@
         height: 24px;
         background-size: 24px;
     }
-    .proUnlimitedBadge {
-        display: none;
-    }
+    
     .profileHeaderInfo__avatar.sc-media-image {
         transition: filter 1s;
     }
@@ -2746,6 +2744,15 @@
     .profileHeaderBackground > div > .backgroundGradient > .backgroundGradient__buffer {
         border-radius: 0px 0px 32px 32px!important;
     }
+    .audibleEditForm__form {
+        margin-bottom: 96px;
+    }
+    .proUnlimitedBadge .creatorBadge {
+        display: none;
+    }
+    .sc-button-selected.playbackSoundBadge__follow:before {
+        filter: brightness(0.5) sepia(1) contrast(2) saturate(24) hue-rotate(-2deg) saturate(1.1)!important;
+    }
 }
 
 
@@ -2784,7 +2791,6 @@
     .g-oscp-section {
         border-bottom: 1px solid #0a0a0a;
     }
-    
 }
 
 @-moz-document regexp("https?://(?:www.)?soundcloud.com.*") {
