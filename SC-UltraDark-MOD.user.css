@@ -2754,6 +2754,23 @@
         /*filter: brightness(0.5) sepia(1) contrast(2) saturate(24) hue-rotate(-2deg) saturate(1.1)!important*/;
         filter: invert(0) hue-rotate(8deg) brightness(1.1)!important;
     }
+    .callout__bubble {
+        background-color: #191919;
+        border-radius: 12px;
+        filter: drop-shadow(2px 6px 12px #0009);
+    }
+    .callout__bubble:before {
+        background-color: #191919;
+    }
+    .callout__captionBody {
+        color: #ccc;
+    }
+    .callout__title {
+        color: #fff;
+    }
+    .callout__captionImage {
+        filter: brightness(0.9) invert(1) hue-rotate(160deg) saturate(2);
+    }
 }
 
 
