@@ -2190,6 +2190,7 @@
     .modal__modal {
         border-radius: 16px;
         margin-bottom: 120px;
+        height: calc(100% + 120px)!important
     }
     .tabs__tabs {
         border-radius: 16px 16px 0px 0px;
