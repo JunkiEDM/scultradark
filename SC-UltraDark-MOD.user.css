@@ -1194,7 +1194,7 @@
     }
     .sc-input {
         display: inline-block;
-        font-family: InterDisplay, Inter, Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+        font-family: Inter, Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
         font-weight: 400;
         font-size: 14px;
         line-height: 20px;
@@ -2716,7 +2716,7 @@
     p {
         /*font-family: spotify-circular, spotify-circular-cyrillic, spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
         /*font-family: Product Sans, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
-        font-family: InterDisplay, Inter, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;
+        font-family: Inter, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;
     }
     .sc-font-light, .sc-button, .notificationBadge, .sc-input, .sc-type-medium, .sc-type-small {
         /*font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;*/
@@ -2784,16 +2784,13 @@
         height: 70%;
     }
     .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, body a, h1, h2, h3, h4, h5, h6, h7, h8, p {
-        font-family: InterDisplay,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+        font-family: Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
     }
     .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .statsBadge__value, .infoStats__value, body {
         font-weight: 400;
     }
-    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .header {
+    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .header, .infoStats__value {
         font-weight: 300;
-    }
-    .infoStats__value {
-        font-weight: 500;
     }
     .statsBadge__value, .infoStats__value {
         font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
