@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD (Classic Header)
 @namespace    JunkiEDM
-@version      0.9.107
+@version      0.9.108
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -11,6 +11,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Manrope&family=Mulish&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Product+Sans');
+@import url('https://rsms.me/inter/inter.css');
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections).*)") {
     /* Modification of SoundCloud Ultra Dark by IgChi: userstyles.org/styles/176264 */
     .l-collection,
@@ -1192,7 +1193,7 @@
     }
     .sc-input {
         display: inline-block;
-        font-family: Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+        font-family: Inter, Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
         font-weight: 100;
         font-size: 14px;
         line-height: 20px;
@@ -2712,8 +2713,9 @@
     h7,
     h8,
     p {
-        font-family: spotify-circular, spotify-circular-cyrillic, spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important
+        /*font-family: spotify-circular, spotify-circular-cyrillic, spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
         /*font-family: Product Sans, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
+        font-family: Inter, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;
     }
     .sc-font-light, .sc-button, .notificationBadge, .sc-input, .sc-type-medium, .sc-type-small {
         /*font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;*/
@@ -2776,6 +2778,9 @@
     }
     .callout__captionImage {
         filter: brightness(0.9) invert(1) hue-rotate(160deg) saturate(2);
+    }
+    .backgroundGradient {
+        height: 70%;
     }
 }
 
