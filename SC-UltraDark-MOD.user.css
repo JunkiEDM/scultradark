@@ -2789,8 +2789,11 @@
     .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .statsBadge__value, .infoStats__value, body {
         font-weight: 400;
     }
-    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .header, .infoStats__value {
+    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title,  .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .header, .infoStats__value {
         font-weight: 300;
+    }
+    .spotlightTitle {
+        font-weight: 200;
     }
     .statsBadge__value, .infoStats__value {
         font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
