@@ -2780,13 +2780,26 @@
     .callout__captionImage {
         filter: brightness(0.9) invert(1) hue-rotate(160deg) saturate(2);
     }
-    .backgroundGradient {
+    .userDropbar__verifiedBadge .sc-status-icon-verified.sc-status-icon-medium {
+        width: 18px;
+        height: 18px;
+        background-size: 18px;
+        margin-top: -8px;
+        margin-left: -4px;
+    }
+    .userBadge__verifiedBadge .sc-status-icon-verified.sc-status-icon-small {
+        width: 14px;
+        height: 14px;
+        background-size: 14px;
+        margin-top: -2px;
+    }
+    .profileHeaderBackground div .backgroundGradient {
         height: 70%;
     }
-    .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, body a, h1, h2, h3, h4, h5, h6, h7, h8, p {
+    .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, h1, h2, h3, h4, h5, h6, h7, h8, p {
         font-family: Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
     }
-    .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, body {
+    .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body {
         font-weight: 400;
     }
     .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .header, .infoStats__value {
