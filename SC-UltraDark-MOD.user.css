@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD (Classic Header)
 @namespace    JunkiEDM
-@version      0.9.110
+@version      0.9.111
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -313,16 +313,19 @@
         /*background: 0 0*/
         background-color: transparent;
         filter: brightness(.5);
-        transition-duration: 0.25s;
+        transition-duration: 0.2s;
     }
     .header__navMenu > li > a.header__moreButton:hover,
     .header__userNavButton:hover,
     .header__userNavItem:hover {
-        transition-duration: 0.25s;
+        transition-duration: 0.2s;
+    }
+    .header__navMenu > li > a.header__moreButton:not(.selected) {
+        transition: opacity 0.2s;
+        filter: brightness(1);
     }
     .header__navMenu > li > a.header__moreButton:not(.selected):hover {
-        filter: brightness(1.5)!important;
-        transition-duration: 0.25s;
+        filter: brightness(1.2);
     }
     .header__navWrapper .header__navMenu li a {
         border: 0;
@@ -347,6 +350,7 @@
     .header__navWrapper .header__navMenu li a:hover {
         color: #fff;
         transition-duration: 0.25s;
+        filter: drop-shadow(0px 0px 6px #fff8);
     }
     #app .l-container {
         padding: 0;
@@ -796,7 +800,7 @@
         text-decoration: none;
         color: #fff!important;
         filter: drop-shadow(0px 0px 6px #fff8);
-        transition-duration: 0.1s!important;
+        transition-duration: 0.12s!important;
     }
     #app .l-container #content .soundTitle__usernameTitleContainer .soundTitle__username {
         font-size: 12px;
@@ -2704,7 +2708,7 @@
         filter: drop-shadow(5px 5px 12px #0006);
         transition: filter 0.4s;
     }
-    a,
+    /*a,
     h1,
     h2,
     h3,
@@ -2713,11 +2717,11 @@
     h6,
     h7,
     h8,
-    p {
+    p {*/
         /*font-family: spotify-circular, spotify-circular-cyrillic, spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
         /*font-family: Product Sans, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
-        font-family: Inter, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;
-    }
+        /*font-family: Inter, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;
+    } */
     .sc-font-light, .sc-button, .notificationBadge, .sc-input, .sc-type-medium, .sc-type-small {
         /*font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;*/
     }
@@ -2780,6 +2784,7 @@
     .callout__captionImage {
         filter: brightness(0.9) invert(1) hue-rotate(160deg) saturate(2);
     }
+    /* modify sidebar jank */
     .infoStats {
         margin-bottom: 15px;
         margin-top: -15px;
@@ -2796,6 +2801,7 @@
     .userSidebar:before, .userSidebar {
         transition: margin-bottom 0.1s, top 0.5s;
     }
+    /* Fix header boundry preventing clicks on upper-right of the user's profile */
     .profileHeader__link {
         width: calc(100vw - 580px);
     }
@@ -2805,6 +2811,7 @@
     .profileHeader__chooserWrapper.right {
         margin-right: 12px;
     }
+    /* Reposition verified badges */
     .userDropbar__verifiedBadge .sc-status-icon-verified.sc-status-icon-medium {
         width: 18px;
         height: 18px;
@@ -2818,11 +2825,44 @@
         background-size: 14px;
         margin-top: -2px;
     }
+    /* Fix header size on banner-less profiles */
     .profileHeaderBackground div .backgroundGradient {
         height: 70%;
     }
+    /* make side nav more dynamic */
+    .g-nav-item>.g-nav-link {
+        background-position: 5px -28px;
+        font-weight: 300;
+        filter: brightness(0.8) contrast(1.2) drop-shadow(0px 0px 0px #0000);
+        transition: font-weight 0.2s, filter 0.1s;
+    }
+    .g-nav-item.active>.g-nav-link {
+        font-weight: 440;
+        filter: drop-shadow(0px 0px 6px #fff4);
+    }
+    .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link) {
+        filter: brightness(0.9) contrast(1.1) drop-shadow(0px 0px 6px #fff8);
+    }
+    /* unify transitions */
+    .notificationIcon:before {
+        transition: opacity 0.2s
+    }
+    .g-dark .sc-type-light, .g-dark a {
+        transition: color 0.2s;
+    }
+    /* Change font to Inter */
     button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, h1, h2, h3, h4, h5, h6, h7, h8, p {
         font-family: Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @supports (font-variation-settings: 'wdth' 115) {
+        button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, h1, h2, h3, h4, h5, h6, h7, h8, p {
+            font-family: Inter var,Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+        }
+        .soundTitle__usernameTitleContainer .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link) {
+            font-weight: 330;
+        }
     }
     .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body {
         font-weight: 400;
