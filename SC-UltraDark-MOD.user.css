@@ -2876,6 +2876,12 @@
     .statsBadge__value, .infoStats__value {
         font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
     }
+    
+    .sc-media-content .userItem__details {
+        color: #ccc!important;
+        font-weight: 300!important;
+        font-size: 13px;
+    }
 }
 
 
