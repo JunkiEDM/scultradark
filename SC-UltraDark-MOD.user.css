@@ -2885,11 +2885,12 @@
     /* LIDL soundcloud ad */
     .siteTakeoverOverlay {
         left: 230px;
+        right: 330px;
         top: 0px;
-        width: calc(100% - 230px)!important;
+        width: calc(100vw - 580px)!important;
         clip-path: inset(0px 0px 0px 0px);
         z-index: 1000;
-        bottom: calc(100% - 4vw);
+        bottom: calc(103% - 5vw);
         border-radius: 0px 0px 8px 8px;
         overflow: hidden;
         transition: bottom 1s, border-bottom 0.8s;
@@ -2897,7 +2898,7 @@
     }
 
     .siteTakeoverOverlay:hover {
-        bottom: calc(116% - 64vw);
+        bottom: calc(136% - 64vw);
         border-bottom: 6px solid #0008;
     }
 }
