@@ -2851,13 +2851,13 @@
         transition: color 0.2s;
     }
     /* Change font to Inter */
-    button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, h1, h2, h3, h4, h5, h6, h7, h8, p {
+    button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font {
         font-family: Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
     @supports (font-variation-settings: 'wdth' 115) {
-        button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, h1, h2, h3, h4, h5, h6, h7, h8, p {
+        button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font {
             font-family: Inter var,Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
         }
         .soundTitle__usernameTitleContainer .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link) {
@@ -2870,7 +2870,7 @@
     .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .header, .infoStats__value {
         font-weight: 300;
     }
-    .spotlightTitle {
+    .spotlightTitle, .sc-font {
         font-weight: 200;
     }
     .statsBadge__value, .infoStats__value {
