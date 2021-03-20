@@ -2976,7 +2976,14 @@
         visibility: hidden;
     }
 }
-
+@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/(likes|sets|albums|stations|following|history)/?") {
+    .badgeList__item {
+        width: 150px!important;
+    }
+    .collectionSection__filters {
+        right: 40px;
+    }
+}
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
     :root { /* Messy new insights page update */
         --soundcloudOrange: #ff4637;
