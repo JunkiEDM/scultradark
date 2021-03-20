@@ -9,7 +9,7 @@
 @preprocessor default
 ==/UserStyle== */
 
-/*@import url('https://rsms.me/inter/inter.css');*/
+@import url('https://rsms.me/inter/inter.css');
 /*@import url('https://rsms.me/inter/inter-display.css');*/
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections).*)") {
     /* Modification of SoundCloud Ultra Dark by IgChi: userstyles.org/styles/176264 */
@@ -1920,7 +1920,6 @@
 }
 
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections).*)") {
-    @import url('https://rsms.me/inter/inter.css');
     /* Snippets from 'SoundCloud - Quite Dark' by pawelos076232: userstyles.org/styles/143738 */
     .g-dark-bg,
     .g-dark-list,
@@ -2857,7 +2856,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    @supports (font-variation-settings: 'wdth' 115) {
+    @supports (font-variation-settings: normal) {
         button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font {
             font-family: Inter var,Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
         }
