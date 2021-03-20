@@ -2941,11 +2941,12 @@
     .collectionSection__filters {
         right: 0;
     }
-    .libraryPlaylistTile > .playableTile {
+    .collectionSection__list > div > li > .badgeList__item > div > .playableTile {
         width: 80%!important;
     }
     a.readMoreTile__countWrapper {
         height: 48px;
+        width: 120px;
         top: 110%;
         border-radius: 124px;
         transform: scale(0.67);
@@ -2968,11 +2969,13 @@
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/library") {
     .l-footer.standard {
         position: relative;
-        top: 220px;
+        top: 120px;
         padding-bottom: 120px;
         text-align: right;
         left: 49.5%;
         width: 50%;
+        z-index: -100;
+        visibility: hidden;
     }
 }
 
