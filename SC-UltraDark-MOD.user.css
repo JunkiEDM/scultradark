@@ -2918,6 +2918,8 @@
         border-radius: 4px;
         box-shadow: 0px 0px 24px #0004;
     }
+}
+@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/library") {
     /* Make Library section a hell of a lot nicer :) */
     .collection__section {
         width: 50%;
@@ -2963,8 +2965,6 @@
     .readMoreTile__count {
         top: 50%!important;
     }
-}
-@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/library") {
     .l-footer.standard {
         position: relative;
         top: 120px;
