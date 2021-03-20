@@ -9,10 +9,8 @@
 @preprocessor default
 ==/UserStyle== */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Manrope&family=Mulish&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Product+Sans');
-@import url('https://rsms.me/inter/inter.css');
-@import url('https://rsms.me/inter/inter-display.css');
+/*@import url('https://rsms.me/inter/inter.css');*/
+/*@import url('https://rsms.me/inter/inter-display.css');*/
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections).*)") {
     /* Modification of SoundCloud Ultra Dark by IgChi: userstyles.org/styles/176264 */
     .l-collection,
@@ -1922,6 +1920,7 @@
 }
 
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections).*)") {
+    @import url('https://rsms.me/inter/inter.css');
     /* Snippets from 'SoundCloud - Quite Dark' by pawelos076232: userstyles.org/styles/143738 */
     .g-dark-bg,
     .g-dark-list,
