@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD (Classic Header)
 @namespace    JunkiEDM
-@version      0.9.113
+@version      0.9.114
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -1368,7 +1368,7 @@
     .sc-button-medium.sc-button-download:before {
         filter: brightness(7.5)
     }
-    .gritter-close,
+    /*.gritter-close,*/
     .queueItemView__more.sc-button-small.sc-button-more,
     .queueItemView__remove.sc-button-small.sc-button-icon:not(.sc-button-stretch-icon),
     .queue__hide,
@@ -2856,15 +2856,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    @supports (font-variation-settings: normal) {
-        button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font {
-            font-family: Inter var,Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
-        }
-        .soundTitle__usernameTitleContainer .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link) {
-            font-weight: 330;
-        }
-    }
-    .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6 {
+    body a, .sc-classic .header, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title {
         font-weight: 400;
     }
     .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .header, .infoStats__value {
@@ -2872,6 +2864,14 @@
     }
     .spotlightTitle, .sc-font {
         font-weight: 200;
+    }
+    @supports (font-variation-settings: normal) {
+        button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font {
+            font-family: Inter var,Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
+        }
+        .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link) {
+            font-weight: 330;
+        }
     }
     .statsBadge__value, .infoStats__value {
         font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
@@ -2924,6 +2924,18 @@
     .soundTitle.m-visualSound.listenContext .soundTitle__uploadTime {
         color: #fff;
         text-shadow: 0 4px 8px #0008;
+    }
+    .sc-classic .m-light .headerMenu__link, .sc-classic .m-light .headerMenu__link:focus, .sc-classic .m-light .headerMenu__link:hover {
+        color: #ccc;
+    }
+    .gritter-item {
+        color: #ccc;
+    }
+    .gritter-title {
+        color: #fff;
+    }
+    .sc-button.sc-button-translucent:not(.sc-button-cta) {
+        background-color: inherit;
     }
 }
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/library") {
