@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD (Classic Header)
 @namespace    JunkiEDM
-@version      0.9.114
+@version      0.9.115
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -1205,8 +1205,8 @@
         border: 1px solid #222;
         transition: border-color .1s
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue) {
         border-color: #1a1a1a;
         /*background: #111;*/
         border: 0;
@@ -1216,8 +1216,8 @@
         padding: 0 15px;
         transition-duration: 1s
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue) {
         border-color: #fff;
         /*background: #111*/
         border: 0;
@@ -1227,7 +1227,7 @@
         padding: 0 15px;
         transition-duration: 0.25s
     }
-    .sc-button-selected:not(.sc-button-like):not(.sc-button-repost):not(.playbackSoundBadge__follow):before {
+    .sc-button-selected:not(.sc-button-like):not(.sc-button-repost):not(.playbackSoundBadge__follow):not(.sc-button-queue):before {
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij4KICA8cGF0aCBmaWxsPSJyZ2IoMjU1LCAyNTUsIDI1NSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTUuNTQyIDEuMTY3YzIuMTA3IDAgMi43OTUgMi4yNDYgMS42MSA1LjMzMi0uNDQ0Ljc5My4wMyAxLjIxMS4zMjIgMS4zMzIgMi4wMjYuODM2IDIuODc1IDIuMjEzIDMuMDI2IDMuODM2di41ODNILjU4M3YtLjU4M2MuMTUxLTEuNjIzIDEtMyAzLjAyNi0zLjgzNi4yOTItLjEyLjc2Ni0uNTQuMzIyLTEuMzMxLTEuMTg0LTMuMDk1LS40OTctNS4zMzMgMS42MS01LjMzM3pNMTMuNDcgMy4xOGwuMDU4LjA1LjIzLjIyOGEuNDE1LjQxNSAwIDAgMSAuMDU3LjUyNmwtLjA1My4wNjUtMi43MTQgMi43MTRhLjQwOS40MDkgMCAwIDEtLjUuMDY2bC0uMDQ1LS4wMy0uMDQzLS4wMzgtMS40NzItMS40NzJhLjQyMi40MjIgMCAwIDEtLjA1MS0uNTI3bC4wNTQtLjA2Ni4yMjktLjIzYS40MTUuNDE1IDAgMCAxIC41MjgtLjA1NWwuMDY1LjA1My45NDIuOTQzIDIuMTgyLTIuMTgzYS40MS40MSAwIDAgMSAuNTMzLS4wNDR6Ii8+Cjwvc3ZnPgo=) !important;
         filter: invert(0)!important
     }
@@ -2856,7 +2856,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    body a, .sc-classic .header, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title {
+    body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title {
         font-weight: 400;
     }
     .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .header, .infoStats__value {
@@ -2936,6 +2936,15 @@
     }
     .sc-button.sc-button-translucent:not(.sc-button-cta) {
         background-color: inherit;
+    }
+    .g-stats-icon-orange, .sc-text-orange, .statsLineChart__lines, .topStatsItem__visual {
+        filter: hue-rotate(-20deg);
+    }
+    .statsSummary__metricValue {
+        font-size: 24px;
+    }
+    .sc-button-selected {
+        border: 1px solid #f50;
     }
 }
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/library") {
