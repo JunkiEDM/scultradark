@@ -2937,14 +2937,25 @@
     .sc-button.sc-button-translucent:not(.sc-button-cta) {
         background-color: inherit;
     }
+    .sc-button-selected {
+        border: 1px solid #f50;
+    }
+    /* stats fixes */
+    .statsLineChart__ticks, .statsLineChart__bottom, .stats__xAxis, .stats__yAxis {
+        filter: invert(0.9);
+    }
     .g-stats-icon-orange, .sc-text-orange, .statsLineChart__lines, .topStatsItem__visual {
         filter: hue-rotate(-20deg);
     }
     .statsSummary__metricValue {
         font-size: 24px;
     }
-    .sc-button-selected {
-        border: 1px solid #f50;
+    .statsBarChart, .userStatsLegend__items {
+        filter: hue-rotate(180deg) brightness(1.25) invert(1) contrast(0.92) hue-rotate(-15deg) brightness(1.1);
+    }
+    a.userStatsLegend__itemTitleWrapper {
+        color: #000!important;
+        font-weight: 600;
     }
 }
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/library") {
