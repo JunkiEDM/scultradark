@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         SoundCloud Ultra Dark MOD (Classic Header)
 @namespace    JunkiEDM
-@version      0.9.115
+@version      0.9.116
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-UltraDark-MOD.user.css
 @license      CC-BY-SA-4.0
@@ -119,8 +119,8 @@
     html {
         min-height: 100vh
     }
-    body {
-        background: #111;
+    body, body.sc-classic {
+        background: #111!important;
         overflow: auto
     }
     ::-webkit-scrollbar,
@@ -646,7 +646,7 @@
         font-weight: var(--glue-font-weight-bold);
         text-transform: uppercase;
         letter-spacing: .16em;
-        color: #fff;
+        color: #fff!important;
         opacity: .6;
         position: relative;
         border: 0;
@@ -1568,8 +1568,8 @@
         filter: none
     } */
     .sc-button-medium.sc-button-like:before,
-    .sc-toggle,
-    .sc-toggle:before {
+    .sc-toggle:not(.toggleFormControl__toggle),
+    .sc-toggle:not(.toggleFormControl__toggle):before {
         filter: invert(1)
     }
     .queueFallback__toggle .sc-toggle, .queueFallback__toggle .sc-toggle:before {
@@ -2152,8 +2152,8 @@
     .modal.modalWhiteout {
         backdrop-filter: blur(12px);
     }
-    .g-tabs-link, .g-tabs-link:visited {
-        color: #ccca;
+    .g-tabs-link, .g-tabs-link:visited, .sc-classic .g-tabs-link, .sc-classic .g-tabs-link:visited {
+        color: #ccca!important;
         transition-duration: 1s;
     }
     .g-tabs-link:hover {
@@ -2851,25 +2851,25 @@
         transition: color 0.2s;
     }
     /* Change font to Inter */
-    button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font {
+    body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText {
         font-family: Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title {
+    body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title {
         font-weight: 400;
     }
-    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .header, .infoStats__value {
+    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .header, .infoStats__value, .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell {
         font-weight: 300;
     }
     .spotlightTitle, .sc-font {
         font-weight: 200;
     }
     @supports (font-variation-settings: normal) {
-        button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font {
+        body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText {
             font-family: Inter var,Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         }
-        .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link) {
+        .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell {
             font-weight: 330;
         }
     }
@@ -2956,6 +2956,23 @@
     a.userStatsLegend__itemTitleWrapper {
         color: #000!important;
         font-weight: 600;
+    }
+    .g-tabs-link.active {
+        color: #f50!important;
+    }
+    .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover {
+        color: #ccc;
+        border-color: #f50;
+    }
+    .sc-toggle.toggleFormControl__toggle:not(.sc-toggle-active) {
+        border: 2px solid #393939;
+        background: #333;
+    }
+    .sc-toggle.toggleFormControl__toggle:not(.sc-toggle-active) .sc-toggle-handle {
+        background: #ddd;
+    }
+    .notificationsPreferences__table .sc-border-light-bottom {
+        border-bottom: 1px solid #222;
     }
 }
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/library") {
@@ -3114,7 +3131,7 @@
     /* ↑----------------------[ pre-chosen section <dark> ]----------------------↑ */
     /* ↓----------------------[ general ]----------------------↓ */
 
-    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon, .g-tabs-link.active, .g-required-label:after, .sc-button-startstation, .sc-orange /* ---[ colors everything ]--- */ {
+    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon, .g-tabs-link.active, .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover, .g-required-label:after, .sc-button-startstation, .sc-orange /* ---[ colors everything ]--- */ {
         -webkit-animation: rainbow 4s steps(36) infinite!IMPORTANT;
            -moz-animation: rainbow 4s steps(36) infinite!IMPORTANT;
             -ms-animation: rainbow 4s steps(36) infinite!IMPORTANT;
