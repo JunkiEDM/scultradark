@@ -1,9 +1,9 @@
 /* ==UserStyle==
-@name         SoundCloud Ultra Dark MOD (Classic Header)
+@name         Soundcloud Hyper Dark
 @namespace    JunkiEDM
-@version      0.9.116
+@version      0.9.117
 @homepageURL  https://github.com/JunkiEDM/scultradark
-@updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-UltraDark-MOD.user.css
+@updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
 @license      CC-BY-SA-4.0
 @author       JunkiEDM, IgChi, pawelos076232, CriAsuDre
 @preprocessor default
@@ -2002,7 +2002,11 @@
     }
 
 
+    
     /* Custom Snippets */
+    
+    
+    
     .g-z-index-header-menu[style] {
         border-radius: 32px!important;
         border: none!important;
