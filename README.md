@@ -1,6 +1,6 @@
-# SoundCloud Ultra Dark (Modified)
+# Soundcloud Hyper Dark
 UserStyle Modification of SoundCloud Ultra Dark by IgChi: https://userstyles.org/styles/176264 <br>
-[📦 Install UserCSS Style (Supports automatic updates)](https://github.com/JunkiEDM/scultradark/raw/master/SC-UltraDark-MOD.user.css) <br>
+[📦 Install UserCSS Style (Supports automatic updates)](https://github.com/JunkiEDM/scultradark/raw/master/SC-HyperDark.user.css) <br>
 Preview: <br>
 ![Preview](preview.png) <br> <br>
 **NO LONGER MAINTAINED:** [📦 Install UserCSS Style (With old 'cover-style' profile headers)](https://github.com/JunkiEDM/scultradark/raw/master/SC-UltraDark-MOD-oldheader.user.css) <br> <br>
