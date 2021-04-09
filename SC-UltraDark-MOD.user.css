@@ -1,0 +1,13 @@
+/* ==UserStyle==
+@name         SoundCloud Ultra Dark MOD (Classic Header)
+@namespace    JunkiEDM
+@version      0.9.117
+@homepageURL  https://github.com/JunkiEDM/scultradark
+@updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
+@license      CC-BY-SA-4.0
+@author       JunkiEDM, IgChi, pawelos076232, CriAsuDre
+@preprocessor default
+==/UserStyle== */
+
+@import url('https://rsms.me/inter/inter.css');
+@import url('./SC-HyperDark.user.css');
