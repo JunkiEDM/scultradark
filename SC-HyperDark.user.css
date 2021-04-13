@@ -1446,7 +1446,7 @@
         box-shadow: inset -1px -2px 8px #f40c;
         color: #fff !important;
         padding: 0 15px;
-        transition-duration: 1s
+        transition-duration: 0.5s
     }
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue),
     .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue) {
