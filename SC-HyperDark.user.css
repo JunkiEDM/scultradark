@@ -841,8 +841,9 @@
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights {
         background: #f50;
         background: linear-gradient(#f60,#f40);
+        box-shadow: inset 0px 0px 0px #c200;
         filter: brightness(1) contrast(1) hue-rotate(/*[[hue]]*/deg);
-        transition-duration: 0.5s;
+        transition-duration: 0.7s;
         border-radius: 500px;
         color: #fff;
     }
@@ -3225,14 +3226,14 @@
     .sc-button-next, .sc-button-pause, .sc-button-play, .sc-button-prev, .sc-button.sc-button-blocked, .sc-button.sc-button-play.sc-button-disabled:disabled, .sc-button.sc-button-play:disabled, .sc-button.sc-button-play:disabled:hover {
         background-color: #f50;
         background: linear-gradient(#f60,#f40);
-        filter: brightness(1) contrast(1) hue-rotate(/*[[hue]]*/deg);
+        filter: brightness(1) contrast(1) hue-rotate(/*[[hue]]*/deg)!important;
         transition-duration: 0.5s;
     }
     .sc-button-next.sc-button-focus, .sc-button-next:focus, .sc-button-next:hover, .sc-button-pause.sc-button-focus, .sc-button-pause:focus, .sc-button-pause:hover, .sc-button-play.sc-button-focus, .sc-button-play:focus, .sc-button-play:hover, .sc-button-prev.sc-button-focus, .sc-button-prev:focus, .sc-button-prev:hover {
         background-color: #f30;
         background: linear-gradient(#f60,#f40);
         box-shadow: inset -2px -8px 16px #c20c;
-        filter: brightness(0.9) contrast(1.3) hue-rotate(/*[[hue]]*/deg) hue-rotate(-2deg);
+        filter: brightness(0.9) contrast(1.3) hue-rotate(/*[[hue]]*/deg) hue-rotate(-2deg)!important;
         transition-duration: 0.2s;
     }
     /* Color changer (switched from https://33kk.github.io/uso-archive/?style=123974 to simpler method) */
