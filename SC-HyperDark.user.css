@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.121
+@version      0.9.122
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -393,7 +393,7 @@
         font-size: 14px;
         color: #fff
     }
-    .badgeList__item {
+    .sc-classic .badgeList__item, .badgeList__item {
         width: 150px
     }
     .l-collection {
@@ -2160,7 +2160,7 @@
     .profileMenu__list {
         background-color: #222
     }
-    .headerMenu.m-light {  /*modified*/
+    .sc-classic .headerMenu.m-light, .headerMenu.m-light {  /*modified*/
         background-color: #111;
         border-color: #333;
         transition-duration: 1s;
@@ -2189,7 +2189,10 @@
     }
     .dropdownContent__listItem,
     .dropdownContent__header,
-    .dropdownContent__main {
+    .dropdownContent__main, 
+    .sc-classic .dropdownContent__listItem,
+    .sc-classic .dropdownContent__header,
+    .sc-classic .dropdownContent__main {
         border-bottom-color: #1c1c1c
     }
     .notificationBadge__link:focus {
@@ -2294,7 +2297,7 @@
         background: #111;
     }
     /* queue and dropdowns */
-    .dropdownContent__container, .headerMenu.m-light, .dialog, .playControls__queue {
+    .sc-classic .dropdownContent__container, .dropdownContent__container, .sc-classic .headerMenu.m-light, .headerMenu.m-light, .dialog, .playControls__queue {
         border: none!important;
         border-radius: 12px;
         background-color: #1118;
