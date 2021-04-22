@@ -19,7 +19,7 @@
 @advanced text fil "Advanced CSS Filters" "brightness(100%) contrast(100%) saturate(100%)"
 ==/UserStyle== */
 
-@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections)(.|[\?\&=\-_\/+])*)") {
+@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     :root {
         --fil: /*[[adv]]*/;
     }
@@ -243,7 +243,7 @@
         margin-left: 15px;
         margin-right: 15px
     }
-    #app,
+    #app:not([o9z9p2x23o21qwe1yml8n]),
     #app header:not(.g-flex-row-spread) {
         height: calc(100vh - 90px)
     }
@@ -1712,7 +1712,7 @@
     .inboxItem:focus,
     .inboxItem:hover,
     .inbox__item:before,
-    .modal__modal,
+    .modal__modal/*:not(#overlay_634 .modal__modal)*/,
     .sc-button-disabled,
     .sc-button-disabled:focus,
     .sc-button-disabled:hover,
@@ -3258,20 +3258,28 @@
         background: radial-gradient(transparent 0, black 100%);
         backdrop-filter: sepia(0.5) saturate(1) hue-rotate(/*[[hue]]*/deg) hue-rotate(-20deg) brightness(1.2) contrast(8) blur(200px);
     }
+    /*#overlay_634 .modal__modal {
+        background: #111
+    }*/
 }
-@-moz-document regexp("http(s)?://(|www\.)?(|secure\.)?soundcloud\.com/?((?!jobs|settings/connections)(.|[\?\&=\-_\/+])*)") {
+@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
+    body, body.sc-classic {
+        background: #0d0d0d!important;
+    }
+}
+@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     :root {
-        --background-surface-color: #111;
+        --background-surface-color: #0d0d0d;
         --background-highlight-color: #303030;
         --background-light-color: #fff;
-        --background-dark-color: #111;
+        --background-dark-color: #0d0d0d;
         --font-primary-color: #fff;
         --font-secondary-color: #999;
         --font-special-color: #f50;
         --font-link-color: #3370dd;
         --font-error-color: #d61348;
         --font-light-color: #fff;
-        --font-dark-color: #111;
+        --font-dark-color: #0d0d0d;
         --button-primary-background-color: #fff;
         --button-primary-font-color: #000;
         --button-secondary-background-color: #303030;
@@ -3282,7 +3290,7 @@
         --button-special-font-color: #fff;
         --button-light-background-color: #fff;
         --button-light-font-color: #000;
-        --button-dark-background-color: #111;
+        --button-dark-background-color: #0d0d0d;
         --button-dark-font-color: #fff;
         --overlay-default-color: hsla(0, 0%, 100%, 0.4);
         --input-default-background-color: #f3f3f3;
