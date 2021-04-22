@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.123
+@version      0.9.124
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -19,7 +19,7 @@
 @advanced text fil "Advanced CSS Filters" "brightness(100%) contrast(100%) saturate(100%)"
 ==/UserStyle== */
 
-@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections).*)") {
+@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/((?!jobs|settings/connections)(.|[\?\&=\-_\/+])*)") {
     :root {
         --fil: /*[[adv]]*/;
     }
@@ -3259,7 +3259,44 @@
         backdrop-filter: sepia(0.5) saturate(1) hue-rotate(/*[[hue]]*/deg) hue-rotate(-20deg) brightness(1.2) contrast(8) blur(200px);
     }
 }
-
+@-moz-document regexp("http(s)?://(|www\.)?(|secure\.)?soundcloud\.com/?((?!jobs|settings/connections)(.|[\?\&=\-_\/+])*)") {
+    :root {
+        --background-surface-color: #111;
+        --background-highlight-color: #303030;
+        --background-light-color: #fff;
+        --background-dark-color: #111;
+        --font-primary-color: #fff;
+        --font-secondary-color: #999;
+        --font-special-color: #f50;
+        --font-link-color: #3370dd;
+        --font-error-color: #d61348;
+        --font-light-color: #fff;
+        --font-dark-color: #111;
+        --button-primary-background-color: #fff;
+        --button-primary-font-color: #000;
+        --button-secondary-background-color: #303030;
+        --button-secondary-font-color: #fff;
+        --button-disabled-background-color: #303030;
+        --button-disabled-font-color: #999;
+        --button-special-background-color: #f50;
+        --button-special-font-color: #fff;
+        --button-light-background-color: #fff;
+        --button-light-font-color: #000;
+        --button-dark-background-color: #111;
+        --button-dark-font-color: #fff;
+        --overlay-default-color: hsla(0, 0%, 100%, 0.4);
+        --input-default-background-color: #f3f3f3;
+        --input-default-border-color: transparent;
+        --input-focused-background-color: #f3f3f3;
+        --input-focused-border-color: #666;
+        --input-invalid-background-color: #f3f3f3;
+        --input-invalid-border-color: #d61348;
+        --checkbox-default-background-color: transparent;
+        --checkbox-default-border-color: #666;
+        --checkbox-checked-background-color: #f50;
+        --checkbox-checked-border-color: #f50;
+    }
+}
 
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/library") {
     /* Make Library section a hell of a lot nicer :) */
