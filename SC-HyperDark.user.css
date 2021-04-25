@@ -22,6 +22,8 @@
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     :root {
         --fil: /*[[adv]]*/;
+        --hue: /*[[hue]]*/;
+        --blu: /*[[blu]]*/;
     }
     /*----------------------------------------------------------------- IMPORT INTER FONT (https://rsms.me/inter) -----------------------------------------------------------------*/
     /*@import url('https://rsms.me/inter/inter.css');*/
@@ -2936,7 +2938,7 @@
         background: linear-gradient(60deg, #563526 -10%, #48202b 160%)!important;
     }
     .profileHeaderInfo__premiumIndicator, .profileHeaderInfo__verifiedBadge {
-        filter: contrast(1.2) brightness(1.1) hue-rotate(32deg);
+        filter: contrast(1.2) brightness(1.1) hue-rotate(/*[[blu]]*/deg);
         top: 8px!important;
     }
     .sc-status-icon-verified.sc-status-icon-medium {
@@ -3246,7 +3248,7 @@
         transition-duration: 0.2s;
     }
     /* Color changer (switched from https://33kk.github.io/uso-archive/?style=123974 to simpler method) */
-    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew, .header__inner .header__right, .tileGallery__sliderButton:active, .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static {
+    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew, .tileGallery__sliderButton:active, .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static {
       filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     /* soundcloud stories */
@@ -3353,6 +3355,12 @@
     }
     .uploadLoggedOut__testimonialListItem {
         background: #222;
+    }
+    .header__inner .header__right {
+        filter: hue-rotate(/*[[hue]]*/deg)
+    }
+    .header__userNav {
+        filter: hue-rotate(calc(/*[[hue]]*/deg * -1));
     }
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
