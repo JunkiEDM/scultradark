@@ -867,13 +867,13 @@
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium {
         display: flex;
-        justify-content: end;
+        justify-content: space-evenly;
         align-items: center;
         border: 0;
         padding-right: calc(109vw - 100%);
         padding-left: 10px;
         margin-top: -80px;
-        flex-flow: wrap-reverse;
+        flex-flow: wrap;
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link {
         font-size: 12px;
@@ -897,7 +897,7 @@
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link:hover {
         opacity: 1;
         font-weight: 600; /* alongside navfix */
-        padding: 5px 4.7%!important;
+        padding: 6px 4.7%!important;
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link.active:before {
         content: "";
@@ -2876,7 +2876,7 @@
         flex-direction: row;
     }
     .userInfoBar {
-        padding-top: 15px!important;
+        padding-top: 20px!important;
     }
     .profileHeaderBackground > div {
         border-radius: 0px 0px 32px 32px!important;
@@ -3402,7 +3402,7 @@
         letter-spacing: .12em!important;
         margin: 0.2vw!important;
         font-size: 14px!important;
-        padding: 5px 5%!important;
+        padding: 6px 5%!important;
         white-space: nowrap;
     }
 
