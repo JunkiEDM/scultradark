@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.125
+@version      0.9.126
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -870,7 +870,7 @@
         justify-content: end;
         align-items: center;
         border: 0;
-        padding-right: calc(105vw - 100%);
+        padding-right: calc(109vw - 100%);
         padding-left: 10px;
         margin-top: -80px;
         flex-flow: wrap-reverse;
@@ -879,6 +879,7 @@
         font-size: 12px;
         line-height: 16px;
         font-weight: var(--glue-font-weight-bold);
+        font-weight: 330;
         text-transform: uppercase;
         letter-spacing: .16em;
         color: #fff!important;
@@ -894,7 +895,9 @@
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link.active,
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link:hover {
-        opacity: 1
+        opacity: 1;
+        font-weight: 600; /* alongside navfix */
+        padding: 5px 4.7%!important;
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link.active:before {
         content: "";
@@ -3232,7 +3235,7 @@
         background: inherit!important;
     }
     .sc-classic .l-fluid-fixed .l-user-main {
-        padding-top: 30px;
+        padding-top: 60px; /* old: 30px */
     }
     .sc-button-next, .sc-button-pause, .sc-button-play, .sc-button-prev, .sc-button.sc-button-blocked, .sc-button.sc-button-play.sc-button-disabled:disabled, .sc-button.sc-button-play:disabled, .sc-button.sc-button-play:disabled:hover {
         background-color: #f50;
@@ -3361,6 +3364,53 @@
     }
     .header__userNav, .header__inner .header__right .left {
         filter: hue-rotate(calc(/*[[hue]]*/deg * -1));
+    }
+    #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium {
+        margin-top: -20px;
+    }
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons {
+        bottom: 120px;
+        right: 20px;
+    }
+    @media only screen and (max-width: 1000px) {
+        .profileHeaderBackground__visual, .profileHeader__link {
+            width: calc(100vw - 320px)!important;
+        }
+        .profileTabs.g-tabs.g-tabs-medium {
+            padding-right: calc(100vw - 120%)!important;
+        }
+        .userInfoBar__buttons, .profileHeaderInfo__content.sc-media-content {
+            margin-right: 80px!important;
+        }
+    }
+    @media only screen and (min-width: 2000px) {
+        .profileHeaderBackground > div {
+            /*height: 30vh;*/
+            /*background-size: 100% 100%!important;*/
+            /*filter: blur(20px);*/
+            background-repeat: repeat;
+            background-size: 100%;
+            background-position: left bottom;
+        }
+    }
+
+    .userInfoBar__buttons {
+        position: relative;
+    }
+
+    .g-tabs-item .g-tabs-link {
+        letter-spacing: .12em!important;
+        margin: 0.2vw!important;
+        font-size: 14px!important;
+        padding: 5px 5%!important;
+        white-space: nowrap;
+    }
+
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-follow, #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation, #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights {
+        font-size: 12px;
+        letter-spacing: .12em;
+        white-space: nowrap;
+        line-height: 125%;
     }
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
