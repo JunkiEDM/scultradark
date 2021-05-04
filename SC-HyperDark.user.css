@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.126
+@version      0.9.127
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -11,6 +11,10 @@
 @preprocessor uso
 @advanced text hue "Orange Hue" "-20"
 @advanced text blu "Blue Hue" "15"
+@advanced select sin "Insights on sidebar?" {
+  "Show": "height:100%;opacity:1;",
+  "Hide": "height:0;opacity:0;"
+}
 ==/UserStyle== *//* --- REMOVE THIS LINE TO SHOW ADVANCED FILTERS ---
 @advanced dropdown adv "Enable Advanced Filters?" {
   adv-off "Disabled" <<<EOT /* ---[ Disabled ]--- *\/ EOT;
@@ -24,6 +28,7 @@
         --fil: /*[[adv]]*/;
         --hue: /*[[hue]]*/;
         --blu: /*[[blu]]*/;
+        --sin: /*[[sin]]*/;
     }
     /*----------------------------------------------------------------- IMPORT INTER FONT (https://rsms.me/inter) -----------------------------------------------------------------*/
     /*@import url('https://rsms.me/inter/inter.css');*/
@@ -3235,7 +3240,7 @@
         background: inherit!important;
     }
     .sc-classic .l-fluid-fixed .l-user-main {
-        padding-top: 60px; /* old: 30px */
+        padding-top: 50px; /* old: 30px */
     }
     .sc-button-next, .sc-button-pause, .sc-button-play, .sc-button-prev, .sc-button.sc-button-blocked, .sc-button.sc-button-play.sc-button-disabled:disabled, .sc-button.sc-button-play:disabled, .sc-button.sc-button-play:disabled:hover {
         background-color: #f50;
@@ -3366,7 +3371,7 @@
         filter: hue-rotate(calc(/*[[hue]]*/deg * -1));
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium {
-        margin-top: -20px;
+        margin-top: -25px;
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons {
         bottom: 120px;
@@ -3411,6 +3416,33 @@
         letter-spacing: .12em;
         white-space: nowrap;
         line-height: 125%;
+    }
+  
+    .insightsSidebarModule.sc-font {
+        padding-top: 8px;
+        /* display: none; */
+    }
+    div[data-react-view-id="react_view_25676"] {
+        padding-top: 16px;
+        /*height: 100%;*/
+        /*height: 0px;*/
+        overflow-y: clip;
+        transition-duration: 0.5s;
+    }
+    div[data-react-view-id="react_view_25676"]{/*[[sin]]*/} /*show/hide sidebar insights*/
+    
+    .insightsSidebarModule__plays {
+        font-weight: 600;
+    }
+    .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays) {
+        font-weight: 400;
+        margin-top: -6px;
+    }
+    .insightsSidebarModule__timeframe {
+        font-size: 14px;
+    }
+    .insightsSidebarModule__title {
+        font-size: 16px;
     }
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
