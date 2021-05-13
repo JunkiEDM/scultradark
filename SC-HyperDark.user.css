@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.127
+@version      0.9.128
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -14,6 +14,10 @@
 @advanced select sin "Insights on sidebar?" {
   "Show": "height:100%;",
   "Hide": "height:0;"
+}
+@advanced select gdpr "Cookie Notice?" {
+  "Show": "display:inherit;",
+  "Hide": "display:none;"
 }
 ==/UserStyle== *//* --- REMOVE THIS LINE TO SHOW ADVANCED FILTERS ---
 @advanced dropdown adv "Enable Advanced Filters?" {
@@ -29,6 +33,7 @@
         --hue: /*[[hue]]*/;
         --blu: /*[[blu]]*/;
         --sin: /*[[sin]]*/;
+        --gdpr: /*[[gdpr]]*/;
     }
     /*----------------------------------------------------------------- IMPORT INTER FONT (https://rsms.me/inter) -----------------------------------------------------------------*/
     /*@import url('https://rsms.me/inter/inter.css');*/
@@ -2131,19 +2136,19 @@
         color: #fff
     }
     .frontMobileTeaser__device {
-        filter: invert(.982)
+        filter: invert(.982) hue-rotate(180deg);
     }
     .frontMobileTeaser {
-        background: #111
+        background: #111;
     }
     .header__loginMenu {
-        padding: 16px 6px 2px
+        padding: 16px 6px 2px;
     }
     .header__loginMenu .loginButton {
-        margin-right: 5px
+        margin-right: 5px;
     }
     .header__loginMenu .signupButton {
-        margin-left: 5px
+        margin-left: 5px;
     }
     .g-opacity-transition.sc-button.sc-button-medium.loginButton {
         border-color: #666!important;
@@ -3006,9 +3011,9 @@
     .profileHeaderBackground > div > .backgroundGradient > .backgroundGradient__buffer {
         border-radius: 0px 0px 32px 32px!important;
     }
-    .audibleEditForm__form {
+    /*.audibleEditForm__form {
         margin-bottom: 96px;
-    }
+    }*/
     .proUnlimitedBadge, .creatorBadge {
         display: none;
     }
@@ -3019,16 +3024,15 @@
     .callout__bubble {
         background-color: #191919;
         border-radius: 12px;
-        border: solid 2px #f53d;
+        border: solid 2px #f50;
         filter: drop-shadow(2px 6px 12px #0009) hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     .callout__bubble:before {
         bottom: -12px;
         background-color: #191919;
         background: linear-gradient(-45deg, #f50 -50%, #191919 50%);
-        border-bottom: solid 2px #f53d;
-        border-right: solid 2px #f53d;
-        filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
+        border-bottom: solid 2px #f50;
+        border-right: solid 2px #f50;
     }
     .callout__captionBody {
         color: #ccc;
@@ -3037,7 +3041,10 @@
         color: #fff;
     }
     .callout__captionImage {
-        filter: brightness(0.9) invert(1) hue-rotate(160deg) saturate(2);
+        filter: brightness(0.9) invert(1) hue-rotate(180deg) hue-rotate(/*[[hue]]*/deg) saturate(2);
+    }
+    .callout__button {
+        filter: hue-rotate(calc(/*[[hue]]*/deg * -1));
     }
     /* modify sidebar jank */
     .infoStats {
@@ -3106,25 +3113,25 @@
         transition: color 0.2s;
     }
     /* Change font to Inter */
-    body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText {
+    body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header {
         font-family: Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a {
+    .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title {
         font-weight: 600;
     }
-    body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title {
+    body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large {
         font-weight: 400;
     }
-    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .header, .infoStats__value, .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell {
+    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder .header, .infoStats__value, .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link {
         font-weight: 300;
     }
     .spotlightTitle, .userstream__header, .sc-font {
         font-weight: 200;
     }
     @supports (font-variation-settings: normal) {
-        body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText {
+        body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header {
             font-family: Inter var,Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         }
         .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell {
@@ -3292,9 +3299,10 @@
     .tokenInput.focused .tokenInput__wrapper {
         border-color: #444;
     }
-    .soundEditForm {
+    .audibleEditForm {
         border-radius: 12px;
         border: 1px solid #111;
+        margin-bottom: 144px;
     }
     .fullListenHero.fullHero.l-inner-fullwidth {
         border-radius: 0px 0px 0px 32px;
@@ -3403,7 +3411,7 @@
         position: relative;
     }
 
-    .g-tabs-item .g-tabs-link {
+    .profileTabs .g-tabs-item .g-tabs-link {
         letter-spacing: .12em!important;
         margin: 0.2vw!important;
         font-size: 14px!important;
@@ -3438,11 +3446,141 @@
     .insightsSidebarModule__title {
         font-size: 16px;
     }
+     /* gdpr aka cookie consent dickbar */
+    #onetrust-consent-sdk #onetrust-banner-sdk {
+        background-color: #111;
+    }
+    #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc {
+        color: #fff!important;
+        font-weight: 400;
+    }
+    .onetrust-pc-dark-filter {
+        background: #0002;
+        pointer-events: none;
+    }
+    #onetrust-consent-sdk {
+        /*[[gdpr]]*/
+    }
+    .onetrust-pc-dark-filter.ot-fade-in {
+        pointer-events: none;
+    }
+    #onetrust-consent-sdk #onetrust-pc-sdk, #onetrust-consent-sdk #ot-search-cntr, #onetrust-consent-sdk #onetrust-pc-sdk .ot-switch.ot-toggle, #onetrust-consent-sdk #onetrust-pc-sdk ot-grp-hdr1 .checkbox, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title:after, #onetrust-consent-sdk #onetrust-pc-sdk #ot-sel-blk, #onetrust-consent-sdk #onetrust-pc-sdk #ot-fltr-cnt, #onetrust-consent-sdk #onetrust-pc-sdk #ot-anchor {
+        background-color: #111;
+        box-shadow: 0px 2px 16px -3px #000;
+        border-radius: 24px;
+    }
+    #onetrust-consent-sdk #onetrust-pc-sdk h3, #onetrust-consent-sdk #onetrust-pc-sdk h4, #onetrust-consent-sdk #onetrust-pc-sdk h5, #onetrust-consent-sdk #onetrust-pc-sdk h6, #onetrust-consent-sdk #onetrust-pc-sdk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-ven-lst .ot-ven-opts p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-desc, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-li-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-sel-all-hdr span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-info, #onetrust-consent-sdk #onetrust-pc-sdk #ot-fltr-modal #modal-header, #onetrust-consent-sdk #onetrust-pc-sdk .ot-checkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-sel-blk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-lst-title span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .back-btn-handler p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .ot-ven-name, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-ven-lst .consent-category, #onetrust-consent-sdk #onetrust-pc-sdk .ot-leg-btn-container .ot-inactive-leg-btn, #onetrust-consent-sdk #onetrust-pc-sdk .ot-label-status, #onetrust-consent-sdk #onetrust-pc-sdk .ot-chkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #clear-filters-handler {
+        color: #fff;
+    }
+    #onetrust-pc-sdk button + .ot-acc-hdr .ot-plus-minus:before {
+        filter: invert(1);
+    }
+    #onetrust-pc-sdk .ot-accordion-layout h4 ~ .ot-always-active {
+        color: #fff;
+    }
+    #accept-recommended-btn-handler {
+        filter: contrast(0.87);
+        height: 32px!important;
+        padding: 12px!important;
+        border: none!important;
+        font-weight: 100!important;
+    }
+    #onetrust-pc-sdk #close-pc-btn-handler.ot-close-icon {
+        filter: invert(0.9) brightness(1.2);
+    }
+    #onetrust-pc-sdk .ot-switch-nob {
+        background: #222;
+        border: 1px solid #333;
+    }
+    #onetrust-pc-sdk .ot-tgl input:checked + .ot-switch .ot-switch-nob {
+        background-color: #555;
+        border: 1px solid #666;
+    }
+    #onetrust-consent-sdk #onetrust-pc-sdk .ot-acc-grpcntr.ot-acc-txt, #onetrust-consent-sdk #onetrust-pc-sdk .ot-acc-txt .ot-subgrp-tgl .ot-switch.ot-toggle {
+        background-color: #111;
+    }
+    #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link {
+        color: #3c8fe6;
+        font-weight: 300;
+    }
+
+    .sc-type-large {
+        filter: drop-shadow(2px 2px 4px #0006);
+    }
+    .frontHero__title {
+        text-align: center;
+    }
+    .sc-classic .g-type-marketing-header {
+        font-family: Inter,sans-serif;
+    }
+
+    .onSoundCloudTeaser__title.sc-font-light {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 1.1;
+    }
+
+    span.frontContent__uploadOwnButton {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    button.headerSearch__submit.submit.sc-ir {
+        font-weight: 400;
+    }
+
+    input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
+        font-weight: 200;
+    }
+
+    form.headerSearch {
+        font-weight: 400;
+    }
+
+    a.frontContent__uploadButton.sc-button.sc-button-cta.sc-button-primary.sc-button-large {
+        margin-top: 4px;
+    }
+
+    .trendingTracks ul.lazyLoadingList__list.sc-list-nostyle.sc-clearfix {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: center;
+    }
+
+    .frontHero {
+        filter: hue-rotate(/*[[hue]]*/deg);
+    }
+    .frontHero > * {
+        filter: hue-rotate(hue-rotate(calc(/*[[hue]]*/deg * -1)));
+    }
+
+    .header__loginMenu {
+        display: flex;
+        float: none;
+        justify-content: center;
+    }
+    .story__track__artist {
+        color: #ccc;
+    }
+    .artistNavigationItem__button {
+        border-radius: 15px;
+    }
+    /*input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder {
+        font-weight: 300;
+    }
+    .modal__modal { 
+        background: #111;
+        filter: brightness(1) contrast(1.1);
+    }*/
+    
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     body, body.sc-classic {
-        background: #111!important;
+        background: #0000!important;
     }
+    
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     :root {
