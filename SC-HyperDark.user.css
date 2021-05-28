@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.128
+@version      0.9.129
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -2574,7 +2574,7 @@
     #app .l-container #content {
         overflow: visible;
     }
-    .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional { /*Remove linear-gradient background on some selection areas*/
+    .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional, .editTrackItem.m-dragging .editTrackItem__additional { /*Remove linear-gradient background on some selection areas*/
         background: none;
     }
     .commentFormDisabled {
@@ -3122,11 +3122,11 @@
     .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title {
         font-weight: 600;
     }
-    body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
+    body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy {
         font-weight: 400;
     }
-    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, 
+    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, 
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link {
         font-weight: 300;
     }
@@ -3138,7 +3138,7 @@
         body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header {
             font-family: Inter var,Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         }
-        .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell {
+        .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .sc-classic .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell {
             font-weight: 330;
         }
     }
@@ -3579,6 +3579,33 @@
         filter: brightness(1) contrast(1.1);
     }*/
     
+    .editTrackList__list .sortable-placeholder {
+        background: #060606;
+        border-top: 1px solid #1a1a1a;
+    }
+    .editTrackItem.m-dragging {
+        background-color: #1c1c1c;
+        padding: 1px 5px;
+    }
+    .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional {
+        background: #0d0d0d;
+        background: linear-gradient(90deg,#0d0d0d11,#0d0d0d 17px);
+    }
+    .editTrackItem.m-dragging .editTrackItem__additional {
+        background: #1c1c1c;
+        background: linear-gradient(90deg,#1c1c1c1c,#1c1c1c 17px);
+    }
+    .editTrackItem {
+        transition: padding 0.3s;
+    }
+    .linkMenu__groupTitle {
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        border-bottom: 1px solid #111;
+        /* padding-top: 8px; */
+        box-shadow: 0px 8px 14px -11px #fff;
+    }
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     body, body.sc-classic {
