@@ -3623,7 +3623,7 @@
         font-size: 10px;
         font-weight: 800;
     }
-    span.sc-artwork.sc-artwork-placeholder-0:not([style^="background-image: url"]) {
+    span.sc-artwork.sc-artwork-placeholder-0:not([style*="background-image: url"]) {
         background-image: linear-gradient(135deg,hsl(calc(20deg + /*[[hue]]*/deg) 18% 44%) -20%,hsl(calc(210deg + /*[[blu]]*/deg) 16% 50%) 120%);
         filter: brightness(1.1) saturate(1.3) invert(1) hue-rotate(180deg);
         /*filter: brightness(1.1) invert(1) hue-rotate(225deg) hue-rotate([[hue]]deg);*/
