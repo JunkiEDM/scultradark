@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.130
+@version      0.9.131
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -11,6 +11,7 @@
 @preprocessor uso
 @advanced text hue "Orange Hue" "-20"
 @advanced text blu "Blue Hue" "15"
+@advanced text font "Font" "Inter"
 @advanced select sin "Insights on sidebar?" {
   "Show": "height:100%;",
   "Hide": "height:0;"
@@ -34,6 +35,7 @@
         --blu: /*[[blu]]*/;
         --sin: /*[[sin]]*/;
         --gdpr: /*[[gdpr]]*/;
+        --font: /*[[font]]*/;
     }
     /*----------------------------------------------------------------- IMPORT INTER FONT (https://rsms.me/inter) -----------------------------------------------------------------*/
     /*@import url('https://rsms.me/inter/inter.css');*/
@@ -1444,7 +1446,7 @@
     }
     .sc-input {
         display: inline-block;
-        font-family: Inter, Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+        font-family: /*[[font]]*/, Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
         font-weight: 400;
         font-size: 14px;
         line-height: 20px;
@@ -1514,7 +1516,7 @@
     .queue__scrollableInner.g-scrollable-inner {
         background: 0 0
     }
-    .l-fluid-fixed .l-main {
+    .l-fluid-fixed .l-main, .sc-classic .l-fluid-fixed .l-main {
         padding: 15px 15px 0 0
     }
     .l-fluid-fixed .l-sidebar-right {
@@ -2184,20 +2186,25 @@
         box-shadow: none;
     }
     .m-light .headerMenu__link:focus,
-    .m-light .headerMenu__link:hover {
+    .m-light .headerMenu__link:hover,
+    .sc-classic .m-light .headerMenu__link:focus,
+    .sc-classic .m-light .headerMenu__link:hover {
         background-color: #0d0d0d;
         transition-duration: 0.25s;
         box-shadow: 16px -4px 12px #0004 inset;
     }
     .m-light .headerMenu__link, /*unmodified*/
     .m-light .headerMenu__link:focus,
-    .m-light .headerMenu__link:hover {
+    .m-light .headerMenu__link:hover,
+    .sc-classic .m-light .headerMenu__link,
+    .sc-classic .m-light .headerMenu__link:focus,
+    .sc-classic .m-light .headerMenu__link:hover {
         color: #ccc
     }
     .m-light a[class*="profileMenu__"]:after {
         filter: invert(1)
     }
-    .m-light .headerMenu__list {
+    .m-light .headerMenu__list, .sc-classic .m-light .headerMenu__list {
         border-color: #1c1c1c
     }
     .dropdownContent__container {
@@ -2912,7 +2919,7 @@
         z-index: 3;
     }
     div#content>div>div.l-fluid-fixed:only-child div.l-sidebar-right {
-        top: 15px!important;
+        top: 4px!important;
     }
     .header__navWrapper .header__navMenu li a.selected {
         filter: hue-rotate(/*[[hue]]*/deg) hue-rotate(-1deg) contrast(0.8) brightness(1.2) contrast(1.5) saturate(1.5) var(--fil);
@@ -3115,7 +3122,7 @@
     /* Change font to Inter */
     body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header {
-        font-family: Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
+        font-family: /*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
@@ -3136,7 +3143,7 @@
     @supports (font-variation-settings: normal) {
         body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
         body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header {
-            font-family: Inter var,Inter,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
+            font-family: /*[[font]]*/ var,/*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         }
         .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .sc-classic .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell {
             font-weight: 330;
@@ -3515,7 +3522,7 @@
         text-align: center;
     }
     .sc-classic .g-type-marketing-header {
-        font-family: Inter,sans-serif;
+        font-family: /*[[font]]*/,sans-serif;
     }
 
     .onSoundCloudTeaser__title.sc-font-light {
@@ -3623,7 +3630,7 @@
         font-size: 10px;
         font-weight: 800;
     }
-    span.sc-artwork.sc-artwork-placeholder-0:not([style*="background-image: url"]) {
+    span.sc-artwork.sc-artwork-placeholder-0:not([style*="background-image:"]) {
         background-image: linear-gradient(135deg,hsl(calc(20deg + /*[[hue]]*/deg) 18% 44%) -20%,hsl(calc(210deg + /*[[blu]]*/deg) 16% 50%) 120%);
         filter: brightness(1.1) saturate(1.3) invert(1) hue-rotate(180deg);
         /*filter: brightness(1.1) invert(1) hue-rotate(225deg) hue-rotate([[hue]]deg);*/
@@ -3634,6 +3641,13 @@
     div.g-z-index-modal-background {
         height: calc(100vh - 90px);
         box-shadow: 0px 90px 0px 90px rgb(0 0 0 / 90%);
+    }
+    .sc-classic .l-fluid-fixed .l-main {
+        margin: 20px 330px 0 0;
+    }
+    .playControls__soundBadge .playbackSoundBadge .image {
+        height: 100%!important;
+        width: 100%!important;
     }
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
