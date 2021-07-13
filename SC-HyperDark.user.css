@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.131
+@version      0.9.132
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -456,7 +456,7 @@
         background: 0 0;
         color: #b3b3b3;
         cursor: default;
-        font-size: 14px
+        font-size: 14px!important
     }
     .moreActions .moreActions__button.sc-button-medium:before {
         filter: brightness(3)
@@ -1617,7 +1617,8 @@
     .sc-button-small.sc-button-download:before,
     .sc-button-small.sc-button-upload:before,
     .sc-button-medium.sc-button-delete:before,
-    .sc-button-medium.sc-button-download:before {
+    .sc-button-medium.sc-button-download:before,
+    .sc-button-medium.sc-button-copylink:before {
         filter: brightness(7.5)
     }
     /*.gritter-close,*/
@@ -2994,7 +2995,7 @@
     .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6 {
         /*font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
     }
-    .sc-button-small:not(.sc-button-cta) {
+    .sc-button-small:not(.sc-button-cta), .sc-button-medium:not(.sc-button-cta) {
         /*font-family: Product Sans,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
         font-size: 12px;
     }
@@ -3130,7 +3131,8 @@
         font-weight: 600;
     }
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
-    body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text {
+    body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
+    .sc-buylink-medium, .sc-classic .soundTitle__uploadTime {
         font-weight: 400;
     }
     .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, 
@@ -3649,6 +3651,23 @@
         height: 100%!important;
         width: 100%!important;
     }
+    .callout__bubble.ui-flipped-bottom:before {
+        bottom: auto;
+        top: -12px;
+        transform: rotate(225deg);
+    }
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):disabled {
+        color: #999;
+    }
+    #app .l-container #content .soundBadge__additional .sc-button-small.sc-button-icon.sc-button-more:before {
+        filter: brightness(10);
+    }
+    #app .l-container #content .soundBadge__additional .sc-button-small.sc-button-icon.sc-button-more.sc-button-active:before {
+        filter: brightness(4)!important;
+    }
+    button.sc-button.moreActions__button.sc-button-medium {
+        height: 28px;
+    }
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     body, body.sc-classic {
@@ -3778,6 +3797,11 @@
         --text-color-secondary: var(--platinum);
         --icon-color: var(--white);
         --background-color: #111;
+        --background-surface-color: #111;
+        --background-highlight-color: #191919;
+        --font-secondary-color: #ccc;
+        --datalist-hover-background: #191919;
+        --font-primary-color: #fff;
         --container-background-color: #222;
         --divider-color-outer: #111;
         --divider-color-inner: #111;
