@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.132
+@version      0.9.133
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -443,7 +443,8 @@
     .listenArtworkWrapper__artwork .image__lightOutline .image__full {
         box-shadow: 0 0 20px 0 #0008; /*box-shadow: 0 0 15px 0 #000*/
     }
-    .moreActions, .imageEditDropdown {
+    .moreActions, .imageEditDropdown,
+    .sc-classic .moreActions, .sc-classic .imageEditDropdown {
         /*border: 1px solid rgba(0, 0, 0, .15);*/
         border: 1px solid #0001;
         border-radius: .5rem;
@@ -1821,14 +1822,14 @@
     .removeFromNextUp:hover {
         filter: none
     } */
-    .sc-button-medium.sc-button-like:before,
+    .sc-button-medium.sc-button-like:before/*,
     .sc-toggle:not(.toggleFormControl__toggle),
-    .sc-toggle:not(.toggleFormControl__toggle):before {
+    .sc-toggle:not(.toggleFormControl__toggle):before*/ {
         filter: invert(1)
     }
-    .queueFallback__toggle .sc-toggle, .queueFallback__toggle .sc-toggle:before {
+    /*.queueFallback__toggle .sc-toggle, .queueFallback__toggle .sc-toggle:before {
         filter: none;
-    }
+    }*/
     .searchOptions__scrollable {
         width: 220px!important;
         height: 465px!important
@@ -2322,7 +2323,7 @@
         background: #111;
     }
     /* queue and dropdowns */
-    .sc-classic .dropdownContent__container, .dropdownContent__container, .sc-classic .headerMenu.m-light, .headerMenu.m-light, .dialog, .playControls__queue {
+    .sc-classic .dropdownContent__container, .dropdownContent__container, .sc-classic .headerMenu.m-light, .headerMenu.m-light, .sc-classic .dialog, .dialog, .playControls__queue, .sc-classic .playControls__queue {
         border: none!important;
         border-radius: 12px;
         background-color: #1118;
