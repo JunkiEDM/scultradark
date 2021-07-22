@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.133
+@version      0.9.134
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -739,7 +739,7 @@
         left: 87%;*/
         filter: drop-shadow(2px 6px 12px #0006);
     }
-    #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h3 {
+    #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h3, #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content .profileHeaderInfo__userName {
         margin-top: 0px;
         background: 0;
         font-size: 6em;
@@ -752,6 +752,12 @@
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h4 {
         margin-top: -25px
+    }
+    #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content br {
+        display: none;
+    }
+    #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h2 {
+        margin-top: -8px
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderBackground {
         min-height: 405px;
