@@ -1,6 +1,7 @@
 <h1 align="center">Soundcloud Hyper Dark</h1>
 <h3 align="center">A functional, modern redesign of the outdated Soundcloud UX.<h3>
-<p align="center"><b><a href="https://github.com/JunkiEDM/scultradark/raw/master/SC-HyperDark.user.css">📦 Install UserStyle (Supports automatic updates)</a></b> <i>|</i> <b><a href="https://userstyles.world/style/70">🔗 UserStyles.world Page</a></b></p>
+<p align="center"><b><a href="https://github.com/JunkiEDM/scultradark/raw/master/SC-HyperDark.user.css">📦 Install UserStyle (Supports automatic updates)</a></b> <i>|</i> <b><a href="https://userstyles.world/style/70">🔗 UserStyles.world Page</a></b></p><br>
+<p align="center"><b><a href="https://greasyfork.org/en/scripts/429743-revert-user-headers">UserScript to get rid of "Tracks by..." in the header</a></b></p>
 <br>
 
 ### Preview: <br>
