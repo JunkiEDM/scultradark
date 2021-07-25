@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.134
+@version      0.9.135
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -3674,6 +3674,9 @@
     }
     button.sc-button.moreActions__button.sc-button-medium {
         height: 28px;
+    }
+    .sc-classic .moreActions__button:focus:not(:disabled), .sc-classic .moreActions__button:hover:not(:disabled), .sc-classic .moreActions__link:hover {
+        background-color: #090909;
     }
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
