@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.135
+@version      0.9.136
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -751,7 +751,7 @@
         text-align: right;
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h4 {
-        margin-top: -25px
+        margin-top: -10px
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content br {
         display: none;
@@ -1490,18 +1490,18 @@
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij4KICA8cGF0aCBmaWxsPSJyZ2IoMjU1LCAyNTUsIDI1NSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTUuNTQyIDEuMTY3YzIuMTA3IDAgMi43OTUgMi4yNDYgMS42MSA1LjMzMi0uNDQ0Ljc5My4wMyAxLjIxMS4zMjIgMS4zMzIgMi4wMjYuODM2IDIuODc1IDIuMjEzIDMuMDI2IDMuODM2di41ODNILjU4M3YtLjU4M2MuMTUxLTEuNjIzIDEtMyAzLjAyNi0zLjgzNi4yOTItLjEyLjc2Ni0uNTQuMzIyLTEuMzMxLTEuMTg0LTMuMDk1LS40OTctNS4zMzMgMS42MS01LjMzM3pNMTMuNDcgMy4xOGwuMDU4LjA1LjIzLjIyOGEuNDE1LjQxNSAwIDAgMSAuMDU3LjUyNmwtLjA1My4wNjUtMi43MTQgMi43MTRhLjQwOS40MDkgMCAwIDEtLjUuMDY2bC0uMDQ1LS4wMy0uMDQzLS4wMzgtMS40NzItMS40NzJhLjQyMi40MjIgMCAwIDEtLjA1MS0uNTI3bC4wNTQtLjA2Ni4yMjktLjIzYS40MTUuNDE1IDAgMCAxIC41MjgtLjA1NWwuMDY1LjA1My45NDIuOTQzIDIuMTgyLTIuMTgzYS40MS40MSAwIDAgMSAuNTMzLS4wNDR6Ii8+Cjwvc3ZnPgo=) !important;
         filter: invert(0)!important
     }
-    .chartsMain_listHeader,
-    .collection.m-overview .collection__section:not(:last-child),
-    .g-form-section-head,
-    .g-modal-title-h1,
-    .g-tabs,
-    .mixedSelectionModule,
-    .sc-border-dark-bottom,
-    .sc-border-light-bottom,
-    .searchTitle__text,
-    .selectionModule,
-    .statsOverview__main:before,
-    .statsOverview__top:before {
+    .chartsMain_listHeader, .sc-classic .chartsMain_listHeader,
+    .collection.m-overview .collection__section:not(:last-child), .sc-classic .collection.m-overview .collection__section:not(:last-child),
+    .g-form-section-head, .sc-classic .g-form-section-head,
+    .g-modal-title-h1, .sc-classic .g-modal-title-h1,
+    .g-tabs, .sc-classic .g-tabs,
+    .mixedSelectionModule, .sc-classic .mixedSelectionModule,
+    .sc-border-dark-bottom, .sc-classic .sc-border-dark-bottom,
+    .sc-border-light-bottom, .sc-classic .sc-border-light-bottom,
+    .searchTitle__text, .sc-classic .searchTitle__text,
+    .selectionModule, .sc-classic .selectionModule,
+    .statsOverview__main:before, .sc-classic .statsOverview__main:before,
+    .statsOverview__top:before, .sc-classic .statsOverview__top:before {
         border-bottom-color: #181818
     }
     .collection.m-overview .collection__section:not(:last-child) {
@@ -1510,7 +1510,7 @@
     .collection__oneRowSection {
         min-height: unset
     }
-    .mixedSelectionModule {
+    .mixedSelectionModule, .sc-classic .mixedSelectionModule {
         margin-bottom: 20px
     }
     .g-scrollable-inner,
@@ -1680,12 +1680,11 @@
     .sc-button-dropdown:focus:not(.sc-button-disabled):not(:disabled) {
         box-shadow: 0 0 0 1px #ccc
     }
-    .modal.modalWhiteout {
+    .modal.modalWhiteout, .sc-classic .modal.modalWhiteout {
         background: hsla(0, 0%, 0%, .9)
     }
-    .g-modal-section,
-    .tabs__headingContainer,
-    .tabs__tabs {
+    .g-modal-section, .sc-classic .g-modal-section
+    .tabs__headingContainer, .tabs__tabs, .sc-classic .tabs__headingContainer, .sc-classic .tabs__tabs {
         background: #0d0d0d
     }
     .embedPanel__tabLink,
@@ -2941,12 +2940,13 @@
         /* filter: drop-shadow(-3px -6px 4px #fff1); */
         box-shadow: 2px 4px 16px -4px #0005;
     }
-    .repostOverlay__container {
+    .repostOverlay__container, .sc-classic .repostOverlay__container {
         backdrop-filter: brightness(0.5) blur(12px);
         background-color: #4444;
         border-radius: 8px;
+        border: 1px solid #292929;
     }
-    .repostOverlay__youReposted {
+    .repostOverlay__youReposted, .sc-classic .repostOverlay__container:not(.repostOverlay--uiEvo) .repostOverlay__youReposted {
         color: #ccc;
     }
     .sc-ministats-small.sc-ministats-reposts.repostOverlay__messageRepostIcon:before {
@@ -3139,10 +3139,10 @@
     }
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
-    .sc-buylink-medium, .sc-classic .soundTitle__uploadTime {
+    .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input {
         font-weight: 400;
     }
-    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, 
+    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, .listenInfo__releaseData, 
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link {
         font-weight: 300;
     }
@@ -3154,7 +3154,7 @@
         body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header {
             font-family: /*[[font]]*/ var,/*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         }
-        .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .sc-classic .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell {
+        .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .sc-classic .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .listenInfo__releaseData {
             font-weight: 330;
         }
     }
@@ -3678,7 +3678,14 @@
     .sc-classic .moreActions__button:focus:not(:disabled), .sc-classic .moreActions__button:hover:not(:disabled), .sc-classic .moreActions__link:hover {
         background-color: #090909;
     }
+    .sc-button-small.sc-button-icon:not(.sc-button-stretch-icon):not(.sc-button-follow), .sc-button-small.sc-button-responsive:not(.sc-button-stretch-icon):not(.sc-button-follow) {
+        min-width: 25px;
+    }
+    .sc-button-small.sc-button-follow:not(.sc-button-stretch-icon) {
+        min-width: 81px;
+    }
 }
+
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     body, body.sc-classic {
         background: #0000!important;
