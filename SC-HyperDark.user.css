@@ -1683,7 +1683,7 @@
     .modal.modalWhiteout, .sc-classic .modal.modalWhiteout {
         background: hsla(0, 0%, 0%, .9)
     }
-    .g-modal-section, .sc-classic .g-modal-section
+    .g-modal-section, .sc-classic .g-modal-section,
     .tabs__headingContainer, .tabs__tabs, .sc-classic .tabs__headingContainer, .sc-classic .tabs__tabs {
         background: #0d0d0d
     }
