@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.136
+@version      0.9.137
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -3194,9 +3194,9 @@
         box-shadow: 0px 0px 12px #fff8;
         border: 1px solid #ccc!important;
     }
-    .tabs {
+    /*.tabs {
         padding-bottom: 120px;
-    }
+    }*/
     .sidebarInfoBox {
         background: #111;
         border: 1px solid #222!important;
@@ -3684,18 +3684,167 @@
     .sc-button-small.sc-button-follow:not(.sc-button-stretch-icon) {
         min-width: 81px;
     }
+    .sc-classic .modal__modal {
+        padding: 25px;
+        background: #0d0d0d;
+        border: 1px solid #222;
+        border-radius: 16px;
+    }
+    .sc-classic .dialog__arrow {
+        border: 1px solid #6666;
+        background-color: #1118;
+        backdrop-filter: blur(18px);
+    }
+    /*.widgetCustomization__upsell .widgetCustomization__checkbox {
+        opacity: 1;
+    }
+    .sc-checkbox-disabled {
+        cursor: pointer;
+    }
+    .sc-checkbox-disabled input[disabled] {
+        color: #ccc;
+    }
+    .sc-checkbox-input:disabled+.sc-checkbox-check, .sc-checkbox:hover .sc-checkbox-input:disabled+.sc-checkbox-check {
+        background-color: inherit;
+        opacity: 1;
+    }*/
+    .sc-classic .embedPanel__tabLink, .sc-classic .embedPanel__upsellTabLink {
+        background-color: #090909;
+        border-radius: 8px;
+    }
+    .sc-social-logo-32 {
+        border-radius: 4px;
+        filter: drop-shadow(0px 2px 3px #0006);
+        transition: filter 0.5s;
+    }
+    .sc-social-logo-32:hover {
+        filter: drop-shadow(2px 6px 4px #0009);
+    }
+}
+
+@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget */
+    .g-background-default {
+        background-color: #111;
+    }
+    .g-text-shadow {
+        text-shadow: none;
+    }
+    a.sc-link-medium {
+        color: #999;
+        text-decoration: none;
+        transition-duration: 0.2s;
+    }
+    a.sc-link-dark, a:hover {
+        color: #ccc;
+        transition-duration: 0.2s;
+    }
+    a.sc-link-dark:hover, a.sc-link-medium:hover {
+        color: #fff;
+    }
+    .waveform__layer.waveform__scene canvas:first-of-type {
+        filter: invert(1) hue-rotate(172deg) brightness(0.7) contrast(0.8) saturate(2.3);
+    }
+    .waveform__layer.waveform__scene canvas:last-of-type {
+        filter: brightness(1.5);
+    }
+    .artwork, .artwork__img, .artwork__link, .sc-artwork, .sc-artwork span {
+        border-radius: 6px;
+    }
+    .sc-button {
+        border: 1px solid #333;
+        background-color: #222;
+        color: #ccc;
+        transition-duration: 0.2s;
+    }
+    .sc-button-focus, .sc-button:focus, .sc-button:hover {
+        border-color: #444;
+        color: #eee;
+    }
+    .sc-button-small:before {
+        filter: invert(1) saturate(0) brightness(0.8);
+        transition-duration: 0.2s;
+    }
+    .sc-button-small.mouseover:before {
+        filter: invert(1) saturate(0) brightness(1);
+    }
+    .sc-ministats-small {
+        color: #888;
+    }
+    .sc-ministats-small.sc-ministats-plays:before {
+        filter: brightness(0.7);
+    }
+    .sc-background-light {
+        background-color: #333;
+    }
+    .widget {
+        border: 1px solid #333;
+        border-radius: 8px;
+    }
+    .g-shadow-inset {
+        box-shadow: inset 0 0 0 1px hsl(0deg 0% 0% / 50%);
+    }
+    .playButton:hover {
+        filter: brightness(0.9) saturate(0.8) contrast(1.2) hue-rotate(-2deg) drop-shadow(2px 4px 6px #0006);
+        transition: filter 0.2s;
+    }
+    .playButton {
+        filter: none;
+        transition: filter 0.5s;
+    }
+    .teaser {
+        background: #111;
+    }
+    .teaser__trackLink, .teaser__trackLink:visited {
+        color: #fff;
+    }
+    body {
+        color: #ccc;
+    }
+    .sound__panel {
+        border-radius: 8px;
+        background: #191919;
+    }
+    .thinProgressbar__played {
+        background-color: #f50;
+    }
+    .sc-background-dark {
+        background-color: #ddd;
+    }
+    .commentPopover.darkText .commentPopover__body {
+        color: #ccc;
+    }
+    .logo__path { 
+        fill: #696969;
+        fill: url("#logo_hover_21"); 
+        filter: saturate(0) contrast(0) brightness(1.6);
+        transition-duration: 0.3s;
+    }
+    .logo:hover .logo__path, .logo:focus .logo__path { 
+        fill: url("#logo_hover_21"); 
+        filter: saturate(1) contrast(1) brightness(1);
+    }
 }
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
+    html {
+        background: #0e0e0e;
+    }
     body, body.sc-classic {
         background: #0000!important;
     }
     div#app:not(a+div+div#app) {
         background: #090909;
         height: 100vh!important;
+        justify-content: center;
+    }
+    body[contextmenu*="gm-registered-menu"] div#app:not(a+div+div#app) {
+        background: #111!important;
     }
     a+div+div#app {
         height: 100%!important
+    }
+    a, a:visited {
+        color: #59e;
     }
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
