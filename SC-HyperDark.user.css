@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.137
+@version      0.9.138
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -3684,8 +3684,8 @@
     .sc-button-small.sc-button-follow:not(.sc-button-stretch-icon) {
         min-width: 81px;
     }
-    .sc-classic .modal__modal {
-        padding: 25px;
+    .sc-classic .modal__modal, .sc-classic .modal__modal.transparentBackground {
+        padding: 4px;
         background: #0d0d0d;
         border: 1px solid #222;
         border-radius: 16px;
@@ -3741,30 +3741,30 @@
     a.sc-link-dark:hover, a.sc-link-medium:hover {
         color: #fff;
     }
-    .waveform__layer.waveform__scene canvas:first-of-type {
+    .waveform__layer.waveform__scene canvas:first-of-type:not(.visualAudible__waveform canvas) {
         filter: invert(1) hue-rotate(172deg) brightness(0.7) contrast(0.8) saturate(2.3);
     }
-    .waveform__layer.waveform__scene canvas:last-of-type {
+    .waveform__layer.waveform__scene canvas:last-of-type:not(.visualAudible__waveform canvas) {
         filter: brightness(1.5);
     }
     .artwork, .artwork__img, .artwork__link, .sc-artwork, .sc-artwork span {
         border-radius: 6px;
     }
-    .sc-button {
+    .sc-button:not(.visualAudible .sc-button) {
         border: 1px solid #333;
         background-color: #222;
         color: #ccc;
         transition-duration: 0.2s;
     }
-    .sc-button-focus, .sc-button:focus, .sc-button:hover {
+    .sc-button-focus:not(.visualAudible .sc-button), .sc-button:focus:not(.visualAudible .sc-button), .sc-button:hover:not(.visualAudible .sc-button) {
         border-color: #444;
         color: #eee;
     }
-    .sc-button-small:before {
+    .sc-button-small:not(.visualAudible .sc-button-small):before {
         filter: invert(1) saturate(0) brightness(0.8);
         transition-duration: 0.2s;
     }
-    .sc-button-small.mouseover:before {
+    .sc-button-small.mouseover:not(.visualAudible .sc-button-small):before {
         filter: invert(1) saturate(0) brightness(1);
     }
     .sc-ministats-small {
@@ -3815,13 +3815,16 @@
     }
     .logo__path { 
         fill: #696969;
-        fill: url("#logo_hover_21"); 
+        fill: url("#logo_hover_21")!important; 
         filter: saturate(0) contrast(0) brightness(1.6);
         transition-duration: 0.3s;
     }
     .logo:hover .logo__path, .logo:focus .logo__path { 
         fill: url("#logo_hover_21"); 
         filter: saturate(1) contrast(1) brightness(1);
+    }
+    .visualAudible .logo__path, .visualAudible .logo:hover .logo__path, .visualAudible .logo:focus .logo__path {
+        fill: url("#logo_hover_33")!important; 
     }
 }
 
