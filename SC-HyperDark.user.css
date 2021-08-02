@@ -3720,6 +3720,9 @@
     .sc-social-logo-32:hover {
         filter: drop-shadow(2px 6px 4px #0009);
     }
+    .sc-button-small.sc-button-follow:not(.sc-button-stretch-icon) {
+        min-width: inherit;
+    }
 }
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget */
