@@ -3730,7 +3730,7 @@
     .sc-classic .compactTrackList__moreLink:focus, .sc-classic .compactTrackList__moreLink:hover {
         /*background: linear-gradient(178deg, #f53 -2000%, #0d0d0d 200%);*/
         background: #0d0d0d;
-        filter: hue-rotate(/*[[hue]]*/deg);
+        /*filter: hue-rotate([[hue]]deg);*/
         border-radius: 4px;
         transition-duration: 0.2s;
     }
