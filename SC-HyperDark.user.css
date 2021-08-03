@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.138
+@version      0.9.139
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -36,6 +36,9 @@
         --sin: /*[[sin]]*/;
         --gdpr: /*[[gdpr]]*/;
         --font: /*[[font]]*/;
+        
+        --orange: hsl(calc(20deg + /*[[hue]]*/deg) 100% 61%);
+        --blue: hsl(calc(203deg + /*[[blu]]*/deg) 100% 65%);
     }
     /*----------------------------------------------------------------- IMPORT INTER FONT (https://rsms.me/inter) -----------------------------------------------------------------*/
     /*@import url('https://rsms.me/inter/inter.css');*/
@@ -2620,7 +2623,7 @@
     .compactTrackListItem__user {
         color: #ccc;
     }
-    .compactTrackListItem__trackTitle {
+    .sc-classic .compactTrackListItem__number, .sc-classic .compactTrackListItem__trackTitle, .compactTrackListItem__trackTitle {
         color: #999;
     }
     .g-modal-section {
@@ -3139,7 +3142,7 @@
     }
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
-    .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input {
+    .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle {
         font-weight: 400;
     }
     .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, .listenInfo__releaseData, 
@@ -3723,6 +3726,34 @@
     .sc-button-small.sc-button-follow:not(.sc-button-stretch-icon) {
         min-width: inherit;
     }
+    .sc-classic .compactTrackListItem.clickToPlay.active, .sc-classic .compactTrackListItem.clickToPlay:focus, .sc-classic .compactTrackListItem.clickToPlay:hover,
+    .sc-classic .compactTrackList__moreLink:focus, .sc-classic .compactTrackList__moreLink:hover {
+        /*background: linear-gradient(178deg, #f53 -2000%, #0d0d0d 200%);*/
+        background: #0d0d0d;
+        filter: hue-rotate(/*[[hue]]*/deg);
+        border-radius: 4px;
+        transition-duration: 0.2s;
+    }
+    .sc-classic .compactTrackListItem.clickToPlay.active .compactTrackListItem__additional, .sc-classic .compactTrackListItem.clickToPlay:focus .compactTrackListItem__additional, .sc-classic .compactTrackListItem.clickToPlay:hover .compactTrackListItem__additional {
+        background: linear-gradient(90deg,#0d0d0d00,#0d0d0d 17px);
+    }
+    .sc-classic .compactTrackListItem.active, .sc-classic .compactTrackListItem.active .compactTrackListItem__content, .sc-classic .compactTrackListItem.active .compactTrackListItem__number, .sc-classic .compactTrackListItem.active .compactTrackListItem__plays, .sc-classic .compactTrackListItem.active .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem.active .compactTrackListItem__user {
+        color: var(--orange);
+        font-weight: 700;
+        transition-duration: 0.2s;
+    }
+    .sc-classic .compactTrackListItem {
+        transition-duration: 0.2s;
+    }
+    .compactTrackListItem.active .compactTrackListItem__number {
+        opacity: 0.4;
+    }
+    .active .sc-ministats-small.sc-ministats-plays:before {
+        filter: sepia(1) hue-rotate(-35.5deg) saturate(10) hue-rotate(/*[[hue]]*/deg);
+    }
+    .widgetCustomization__player.miniLoaded.sc-background-light {
+        background-color: #1110;
+    }
 }
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget */
@@ -3745,7 +3776,8 @@
         color: #fff;
     }
     .waveform__layer.waveform__scene canvas:first-of-type:not(.visualAudible__waveform canvas) {
-        filter: invert(1) hue-rotate(172deg) brightness(0.7) contrast(0.8) saturate(2.3);
+        /*filter: invert(1) hue-rotate(172deg) brightness(0.7) contrast(0.8) saturate(2.3);*/
+        filter: contrast(0.8) brightness(1.3) brightness(0.9) saturate(2.2);
     }
     .waveform__layer.waveform__scene canvas:last-of-type:not(.visualAudible__waveform canvas) {
         filter: brightness(1.5);
