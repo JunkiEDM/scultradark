@@ -3688,7 +3688,7 @@
         min-width: 81px;
     }
     .sc-classic .modal__modal, .sc-classic .modal__modal.transparentBackground {
-        padding: 4px;
+        padding: 25px;
         background: #0d0d0d;
         border: 1px solid #222;
         border-radius: 16px;
