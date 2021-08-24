@@ -13,8 +13,8 @@
 @advanced text blu "Blue Hue" "15"
 @advanced text font "Font" "Inter"
 @advanced select widget "Style embeds?" {
-  "Yes": "/*",
-  "No": "/**\/"
+  "Yes": "/**\/",
+  "No": "/*"
 }
 @advanced select sin "Insights on sidebar?" {
   "Show": "height:100%;",
