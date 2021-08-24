@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.140
+@version      0.9.141
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -12,6 +12,10 @@
 @advanced text hue "Orange Hue" "-20"
 @advanced text blu "Blue Hue" "15"
 @advanced text font "Font" "Inter"
+@advanced select widget "Style embeds?" {
+  "Yes": "\/*",
+  "No": "\/**\/"
+}
 @advanced select sin "Insights on sidebar?" {
   "Show": "height:100%;",
   "Hide": "height:0;"
@@ -3757,7 +3761,180 @@
     }
 }
 
-@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget */
+@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget/iframe */
+    /* INTER *//*[[widget]]*/
+    @font-face {
+      font-family: 'Inter';
+      font-style:  normal;
+      font-weight: 100;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-Thin.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-Thin.woff?v=3.18") format("woff");
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style:  italic;
+      font-weight: 100;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-ThinItalic.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-ThinItalic.woff?v=3.18") format("woff");
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style:  normal;
+      font-weight: 200;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-ExtraLight.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-ExtraLight.woff?v=3.18") format("woff");
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style:  italic;
+      font-weight: 200;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-ExtraLightItalic.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-ExtraLightItalic.woff?v=3.18") format("woff");
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style:  normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-Light.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-Light.woff?v=3.18") format("woff");
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style:  italic;
+      font-weight: 300;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-LightItalic.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-LightItalic.woff?v=3.18") format("woff");
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style:  normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-Regular.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-Regular.woff?v=3.18") format("woff");
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style:  italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-Italic.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-Italic.woff?v=3.18") format("woff");
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style:  normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-Medium.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-Medium.woff?v=3.18") format("woff");
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style:  italic;
+      font-weight: 500;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-MediumItalic.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-MediumItalic.woff?v=3.18") format("woff");
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style:  normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-SemiBold.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-SemiBold.woff?v=3.18") format("woff");
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style:  italic;
+      font-weight: 600;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-SemiBoldItalic.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-SemiBoldItalic.woff?v=3.18") format("woff");
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style:  normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-Bold.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-Bold.woff?v=3.18") format("woff");
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style:  italic;
+      font-weight: 700;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-BoldItalic.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-BoldItalic.woff?v=3.18") format("woff");
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style:  normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-ExtraBold.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-ExtraBold.woff?v=3.18") format("woff");
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style:  italic;
+      font-weight: 800;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-ExtraBoldItalic.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-ExtraBoldItalic.woff?v=3.18") format("woff");
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style:  normal;
+      font-weight: 900;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-Black.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-Black.woff?v=3.18") format("woff");
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style:  italic;
+      font-weight: 900;
+      font-display: swap;
+      src: url("https://rsms.me/inter/font-files/Inter-BlackItalic.woff2?v=3.18") format("woff2"),
+           url("https://rsms.me/inter/font-files/Inter-BlackItalic.woff?v=3.18") format("woff");
+    }
+
+    @font-face {
+      font-family: 'Inter var';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('https://rsms.me/inter/font-files/Inter-roman.var.woff2?v=3.18') format('woff2');
+      font-named-instance: 'Regular';
+    }
+
+    @font-face {
+      font-family: 'Inter var';
+      font-style: italic;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('https://rsms.me/inter/font-files/Inter-italic.var.woff2?v=3.18') format('woff2');
+      font-named-instance: 'Italic';
+    }
+    
+    
     .g-background-default {
         background-color: #111;
     }
@@ -3777,7 +3954,7 @@
         color: #fff;
     }
     .waveform__layer.waveform__scene canvas:first-of-type:not(.visualAudible__waveform canvas) {
-        /*filter: invert(1) hue-rotate(172deg) brightness(0.7) contrast(0.8) saturate(2.3);*/
+        /*filter: invert(1) hue-rotate(172deg) brightness(0.7) contrast(0.8) saturate(2.3);*//*[[widget]]*/
         filter: contrast(0.8) brightness(1.3) brightness(0.9) saturate(2.2);
     }
     .waveform__layer.waveform__scene canvas:last-of-type:not(.visualAudible__waveform canvas) {
@@ -3862,7 +4039,47 @@
     .visualAudible .logo__path, .visualAudible .logo:hover .logo__path, .visualAudible .logo:focus .logo__path {
         fill: url("#logo_hover_33")!important; 
     }
-}
+    .g-border-bottom {
+        border-bottom: 1px solid #222;
+    }
+
+    .sc-background-white {
+        background-color: #111;
+    }
+
+    .sc-border-dark-bottom {
+        border-bottom: 1px solid #222;
+    }
+
+    body {
+        font: 12px/1.4 /*[[font]]*/,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    }
+    .title__h1, .title__h2, .sc-font-light {
+        font-family: /*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    }
+    .soundsTotal, .sc-font-light, .teaser__button.hearmore .hearmore__container .hearmore__right {
+        font-weight: 400;
+    }
+    .title__h1, .title__h2 {
+        font-weight: 300;
+    }
+    @supports (font-variation-settings: normal) {
+        body, .title__h1, .title__h2, .sc-font-light {
+            font-family: /*[[font]]*/ var,/*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+        }
+        .soundsTotal, .sc-font-light, .teaser__button.hearmore .hearmore__container .hearmore__right {
+            font-weight: 400;
+        }
+        .title__h1, .title__h2 {
+            font-weight: 300;
+        }
+    }
+    
+    .playButton[style*="color: rgb(204, 68, 0);"], .sc-background-orange, .waveform__layer, .soundHeader__logo {
+        filter: hue-rotate(/*[[hue]]*/deg);
+    }
+    /**/
+}/**/
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     html {
