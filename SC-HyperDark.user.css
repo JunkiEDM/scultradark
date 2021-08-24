@@ -4038,6 +4038,7 @@
     }
     .visualAudible .logo__path, .visualAudible .logo:hover .logo__path, .visualAudible .logo:focus .logo__path {
         fill: url("#logo_hover_33")!important; 
+        fill: url("#logo_hover_54")!important; 
     }
     .g-border-bottom {
         border-bottom: 1px solid #222;
