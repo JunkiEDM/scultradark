@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.143
+@version      0.9.144
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1468,8 +1468,8 @@
         border: 1px solid #222;
         transition: border-color .1s
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add) {
         border-color: #1a1a1a;
         /*background: #111;*/
         border: 0;
@@ -1478,19 +1478,23 @@
         box-shadow: inset -1px -2px 8px #f40c;
         color: #fff !important;
         padding: 0 15px;
-        transition-duration: 0.5s
+        transition-duration: 0.5s;
+        filter: hue-rotate(/*[[hue]]*/deg);
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add) {
         border-color: #fff;
         /*background: #111*/
         border: 0;
         border-radius: 120px;
-        background: #f30 !important;
-        box-shadow: inset -2px -5px 12px #c20;
+        /* background: #f30 !important; */
+        /* box-shadow: inset -2px -5px 12px #c20; */
+        background: #f50 !important;
+        box-shadow: inset -1px -2px 8px #f40c;
         color: #fff !important;
         padding: 0 15px;
-        transition-duration: 0.2s
+        transition-duration: 0.2s;
+        filter: hue-rotate(/*[[hue]]*/deg);
     }
     .sc-button-selected:not(.sc-button-like):not(.sc-button-repost):not(.playbackSoundBadge__follow):not(.sc-button-queue):before {
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij4KICA8cGF0aCBmaWxsPSJyZ2IoMjU1LCAyNTUsIDI1NSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTUuNTQyIDEuMTY3YzIuMTA3IDAgMi43OTUgMi4yNDYgMS42MSA1LjMzMi0uNDQ0Ljc5My4wMyAxLjIxMS4zMjIgMS4zMzIgMi4wMjYuODM2IDIuODc1IDIuMjEzIDMuMDI2IDMuODM2di41ODNILjU4M3YtLjU4M2MuMTUxLTEuNjIzIDEtMyAzLjAyNi0zLjgzNi4yOTItLjEyLjc2Ni0uNTQuMzIyLTEuMzMxLTEuMTg0LTMuMDk1LS40OTctNS4zMzMgMS42MS01LjMzM3pNMTMuNDcgMy4xOGwuMDU4LjA1LjIzLjIyOGEuNDE1LjQxNSAwIDAgMSAuMDU3LjUyNmwtLjA1My4wNjUtMi43MTQgMi43MTRhLjQwOS40MDkgMCAwIDEtLjUuMDY2bC0uMDQ1LS4wMy0uMDQzLS4wMzgtMS40NzItMS40NzJhLjQyMi40MjIgMCAwIDEtLjA1MS0uNTI3bC4wNTQtLjA2Ni4yMjktLjIzYS40MTUuNDE1IDAgMCAxIC41MjgtLjA1NWwuMDY1LjA1My45NDIuOTQzIDIuMTgyLTIuMTgzYS40MS40MSAwIDAgMSAuNTMzLS4wNDR6Ii8+Cjwvc3ZnPgo=) !important;
@@ -3005,12 +3009,12 @@
         /*font-family: Product Sans, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
         /*font-family: Inter, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;
     } */
-    .sc-font-light, .sc-button, .notificationBadge, .sc-input, .sc-type-medium, .sc-type-small {
-        /*font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;*/
+    /* .sc-font-light, .sc-button, .notificationBadge, .sc-input, .sc-type-medium, .sc-type-small {
+        font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
     }
     .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6 {
-        /*font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
-    }
+        font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    } */
     .sc-button-small:not(.sc-button-cta), .sc-button-medium:not(.sc-button-cta) {
         /*font-family: Product Sans,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
         font-size: 12px;
@@ -3763,6 +3767,10 @@
     }
 
     /* fix notification bubbles */
+    .sc-classic .gritter-item {
+        display: flex;
+        padding: revert;
+    }
     .sc-classic .gritter-item-wrapper {
         background: #222;
         color: #fff;
@@ -3771,10 +3779,15 @@
         border-radius: 6px;
     }
     .sc-classic .gritter-image {
+        position: relative;
         border-radius: 6px 0 0 6px;
         padding: 1px;
         width: auto;
         height: 100%;
+        max-width: min-content;
+    }
+    .sc-classic .gritter-with-image {
+        padding: 6px;
     }
     .sc-classic .gritter-close {
         background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAQAAACR313BAAABO0lEQVR4AVWLTYoTURzEH72YpTAL9QqCSxeDtxivoXMAt15DD6AHENSlCDJMf+R99fRLTDS7BI0xQ9KdnkD6Z4Ei+H7vT1VRlPnzOLEX1cd8m5Nvy0/2ghMMQp8sPSq+FpRUCGlB9XnygAyjcvo4vymxBCK1LsiX5Jv5QzKzv1tNS7yKxBghrZVLRpfcMc2LQuGaHT+Z8EW3Zq/sKWiemxAsWqpExYQNyCdqLM6bqteWMU4l9KiUT2jPqDUVkYaks9wCnTShTGR0NO42UHMtfgEHYIUSNQHXm7T01GINfOfqr9bCkxZm+d4RiOxYUMrlrOQj2rL4YIanTesVLlUE4bmSl9K0wzPDWfc6Hh3+Pxzx2L7hzHDKefc2HSzuH5Z06N7xhFNDxj3Oebn6NuvjYInDrP8x55XK+2S/AYzwe7pN8liBAAAAAElFTkSuQmCC) 50% no-repeat;
@@ -3827,7 +3840,6 @@
         margin-left: -.5em;
         font-weight: 600;
     }
-  
     .activeUpload__form .uploadAudibleAttributeIcons {
         right: 463px;
         top: 272px;
@@ -3838,6 +3850,16 @@
     }
     .permalinkTextfield__prefixText a {
         color: #ccc!important;
+    }
+
+
+    .m-active .editTrackItem__additional {
+        background: linear-gradient(90deg,#4e292911,#4d2829 17px)!important;
+    }
+    
+    .sc-classic .modal__modal .audibleEditForm {
+        border: none;
+        margin-bottom: 0;
     }
 }
 
