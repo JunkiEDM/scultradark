@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.144
+@version      0.9.145
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -3786,7 +3786,7 @@
         height: 100%;
         max-width: min-content;
     }
-    .sc-classic .gritter-with-image {
+    .sc-classic .gritter-with-image, .sc-classic .gritter-without-image {
         padding: 6px;
     }
     .sc-classic .gritter-close {
@@ -3803,6 +3803,12 @@
     }
     .sc-classic .error .gritter-top {
         filter: hue-rotate(calc(/*[[hue]]*/deg + 2));
+        position: relative;
+        padding: 1px;
+        margin-bottom: -2px;
+        min-width: 38px;
+        width: auto;
+        height: auto;
     }
 
     /* artists spotlight dark */
@@ -3851,12 +3857,10 @@
     .permalinkTextfield__prefixText a {
         color: #ccc!important;
     }
-
-
+    
     .m-active .editTrackItem__additional {
         background: linear-gradient(90deg,#4e292911,#4d2829 17px)!important;
     }
-    
     .sc-classic .modal__modal .audibleEditForm {
         border: none;
         margin-bottom: 0;
