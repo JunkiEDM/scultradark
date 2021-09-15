@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.145
+@version      0.9.146
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -2269,7 +2269,27 @@
     .localeSelector__body,
     .localeSelectorContent__link:hover,
     .sc-button-nostyle,
-    .commentBadge:hover .commentBadge__title a {
+    .commentBadge:hover .commentBadge__title a
+    .sc-classic textarea,
+    .sc-classic select,
+    .sc-classic button,
+    .sc-classic input,
+    .sc-classic .sc-text,
+    .sc-classic a:hover,
+    .sc-classic a.sc-ministats:hover,
+    .sc-classic a.sc-link-dark,
+    .sc-classic a.sc-link-light:hover,
+    .sc-classic .sc-buylink,
+    .sc-classic .sc-buylink:visited,
+    .sc-classic .commentPopover.darkText .commentPopover__body,
+    .sc-classic .moreActions__group .moreActions__link,
+    .sc-classic .blockCheckbox__title,
+    .sc-classic .truncatedAudioInfo__collapse:focus,
+    .sc-classic .statsBadge__upsell-text > span,
+    .sc-classic .localeSelector__body,
+    .sc-classic .localeSelectorContent__link:hover,
+    .sc-classic .sc-button-nostyle,
+    .sc-classic .commentBadge:hover .commentBadge__title a {
         color: #ccc
     }
     a.sc-link-dark:hover,
@@ -3296,7 +3316,7 @@
         transition-duration: 0.2s;
     }
     /* Color changer (switched from https://33kk.github.io/uso-archive/?style=123974 to simpler method) */
-    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew), .tileGallery__sliderButton:active, .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static {
+    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), .tileGallery__sliderButton:active, .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static {
       filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     /* soundcloud stories */
@@ -3652,6 +3672,7 @@
         padding: 2px 3px;
         font-size: 10px;
         font-weight: 800;
+        background-color: #0d0d0d;
     }
     span.sc-artwork.sc-artwork-placeholder-0:not([style*="background-image:"]) {
         background-image: linear-gradient(135deg,hsl(calc(20deg + /*[[hue]]*/deg) 18% 44%) -20%,hsl(calc(210deg + /*[[blu]]*/deg) 16% 50%) 120%);
@@ -3846,16 +3867,16 @@
         margin-left: -.5em;
         font-weight: 600;
     }
-    .activeUpload__form .uploadAudibleAttributeIcons {
-        right: calc(50% - 404px);
-        top: 144px;
-        z-index: 1;
-    }
     .sc-classic .permalinkTextfield__input:disabled {
         color: #fff;
     }
     .permalinkTextfield__prefixText a {
         color: #ccc!important;
+    }
+    .activeUpload__form .uploadAudibleAttributeIcons {
+        right: calc(50% - 404px);
+        top: 144px;
+        z-index: 1;
     }
     
     .m-active .editTrackItem__additional {
@@ -3864,6 +3885,9 @@
     .sc-classic .modal__modal .audibleEditForm {
         border: none;
         margin-bottom: 0;
+    }
+    .sc-button-active, .sc-button-selected, .sc-classic .sc-button-active, .sc-classic .sc-button-selected {
+        color: #f50;
     }
 }
 
