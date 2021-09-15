@@ -3847,8 +3847,8 @@
         font-weight: 600;
     }
     .activeUpload__form .uploadAudibleAttributeIcons {
-        right: 463px;
-        top: 272px;
+        right: calc(50% - 404px);
+        top: 144px;
         z-index: 1;
     }
     .sc-classic .permalinkTextfield__input:disabled {
