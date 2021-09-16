@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.146
+@version      0.9.147
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1046,7 +1046,8 @@
         box-shadow: 2px 2px 24px #0003;
         transition-duration: 3s
     }
-    .g-dark input[type=search]:focus {
+    .g-dark input[type=search]:focus, 
+    .sc-classic .frontContent__actions input[type=search]:focus {
         box-shadow: 2px 2px 12px 2px #0a0a0a;
         z-index: 99999;
         background: #0a0a0a;
@@ -1448,7 +1449,8 @@
     .g-dark input[type=search],
     .g-dark input[type=text],
     .g-dark select,
-    .g-dark textarea {
+    .g-dark textarea,
+    .sc-classic .frontContent__actions input[type=search]{
         color: #999;
         background: #1a1a1a;
         transition: 3s
@@ -1468,8 +1470,8 @@
         border: 1px solid #222;
         transition: border-color .1s
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton) {
         border-color: #1a1a1a;
         /*background: #111;*/
         border: 0;
@@ -1481,8 +1483,8 @@
         transition-duration: 0.5s;
         filter: hue-rotate(/*[[hue]]*/deg);
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton) {
         border-color: #fff;
         /*background: #111*/
         border: 0;
@@ -3167,19 +3169,23 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title {
+    .sc-classic .ui-datepicker th, .sc-classic .compactTrackListItem.active, .sc-classic .compactTrackListItem.active .compactTrackListItem__content, .sc-classic .compactTrackListItem.active .compactTrackListItem__number, .sc-classic .compactTrackListItem.active .compactTrackListItem__plays, .sc-classic .compactTrackListItem.active .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem.active .compactTrackListItem__user {
+        font-weight: 700;
+    }
+    .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title, .onSoundCloudTeaser__title.sc-font-light, .insightsSidebarModule__plays, a.userStatsLegend__itemTitleWrapper, .uploadButton__status, .linkMenu__groupTitle {
         font-weight: 600;
     }
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
-    .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle {
+    .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays) {
         font-weight: 400;
     }
     .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, .listenInfo__releaseData, 
-    input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link {
+    input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
+    .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder {
         font-weight: 300;
     }
-    .spotlightTitle, .userstream__header, .sc-font {
+    .spotlightTitle, .userstream__header, .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
         font-weight: 200;
     }
     @supports (font-variation-settings: normal) {
@@ -3580,16 +3586,11 @@
         flex-direction: column;
     }
 
-    button.headerSearch__submit.submit.sc-ir {
+    button.headerSearch__submit.submit.sc-ir, form.headerSearch {
         font-weight: 400;
     }
-
     input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
         font-weight: 200;
-    }
-
-    form.headerSearch {
-        font-weight: 400;
     }
 
     a.frontContent__uploadButton.sc-button.sc-button-cta.sc-button-primary.sc-button-large {
@@ -3727,6 +3728,7 @@
     }
     .sc-classic .dialog__arrow {
         border: 1px solid #6666;
+        border-width: 1px 0 0 1px;
         background-color: #1118;
         backdrop-filter: blur(18px);
     }
@@ -3771,7 +3773,6 @@
     }
     .sc-classic .compactTrackListItem.active, .sc-classic .compactTrackListItem.active .compactTrackListItem__content, .sc-classic .compactTrackListItem.active .compactTrackListItem__number, .sc-classic .compactTrackListItem.active .compactTrackListItem__plays, .sc-classic .compactTrackListItem.active .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem.active .compactTrackListItem__user {
         color: var(--orange);
-        font-weight: 700;
         transition-duration: 0.2s;
     }
     .sc-classic .compactTrackListItem {
@@ -3865,7 +3866,6 @@
     .uploadButton__status {
         text-align: center;
         margin-left: -.5em;
-        font-weight: 600;
     }
     .sc-classic .permalinkTextfield__input:disabled {
         color: #fff;
@@ -3886,8 +3886,94 @@
         border: none;
         margin-bottom: 0;
     }
-    .sc-button-active, .sc-button-selected, .sc-classic .sc-button-active, .sc-classic .sc-button-selected {
+    .sc-button-active:not(.hintButton), .sc-button-selected, .sc-classic .sc-button-active:not(.hintButton), .sc-classic .sc-button-selected {
         color: #f50;
+    }
+    .sc-classic .frontContent__actions input[type=search], .sc-classic .frontContent__actions input[type=search]:focus {
+        padding: 0 16px;
+        height: 46px;
+    }
+    .frontContent__actions .headerSearch__submit {
+        background-size: 19px 19px;
+        background-position: 50%;
+        top: 0;
+        right: 0;
+        width: 48px;
+        height: 100%;
+    }
+
+    /* update datepicker */
+    .textfield.datefield .textfield__input {
+        background: url(https://a-v2.sndcdn.com/assets/images/calendar-96bbd47c.svg) no-repeat right 8px center, #111;
+    }
+    .sc-classic .ui-datepicker {
+        background: #111;
+        border: 1px solid #222;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        width: calc(17em - 2px);
+        margin-top: -4px;
+    }
+    .sc-classic .ui-datepicker th {
+        color: #ccc;
+        font-weight: 700;
+    }
+    .sc-classic .ui-datepicker .ui-state-default.ui-state-highlight:not(.ui-state-active) {
+        color: #fff;
+        background-color: #666;
+    }
+    .sc-classic .ui-datepicker .ui-state-default, .sc-classic .ui-datepicker .ui-datepicker-next, .sc-classic .ui-datepicker .ui-datepicker-prev {
+        color: #999;
+        transition-duration: 0.2s;
+    }
+    .sc-classic .ui-datepicker .ui-state-default.ui-state-hover:not(.ui-state-highlight):not(.ui-state-active), .sc-classic .ui-datepicker .ui-datepicker-next:not(.ui-state-disabled):hover, .sc-classic .ui-datepicker .ui-datepicker-prev:not(.ui-state-disabled):hover {
+        background-color: #333;
+        color: #ccc;
+        transition-duration: 0.2s;
+    }
+    .sc-classic .ui-datepicker .ui-datepicker-next:not(.ui-state-disabled):hover svg, .sc-classic .ui-datepicker .ui-datepicker-prev:not(.ui-state-disabled):hover svg {
+        filter: drop-shadow(0px 0px 1px #ccc);
+    }
+    .sc-classic .ui-datepicker .ui-datepicker-next, .sc-classic .ui-datepicker .ui-datepicker-prev {
+        z-index: 2;
+    }
+
+    /* datepicker open animation */
+    @keyframes calendar {
+        from {height: 0;padding-top:6px;padding-bottom:0px;}
+        to {height: 170px;padding:20px;}
+    }
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    .sc-classic .ui-datepicker {
+        animation-name: calendar;
+        animation-duration: 0.8s;
+        animation-fill-mode: both;
+    }
+    .sc-classic .ui-datepicker * {
+        animation-name: fadeIn;
+        animation-duration: 0.6s;
+        animation-fill-mode: both;
+    }
+    .sc-classic .ui-datepicker table thead {
+        animation-delay: 50ms;
+    }
+    .sc-classic .ui-datepicker table tbody tr:nth-of-type(1) {
+        animation-delay: 120ms;
+    }
+    .sc-classic .ui-datepicker table tbody tr:nth-of-type(2) {
+        animation-delay: 190ms;
+    }
+    .sc-classic .ui-datepicker table tbody tr:nth-of-type(3) {
+        animation-delay: 250ms;
+    }
+    .sc-classic .ui-datepicker table tbody tr:nth-of-type(4) {
+        animation-delay: 330ms;
+    }
+    .sc-classic .ui-datepicker table tbody tr:nth-of-type(5) {
+        animation-delay: 400ms;
     }
 }
 
@@ -4214,7 +4300,7 @@
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     html {
-        background: #0e0e0e;
+        background: #0d0d0d;
     }
     body, body.sc-classic {
         background: #0000!important;
