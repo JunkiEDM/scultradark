@@ -2868,7 +2868,7 @@
         right: -200px;
         background: none;
     }
-    .profileHeaderInfo__additional {
+    .sc-classic .profileHeaderInfo__additional, .profileHeaderInfo__additional {
         margin-top: -8px;
         margin-right: 30px;
         background: none!important;
