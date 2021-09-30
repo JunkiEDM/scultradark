@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.147
+@version      0.9.148
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1682,8 +1682,10 @@
         z-index: 11000
     }
     a.playableTile__heading,
-    a.playableTile__heading:hover {
-        font-size: 12px
+    a.playableTile__heading:hover,
+    .sc-classic .playableTile__mainHeading 
+    .sc-classic .playableTile__mainHeading:hover {
+        font-size: 14px
     }
     .linkMenu {
         box-shadow: 0 1px 8px #0d0d0d;
@@ -3180,7 +3182,7 @@
     .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays) {
         font-weight: 400;
     }
-    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, .listenInfo__releaseData, 
+    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, .listenInfo__releaseData, 
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
     .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder {
         font-weight: 300;
@@ -3193,7 +3195,7 @@
         body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header {
             font-family: /*[[font]]*/ var,/*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         }
-        .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .sc-classic .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .listenInfo__releaseData {
+        .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .sc-classic .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .listenInfo__releaseData {
             font-weight: 330;
         }
     }
