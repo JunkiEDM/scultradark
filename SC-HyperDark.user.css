@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.148
+@version      0.9.149
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -426,7 +426,13 @@
         opacity: .6;
         font-weight: 200;
         text-align: center;
-        width: 100%
+    }
+    .playableTile__usernameHeadingContainer {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
     #app header,
     .header__inner {
@@ -972,7 +978,7 @@
         padding: 0 15px;
         transition-duration: 0.25s;
     }
-    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):hover {
+    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.m-boldIcon):hover {
         background: #f30 !important;
         filter: drop-shadow(2px 2px 6px #000) hue-rotate(/*[[hue]]*/deg);
         transition-duration: 0.25s;
@@ -1021,7 +1027,8 @@
         line-height: 16px;
         letter-spacing: .015em;
         color: #eee;
-        transition-duration: 0.2s!important
+        transition-duration: 0.2s!important;
+        transition-property: color, font-weight, filter, opacity;
     }
     .searchOptions__container {
         width: 220px
@@ -1471,7 +1478,7 @@
         transition: border-color .1s
     }
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton) {
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown) {
         border-color: #1a1a1a;
         /*background: #111;*/
         border: 0;
@@ -1484,7 +1491,7 @@
         filter: hue-rotate(/*[[hue]]*/deg);
     }
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton) {
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown) {
         border-color: #fff;
         /*background: #111*/
         border: 0;
@@ -1498,8 +1505,10 @@
         transition-duration: 0.2s;
         filter: hue-rotate(/*[[hue]]*/deg);
     }
-    .sc-button-selected:not(.sc-button-like):not(.sc-button-repost):not(.playbackSoundBadge__follow):not(.sc-button-queue):before {
+    .sc-button-selected:not(.sc-button-like):not(.sc-button-repost):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.m-boldIcon):before {
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij4KICA8cGF0aCBmaWxsPSJyZ2IoMjU1LCAyNTUsIDI1NSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTUuNTQyIDEuMTY3YzIuMTA3IDAgMi43OTUgMi4yNDYgMS42MSA1LjMzMi0uNDQ0Ljc5My4wMyAxLjIxMS4zMjIgMS4zMzIgMi4wMjYuODM2IDIuODc1IDIuMjEzIDMuMDI2IDMuODM2di41ODNILjU4M3YtLjU4M2MuMTUxLTEuNjIzIDEtMyAzLjAyNi0zLjgzNi4yOTItLjEyLjc2Ni0uNTQuMzIyLTEuMzMxLTEuMTg0LTMuMDk1LS40OTctNS4zMzMgMS42MS01LjMzM3pNMTMuNDcgMy4xOGwuMDU4LjA1LjIzLjIyOGEuNDE1LjQxNSAwIDAgMSAuMDU3LjUyNmwtLjA1My4wNjUtMi43MTQgMi43MTRhLjQwOS40MDkgMCAwIDEtLjUuMDY2bC0uMDQ1LS4wMy0uMDQzLS4wMzgtMS40NzItMS40NzJhLjQyMi40MjIgMCAwIDEtLjA1MS0uNTI3bC4wNTQtLjA2Ni4yMjktLjIzYS40MTUuNDE1IDAgMCAxIC41MjgtLjA1NWwuMDY1LjA1My45NDIuOTQzIDIuMTgyLTIuMTgzYS40MS40MSAwIDAgMSAuNTMzLS4wNDR6Ii8+Cjwvc3ZnPgo=) !important;
+    }
+    .sc-button-selected:not(.sc-button-like):not(.sc-button-repost):not(.playbackSoundBadge__follow):not(.sc-button-queue):before {
         filter: invert(0)!important
     }
     .chartsMain_listHeader, .sc-classic .chartsMain_listHeader,
@@ -1525,7 +1534,6 @@
     .mixedSelectionModule, .sc-classic .mixedSelectionModule {
         margin-bottom: 20px
     }
-    .g-scrollable-inner,
     .selectionPlaylistBanner {
         height: 415px
     }
@@ -1687,9 +1695,10 @@
     .sc-classic .playableTile__mainHeading:hover {
         font-size: 14px
     }
-    .linkMenu {
+    .linkMenu, .sc-classic .linkMenu {
         box-shadow: 0 1px 8px #0d0d0d;
-        background: #111
+        background: #111;
+        border-radius: 4px;
     }
     .sc-button-dropdown:focus:not(.sc-button-disabled):not(:disabled) {
         box-shadow: 0 0 0 1px #ccc
@@ -2478,13 +2487,13 @@
         filter: drop-shadow(2px 2px 6px #000);
         transition-duration: 0.25s;
     }
-    .sc-button-selected.sc-button-like, .sc-button-selected.playbackSoundBadge__follow, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
+    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-selected.sc-button-like), .sc-button-selected.playbackSoundBadge__follow, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
         border-color: #1a1a1a;
         background: #111;
         transition-duration: 0.25s;
     }
     .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), 
-    .sc-button-selected.sc-button-like:hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover, .uiEvoButton.uiEvoButton--isSelected:hover {
+    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover, .uiEvoButton.uiEvoButton--isSelected:hover {
         border-color: #f506;
         background: #310;
         filter: drop-shadow(2px 2px 6px #000);
@@ -2749,7 +2758,8 @@
         box-shadow: inset 0 0 1px 3px #d7d7d7;
     }
     /* dumbass insights update */
-    .insightsSidebarModule__title {
+    .insightsSidebarModule__title,
+    .sc-classic .insightsSidebarModule__title {
         font-size: 14px;
         color: #999;
         margin-bottom: -8px;
@@ -2915,9 +2925,9 @@
         border-color: #0000!important;
         transition: 0.3s ease-out!important;
     }
-    .sound__content {
+    /*.sound__content {
         overflow-x: visible!important;
-    }
+    }*/
     .userBadge.m-horizontal .userBadge__avatar {
         margin-left: 10px;
     }
@@ -3179,7 +3189,8 @@
     }
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
-    .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays) {
+    .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays), 
+    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited {
         font-weight: 400;
     }
     .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, .listenInfo__releaseData, 
@@ -3267,9 +3278,9 @@
     .sc-button.sc-button-translucent:not(.sc-button-cta) {
         background-color: inherit;
     }
-    .sc-button-selected {
+    /*.sc-button-selected {
         border: 1px solid #f50;
-    }
+    }*/
     /* stats fixes */
     .statsLineChart__ticks, .statsLineChart__bottom, .stats__xAxis, .stats__yAxis {
         filter: invert(0.9);
@@ -3977,6 +3988,25 @@
     .sc-classic .ui-datepicker table tbody tr:nth-of-type(5) {
         animation-delay: 400ms;
     }
+    
+    .g-opacity-transition-500 {
+        transition: revert;
+    }
+    
+    .sc-button-follow.sc-button-lightfg.m-boldIcon:not(.sc-button-selected):before {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZmlsbD0icmdiKDI1NSwgMjU1LCAyNTUpIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGQ9Ik0xMC41IDVjMy4yNSAwIDMuOTQ0IDMuMjM2IDIuNSA3IDMuNzE3IDEuNTM0IDQgNC44NSA0IDZINGMwLTEuMTUuMjgzLTQuNDY2IDQtNi0xLjQ0NS0zLjc3NS0uNzUtNyAyLjUtN3pNMTggNGExIDEgMCAwMTEgMXYxaDFhMSAxIDAgMDEwIDJoLTF2MWExIDEgMCAwMS0yIDBWNy45OTlMMTYgOGExIDEgMCAwMTAtMmwxLS4wMDFWNWExIDEgMCAwMTEtMXoiLz48L3N2Zz4K);
+        filter: none;
+    }
+    
+    .sc-button-small.m-boldIcon.sc-button-follow:not(.sc-button-stretch-icon) {
+        min-width: 25px;
+    }
+    .sc-button-follow.sc-button-selected, .sc-button-selected.sc-button-like, .sc-button-selected.playbackSoundBadge__follow, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
+        border-color: none;
+        border: none;
+        background: inherit;
+        transition-duration: inherit;
+    }
 }
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget/iframe */
@@ -4389,7 +4419,7 @@
     .sc-classic .collection .badgeList__item {
         width: 16.666%;
     }
-    a.readMoreTile__countWrapper {
+    a.readMoreTile__countWrapper, .sc-classic .readMoreTile__countWrapper {
         height: 48px;
         width: 120px;
         top: 110%;
