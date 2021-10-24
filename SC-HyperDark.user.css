@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.149
+@version      0.9.150
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -459,9 +459,10 @@
     .moreActions, .imageEditDropdown,
     .sc-classic .moreActions, .sc-classic .imageEditDropdown {
         /*border: 1px solid rgba(0, 0, 0, .15);*/
-        border: 1px solid #0001;
+        border: 1px solid #6663;
         border-radius: .5rem;
-        background: #111;
+        background: #1119;
+        backdrop-filter: blur(32px);
         padding: 5px 0;
         box-shadow: 2px 2px 12px #0006;
     }
@@ -970,7 +971,7 @@
     }
 
     /*follow button*/
-    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected), .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow) {
+    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected), .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.playableTile__actionButton) {
         border: 0;
         border-radius: 120px;
         background: #f50 !important;
@@ -978,7 +979,7 @@
         padding: 0 15px;
         transition-duration: 0.25s;
     }
-    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.m-boldIcon):hover {
+    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.m-boldIcon):hover {
         background: #f30 !important;
         filter: drop-shadow(2px 2px 6px #000) hue-rotate(/*[[hue]]*/deg);
         transition-duration: 0.25s;
@@ -1443,7 +1444,8 @@
     .playControls__inner {
         width: 100%;
         border: 0;
-        background: #1112;
+        background: #1119;
+        border-top: 1px solid #222c;
         box-shadow: 0 0 5px #111;
     }
     input,
@@ -1698,10 +1700,11 @@
     .linkMenu, .sc-classic .linkMenu {
         box-shadow: 0 1px 8px #0d0d0d;
         background: #111;
+        border: 1px solid #3338;
         border-radius: 4px;
     }
     .sc-button-dropdown:focus:not(.sc-button-disabled):not(:disabled) {
-        box-shadow: 0 0 0 1px #ccc
+        box-shadow: 0 0 2px 1px #ccc6;
     }
     .modal.modalWhiteout, .sc-classic .modal.modalWhiteout {
         background: hsla(0, 0%, 0%, .9)
@@ -2474,26 +2477,26 @@
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge), .sc-button-group .sc-button-insights.sc-button-cta, .imageEditDropdown .sc-button, .uiEvoButton {
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button), .sc-button-group .sc-button-insights.sc-button-cta, .imageEditDropdown .sc-button, .uiEvoButton {
         border-color: #1a1a1a;
         background: #111;
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.editSnippet__playButton .sc-button-xxlarge):hover, .sc-button-group .sc-button-insights.sc-button-cta:hover, .imageEditDropdown .sc-button:hover .uiEvoButton:hover {
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):hover, .sc-button-group .sc-button-insights.sc-button-cta:hover, .imageEditDropdown .sc-button:hover .uiEvoButton:hover {
         border-color: #fff6;
         background: #222;
         color: #eee;
         filter: drop-shadow(2px 2px 6px #000);
         transition-duration: 0.25s;
     }
-    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-selected.sc-button-like), .sc-button-selected.playbackSoundBadge__follow, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
+    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-selected.sc-button-like):not(.sc-button-transparent), .sc-button-selected.playbackSoundBadge__follow, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
         border-color: #1a1a1a;
         background: #111;
         transition-duration: 0.25s;
     }
     .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), 
-    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover, .uiEvoButton.uiEvoButton--isSelected:hover {
+    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover, .uiEvoButton.uiEvoButton--isSelected:hover {
         border-color: #f506;
         background: #310;
         filter: drop-shadow(2px 2px 6px #000);
@@ -2562,8 +2565,6 @@
     /* fix choose image culling */
     .imageChooser__chooseButton, .imageChooser__chooseButton:hover {
         border-color: none;
-        border-radius: 12px;
-        backdrop-filter: blur(6px);
         transition-duration: 0.25s;
     }
     .imageChooser__chooseButton {
@@ -2602,7 +2603,7 @@
         border: none;
         color: #666
     }
-    .sc-select, .sc-input {
+    .sc-select, .sc-input, .sc-classic .sc-select, .sc-classic .sc-input {
         border: 1px solid #222;
     }
     .blockCheckbox__icon {
@@ -2712,7 +2713,7 @@
         background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+c2gtd2Vic2l0ZS0xNi1jb2xvcjwvdGl0bGU+PHBhdGggZD0iTTggMkM0LjY4OCAyIDIgNC42ODggMiA4czIuNjg4IDYgNiA2IDYtMi42ODggNi02LTIuNjg4LTYtNi02em0tLjYgMTAuNzU4QTQuNzkzIDQuNzkzIDAgMCAxIDMuMiA4YzAtLjM3Mi4wNDgtLjcyNi4xMjYtMS4wNzRMNi4yIDkuOHYuNmMwIC42Ni41NCAxLjIgMS4yIDEuMnYxLjE1OHptNC4xNC0xLjUyNGExLjE5IDEuMTkgMCAwIDAtMS4xNC0uODM0aC0uNlY4LjZjMC0uMzMtLjI3LS42LS42LS42SDUuNlY2LjhoMS4yYy4zMyAwIC42LS4yNy42LS42VjVoMS4yYy42NiAwIDEuMi0uNTQgMS4yLTEuMnYtLjI0NmMxLjc1OC43MTQgMyAyLjQzNiAzIDQuNDQ2IDAgMS4yNDgtLjQ4IDIuMzgyLTEuMjYgMy4yMzR6IiBmaWxsPSIjNThmIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=) no-repeat 50% 50%;
     }
     .moreActions__group:not(:first-child) {
-        border-top: 6px solid #6661;
+        border-top: 1px solid #6661;
     }
     .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, .g-type-shrinkwrap-block:visited, .g-type-shrinkwrap-inline, .g-type-shrinkwrap-inline:hover, .g-type-shrinkwrap-inline:visited {
         background-color: rgba(0,0,0,.5);
@@ -2750,7 +2751,7 @@
         display: none;
     }
     .playControls__bg {
-        backdrop-filter: brightness(0.4) blur(12px);
+        backdrop-filter: brightness(0.8) blur(32px);
     }
     .spotlightRemove, .g-button-remove {
         filter: brightness(0.55) contrast(6.4);
@@ -3198,7 +3199,7 @@
     .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder {
         font-weight: 300;
     }
-    .spotlightTitle, .userstream__header, .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
+    .spotlightTitle, .sc-classic .spotlightTitle, .userstream__header, .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
         font-weight: 200;
     }
     @supports (font-variation-settings: normal) {
@@ -3663,12 +3664,15 @@
         transition: padding 0.3s;
     }
     .linkMenu__groupTitle {
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 600;
-        text-align: center;
-        border-bottom: 1px solid #111;
-        /* padding-top: 8px; */
-        box-shadow: 0px 8px 14px -11px #fff;
+        text-align: right;
+        color: #333;
+        margin: 0 12px;
+        padding: 4px;
+        border-top: 1px solid #222;
+        margin-top: -18px!important;
+        margin-bottom: -22px;
     }
     ._1srmB4exym6W6iYDJh87lM {
         background-color: #0e0e0e99;
@@ -3950,6 +3954,9 @@
     .sc-classic .ui-datepicker .ui-datepicker-next, .sc-classic .ui-datepicker .ui-datepicker-prev {
         z-index: 2;
     }
+    .sc-classic .ui-datepicker .ui-state-default.ui-state-active {
+        filter: hue-rotate(/*[[blu]]*/deg);
+    }
 
     /* datepicker open animation */
     @keyframes calendar {
@@ -4001,11 +4008,59 @@
     .sc-button-small.m-boldIcon.sc-button-follow:not(.sc-button-stretch-icon) {
         min-width: 25px;
     }
-    .sc-button-follow.sc-button-selected, .sc-button-selected.sc-button-like, .sc-button-selected.playbackSoundBadge__follow, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
+    .sc-button-follow.sc-button-transparent.sc-button-selected, .sc-button-selected.sc-button-transparent.sc-button-like, .sc-button-selected.sc-button-transparent.playbackSoundBadge__follow, .sc-button-selected.sc-button-transparent.sc-button-repost, .sc-button-selected.sc-button-transparent.addToPlaylistButton, .sc-button-selected.sc-button-transparent.createPlaylistSuggestion__add {
         border-color: none;
         border: none;
         background: inherit;
         transition-duration: inherit;
+    }
+    
+    div#searchMenuList {
+        margin: 0 0px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #0d0d0d!important;
+        background-color: #191919dd;
+        backdrop-filter: blur(32px);
+    }
+
+    .sc-classic .searchMenu__searchFor {
+        border-radius: 8px 8px 0 0;
+        background-color: #0000;
+        border: 1px solid #333;
+        border-bottom: 1px solid #3335;
+        box-shadow: none;
+    }
+    .searchAutocomplete.g-dark-list {
+        border-radius: 0 0 8px 8px;
+        background-color: #0000;
+        border: 1px solid #333;
+        border-top: none;
+    }
+
+    .autocompleteItem .sc-artwork:not(.image__rounded) {
+        border-radius: 4px;
+    }
+    
+    .dropdownMenu .sc-list-nostyle .sc-button:hover {
+        background: #2226;
+        color: #fff;
+        transition-duration: 0.25s;
+    }
+    
+    .sc-classic .linkMenu__activeItem, .sc-classic .linkMenu__item:hover {
+        filter: hue-rotate(/*[[hue]]*/deg);
+    }
+    
+    .sc-button-dropdown.sc-button-dropdown-plain:not(.sc-button-disabled):not(:disabled) {
+        border-color: #333;
+        color: #ccc;
+        background-color: #111;
+        transition-duration: .25s;
+    }
+    .sc-button-dropdown.sc-button-dropdown-plain:hover:not(.sc-button-disabled):not(:disabled) {
+        border-color: #fff6;
+        background-color: #222;
+        color: #ddd;
     }
     
 }
