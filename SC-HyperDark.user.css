@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.150
+@version      0.9.151
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -2222,9 +2222,9 @@
     .m-light .headerMenu__link:hover,
     .sc-classic .m-light .headerMenu__link:focus,
     .sc-classic .m-light .headerMenu__link:hover {
-        background-color: #0d0d0d;
+        background-color: #0d0d0d80;
         transition-duration: 0.25s;
-        box-shadow: 16px -4px 12px #0004 inset;
+        box-shadow: 16px -4px 12px #1114 inset;
     }
     .m-light .headerMenu__link, /*unmodified*/
     .m-light .headerMenu__link:focus,
