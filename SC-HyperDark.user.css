@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.152
+@version      0.9.153
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -562,52 +562,6 @@
     .header__navWrapper .header__navMenu li {
         width: 100%
     }
-    /* navigation fix */
-    .header__navMenu > li > a.header__moreButton.selected,
-    .header__userNavButton.selected,
-    .header__userNavItem.selected {
-        /*background: 0 0*/
-        background-color: transparent;
-        filter: brightness(.5);
-        transition-duration: 0.2s;
-    }
-    .header__navMenu > li > a.header__moreButton:hover,
-    .header__userNavButton:hover,
-    .header__userNavItem:hover {
-        transition-duration: 0.2s;
-    }
-    .header__navMenu > li > a.header__moreButton:not(.selected) {
-        transition: opacity 0.2s;
-        filter: brightness(1);
-    }
-    .header__navMenu > li > a.header__moreButton:not(.selected):hover {
-        filter: brightness(1.2);
-    }
-    .header__navWrapper .header__navMenu li a {
-        border: 0;
-        color: #b3b3b3;
-        box-sizing: border-box;
-        background: 0 0;
-        height: 40px;
-        line-height: 40px;
-        margin: 10px;
-        padding: 0 34px;
-        text-align: left;
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 1px;
-        width: 100%;
-        transition-duration: 0.25s;
-    }
-    .header__navWrapper .header__navMenu li a.selected {
-        border-left: 4px solid #f50;
-        background: linear-gradient(90deg, #401702 -400%, transparent)
-    }
-    .header__navWrapper .header__navMenu li a:hover {
-        color: #fff;
-        transition-duration: 0.25s;
-        filter: drop-shadow(0px 0px 6px #fff8);
-    }
     #app .l-container:not(.siteTakeoverOverlay) {
         padding: 0;
         margin: 0;
@@ -1028,7 +982,7 @@
     #app .l-container #content .soundTitle__usernameTitleContainer .soundTitle__title {
         font-size: 14px;
         line-height: 16px;
-        letter-spacing: .015em;
+        /*letter-spacing: .015em;*/
         color: #eee;
         transition-duration: 0.2s!important;
         transition-property: color, font-weight, filter, opacity;
@@ -1077,7 +1031,7 @@
     #app .l-container #content .soundTitle__usernameTitleContainer .soundTitle__username {
         font-size: 12px;
         line-height: 20px;
-        letter-spacing: .015em;
+        /*letter-spacing: .015em;*/
         color: #b3b3b3;
         width: auto;
         flex: 0;
@@ -1140,7 +1094,7 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__lightLink {
         font-size: 12px;
         line-height: 16px;
-        letter-spacing: .015em;
+        /*letter-spacing: .015em;*/
         color: #b3b3b3;
         width: auto;
         flex: 0;
@@ -1163,7 +1117,7 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__title a {
         font-size: 14px;
         line-height: 20px;
-        letter-spacing: .015em;
+        /*letter-spacing: .015em;*/
         color: #fff;
         /* background: #0a0a0a; */
         padding: 5px;
@@ -1558,7 +1512,7 @@
     .g-tabs-link:hover {
         border-color: #f50
     }
-    .paging-eof:before {
+    .paging-eof:before, .sc-classic .paging-eof:before {
         display: none
     }
     .trackItem:active,
@@ -2593,7 +2547,7 @@
     .soundEditForm, .audibleEditForm__audio, .audibleEditForm__progress, .audibleEditForm__form {
         background: #0d0d0d;
     }
-    .listenEngagement {
+    .listenEngagement, .sc-classic .listenEngagement {
         box-shadow: none;
     }
     .dropdownContent__listItem {
@@ -2723,7 +2677,8 @@
     .moreActions__group:not(:first-child), .sc-classic .moreActions__group:not(:first-child) {
         border-top: 1px solid #6661;
     }
-    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, .g-type-shrinkwrap-block:visited, .g-type-shrinkwrap-inline, .g-type-shrinkwrap-inline:hover, .g-type-shrinkwrap-inline:visited {
+    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, .g-type-shrinkwrap-block:visited, .g-type-shrinkwrap-inline, .g-type-shrinkwrap-inline:hover, .g-type-shrinkwrap-inline:visited,
+    .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, .sc-classic .g-type-shrinkwrap-block:visited, .sc-classic .g-type-shrinkwrap-inline, .sc-classic .g-type-shrinkwrap-inline:hover, .sc-classic .g-type-shrinkwrap-inline:visited {
         background-color: rgba(0,0,0,.5);
         backdrop-filter: blur(6px);
     }    
@@ -3193,7 +3148,7 @@
     .spotlightTitle, .sc-classic .spotlightTitle, .userstream__header, .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
         font-weight: 300;
     }
-    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .header__navWrapper .header__navMenu li a, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, .listenInfo__releaseData, 
+    .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, .listenInfo__releaseData, 
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
     .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder {
         font-weight: 300;
@@ -3201,10 +3156,10 @@
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
     .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays), 
-    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary {
+    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a {
         font-weight: 400;
     }
-    .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title, .onSoundCloudTeaser__title.sc-font-light, .insightsSidebarModule__plays, a.userStatsLegend__itemTitleWrapper, .uploadButton__status, .linkMenu__groupTitle, .sc-classic .g-type-shrinkwrap-large-primary, .sc-classic .g-type-shrinkwrap-primary {
+    .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title, .onSoundCloudTeaser__title.sc-font-light, .insightsSidebarModule__plays, a.userStatsLegend__itemTitleWrapper, .uploadButton__status, .linkMenu__groupTitle, .sc-classic .g-type-shrinkwrap-large-primary, .sc-classic .g-type-shrinkwrap-primary:not(.soundTitle__title) {
         font-weight: 600;
     }
     .sc-classic .ui-datepicker th, .sc-classic .compactTrackListItem.active, .sc-classic .compactTrackListItem.active .compactTrackListItem__content, .sc-classic .compactTrackListItem.active .compactTrackListItem__number, .sc-classic .compactTrackListItem.active .compactTrackListItem__plays, .sc-classic .compactTrackListItem.active .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem.active .compactTrackListItem__user {
@@ -3215,7 +3170,7 @@
         body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header {
             font-family: /*[[font]]*/ var,/*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         }
-        .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .sc-classic .soundTitle__title:hover, .header__navWrapper .header__navMenu li a:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .listenInfo__releaseData {
+        .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .sc-classic .soundTitle__title:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .listenInfo__releaseData {
             font-weight: 330;
         }
     }
@@ -3355,7 +3310,7 @@
       background-color: #f50;
     }
     .artistShortcutsModal {
-        background-image: unset!important;
+        /*background-image: unset!important;*/
         background: radial-gradient(transparent 0, black 100%);
         backdrop-filter: sepia(0.5) saturate(1) hue-rotate(/*[[hue]]*/deg) hue-rotate(-20deg) brightness(1.2) contrast(8) blur(200px);
     }
@@ -4094,6 +4049,121 @@
     
     .sc-classic .whoToFollowModule .sc-link-light:hover .sidebarHeader__more {
         filter: contrast(0.8) brightness(2);
+    }
+    
+    .soundTitle__titleHeroContainer {
+        margin-top: 4px;
+    }
+    
+    .soundTitle__titleHeroContainer {
+        margin-top: 4px;
+    }
+    .soundTitle__title {
+        padding-top: 4px;
+    }
+    .sc-classic .mobileAppsButtons.m-sidebar {
+        padding: 0px;
+    }
+    
+    /* navigation fix */
+    .header__navMenu > li > a.header__moreButton.selected,
+    .header__userNavButton.selected,
+    .header__userNavItem.selected {
+        /*background: 0 0*/
+        background-color: transparent;
+        filter: brightness(.5);
+        transition-duration: 0.2s;
+    }
+    .header__navMenu > li > a.header__moreButton:hover,
+    .header__userNavButton:hover,
+    .header__userNavItem:hover {
+        transition-duration: 0.2s;
+    }
+    .header__navMenu > li > a.header__moreButton:not(.selected) {
+        transition: opacity 0.2s;
+        filter: brightness(1);
+    }
+    .header__navMenu > li > a.header__moreButton:not(.selected):hover {
+        filter: brightness(1.2);
+    }
+    
+    /* new navmenu */
+    .header__navWrapper .header__navMenu li a {
+        border: 0;
+        color: #b3b3b3;
+        box-sizing: border-box;
+        background: 0 0;
+        height: 40px;
+        line-height: 40px;
+        margin: 10px;
+        /*padding: 0 34px;*/
+        padding: 0 48px;
+        text-align: left;
+        font-size: 16px;
+        font-weight: 400;
+        /*letter-spacing: 1px;*/
+        width: 100%;
+        transition-duration: 0.25s;
+        filter: drop-shadow(0px 0px 0px #fff0);
+    }
+    .header__navWrapper .header__navMenu li a.selected {
+        border-left: 4px solid #f50;
+        border-radius: 4px;
+        /*background: linear-gradient(90deg, #401702 -400%, transparent);*/
+        background: linear-gradient(90deg, #f50 -400%, transparent);
+    }
+    .header__navWrapper .header__navMenu li a:not(.selected):hover {
+        color: #fff;
+        transition-duration: 0.25s;
+        filter: drop-shadow(0px 0px 6px #fff8);
+    }
+    
+    /* navmenu icons */
+    :root {
+        --ic-home: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m16 3.08 14.44 10.31-.88 1.22-1.81-1.3v15.44h-8.5V21a3.25 3.25 0 1 0-6.5 0v7.75h-8.5V13.31l-1.81 1.3-.88-1.22L16 3.08Zm0 1.84L5.75 12.24v15.01h5.5V21a4.75 4.75 0 0 1 9.5 0v6.25h5.5v-15L16 4.91Z" fill="white" stroke="white"/></svg>');
+        --ic-home-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 2.77 30.58 13.2l-1.16 1.62-1.67-1.19v15.13h-8.5V21a3.25 3.25 0 1 0-6.5 0v7.75h-8.5V13.62l-1.67 1.2-1.16-1.63L16 2.77Z" fill="white" stroke="white"/></svg>');
+        --ic-stream: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M10.35 4.21A2.75 2.75 0 0 1 13 2.25h6.32a2.75 2.75 0 0 1 2.64 3.54L20 12.25h2.47a2.75 2.75 0 0 1 1.76 4.86L8.57 30.17l3.42-11.42H6l4.36-14.54ZM13 3.75c-.55 0-1.04.36-1.2.9l-3.78 12.6h6l-2.58 8.58 11.85-9.87c.9-.75.36-2.2-.8-2.2h-4.49l2.52-8.4c.24-.8-.36-1.61-1.2-1.61H13Z" fill="white" stroke="white"/></svg>');
+        --ic-stream-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M12.99 2.25c-1.22 0-2.29.8-2.64 1.96L6 18.75h6L8.56 30.17l15.68-13.06a2.75 2.75 0 0 0-1.76-4.86H20l1.94-6.46a2.75 2.75 0 0 0-2.64-3.54H13Z" fill="white" stroke="white"/></svg>');
+        --ic-library: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25A2.75 2.75 0 0 1 7.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 5 4.25Zm8 0A2.75 2.75 0 0 1 15.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53ZM5 5.75c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm8 0c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm7.68 0c-.74 0-1.27.7-1.1 1.4l.04.12 6.63 18.24a1.13 1.13 0 0 0 2.16-.66l-.03-.12L21.75 6.5a1.13 1.13 0 0 0-1.07-.74Z" fill="white" stroke="white"/></svg>');
+        --ic-library-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25a2.75 2.75 0 0 1 2.75 2.58V25a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 5 4.25Zm8 0a2.75 2.75 0 0 1 2.74 2.58l.01.17v18a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53Z" fill="white" stroke="white"/></svg>');
+    }
+    .header__navWrapper .header__navMenu li a:before {
+        content: "";
+        display: block;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        width: 22px;
+        height: 22px;
+        top: 0;
+        bottom: 3px;
+        margin: auto 0;
+        padding: 0 0;
+        left: 18px;
+        opacity: 0.7;
+        transition-duration: 0.2s;
+        background-size: 22px 22px;
+    }
+    .header__navWrapper .header__navMenu li a[data-menu-name="home"]:before {
+        background-image: var(--ic-home);
+    }
+    .header__navWrapper .header__navMenu li a.selected[data-menu-name="home"]:before {
+        background-image: var(--ic-home-active);
+    }
+    .header__navWrapper .header__navMenu li a[data-menu-name="stream"]:before {
+        background-image: var(--ic-stream);
+    }
+    .header__navWrapper .header__navMenu li a.selected[data-menu-name="stream"]:before {
+        background-image: var(--ic-stream-active);
+    }
+    .header__navWrapper .header__navMenu li a[data-menu-name="library"]:before {
+        background-image: var(--ic-library);
+    }
+    .header__navWrapper .header__navMenu li a.selected[data-menu-name="library"]:before {
+        background-image: var(--ic-library-active);
+    }
+    .header__navWrapper .header__navMenu li a.selected:before, .header__navWrapper .header__navMenu li a:hover:before, .header__navWrapper .header__navMenu>li>a:focus:before {
+        opacity: 1;
     }
     
 }
