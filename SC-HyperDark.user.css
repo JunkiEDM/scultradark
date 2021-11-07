@@ -4166,6 +4166,15 @@
         opacity: 1;
     }
     
+    .profileHeader__edit {
+        left: 232px!important;
+    }
+
+    .sc-classic .soundList__item {
+        margin-bottom: 24px;
+        padding: 0;
+    }
+    
 }
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget/iframe */
