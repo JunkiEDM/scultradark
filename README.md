@@ -1,13 +1,27 @@
 <h1 align="center">Soundcloud Hyper Dark</h1>
-<h3 align="center">A functional, modern redesign of the outdated Soundcloud UX.<h3>
-<p align="center"><b><a href="https://github.com/JunkiEDM/scultradark/raw/master/SC-HyperDark.user.css">📦 Install UserStyle (Supports automatic updates)</a></b> <i>|</i> <b><a href="https://userstyles.world/style/70">🔗 UserStyles.world Page</a></b></p><br>
-<p align="center"><b><a href="https://greasyfork.org/en/scripts/429743-revert-user-headers">UserScript to get rid of "Tracks by..." in the header</a></b></p>
+<h3 align="center">A full modern redesign of the outdated Soundcloud UI.</h3>
+<h2>Installation:</h2>
+<ol>
+  <li><b>Install the Stylus extension: <a href="https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne">Chrome Web Store</a></b> <i>|</i> <b><a href="https://addons.mozilla.org/en-US/firefox/addon/styl-us/">Firefox</a></b></li>
+  <li><p><b>Install UserStyle from: <a href="https://github.com/JunkiEDM/scultradark/raw/master/SC-HyperDark.user.css">📦 GitHub (Supports automatic updates)</a></b> <i>|</i> <b><a href="https://userstyles.world/style/70">🔗 UserStyles.world Page</a></b></p></li>
+</ol>
+<h3>(OPTIONAL) Install userscript to get rid of "Tracks by..." etc on profile pages.</h3>
+<ol>
+  <li><b>Install a userscript manager:</b>
+    <ul>
+      <li>Chrome: <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo">Tampermonkey</a> or <a href="https://chrome.google.com/webstore/detail/violent-monkey/jinjaccalgkegednnccohejagnlnfdag">Violentmonkey</a></li>
+      <li>Firefox: <a href="https://addons.mozilla.org/firefox/addon/greasemonkey/">Greasemonkey</a>, <a href="https://addons.mozilla.org/firefox/addon/tampermonkey/">Tampermonkey</a>, or <a href="https://addons.mozilla.org/firefox/addon/violentmonkey/">Violentmonkey</a></li>
+      <li>Safari: <a href="http://tampermonkey.net/?browser=safari">Tampermonkey</a> or <a href="https://apps.apple.com/app/userscripts/id1463298887">Userscripts</a></li>
+    </ul>
+  </li>
+  <li><p><b><a href="https://greasyfork.org/en/scripts/429743-revert-user-headers">Install "Revert user headers" script from greasyfork</a></b></p></li>
+</ol>
 <br>
 
 ### Preview: <br>
 ![Preview](preview.png) <br>
 ***
-### *[Install the Stylus browser extension if you haven't already to install more UserStyles like this one!](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)* <br>*Find more styles at [UserStyles.world](https://userstyles.world/explore) and [UserStyles.org (Archive)](https://33kk.github.io/uso-archive/)!* <br> <br>
+### *Find more styles at [UserStyles.world](https://userstyles.world/explore) and [UserStyles.org (Archive)](https://33kk.github.io/uso-archive/)!* <br> <br>
 ### Credits: <br>
 [Primarily based on 'SoundCloud Ultra Dark' by IgChi](https://33kk.github.io/uso-archive/?style=176264) <br>
 ['SoundCloud - Quite Dark' by pawelos076232](https://33kk.github.io/uso-archive/?style=143738) <br>
