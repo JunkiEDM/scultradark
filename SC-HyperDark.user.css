@@ -3140,7 +3140,7 @@
     }
     /* Change font to Inter */
     body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
-    body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header {
+    body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header, .sc-classic .notificationBadge {
         font-family: /*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         -webkit-font-smoothing: subpixel-antialiased;
         -moz-osx-font-smoothing: grayscale;
