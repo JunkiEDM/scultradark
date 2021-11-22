@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.153
+@version      0.9.154
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -2439,13 +2439,13 @@
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button), .sc-button-group .sc-button-insights.sc-button-cta, .imageEditDropdown .sc-button, .uiEvoButton {
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove), .sc-button-group .sc-button-insights.sc-button-cta, .imageEditDropdown .sc-button, .uiEvoButton {
         border-color: #1a1a1a;
         background: #111;
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):hover, .sc-button-group .sc-button-insights.sc-button-cta:hover, .imageEditDropdown .sc-button:hover .uiEvoButton:hover {
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):hover, .sc-button-group .sc-button-insights.sc-button-cta:hover, .imageEditDropdown .sc-button:hover .uiEvoButton:hover {
         border-color: #fff6;
         background: #222;
         color: #eee;
@@ -2577,14 +2577,19 @@
     .progressBar.blue .progressBar__inner {
         filter: hue-rotate(/*[[blu]]*/deg) hue-rotate(10deg) saturate(1.1) var(--fil);
     }
-    .spotlight.editing .spotlight__item {
+    /* spotlight editing */
+    .spotlight.editing .spotlight__item, .sc-classic .spotlight.editing .spotlight__item {
         background: transparent;
-        transition-duration: 1s
+        transition-duration: 1s;
+        padding: 5px 22px 4px 12px;
+        margin: 4px -22px 4px -12px;
+        border-radius: 8px;
     }
-    .spotlight.editing .spotlight__item:hover {
+    .spotlight.editing .spotlight__item:hover, .sc-classic .spotlight.editing .spotlight__item:hover {
         background: #0006;
         border: #3336;
-        transition-duration: 0.25s
+        transition-duration: 0.25s;
+        box-shadow: 3px 3px 14px -3px #0008;
     }
     .keyboardShortcuts__shortcutsGroup>dl>dt>kbd>kbd {
         background: #fff1;
@@ -2599,7 +2604,7 @@
     .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional, .editTrackItem.m-dragging .editTrackItem__additional { /*Remove linear-gradient background on some selection areas*/
         background: none;
     }
-    .commentFormDisabled {
+    .commentFormDisabled, .sc-classic .commentFormDisabled {
         background: #0003;
         border-radius: 8px;
     }
@@ -2716,10 +2721,16 @@
     .playControls__bg {
         backdrop-filter: brightness(0.8) blur(32px);
     }
-    .spotlightRemove, .g-button-remove {
+    .spotlightRemove, .sc-classic .spotlightRemove, .g-button-remove {
         filter: brightness(0.55) contrast(6.4);
         border-radius: 100%;
-        box-shadow: inset 0 0 1px 3px #d7d7d7;
+        box-shadow: inset 0 -0.3px 3px 3px #d7d7d7;
+        min-width: fit-content;
+        padding: 0;
+        transition-duration: 0.25s;
+    }
+    .spotlightRemove:hover, .sc-classic .spotlightRemove:hover, .g-button-remove:hover {
+        filter: brightness(0.54) contrast(6.4);
     }
     /* dumbass insights update */
     .insightsSidebarModule__title,
@@ -3013,7 +3024,7 @@
     .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6 {
         font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
     } */
-    .sc-button-small:not(.sc-button-cta), .sc-button-medium:not(.sc-button-cta) {
+    .sc-button-small:not(.sc-button-cta), .sc-button-medium:not(.sc-button-cta):not(.sc-button-nostyle) {
         /*font-family: Product Sans,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
         font-size: 12px;
     }
@@ -3803,7 +3814,7 @@
         box-shadow: inset 0 0 2px #ddd;
         filter: brightness(0.55) contrast(4.5);
     }
-    .sc-classic .error .gritter-top {
+    .sc-classic .error .gritter-top, .sc-classic .gritter-item-wrapper.big-success .gritter-top {
         filter: hue-rotate(calc(/*[[hue]]*/deg + 2));
         position: relative;
         padding: 1px;
@@ -4173,6 +4184,38 @@
     .sc-classic .soundList__item {
         margin-bottom: 24px;
         padding: 0;
+    }
+    
+    /* Report Button Fix */
+    .sc-button-small.reportCopyright {
+        padding: 2px 9px 2px 24px;
+        color: #888!important;
+        border: 1px solid #1a1a1a;
+    }
+    .sc-button-small.reportCopyright:before {
+        content: "";
+        display: block;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        width: 20px;
+        height: 20px;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        left: 4px;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAQAAACR313BAAAAnElEQVR4AZXNUQqDMBCE4TlWKApbiGBEpVYphQb6knvkaDnalLWK60uhfjA+5CfBX1+SBAvJiPKmCc7HizwZaQJ73MvEucx4FRtsPy+BA8c84pHtDetUcmXDwC53uGf7BBKcXFhTg7a0uJWFR4B0ChoMnLgGEhGBqEwQuAayQOmoLaihQS89vnQ2+w1ePHbwhgaVVDjoGE4cLLifPnBzeJR4+XAqAAAAAElFTkSuQmCC);
+        background-size: 16px 16px;
+        filter: contrast(0) sepia(0) hue-rotate(-48deg) saturate(0) brightness(1) contrast(0)!important;
+        transition: filter 0.2s!important;
+    }
+    .sc-button-small.reportCopyright:hover {
+        color: #f34!important;
+        border-color: #f236!important;
+        background: #301!important;
+    }
+    .sc-button-small.reportCopyright:hover:before {
+        filter: contrast(0) sepia(1) hue-rotate(-49.95deg) saturate(12) brightness(1.71) contrast(1)!important;
     }
     
 }
