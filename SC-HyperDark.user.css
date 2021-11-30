@@ -883,7 +883,7 @@
         padding: 5px 10px;
         text-decoration: none;
         -webkit-transition: opacity .2s linear;
-        transition: opacity .2s linear
+        transition: opacity .2s linear, font-weight .2s linear
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link.active,
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link:hover {
@@ -4120,10 +4120,12 @@
         width: 100%;
         transition-duration: 0.25s;
         filter: drop-shadow(0px 0px 0px #fff0);
+        border-radius: 4px;
+        border-left: 0px solid #f50;
+        transition: border-left .1s ease, background .1s ease;
     }
     .header__navWrapper .header__navMenu li a.selected {
         border-left: 4px solid #f50;
-        border-radius: 4px;
         /*background: linear-gradient(90deg, #401702 -400%, transparent);*/
         background: linear-gradient(90deg, #f50 -400%, transparent);
     }
