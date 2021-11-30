@@ -264,7 +264,7 @@
         margin-left: 15px;
         margin-right: 15px
     }
-    /* #app:not(body[marginwidth="0"][marginheight="0"] #app), */
+    #app:not(body[marginwidth="0"][marginheight="0"] #app),
     #app header:not(.g-flex-row-spread) {
         height: calc(100vh - 90px)
     }
@@ -883,7 +883,7 @@
         padding: 5px 10px;
         text-decoration: none;
         -webkit-transition: opacity .2s linear;
-        transition: opacity .2s linear, font-weight .2s linear
+        transition: opacity .2s linear
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link.active,
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link:hover {
