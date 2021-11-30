@@ -540,6 +540,9 @@
         top: 40px;
         left: 110px
     }
+    .creatorSubscriptionsButton{
+        display: none;
+    }
     .header__inner .header__right div.header__userNav .header__userNavUsernameButton {
         width: 100%
     }
@@ -1386,8 +1389,8 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__volume .volume__sliderWrapper .volume__sliderHandle {
         width: 10px;
-        border-radius: 0;
-        height: 4px;
+        border-radius: 50%;
+        height: 10px;
         left: 5px;
         background: #fff;
         opacity: 0
