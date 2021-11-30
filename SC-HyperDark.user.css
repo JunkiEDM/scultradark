@@ -883,7 +883,7 @@
         padding: 5px 10px;
         text-decoration: none;
         -webkit-transition: opacity .2s linear;
-        transition: opacity .2s linear
+        transition: opacity .2s linear, font-weight .2s linear
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link.active,
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link:hover {
