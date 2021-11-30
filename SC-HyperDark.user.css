@@ -4488,6 +4488,9 @@
     .commentPopover.darkText .commentPopover__body {
         color: #ccc;
     }
+    .commentPopover__wrapper {
+        max-width: 50rem;
+    }
     .logo__path { 
         fill: #696969;
         fill: url("#logo_hover_21")!important; 
