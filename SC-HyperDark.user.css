@@ -363,7 +363,8 @@
         font-display: swap
     }
     html {
-        min-height: 100vh
+        min-height: 100vh;
+        overflow-x: hidden;
     }
     body, body.sc-classic {
         background: #111!important;
