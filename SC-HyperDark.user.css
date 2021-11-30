@@ -4664,12 +4664,17 @@
         visibility: hidden;
     }
 }
-@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/(likes|sets|albums|stations|following|history)/?") {
+@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/(sets|albums|stations|following)/?") {
     .badgeList__item {
         width: 150px!important;
     }
     .collectionSection__filters {
         right: 40px;
+    }
+}
+@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/history/?") {
+    .collectionSection__filters {
+        right: 140px;
     }
 }
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
