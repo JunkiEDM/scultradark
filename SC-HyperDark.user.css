@@ -363,7 +363,8 @@
         font-display: swap
     }
     html {
-        min-height: 100vh
+        min-height: 100vh;
+        overflow-x: hidden;
     }
     body, body.sc-classic {
         background: #111!important;
@@ -540,6 +541,9 @@
         top: 40px;
         left: 110px
     }
+    .creatorSubscriptionsButton{
+        display: none;
+    }
     .header__inner .header__right div.header__userNav .header__userNavUsernameButton {
         width: 100%
     }
@@ -707,7 +711,7 @@
         bottom: 16px;
         /*bottom: 45px;
         left: 87%;*/
-        filter: drop-shadow(2px 6px 12px #0006);
+        filter: drop-shadow(2px 6px 12px #000);
     }
     /*#app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h2, */#app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content .profileHeaderInfo__userName {
         margin-top: 0px;
@@ -879,7 +883,7 @@
         padding: 5px 10px;
         text-decoration: none;
         -webkit-transition: opacity .2s linear;
-        transition: opacity .2s linear
+        transition: opacity .2s linear, font-weight .2s linear
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link.active,
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link:hover {
@@ -1386,8 +1390,8 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__volume .volume__sliderWrapper .volume__sliderHandle {
         width: 10px;
-        border-radius: 0;
-        height: 4px;
+        border-radius: 50%;
+        height: 10px;
         left: 5px;
         background: #fff;
         opacity: 0
@@ -1562,6 +1566,14 @@
     .sound.streamContext .commentForm.visible.m-small {
         margin-top: 20px
     }
+    .visualSound .visuals::after {
+        transition: opacity .3s ease-in-out;
+        opacity: 0;
+        background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%)
+    }
+    .visualSound.playing.focused .visuals::after {
+        opacity: 1;
+    }
     .sc-tag,
     .sc-tag:visited {
         color: #ccc!important;
@@ -1679,7 +1691,7 @@
     .userNetwork {
         margin: 40px 15px 15px
     }
-    .l-fixed-top-one-column > .l-top {
+    .sc-classic .l-fixed-top-one-column > .l-top {
         background: #111;
         top: 0;
         width: calc(100% - 235px)
@@ -4116,10 +4128,12 @@
         width: 100%;
         transition-duration: 0.25s;
         filter: drop-shadow(0px 0px 0px #fff0);
+        border-radius: 4px;
+        border-left: 0px solid #f50;
+        transition: border-left .1s ease, background .1s ease;
     }
     .header__navWrapper .header__navMenu li a.selected {
         border-left: 4px solid #f50;
-        border-radius: 4px;
         /*background: linear-gradient(90deg, #401702 -400%, transparent);*/
         background: linear-gradient(90deg, #f50 -400%, transparent);
     }
@@ -4485,6 +4499,9 @@
     .commentPopover.darkText .commentPopover__body {
         color: #ccc;
     }
+    .commentPopover__wrapper {
+        max-width: 50rem;
+    }
     .logo__path { 
         fill: #696969;
         fill: url("#logo_hover_21")!important; 
@@ -4664,12 +4681,17 @@
         visibility: hidden;
     }
 }
-@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/(likes|sets|albums|stations|following|history)/?") {
+@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/(sets|albums|stations|following)/?") {
     .badgeList__item {
         width: 150px!important;
     }
     .collectionSection__filters {
         right: 40px;
+    }
+}
+@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/history/?") {
+    .collectionSection__filters {
+        right: 140px;
     }
 }
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
