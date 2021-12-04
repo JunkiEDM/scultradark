@@ -1661,7 +1661,7 @@
     }
     a.playableTile__heading,
     a.playableTile__heading:hover,
-    .sc-classic .playableTile__mainHeading 
+    .sc-classic .playableTile__mainHeading, 
     .sc-classic .playableTile__mainHeading:hover {
         font-size: 14px
     }
