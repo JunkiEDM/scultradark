@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.155
+@version      0.9.156
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -364,11 +364,12 @@
     }
     html {
         min-height: 100vh;
-        overflow-x: hidden;
     }
     body, body.sc-classic {
         background: #111!important;
-        overflow: auto
+        max-width: 100%;
+        overflow-y: auto;
+        overflow-x: clip;
     }
     ::-webkit-scrollbar,
     div::-webkit-scrollbar {
@@ -1545,7 +1546,8 @@
         top: -15px
     }
     .playControls {
-        z-index: 9999
+        z-index: 9999;
+        overflow-x: clip;
     }
     .dialog {
         z-index: 9999999;
@@ -2077,7 +2079,7 @@
     .uploadMain__content {
         color: #ccc
     }
-    .stats__xAxis text {
+    .stats__xAxis text, .sc-classic .stats__xAxis text {
         fill: #fff
     }
     .commentBadge__body {
@@ -3179,7 +3181,7 @@
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
     .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays), 
-    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a {
+    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count {
         font-weight: 400;
     }
     .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title, .onSoundCloudTeaser__title.sc-font-light, .insightsSidebarModule__plays, a.userStatsLegend__itemTitleWrapper, .uploadButton__status, .linkMenu__groupTitle, .sc-classic .g-type-shrinkwrap-large-primary, .sc-classic .g-type-shrinkwrap-primary:not(.soundTitle__title) {
@@ -3272,7 +3274,7 @@
     .statsLineChart__ticks, .statsLineChart__bottom, .stats__xAxis, .stats__yAxis {
         filter: invert(0.9);
     }
-    .g-stats-icon-orange, .sc-text-orange, .statsLineChart__lines, .topStatsItem__visual {
+    .g-stats-icon-orange:not(.g-tabs-link .g-stats-icon-orange), .sc-text-orange, .statsLineChart__lines, .topStatsItem__visual, .sc-background-orange, .topStatsFullItem__visual {
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     .statsSummary__metricValue {
@@ -4205,6 +4207,7 @@
         padding: 2px 9px 2px 24px;
         color: #888!important;
         border: 1px solid #1a1a1a;
+        width: auto;
     }
     .sc-button-small.reportCopyright:before {
         content: "";
@@ -4232,6 +4235,31 @@
         filter: contrast(0) sepia(1) hue-rotate(-49.95deg) saturate(12) brightness(1.71) contrast(1)!important;
     }
     
+    .g-stats-icon {
+        width: 20px;
+        height: 18px;
+    }
+    /* stats modal fix - see line 3728 */
+    .sc-classic .modal__header ~ .modal__modal {
+        padding: 25px;
+        background: #0d0d0d;
+        border: 1px solid #222;
+        border-top: none;
+        border-radius: 0px 0px 16px 16px;
+        top: -36px;
+    }
+    .modal__header .g-modal-section {
+        border: 1px solid #222;
+        border-bottom: none;
+        border-radius: 16px 16px 0px 0px;
+    }
+    .stats__pager:before {
+        filter: invert(1);
+    }
+    
+    .creatorsNavigation__onSoundCloudLink {
+        background: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjY2NjYSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTExLDQgTDgsNCBMOCwzIEwxMywzIEwxMyw0IEwxMyw0IEwxMyw4IEwxMiw4IEwxMiw1IEw2LDEwIEw2LDEwIEwxMSw0IFoiPjwvcGF0aD4KICAgIDxwYXRoIGQ9Ik0zLDEyIEw5LDEyIEw5LDEzIEwzLDEzIEwzLDEyIFogTTMsMTIgTDMsNyBMNCw3IEw0LDEyIEwzLDEyIFogTTksMTMgTDksMTAgTDEwLDkgTDEwLDEzIEw5LDEzIFogTTMsNyBMMyw2IEw3LDYgTDYsNyBMMyw3IFoiPjwvcGF0aD4KPC9zdmc+) no-repeat 0 15px/16px 16px!important;
+    }
 }
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget/iframe */
@@ -4711,6 +4739,10 @@
         --divider-color-inner: #111;
         --graph-legend-background: hsla(0,0%,0%,0.25);
         --graph-marker: var(--text-color-secondary);
+        --button-secondary-background-color: #111;
+        --button-secondary-font-color: #ccc;
+        --component-border-color: #333;
+        --component-border: 0.114rem solid var(--component-border-color);
         
     }
     .TotalCounts_TotalCounts__3AozJ {
@@ -4733,6 +4765,26 @@
     }
     .g-oscp-section {
         border-bottom: 1px solid #0a0a0a;
+    }
+    
+    .GraphBar_GraphMargin__3LKW4 svg>g>rect[fill="#FFFFFF"], .GraphBar_GraphMargin__3LKW4 svg>g>rect[fill="#F5F7F8"] {
+        fill: #0d0d0d;
+    }
+    .GraphBar_GraphMargin__3LKW4 svg {
+        border-radius: 8px;
+    }
+    .Bar_FadedBar__2oq7v {
+        fill: #0d0d0d;
+    }
+    .Bar_FadedBar__2oq7v.Bar_ForegroundBar__WvgRY {
+        fill: #ff463780
+    }
+    .DataList_Blur__dVuaL:before {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+    .ResolutionDropdown_Toggle__OhrMk, .Dropdown_DropdownToggleButton__goVmf[aria-owns="dropdown-button-timewindow-select"] {
+        border: var(--component-border);
     }
 }
 
