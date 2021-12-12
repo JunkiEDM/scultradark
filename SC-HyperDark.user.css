@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.156
+@version      0.9.157
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1520,15 +1520,6 @@
     .paging-eof:before, .sc-classic .paging-eof:before {
         display: none
     }
-    .trackItem:active,
-    .trackItem:hover {
-        background: #000
-    }
-    .trackItem:not(.m-disabled).active .trackItem__additional,
-    .trackItem:not(.m-disabled).hover .trackItem__additional {
-        background: 0 0;
-        right: 12px
-    }
     .playbackSoundBadge .playbackSoundBadge__like {
         background: #131313
     }
@@ -1602,8 +1593,18 @@
         background: linear-gradient(to right, #1d0101, #200122)!important*/
         filter: saturate(2) contrast(0.75) brightness(0.5);
     }
-    .commentItem.m-creatorComment {
-        background: #151515
+    .commentItem.m-isReply,
+    .sc-classic .commentItem.m-isReply {
+        margin-left: 10px;
+        background-color: #131313;
+        border: 1px solid #222;
+        border-radius: 0 12px 12px 12px;
+        padding-left: 10px;
+    }
+    .commentItem.m-creatorComment,
+    .sc-classic .commentItem.m-creatorComment {
+        background-color: #161616;
+        border: 1px solid #333;
     }
     /* brighten buttons */
     .sc-button-medium.sc-button-more:before,
@@ -1801,9 +1802,16 @@
         position: absolute;
         right: 100px
     }
-    .trackItem.active,
-    .trackItem.hover {
-        background: #0d0d0d
+    .trackItem:active, .trackItem:hover, 
+    .trackItem.active, .trackItem.hover 
+    .sc-classic .trackItem.active, .sc-classic .trackItem.hover {
+        background-color: #0d0d0d;
+    }
+    .trackItem:not(.m-disabled).active .trackItem__additional, .trackItem:not(.m-disabled).hover .trackItem__additional,
+    .sc-classic .trackItem:not(.m-disabled).active .trackItem__additional, .sc-classic .trackItem:not(.m-disabled).hover .trackItem__additional {
+        background: #f2f2f2;
+        background: linear-gradient(90deg,#0d0d0d0d,#0d0d0d 17px);
+        right: 12px;
     }
     .gritter-item-wrapper {
         background: #222;
@@ -1883,6 +1891,7 @@
     .sc-button-selected.sc-button-medium.sc-button-like:before {
         filter: none
     }
+    .sc-classic .image__whiteOutline .image__full,
     .image__whiteOutline .image__full {
         border: none;
         box-shadow: 0 0 10px rgba(0, 0, 0, .3)
@@ -3324,8 +3333,9 @@
         transition-duration: 0.2s;
     }
     /* Color changer (switched from https://33kk.github.io/uso-archive/?style=123974 to simpler method) */
-    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static {
-      filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
+    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static,
+    .imageCrop__zoomSlider, .sc-classic .imageCrop__zoomSlider {
+        filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     /* soundcloud stories */
     .uiEvoButton {
@@ -4259,6 +4269,35 @@
     
     .creatorsNavigation__onSoundCloudLink {
         background: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjY2NjYSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTExLDQgTDgsNCBMOCwzIEwxMywzIEwxMyw0IEwxMyw0IEwxMyw4IEwxMiw4IEwxMiw1IEw2LDEwIEw2LDEwIEwxMSw0IFoiPjwvcGF0aD4KICAgIDxwYXRoIGQ9Ik0zLDEyIEw5LDEyIEw5LDEzIEwzLDEzIEwzLDEyIFogTTMsMTIgTDMsNyBMNCw3IEw0LDEyIEwzLDEyIFogTTksMTMgTDksMTAgTDEwLDkgTDEwLDEzIEw5LDEzIFogTTMsNyBMMyw2IEw3LDYgTDYsNyBMMyw3IFoiPjwvcGF0aD4KPC9zdmc+) no-repeat 0 15px/16px 16px!important;
+    }
+    
+    .commentItem__controls {
+        visibility: visible;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+    .commentItem.m-dialogOpen .commentItem__controls, .commentItem:hover .commentItem__controls {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .imageCrop__previewContainer.sc-artwork.sc-artwork-placeholder-9 {
+        background-image: none;
+    }
+    .imageCrop__preview, .sc-classic .imageCrop__preview {
+        border-radius: 8px;
+    }
+    /*.sc-classic .g-range-input::-moz-range-thumb, .sc-classic .g-range-input::-ms-thumb, .sc-classic .g-range-input::-webkit-slider-thumb {
+        filter: hue-rotate(-20deg)!important;
+    }*/
+    /*.sc-classic .g-range-input::-moz-range-thumb, .sc-classic .g-range-input::-ms-thumb, .sc-classic .g-range-input::-webkit-slider-thumb {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE0SURBVFhH7ZZLCsIwEIZjwUu4deVevIF79S6FHkHoXdS9V3Dvyq2XEIrzNxFEkM4jliDzwVAT6PDZPGYmIaxCyVTpWSwuaMUFrbigFRe0Yqok3TpM6bFJsaSYUYA7xYXihKjO4YFJDWpBktvSo6WY9xPfuVHUJHmMQxliQRLDtthT1P0EH/yZhkS7OOSh2YMaOYB38K4I0RdMy3qIIzU7yXKzBdOBuFIM7bkhsCcX3IMjWWKcVKscQA7kYiEVzMVPBHHP5YKdSyL4uoRzwM6luWZGRSKI8pULdi6JIGprLti5JIIo/Llg55IK4pK1ghz5BdPNr6nBn6CzYbdfki8ISdRQdCVaWkkdBiLBREOhkezbrfiTz/81rO+kDgd1FVFWyz8Wmj04Ki5oxQWtuKAVF7QRwhOSKD52doAYMAAAAABJRU5ErkJggg==) 50%/20px 20px no-repeat!important;
+    }*/
+    /*.sc-classic .g-range-input::-moz-range-thumb, .sc-classic .g-range-input::-ms-thumb, .sc-classic .g-range-input::-webkit-slider-thumb {
+        background: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAgNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoyIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxMCIgc3R5bGU9ImZpbGw6I2ZmNDYzNyIvPjwvc3ZnPg==) 50%/20px 20px no-repeat!important;
+    }*/
+    .imageCrop__bottom.g-flex-row-centered-right {
+        max-width: fit-content;
     }
 }
 
