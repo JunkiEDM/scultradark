@@ -1803,7 +1803,7 @@
         right: 100px
     }
     .trackItem:active, .trackItem:hover, 
-    .trackItem.active, .trackItem.hover 
+    .trackItem.active, .trackItem.hover, 
     .sc-classic .trackItem.active, .sc-classic .trackItem.hover {
         background-color: #0d0d0d;
     }
