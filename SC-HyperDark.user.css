@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.157
+@version      0.9.158
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -2567,7 +2567,8 @@
         border: none;
         background: #222;
     }
-    .soundEditForm, .audibleEditForm__audio, .audibleEditForm__progress, .audibleEditForm__form {
+    .soundEditForm, .audibleEditForm__audio, .audibleEditForm__progress, .audibleEditForm__form,
+    .sc-classic .soundEditForm, .sc-classic .audibleEditForm__audio, .sc-classic .audibleEditForm__progress, .sc-classic .audibleEditForm__form{
         background: #0d0d0d;
     }
     .listenEngagement, .sc-classic .listenEngagement {
@@ -3849,17 +3850,20 @@
     }
 
     /* artists spotlight dark */
-    .userAudibleSearchResults {
+    .userAudibleSearchResults,
+    .sc-classic .userAudibleSearchResults {
         background-color: #181818;
         border: 1px solid #333;
         border-top: none;
         border-bottom: 1px solid #333!important;
         border-radius: 0 0 9px 9px;
     }
-    .userAudibleSearchResultItem {
+    .userAudibleSearchResultItem,
+    .sc-classic .userAudibleSearchResultItem{
         color: #fff!important;
     }
-    .userAudibleSearchResults__item.selected {
+    .userAudibleSearchResults__item.selected,
+    .sc-classic .userAudibleSearchResultItem {
         background-color: #222;
     }
 
