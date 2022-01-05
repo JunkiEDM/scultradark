@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.158
+@version      0.9.159
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -3185,7 +3185,7 @@
     }
     .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, .listenInfo__releaseData, 
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
-    .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder {
+    .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input {
         font-weight: 300;
     }
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
@@ -3357,18 +3357,18 @@
         background: #111;
         border: 1px solid #222
     }
-    .suggestedTags {
+    .sc-classic .suggestedTags, .suggestedTags {
         background-color: #1a1a1a;
         border: 1px solid #222;
         /* border-radius: 8px; */
     }
-    .suggestedTags__listItem.selected {
+    .sc-classic .suggestedTags__listItem.selected, .suggestedTags__listItem.selected {
         background-color: #111;
     }
     #overlay_40417 {
         border-radius: 4px;
     }
-    .tokenInput.focused .tokenInput__wrapper {
+    .sc-classic .tokenInput.focused .tokenInput__wrapper, .tokenInput.focused .tokenInput__wrapper {
         border-color: #444;
     }
     .audibleEditForm {
@@ -3822,7 +3822,7 @@
         padding: 1px;
         width: auto;
         height: 100%;
-        max-width: min-content;
+        max-width: 52px;
     }
     .sc-classic .gritter-with-image, .sc-classic .gritter-without-image {
         padding: 6px;
