@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.155
+@version      0.9.159
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -364,11 +364,12 @@
     }
     html {
         min-height: 100vh;
-        overflow-x: hidden;
     }
     body, body.sc-classic {
         background: #111!important;
-        overflow: auto
+        max-width: 100%;
+        overflow-y: auto;
+        overflow-x: clip;
     }
     ::-webkit-scrollbar,
     div::-webkit-scrollbar {
@@ -1519,15 +1520,6 @@
     .paging-eof:before, .sc-classic .paging-eof:before {
         display: none
     }
-    .trackItem:active,
-    .trackItem:hover {
-        background: #000
-    }
-    .trackItem:not(.m-disabled).active .trackItem__additional,
-    .trackItem:not(.m-disabled).hover .trackItem__additional {
-        background: 0 0;
-        right: 12px
-    }
     .playbackSoundBadge .playbackSoundBadge__like {
         background: #131313
     }
@@ -1545,7 +1537,8 @@
         top: -15px
     }
     .playControls {
-        z-index: 9999
+        z-index: 9999;
+        overflow-x: clip;
     }
     .dialog {
         z-index: 9999999;
@@ -1600,8 +1593,18 @@
         background: linear-gradient(to right, #1d0101, #200122)!important*/
         filter: saturate(2) contrast(0.75) brightness(0.5);
     }
-    .commentItem.m-creatorComment {
-        background: #151515
+    .commentItem.m-isReply,
+    .sc-classic .commentItem.m-isReply {
+        margin-left: 10px;
+        background-color: #131313;
+        border: 1px solid #222;
+        border-radius: 0 12px 12px 12px;
+        padding-left: 10px;
+    }
+    .commentItem.m-creatorComment,
+    .sc-classic .commentItem.m-creatorComment {
+        background-color: #161616;
+        border: 1px solid #333;
     }
     /* brighten buttons */
     .sc-button-medium.sc-button-more:before,
@@ -1799,9 +1802,16 @@
         position: absolute;
         right: 100px
     }
-    .trackItem.active,
-    .trackItem.hover {
-        background: #0d0d0d
+    .trackItem:active, .trackItem:hover, 
+    .trackItem.active, .trackItem.hover, 
+    .sc-classic .trackItem.active, .sc-classic .trackItem.hover {
+        background-color: #0d0d0d;
+    }
+    .trackItem:not(.m-disabled).active .trackItem__additional, .trackItem:not(.m-disabled).hover .trackItem__additional,
+    .sc-classic .trackItem:not(.m-disabled).active .trackItem__additional, .sc-classic .trackItem:not(.m-disabled).hover .trackItem__additional {
+        background: #f2f2f2;
+        background: linear-gradient(90deg,#0d0d0d0d,#0d0d0d 17px);
+        right: 12px;
     }
     .gritter-item-wrapper {
         background: #222;
@@ -1881,6 +1891,7 @@
     .sc-button-selected.sc-button-medium.sc-button-like:before {
         filter: none
     }
+    .sc-classic .image__whiteOutline .image__full,
     .image__whiteOutline .image__full {
         border: none;
         box-shadow: 0 0 10px rgba(0, 0, 0, .3)
@@ -2077,7 +2088,7 @@
     .uploadMain__content {
         color: #ccc
     }
-    .stats__xAxis text {
+    .stats__xAxis text, .sc-classic .stats__xAxis text {
         fill: #fff
     }
     .commentBadge__body {
@@ -2556,7 +2567,8 @@
         border: none;
         background: #222;
     }
-    .soundEditForm, .audibleEditForm__audio, .audibleEditForm__progress, .audibleEditForm__form {
+    .soundEditForm, .audibleEditForm__audio, .audibleEditForm__progress, .audibleEditForm__form,
+    .sc-classic .soundEditForm, .sc-classic .audibleEditForm__audio, .sc-classic .audibleEditForm__progress, .sc-classic .audibleEditForm__form{
         background: #0d0d0d;
     }
     .listenEngagement, .sc-classic .listenEngagement {
@@ -3173,13 +3185,13 @@
     }
     .sidebarHeader__more, .sc-font-light, .sc-type-medium, .sc-type-small, .soundTitle__title, .sc-ministats, .sc-input, .sc-input::placeholder, .header, .infoStats__value, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .soundTitle__title, .listenInfo__releaseData, 
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
-    .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder {
+    .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input {
         font-weight: 300;
     }
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
     .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays), 
-    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a {
+    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count {
         font-weight: 400;
     }
     .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title, .onSoundCloudTeaser__title.sc-font-light, .insightsSidebarModule__plays, a.userStatsLegend__itemTitleWrapper, .uploadButton__status, .linkMenu__groupTitle, .sc-classic .g-type-shrinkwrap-large-primary, .sc-classic .g-type-shrinkwrap-primary:not(.soundTitle__title) {
@@ -3272,7 +3284,7 @@
     .statsLineChart__ticks, .statsLineChart__bottom, .stats__xAxis, .stats__yAxis {
         filter: invert(0.9);
     }
-    .g-stats-icon-orange, .sc-text-orange, .statsLineChart__lines, .topStatsItem__visual {
+    .g-stats-icon-orange:not(.g-tabs-link .g-stats-icon-orange), .sc-text-orange, .statsLineChart__lines, .topStatsItem__visual, .sc-background-orange, .topStatsFullItem__visual {
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     .statsSummary__metricValue {
@@ -3322,8 +3334,9 @@
         transition-duration: 0.2s;
     }
     /* Color changer (switched from https://33kk.github.io/uso-archive/?style=123974 to simpler method) */
-    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static {
-      filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
+    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static,
+    .imageCrop__zoomSlider, .sc-classic .imageCrop__zoomSlider {
+        filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     /* soundcloud stories */
     .uiEvoButton {
@@ -3344,18 +3357,18 @@
         background: #111;
         border: 1px solid #222
     }
-    .suggestedTags {
+    .sc-classic .suggestedTags, .suggestedTags {
         background-color: #1a1a1a;
         border: 1px solid #222;
         /* border-radius: 8px; */
     }
-    .suggestedTags__listItem.selected {
+    .sc-classic .suggestedTags__listItem.selected, .suggestedTags__listItem.selected {
         background-color: #111;
     }
     #overlay_40417 {
         border-radius: 4px;
     }
-    .tokenInput.focused .tokenInput__wrapper {
+    .sc-classic .tokenInput.focused .tokenInput__wrapper, .tokenInput.focused .tokenInput__wrapper {
         border-color: #444;
     }
     .audibleEditForm {
@@ -3809,7 +3822,7 @@
         padding: 1px;
         width: auto;
         height: 100%;
-        max-width: min-content;
+        max-width: 52px;
     }
     .sc-classic .gritter-with-image, .sc-classic .gritter-without-image {
         padding: 6px;
@@ -3837,17 +3850,20 @@
     }
 
     /* artists spotlight dark */
-    .userAudibleSearchResults {
+    .userAudibleSearchResults,
+    .sc-classic .userAudibleSearchResults {
         background-color: #181818;
         border: 1px solid #333;
         border-top: none;
         border-bottom: 1px solid #333!important;
         border-radius: 0 0 9px 9px;
     }
-    .userAudibleSearchResultItem {
+    .userAudibleSearchResultItem,
+    .sc-classic .userAudibleSearchResultItem{
         color: #fff!important;
     }
-    .userAudibleSearchResults__item.selected {
+    .userAudibleSearchResults__item.selected,
+    .sc-classic .userAudibleSearchResultItem {
         background-color: #222;
     }
 
@@ -4205,6 +4221,7 @@
         padding: 2px 9px 2px 24px;
         color: #888!important;
         border: 1px solid #1a1a1a;
+        width: auto;
     }
     .sc-button-small.reportCopyright:before {
         content: "";
@@ -4232,6 +4249,60 @@
         filter: contrast(0) sepia(1) hue-rotate(-49.95deg) saturate(12) brightness(1.71) contrast(1)!important;
     }
     
+    .g-stats-icon {
+        width: 20px;
+        height: 18px;
+    }
+    /* stats modal fix - see line 3728 */
+    .sc-classic .modal__header ~ .modal__modal {
+        padding: 25px;
+        background: #0d0d0d;
+        border: 1px solid #222;
+        border-top: none;
+        border-radius: 0px 0px 16px 16px;
+        top: -36px;
+    }
+    .modal__header .g-modal-section {
+        border: 1px solid #222;
+        border-bottom: none;
+        border-radius: 16px 16px 0px 0px;
+    }
+    .stats__pager:before {
+        filter: invert(1);
+    }
+    
+    .creatorsNavigation__onSoundCloudLink {
+        background: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjY2NjYSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTExLDQgTDgsNCBMOCwzIEwxMywzIEwxMyw0IEwxMyw0IEwxMyw4IEwxMiw4IEwxMiw1IEw2LDEwIEw2LDEwIEwxMSw0IFoiPjwvcGF0aD4KICAgIDxwYXRoIGQ9Ik0zLDEyIEw5LDEyIEw5LDEzIEwzLDEzIEwzLDEyIFogTTMsMTIgTDMsNyBMNCw3IEw0LDEyIEwzLDEyIFogTTksMTMgTDksMTAgTDEwLDkgTDEwLDEzIEw5LDEzIFogTTMsNyBMMyw2IEw3LDYgTDYsNyBMMyw3IFoiPjwvcGF0aD4KPC9zdmc+) no-repeat 0 15px/16px 16px!important;
+    }
+    
+    .commentItem__controls {
+        visibility: visible;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+    .commentItem.m-dialogOpen .commentItem__controls, .commentItem:hover .commentItem__controls {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .imageCrop__previewContainer.sc-artwork.sc-artwork-placeholder-9 {
+        background-image: none;
+    }
+    .imageCrop__preview, .sc-classic .imageCrop__preview {
+        border-radius: 8px;
+    }
+    /*.sc-classic .g-range-input::-moz-range-thumb, .sc-classic .g-range-input::-ms-thumb, .sc-classic .g-range-input::-webkit-slider-thumb {
+        filter: hue-rotate(-20deg)!important;
+    }*/
+    /*.sc-classic .g-range-input::-moz-range-thumb, .sc-classic .g-range-input::-ms-thumb, .sc-classic .g-range-input::-webkit-slider-thumb {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE0SURBVFhH7ZZLCsIwEIZjwUu4deVevIF79S6FHkHoXdS9V3Dvyq2XEIrzNxFEkM4jliDzwVAT6PDZPGYmIaxCyVTpWSwuaMUFrbigFRe0Yqok3TpM6bFJsaSYUYA7xYXihKjO4YFJDWpBktvSo6WY9xPfuVHUJHmMQxliQRLDtthT1P0EH/yZhkS7OOSh2YMaOYB38K4I0RdMy3qIIzU7yXKzBdOBuFIM7bkhsCcX3IMjWWKcVKscQA7kYiEVzMVPBHHP5YKdSyL4uoRzwM6luWZGRSKI8pULdi6JIGprLti5JIIo/Llg55IK4pK1ghz5BdPNr6nBn6CzYbdfki8ISdRQdCVaWkkdBiLBREOhkezbrfiTz/81rO+kDgd1FVFWyz8Wmj04Ki5oxQWtuKAVF7QRwhOSKD52doAYMAAAAABJRU5ErkJggg==) 50%/20px 20px no-repeat!important;
+    }*/
+    /*.sc-classic .g-range-input::-moz-range-thumb, .sc-classic .g-range-input::-ms-thumb, .sc-classic .g-range-input::-webkit-slider-thumb {
+        background: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAgNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoyIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxMCIgc3R5bGU9ImZpbGw6I2ZmNDYzNyIvPjwvc3ZnPg==) 50%/20px 20px no-repeat!important;
+    }*/
+    .imageCrop__bottom.g-flex-row-centered-right {
+        max-width: fit-content;
+    }
 }
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget/iframe */
@@ -4711,6 +4782,10 @@
         --divider-color-inner: #111;
         --graph-legend-background: hsla(0,0%,0%,0.25);
         --graph-marker: var(--text-color-secondary);
+        --button-secondary-background-color: #111;
+        --button-secondary-font-color: #ccc;
+        --component-border-color: #333;
+        --component-border: 0.114rem solid var(--component-border-color);
         
     }
     .TotalCounts_TotalCounts__3AozJ {
@@ -4733,6 +4808,26 @@
     }
     .g-oscp-section {
         border-bottom: 1px solid #0a0a0a;
+    }
+    
+    .GraphBar_GraphMargin__3LKW4 svg>g>rect[fill="#FFFFFF"], .GraphBar_GraphMargin__3LKW4 svg>g>rect[fill="#F5F7F8"] {
+        fill: #0d0d0d;
+    }
+    .GraphBar_GraphMargin__3LKW4 svg {
+        border-radius: 8px;
+    }
+    .Bar_FadedBar__2oq7v {
+        fill: #0d0d0d;
+    }
+    .Bar_FadedBar__2oq7v.Bar_ForegroundBar__WvgRY {
+        fill: #ff463780
+    }
+    .DataList_Blur__dVuaL:before {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+    .ResolutionDropdown_Toggle__OhrMk, .Dropdown_DropdownToggleButton__goVmf[aria-owns="dropdown-button-timewindow-select"] {
+        border: var(--component-border);
     }
 }
 
