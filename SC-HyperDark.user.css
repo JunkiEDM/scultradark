@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.159
+@version      0.9.160
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -998,7 +998,7 @@
     .search__listWrapper {
         padding-right: 15px
     }
-    .l-search .l-main {
+    .sc-classic .l-search .l-main, .l-search .l-main {
         margin: 0 0 0 15px;
         padding-top: 0
     }
@@ -2862,7 +2862,7 @@
         opacity: 1;
         transition: opacity ease-out 0.3s;
     }
-    .l-search .l-fixed-left {
+    .sc-classic .l-search .l-fixed-left, .l-search .l-fixed-left {
         z-index: 1000;
         position: fixed;
         top: 390px;
@@ -3153,17 +3153,17 @@
         height: 70%;
     }
     /* make side nav more dynamic */
-    .g-nav-item>.g-nav-link {
+    .sc-classic .g-nav-item>.g-nav-link, .g-nav-item>.g-nav-link {
         background-position: 5px -28px;
         font-weight: 300;
         filter: brightness(0.8) contrast(1.2) drop-shadow(0px 0px 0px #0000);
         transition: font-weight 0.2s, filter 0.1s;
     }
-    .g-nav-item.active>.g-nav-link {
+    .sc-classic .g-nav-item.active>.g-nav-link, .g-nav-item.active>.g-nav-link {
         font-weight: 440;
         filter: drop-shadow(0px 0px 6px #fff4);
     }
-    .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link) {
+    .sc-classic .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link) {
         filter: brightness(0.9) contrast(1.1) drop-shadow(0px 0px 6px #fff8);
     }
     /* unify transitions */
