@@ -49,8 +49,6 @@
         --orange: hsl(calc(20deg + /*[[hue]]*/deg) 100% 61%);
         --blue: hsl(calc(203deg + /*[[blu]]*/deg) 100% 65%);
     }
-    /*----------------------------------------------------------------- IMPORT ULTRA DARK (https://33kk.github.io/uso-archive/?style=176264) -----------------------------------------------------------------*/
-    /* Modification of SoundCloud Ultra Dark by IgChi: userstyles.org/styles/176264 */
     .l-collection,
     .listenNetwork {
         margin-left: 15px;
@@ -69,10 +67,9 @@
         overflow-x: hidden;
     }
     body, body.sc-classic {
-        background: #111!important;
-        max-width: 100%;
-        overflow-y: auto;
-        overflow-x: clip;
+        background: #111 !important;
+        overflow: auto;
+        padding-right: 0px !important; /* Prevent bump when opening track cover */
     }
     ::-webkit-scrollbar,
     div::-webkit-scrollbar {
@@ -2451,7 +2448,7 @@
         filter: brightness(0.55) contrast(6.4);
         border-radius: 100%;
         box-shadow: inset 0 -0.3px 3px 3px #d7d7d7;
-        min-width: fit-content!important;
+        min-width: fit-content !important;
         padding: 0;
         transition-duration: 0.25s;
     }
@@ -4040,177 +4037,6 @@
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget/iframe */
     /* INTER *//*[[widget]]*/
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 100;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Thin.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Thin.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 100;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ThinItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ThinItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 200;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraLight.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraLight.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 200;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraLightItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraLightItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Light.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Light.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-LightItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-LightItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Regular.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Regular.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Italic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Italic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Medium.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Medium.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 500;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-MediumItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-MediumItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 600;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-SemiBold.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-SemiBold.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 600;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-SemiBoldItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-SemiBoldItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Bold.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Bold.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-BoldItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-BoldItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 800;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraBold.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraBold.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 800;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraBoldItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraBoldItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Black.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Black.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 900;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-BlackItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-BlackItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter var';
-        font-style: normal;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url('https://rsms.me/inter/font-files/Inter-roman.var.woff2?v=3.18') format('woff2');
-        font-named-instance: 'Regular';
-    }
-
-    @font-face {
-        font-family: 'Inter var';
-        font-style: italic;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url('https://rsms.me/inter/font-files/Inter-italic.var.woff2?v=3.18') format('woff2');
-        font-named-instance: 'Italic';
-    }
-    
     
     .g-background-default {
         background-color: #111;
@@ -4542,7 +4368,6 @@
     .g-oscp-section {
         border-bottom: 1px solid #0a0a0a;
     }
-    
     .GraphBar_GraphMargin__3LKW4 svg>g>rect[fill="#FFFFFF"], .GraphBar_GraphMargin__3LKW4 svg>g>rect[fill="#F5F7F8"] {
         fill: #0d0d0d;
     }
