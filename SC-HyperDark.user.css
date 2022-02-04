@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    JunkiEDM
-@version      0.9.160
+@version      0.9.161
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1607,18 +1607,9 @@
         border: 1px solid #333;
     }
     /* brighten buttons */
-    .sc-button-medium.sc-button-more:before,
-    .sc-button-medium.sc-button-repost:before,
-    .sc-button-medium.sc-button-share:before,
     .sc-button-queue:before,
     .sc-button-small.sc-button-cta.sc-button-follow:before,
-    .sc-ministats-small.sc-ministats-sounds:before,
-    .sc-button-medium.sc-button-mastering:before,
-    .sc-button-small.sc-button-download:before,
-    .sc-button-small.sc-button-upload:before,
-    .sc-button-medium.sc-button-delete:before,
-    .sc-button-medium.sc-button-download:before,
-    .sc-button-medium.sc-button-copylink:before {
+    .sc-button-medium.sc-button-delete:before {
         filter: brightness(7.5)
     }
     /*.gritter-close,*/
@@ -1628,10 +1619,20 @@
     .queue__hide:focus,
     .queue__hide:hover,
     .quotaMeter__dropdownButton:after,
+    .sc-ministats-small.sc-ministats-sounds:before,
+    .sc-button-small.sc-button-download:before,
+    .sc-button-small.sc-button-upload:before,
     .sc-button-medium.sc-button-camera:before,
+    .sc-button-medium.sc-button-repost:before,
+    .sc-button-medium.sc-button-mastering:before,
+    .sc-button-medium.sc-button-share:before,
+    .sc-button-medium.sc-button-copylink:before,
     .sc-button-medium.sc-button-edit:before,
+    .sc-button-medium.sc-button-distribute:before,
+    .sc-button-medium.sc-button-more:not(.sc-button-active):before,
     .sc-button-medium.sc-button-message:before,
     .sc-button-medium.sc-button-startstation:before,
+    .sc-button-medium.sc-button-download:before,
     .sc-button-small.sc-button-follow:before {
         filter: invert(1)
     }
@@ -1729,11 +1730,8 @@
         background: inherit;
         padding-bottom: 100px
     }
-    .inboxItem.active,
-    .inboxItem.unread,
-    .inboxItem:focus,
-    .inboxItem:hover,
-    .inbox__item:before,
+    .inboxItem.active, .inboxItem.unread, .inboxItem:focus, .inboxItem:hover, .inbox__item:before,
+    .sc-classic .inboxItem.active, .sc-classic .inboxItem.unread, .sc-classic .inboxItem:focus, .sc-classic .inboxItem:hover, .sc-classic .inbox__item:before, /* v0.9.161 */
     .modal__modal/*:not(#overlay_634 .modal__modal)*/,
     .sc-button-disabled,
     .sc-button-disabled:focus,
@@ -1757,25 +1755,26 @@
         margin-left: 0;
         box-shadow: none;
     }
-    .conversationActions__userActions {
-        margin-left: 15px
+    .sc-classic .conversationActions__userActions, .conversationActions__userActions, .conversationActions__buttons {
+        margin: 0px 15px;
     }
-    .l-messages-left {
+    .sc-classic .l-messages-left, .l-messages-left {
         width: 220px;
         top: 410px;
         left: 10px;
         bottom: 95px;
         z-index: 1000
     }
-    .l-messages-main {
+    .sc-classic .l-messages-main, .l-messages-main {
         padding: 0 15px
     }
     .conversationParticipant {
         font-size: 32px;
         color: #fff
     }
-    .conversation__messages {
-        padding-right: 15px
+    .sc-classic .conversation__messages, .conversation__messages {
+        padding-right: 15px;
+        padding-top: 72px;
     }
     .ownActivity.large .ownActivity__user {
         width: 100%;
@@ -1896,11 +1895,11 @@
         border: none;
         box-shadow: 0 0 10px rgba(0, 0, 0, .3)
     }
-    .inbox__listWrapper {
+    .sc-classic .inbox__listWrapper, .inbox__listWrapper {
         top: 100px;
         bottom: 0
     }
-    .inbox .send-message-button {
+    .sc-classic .inbox .send-message-button, .inbox .send-message-button {
         margin-top: 15px
     }
     .header__goUpsell,
@@ -2234,7 +2233,7 @@
     .notificationBadge__link:focus {
         border-color: #333
     }
-    .notificationBadge__main {
+    .sc-classic .notificationBadge__main, .notificationBadge__main {
         color: #999
     }
     /*.header__navMenu > li > a.selected,
@@ -4302,6 +4301,37 @@
     }*/
     .imageCrop__bottom.g-flex-row-centered-right {
         max-width: fit-content;
+    }
+    
+    /* Compact Messages area */
+    .conversationBadge__image .image__lightOutline .image__full, .conversationBadge__image .image__lightOutline {
+        height: 15px!important;
+        width: 15px!important;
+        margin-right: -15px;
+        margin-top: 4px
+    }
+    .sc-classic .conversationBadge__image {
+        margin-right: 0px;
+    }
+    .conversationBadge__senderName {
+        margin-left: 19px;
+    }
+    /**/
+    
+    .sc-classic .inboxItem {
+        border-left: 4px solid transparent;
+        border-radius: 4px;
+    }
+    .sc-classic .inboxItem.active {
+        background: linear-gradient(90deg, #f50 -400%, transparent);
+    }
+    
+    .paymentMethod__appleContent, .paymentMethod__editableContent, .paymentMethod__googlePlayContent,
+    .currentPlan__planContainer, .currentPlan__planUpsell, .g-upsell-container {
+        background: none;
+    }
+    .consumerSubscription__upsell {
+        padding: 0;
     }
 }
 
