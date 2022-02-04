@@ -64,11 +64,12 @@
     }
     html {
         min-height: 100vh;
-        overflow-x: hidden;
     }
     body, body.sc-classic {
         background: #111 !important;
-        overflow: auto;
+        max-width: 100%;
+        overflow-y: auto;
+        overflow-x: clip;
         padding-right: 0px !important; /* Prevent bump when opening track cover */
     }
     ::-webkit-scrollbar,
@@ -1365,7 +1366,7 @@
     }
     a.playableTile__heading,
     a.playableTile__heading:hover,
-    .sc-classic .playableTile__mainHeading, 
+    .sc-classic .playableTile__mainHeading,
     .sc-classic .playableTile__mainHeading:hover {
         font-size: 14px
     }
@@ -3035,7 +3036,7 @@
     /* Color changer (switched from https://33kk.github.io/uso-archive/?style=123974 to simpler method) */
     canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static,
     .imageCrop__zoomSlider, .sc-classic .imageCrop__zoomSlider {
-        filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
+              filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     /* soundcloud stories */
     .uiEvoButton {
@@ -3947,7 +3948,7 @@
     .sc-button-small.reportCopyright:hover:before {
         filter: contrast(0) sepia(1) hue-rotate(-49.95deg) saturate(12) brightness(1.71) contrast(1)!important;
     }
-    
+
     .g-stats-icon {
         width: 20px;
         height: 18px;
