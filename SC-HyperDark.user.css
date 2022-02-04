@@ -6,7 +6,7 @@
 @version        0.9.161
 @homepageURL    https://github.com/JunkiEDM/scultradark
 @supportURL     https://github.com/JunkiEDM/scultradark/issues
-@updateURL      http://localhost:5500/test/SHD_TEST.user.css
+@updateURL      https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
 @license        BSD 2-Clause
 @preprocessor   uso
 @var    text    hue     "Orange Hue"    "-20"
