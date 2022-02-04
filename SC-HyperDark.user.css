@@ -32,7 +32,7 @@
 @-moz-document domain("soundcloud.com") {
     /* Font imports */
     @import url('https://rsms.me/inter/inter.css');
-    @import url('https://cdn.jsdelivr.net/gh/1011025m/scultradark/spoticons.css');
+    @import url('https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/spoticons.css');
 
     /* Required colours */
     :root {
