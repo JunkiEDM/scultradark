@@ -1,14 +1,14 @@
 /* ==UserStyle==
-@name         Soundcloud Hyper Dark
-@description  A functional, modern redesign of the outdated Soundcloud UX.
-@namespace    JunkiEDM
-@version      0.9.161
-@homepageURL  https://github.com/JunkiEDM/scultradark
-@supportURL   https://github.com/JunkiEDM/scultradark/issues
-@updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
-@license      BSD 2-Clause
-@author       JunkiEDM, IgChi, pawelos076232
-@preprocessor uso
+@name           Soundcloud Hyper Dark
+@description    A functional, modern redesign of the outdated Soundcloud UX.
+@namespace      https://github.com/JunkiEDM
+@author         JunkiEDM, IgChi, pawelos076232
+@version        0.9.161
+@homepageURL    https://github.com/JunkiEDM/scultradark
+@supportURL     https://github.com/JunkiEDM/scultradark/issues
+@updateURL      http://localhost:5500/test/SHD_TEST.user.css
+@license        BSD 2-Clause
+@preprocessor   uso
 @advanced text hue "Orange Hue" "-20"
 @advanced text blu "Blue Hue" "15"
 @advanced text font "Font" "Inter"
@@ -34,7 +34,74 @@
 @-moz-document domain("soundcloud.com") {
     /* Font imports */
     @import url('https://rsms.me/inter/inter.css');
-    @import url('https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/spoticons.css');
+    @import url('https://cdn.jsdelivr.net/gh/1011025m/scultradark/spoticons.css');
+
+    /* Required colours */
+    :root {
+        --shd-primary: #ff3300;
+        --shd-bg-primary: #111;
+
+
+        --background-surface-color: #111;
+        --background-highlight-color: #303030;
+        --background-light-color: #fff;
+        --background-dark-color: #111;
+        --font-primary-color: #fff;
+        --font-secondary-color: #999;
+        --font-special-color: #f50;
+        --font-link-color: #3370dd;
+        --font-error-color: #d61348;
+        --font-light-color: #fff;
+        --font-dark-color: #111;
+        --button-primary-background-color: #fff;
+        --button-primary-font-color: #000;
+        --button-secondary-background-color: #303030;
+        --button-secondary-font-color: #fff;
+        --button-disabled-background-color: #303030;
+        --button-disabled-font-color: #999;
+        --button-special-background-color: #f50;
+        --button-special-font-color: #fff;
+        --button-light-background-color: #fff;
+        --button-light-font-color: #000;
+        --button-dark-background-color: #111;
+        --button-dark-font-color: #fff;
+        --overlay-default-color: hsla(0, 0%, 100%, 0.4);
+        --input-default-background-color: #f3f3f3;
+        --input-default-border-color: transparent;
+        --input-focused-background-color: #f3f3f3;
+        --input-focused-border-color: #666;
+        --input-invalid-background-color: #f3f3f3;
+        --input-invalid-border-color: #d61348;
+        --checkbox-default-background-color: transparent;
+        --checkbox-default-border-color: #666;
+        --checkbox-checked-background-color: #f50;
+        --checkbox-checked-border-color: #f50;
+
+
+        --soundcloudOrange: #ff4637;
+        --text-color-main: var(--white);
+        --text-color-secondary: var(--platinum);
+        --icon-color: var(--white);
+        --background-color: #111;
+        --background-highlight-color: #191919;
+        --font-secondary-color: #ccc;
+        --datalist-hover-background: #191919;
+        --font-primary-color: #fff;
+        --container-background-color: #222;
+        --divider-color-outer: #111;
+        --divider-color-inner: #111;
+        --graph-legend-background: hsla(0,0%,0%,0.25);
+        --graph-marker: var(--text-color-secondary);
+        --button-secondary-background-color: #111;
+        --button-secondary-font-color: #ccc;
+        --component-border-color: #333;
+        --component-border: 0.114rem solid var(--component-border-color);
+
+    }
+
+    .sc-classic {
+        font: /*[[font]]*/;
+    }
 }
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
@@ -49,6 +116,120 @@
         --orange: hsl(calc(20deg + /*[[hue]]*/deg) 100% 61%);
         --blue: hsl(calc(203deg + /*[[blu]]*/deg) 100% 65%);
     }
+
+    /*  Firefox does not have backdrop-filter enabled by default,
+        this is to avoid visibility issues for FF users.
+    */
+    @supports (backdrop-filter: blur(1px)) {
+
+        .sc-classic .dropdownContent__container,
+        .dropdownContent__container,
+        .sc-classic .headerMenu.m-light,
+        .headerMenu.m-light,
+        .sc-classic .dialog,
+        .dialog,
+        .playControls__queue,
+        .sc-classic .playControls__queue,
+        .moreActions,
+        .imageEditDropdown,
+        .sc-classic .moreActions,
+        .sc-classic .imageEditDropdown,
+        div#searchMenuList {
+            backdrop-filter: blur(32px);
+        }
+
+        .sc-tag.sc-tag-large,
+        .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):not(.soundTitle__info),
+        .g-type-shrinkwrap-inline,
+        .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName),
+        .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover,
+        .g-type-shrinkwrap-block:visited,
+        .g-type-shrinkwrap-inline,
+        .g-type-shrinkwrap-inline:hover,
+        .g-type-shrinkwrap-inline:visited,
+        .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName),
+        .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover,
+        .sc-classic .g-type-shrinkwrap-block:visited,
+        .sc-classic .g-type-shrinkwrap-inline,
+        .sc-classic .g-type-shrinkwrap-inline:hover,
+        .sc-classic .g-type-shrinkwrap-inline:visited {
+            backdrop-filter: blur(6px);
+        }
+
+        .sc-classic .dialog__arrow {
+            backdrop-filter: blur(18px);
+        }
+
+        .featuredProfiles,
+        .modal.modalWhiteout,
+        .repostOverlay__container {
+            backdrop-filter: blur(12px);
+        }
+
+        .playControls__bg {
+            backdrop-filter: brightness(0.8) blur(32px);
+        }
+
+        .repostOverlay__container, .sc-classic .repostOverlay__container {
+            backdrop-filter: brightness(0.5) blur(12px);
+        }
+    }
+
+    @supports not (backdrop-filter: 1px) {
+
+        .sc-classic .dropdownContent__container,
+        .dropdownContent__container,
+        .sc-classic .headerMenu.m-light,
+        .headerMenu.m-light,
+        .sc-classic .dialog,
+        .dialog,
+        .playControls__queue,
+        .sc-classic .playControls__queue,
+        .moreActions,
+        .imageEditDropdown,
+        .sc-classic .moreActions,
+        .sc-classic .imageEditDropdown,
+        div#searchMenuList {
+            background-color: var(--shd-bg-primary);
+        }
+
+        .sc-tag.sc-tag-large,
+        .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):not(.soundTitle__info),
+        .g-type-shrinkwrap-inline,
+        .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName),
+        .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover,
+        .g-type-shrinkwrap-block:visited,
+        .g-type-shrinkwrap-inline,
+        .g-type-shrinkwrap-inline:hover,
+        .g-type-shrinkwrap-inline:visited,
+        .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName),
+        .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover,
+        .sc-classic .g-type-shrinkwrap-block:visited,
+        .sc-classic .g-type-shrinkwrap-inline,
+        .sc-classic .g-type-shrinkwrap-inline:hover,
+        .sc-classic .g-type-shrinkwrap-inline:visited {
+            background-color: var(--shd-bg-primary);
+        }
+
+        .sc-classic .dialog__arrow {
+            background-color: var(--shd-bg-primary);
+        }
+
+        .featuredProfiles,
+        .modal.modalWhiteout,
+        .repostOverlay__container {
+            background-color: var(--shd-bg-primary);
+        }
+
+        .playControls__bg {
+            background-color: var(--shd-bg-primary);
+        }
+
+        .repostOverlay__container, .sc-classic .repostOverlay__container {
+            background-color: var(--shd-bg-primary);
+        }
+    }
+
     .l-collection,
     .listenNetwork {
         margin-left: 15px;
@@ -157,15 +338,13 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, .3)
     }
     .listenArtworkWrapper__artwork .image__lightOutline .image__full {
-        box-shadow: 0 0 20px 0 #0008; /*box-shadow: 0 0 15px 0 #000*/
+        box-shadow: 0 0 20px 0 #0008;
     }
     .moreActions, .imageEditDropdown,
     .sc-classic .moreActions, .sc-classic .imageEditDropdown {
-        /*border: 1px solid rgba(0, 0, 0, .15);*/
         border: 1px solid #6663;
         border-radius: .5rem;
         background: #1119;
-        backdrop-filter: blur(32px);
         padding: 5px 0;
         box-shadow: 2px 2px 12px #0006;
     }
@@ -209,9 +388,9 @@
         /*background: linear-gradient(#f70,#f00);*/
         background: linear-gradient(#f80,#f10);
         /*-webkit-mask-size: contain;*/
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAWCAQAAAAs/tcnAAABMUlEQVR4Ac3UJfQUARTGUaxnrBHpPeDu7u7uTg/QO/SK9q1U3KHg2i7fH4exNeSdc9/ZNL/RHfRfjdHOuOajt246b7Fh/T38WO/9OnfM7s+hx3gUh5XNWYN7D4wnTlOe6OGsv/6eQlQFmNX9WScTs4jqwD3DOr/j04gJxHyiOsCiTgITibnEdGIJURc410lgJrGYmE+sIuoCz1301BstGwxueqQLiVXEMmI9cVp7c9WIYmAqkUysIjYQa4mtRAJtJwb//kgXEdOJTcR2Yiuxi2g/wIYfgTnEBmIFsYvYS+whDhCdBFo/ApuJvcRO4hBxhDhMHCU6Cbz5EThKHCe+7BNEcXceKFxB/e7yFs0h1hP1u/OHXHiL6nfnr2nhO6jfR3r50L5cR9O+oX5+/FX8vfkElmh0Xu+KRLEAAAAASUVORK5CYII=)
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAWCAQAAAAs/tcnAAABMUlEQVR4Ac3UJfQUARTGUaxnrBHpPeDu7u7uTg/QO/SK9q1U3KHg2i7fH4exNeSdc9/ZNL/RHfRfjdHOuOajt246b7Fh/T38WO/9OnfM7s+hx3gUh5XNWYN7D4wnTlOe6OGsv/6eQlQFmNX9WScTs4jqwD3DOr/j04gJxHyiOsCiTgITibnEdGIJURc410lgJrGYmE+sIuoCz1301BstGwxueqQLiVXEMmI9cVp7c9WIYmAqkUysIjYQa4mtRAJtJwb//kgXEdOJTcR2Yiuxi2g/wIYfgTnEBmIFsYvYS+whDhCdBFo/ApuJvcRO4hBxhDhMHCU6Cbz5EThKHCe+7BNEcXceKFxB/e7yFs0h1hP1u/OHXHiL6nfnr2nhO6jfR3r50L5cR9O+oX5+/FX8vfkElmh0Xu+KRLEAAAAASUVORK5CYII=)
     }
     .header__inner .header__right {
         /*box-shadow: 2px 2px 2px #0d0d0d;*/
@@ -642,7 +821,7 @@
         transition-duration: 0.25s;
     }
     #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.m-boldIcon):hover {
-        background: #f30 !important;
+        background: var(--sc-primary) !important;
         filter: drop-shadow(2px 2px 6px #000) hue-rotate(/*[[hue]]*/deg);
         transition-duration: 0.25s;
     }
@@ -800,14 +979,11 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__lightLink {
         font-size: 12px;
         line-height: 16px;
-        /*letter-spacing: .015em;*/
         color: #b3b3b3;
         width: auto;
         flex: 0;
-        /* background: #0a0a0a; */
         padding: 5px;
         background-color: #0006;
-        /* backdrop-filter: blur(6px); */
         border-radius: 8px;
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__lightLink:hover {
@@ -823,13 +999,10 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__title a {
         font-size: 14px;
         line-height: 20px;
-        /*letter-spacing: .015em;*/
         color: #fff;
-        /* background: #0a0a0a; */
         padding: 5px;
         margin-bottom: 3px;
         background-color: #0006;
-        /* backdrop-filter: blur(6px); */
         border-radius: 8px;
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__title a:hover {
@@ -1157,11 +1330,8 @@
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton),
     .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown) {
         border-color: #fff;
-        /*background: #111*/
         border: 0;
         border-radius: 120px;
-        /* background: #f30 !important; */
-        /* box-shadow: inset -2px -5px 12px #c20; */
         background: #f50 !important;
         box-shadow: inset -1px -2px 8px #f40c;
         color: #fff !important;
@@ -1995,9 +2165,7 @@
 
 
     
-    /*----------------------------------------------------------------- BEGIN CUSTOM STYLING -----------------------------------------------------------------*/
-    
-    
+    /*--------------------------- BEGIN CUSTOM STYLING ---------------------------*/
     
     .g-z-index-header-menu[style] {
         border-radius: 32px!important;
@@ -2057,7 +2225,6 @@
         border-radius: 12px;
         border: 1px solid #4448;
         background-color: #191919aa;
-        backdrop-filter: blur(32px);
     }
     .sc-classic .m-light .headerMenu__list:first-child li:first-child .headerMenu__link {
         border-radius: 12px 12px 0 0;
@@ -2113,7 +2280,7 @@
         border-color: #fff;
         border: 0;
         border-radius: 120px;
-        background: #f30 !important;
+        background: var(--sc-primary) !important;
         color: #fff !important;
         transition-duration: 0.25s;
     }
@@ -2142,17 +2309,12 @@
     .featuredProfiles {
         z-index: 10;
         border-radius: 12px;
-        backdrop-filter: blur(12px);
         transition-duration: 0.4s;
         -webkit-transform: translateY(-220px);
         transform: translateY(-220px);
     }
     .featuredProfiles:hover {
-        backdrop-filter: blur(12px);
         transition-duration: 0.2s
-    }
-    .modal.modalWhiteout {
-        backdrop-filter: blur(12px);
     }
     .g-tabs-link, .g-tabs-link:visited, .sc-classic .g-tabs-link, .sc-classic .g-tabs-link:visited {
         color: #ccca!important;
@@ -2209,9 +2371,21 @@
     /*.sc-button-group > .sc-button-medium:not(.sc-button-follow) {
         filter: brightness(1)!important;
     }*/
-    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):not(.soundTitle__info), .g-type-shrinkwrap-inline {
+    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):not(.soundTitle__info),
+    .g-type-shrinkwrap-inline,
+    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), 
+    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, 
+    .g-type-shrinkwrap-block:visited, 
+    .g-type-shrinkwrap-inline, 
+    .g-type-shrinkwrap-inline:hover, 
+    .g-type-shrinkwrap-inline:visited,
+    .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), 
+    .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, 
+    .sc-classic .g-type-shrinkwrap-block:visited, 
+    .sc-classic .g-type-shrinkwrap-inline, 
+    .sc-classic .g-type-shrinkwrap-inline:hover, 
+    .sc-classic .g-type-shrinkwrap-inline:visited {
         background-color: rgba(0,0,0,.5);
-        backdrop-filter: blur(6px);
     }
     .profileHeaderInfo__additional {
         border-radius: 6px;
@@ -2406,11 +2580,6 @@
     .moreActions__group:not(:first-child), .sc-classic .moreActions__group:not(:first-child) {
         border-top: 1px solid #6661;
     }
-    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, .g-type-shrinkwrap-block:visited, .g-type-shrinkwrap-inline, .g-type-shrinkwrap-inline:hover, .g-type-shrinkwrap-inline:visited,
-    .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, .sc-classic .g-type-shrinkwrap-block:visited, .sc-classic .g-type-shrinkwrap-inline, .sc-classic .g-type-shrinkwrap-inline:hover, .sc-classic .g-type-shrinkwrap-inline:visited {
-        background-color: rgba(0,0,0,.5);
-        backdrop-filter: blur(6px);
-    }    
     .sound.streamContext .soundTitle.m-visualSound .soundTitle__info {
         margin-left: -3px;
         padding-left: 3px;
@@ -2441,9 +2610,6 @@
     }
     .l-product-banners {
         display: none;
-    }
-    .playControls__bg {
-        backdrop-filter: brightness(0.8) blur(32px);
     }
     .spotlightRemove, .sc-classic .spotlightRemove, .g-button-remove {
         filter: brightness(0.55) contrast(6.4);
@@ -2582,8 +2748,8 @@
     .sc-classic .profileHeaderInfo__additional, .profileHeaderInfo__additional {
         margin-top: -8px;
         margin-right: 30px;
-        background: none!important;
-        backdrop-filter: none!important;
+        background: none !important;
+        backdrop-filter: none !important;
         color: #fff;
         font-weight: 400;
         font-size: 2em;
@@ -2687,7 +2853,6 @@
         box-shadow: 2px 4px 16px -4px #0005;
     }
     .repostOverlay__container, .sc-classic .repostOverlay__container {
-        backdrop-filter: brightness(0.5) blur(12px);
         background-color: #4444;
         border-radius: 8px;
         border: 1px solid #292929;
@@ -2728,28 +2893,7 @@
         filter: drop-shadow(5px 5px 12px #0006);
         transition: filter 0.4s;
     }
-    /*a,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    h7,
-    h8,
-    p {*/
-        /*font-family: spotify-circular, spotify-circular-cyrillic, spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
-        /*font-family: Product Sans, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
-        /*font-family: Inter, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;
-    } */
-    /* .sc-font-light, .sc-button, .notificationBadge, .sc-input, .sc-type-medium, .sc-type-small {
-        font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
-    }
-    .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6 {
-        font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
-    } */
     .sc-button-small:not(.sc-button-cta), .sc-button-medium:not(.sc-button-cta):not(.sc-button-nostyle) {
-        /*font-family: Product Sans,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
         font-size: 12px;
     }
     .infoStats__value {
@@ -2876,9 +3020,8 @@
     /* Change font to Inter */
     body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header, .sc-classic .notificationBadge {
-        font-family: /*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
-        -webkit-font-smoothing: subpixel-antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        font-family: /*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif !important;
+
     }
     .spotlightTitle, .sc-classic .spotlightTitle, .userstream__header, .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
         font-weight: 300;
@@ -3027,7 +3170,7 @@
         transition-duration: 0.5s;
     }
     .sc-button-next.sc-button-focus, .sc-button-next:focus, .sc-button-next:hover, .sc-button-pause.sc-button-focus, .sc-button-pause:focus, .sc-button-pause:hover, .sc-button-play.sc-button-focus, .sc-button-play:not(.playableTile__playButton .playButton):focus, .sc-button-play:not(.playableTile__playButton .playButton):hover, .sc-button-prev.sc-button-focus, .sc-button-prev:focus, .sc-button-prev:hover {
-        background-color: #f30;
+        background-color: var(--sc-primary);
         background: linear-gradient(#f60,#f40);
         box-shadow: inset -2px -8px 16px #c20c;
         filter: brightness(0.9) contrast(1.3) hue-rotate(/*[[hue]]*/deg) hue-rotate(-2deg)!important;
@@ -3046,7 +3189,6 @@
       background-color: #f50;
     }
     .artistShortcutsModal {
-        /*background-image: unset!important;*/
         background: radial-gradient(transparent 0, black 100%);
         backdrop-filter: sepia(0.5) saturate(1) hue-rotate(/*[[hue]]*/deg) hue-rotate(-20deg) brightness(1.2) contrast(8) blur(200px);
     }
@@ -3060,7 +3202,6 @@
     .sc-classic .suggestedTags, .suggestedTags {
         background-color: #1a1a1a;
         border: 1px solid #222;
-        /* border-radius: 8px; */
     }
     .sc-classic .suggestedTags__listItem.selected, .suggestedTags__listItem.selected {
         background-color: #111;
@@ -3084,7 +3225,6 @@
     }
     .sc-tag.sc-tag-large {
         border-radius: 12px;
-        backdrop-filter: blur(6px);
         background: #2a2a2abb;
         box-shadow: 1px 4px 4px #0006;
         transition-duration: 0.15s;
@@ -3282,9 +3422,6 @@
     .frontHero__title {
         text-align: center;
     }
-    .sc-classic .g-type-marketing-header {
-        font-family: /*[[font]]*/,sans-serif;
-    }
 
     .onSoundCloudTeaser__title.sc-font-light {
         font-weight: 600;
@@ -3446,7 +3583,6 @@
         border: 1px solid #6666;
         border-width: 1px 0 0 1px;
         background-color: #1118;
-        backdrop-filter: blur(18px);
     }
     /*.widgetCustomization__upsell .widgetCustomization__checkbox {
         opacity: 1;
@@ -3722,7 +3858,6 @@
         border-radius: 8px;
         box-shadow: 0 0 10px #0d0d0d!important;
         background-color: #191919dd;
-        backdrop-filter: blur(32px);
     }
 
     .sc-classic .searchMenu__searchFor {
@@ -4160,10 +4295,10 @@
     }
 
     body {
-        font: 12px/1.4 /*[[font]]*/,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+        font: 12px/1.4 /*[[font]]*/;
     }
     .title__h1, .title__h2, .sc-font-light {
-        font-family: /*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+        font-family: /*[[font]]*/;
     }
     .soundsTotal, .sc-font-light, .teaser__button.hearmore .hearmore__container .hearmore__right {
         font-weight: 400;
@@ -4173,7 +4308,7 @@
     }
     @supports (font-variation-settings: normal) {
         body, .title__h1, .title__h2, .sc-font-light {
-            font-family: /*[[font]]*/ var,/*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+            font-family: /*[[font]]*/;
         }
         .soundsTotal, .sc-font-light, .teaser__button.hearmore .hearmore__container .hearmore__right {
             font-weight: 400;
@@ -4212,42 +4347,7 @@
     }
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
-    :root {
-        --background-surface-color: #111;
-        --background-highlight-color: #303030;
-        --background-light-color: #fff;
-        --background-dark-color: #111;
-        --font-primary-color: #fff;
-        --font-secondary-color: #999;
-        --font-special-color: #f50;
-        --font-link-color: #3370dd;
-        --font-error-color: #d61348;
-        --font-light-color: #fff;
-        --font-dark-color: #111;
-        --button-primary-background-color: #fff;
-        --button-primary-font-color: #000;
-        --button-secondary-background-color: #303030;
-        --button-secondary-font-color: #fff;
-        --button-disabled-background-color: #303030;
-        --button-disabled-font-color: #999;
-        --button-special-background-color: #f50;
-        --button-special-font-color: #fff;
-        --button-light-background-color: #fff;
-        --button-light-font-color: #000;
-        --button-dark-background-color: #111;
-        --button-dark-font-color: #fff;
-        --overlay-default-color: hsla(0, 0%, 100%, 0.4);
-        --input-default-background-color: #f3f3f3;
-        --input-default-border-color: transparent;
-        --input-focused-background-color: #f3f3f3;
-        --input-focused-border-color: #666;
-        --input-invalid-background-color: #f3f3f3;
-        --input-invalid-border-color: #d61348;
-        --checkbox-default-background-color: transparent;
-        --checkbox-default-border-color: #666;
-        --checkbox-checked-background-color: #f50;
-        --checkbox-checked-border-color: #f50;
-    }
+    /* placeholder */
 }
 
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/library") {
@@ -4256,7 +4356,7 @@
         width: 50%;
         background: #1a1a1a;
         padding: 8px;
-        border: 1px solid #ccc6!important;
+        border: 1px solid #ccc6 !important;
         border-radius: 8px;
         transform: scale(0.98);
         box-shadow: 0px 0px 18px #000c;
@@ -4273,7 +4373,7 @@
         right: 0;
     }
     .collection .playableTile {
-        width: 100%!important;
+        width: 100% !important;
     }
     .sc-classic .collection .badgeList__item {
         width: 16.666%;
@@ -4284,7 +4384,7 @@
         top: 110%;
         border-radius: 124px;
         transform: scale(0.67);
-        left: 25px!important;
+        left: 25px !important;
         margin-right: -8px;
         opacity: 1;
         background: #F50;
@@ -4326,28 +4426,6 @@
     }
 }
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
-    :root { /* Messy new insights page update */
-        --soundcloudOrange: #ff4637;
-        --text-color-main: var(--white);
-        --text-color-secondary: var(--platinum);
-        --icon-color: var(--white);
-        --background-color: #111;
-        --background-surface-color: #111;
-        --background-highlight-color: #191919;
-        --font-secondary-color: #ccc;
-        --datalist-hover-background: #191919;
-        --font-primary-color: #fff;
-        --container-background-color: #222;
-        --divider-color-outer: #111;
-        --divider-color-inner: #111;
-        --graph-legend-background: hsla(0,0%,0%,0.25);
-        --graph-marker: var(--text-color-secondary);
-        --button-secondary-background-color: #111;
-        --button-secondary-font-color: #ccc;
-        --component-border-color: #333;
-        --component-border: 0.114rem solid var(--component-border-color);
-        
-    }
     .TotalCounts_TotalCounts__3AozJ {
         background: none!important;
     }
@@ -4382,7 +4460,6 @@
         fill: #ff463780
     }
     .DataList_Blur__dVuaL:before {
-        -webkit-backdrop-filter: none;
         backdrop-filter: none;
     }
     .ResolutionDropdown_Toggle__OhrMk, .Dropdown_DropdownToggleButton__goVmf[aria-owns="dropdown-button-timewindow-select"] {
