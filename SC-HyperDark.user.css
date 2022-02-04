@@ -8,28 +8,26 @@
 @supportURL     https://github.com/JunkiEDM/scultradark/issues
 @updateURL      http://localhost:5500/test/SHD_TEST.user.css
 @license        BSD 2-Clause
-@preprocessor   uso
-@advanced text hue "Orange Hue" "-20"
-@advanced text blu "Blue Hue" "15"
-@advanced text font "Font" "Inter"
-@advanced select widget "Style embeds?" {
+@preprocessor   default
+@var    text    hue     "Orange Hue"    "-20"
+@var    text    blu     "Blue Hue"      "15"
+@var    text    font    "Font"          "Inter"
+@var    select  widget  "Style embeds?" {
     "Yes": "\/**\/",
     "No": "\/*"
 }
-@advanced select sin "Insights on sidebar?" {
+@var    select  sin     "Insights on sidebar?" {
     "Show": "height:100%;",
     "Hide": "height:0;"
 }
-@advanced select gdpr "Cookie Notice?" {
+@var    select  gdpr    "Cookie Notice?" {
     "Show": "display:inherit;",
     "Hide": "display:none;"
 }
-==/UserStyle== *//* --- REMOVE THIS LINE TO SHOW ADVANCED FILTERS ---
-@advanced dropdown adv "Enable Advanced Filters?" {
-    adv-off "Disabled" <<<EOT /* ---[ Disabled ]--- *\/ EOT;
-    adv-on "Enabled" <<<EOT /*[[fil]]*\/ EOT;
+@var    select  fil     "Advanced CSS Filters" {
+    "Enabled": "brightness(100%) contrast(100%) saturate(100%)",
+    "Disabled": ""
 }
-@advanced text fil "Advanced CSS Filters" "brightness(100%) contrast(100%) saturate(100%)"
 ==/UserStyle== */
 @-moz-document domain("soundcloud.com") {
     /* Font imports */
