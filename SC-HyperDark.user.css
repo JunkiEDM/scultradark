@@ -39,7 +39,9 @@
         --shd-primary: #ff3300;
         --shd-secondary: #ff5500;
         --shd-bg-primary: #111;
-
+        --shd-bg-dropdown: #161616;
+        --shd-bg-box: #1a1a1a;
+        --shd-ds-small: drop-shadow(0 2px 5px #0009);
 
         --background-surface-color: #111;
         --background-highlight-color: #303030;
@@ -85,7 +87,6 @@
         --background-highlight-color: #191919;
         --font-secondary-color: #ccc;
         --datalist-hover-background: #191919;
-        --font-primary-color: #fff;
         --container-background-color: #222;
         --divider-color-outer: #111;
         --divider-color-inner: #111;
@@ -189,7 +190,7 @@
         .sc-classic .moreActions,
         .sc-classic .imageEditDropdown,
         div#searchMenuList {
-            background-color: var(--shd-bg-primary);
+            background-color: var(--shd-bg-dropdown) !important;
         }
 
         .sc-tag.sc-tag-large,
@@ -207,25 +208,25 @@
         .sc-classic .g-type-shrinkwrap-inline,
         .sc-classic .g-type-shrinkwrap-inline:hover,
         .sc-classic .g-type-shrinkwrap-inline:visited {
-            background-color: var(--shd-bg-primary);
+            filter: var(--shd-ds-small);
         }
 
         .sc-classic .dialog__arrow {
-            background-color: var(--shd-bg-primary);
+            background-color: var(--shd-bg-dropdown) !important;
         }
 
         .featuredProfiles,
         .modal.modalWhiteout,
         .repostOverlay__container {
-            background-color: var(--shd-bg-primary);
+            background-color: var(--shd-bg-dropdown) !important;
         }
 
         .playControls__bg {
-            background-color: var(--shd-bg-primary);
+            background-color: var(--shd-bg-dropdown) !important;
         }
 
         .repostOverlay__container, .sc-classic .repostOverlay__container {
-            background-color: var(--shd-bg-primary);
+            background-color: var(--shd-bg-dropdown) !important;
         }
     }
 
