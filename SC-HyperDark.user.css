@@ -1,263 +1,118 @@
 /* ==UserStyle==
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
-@namespace    JunkiEDM
-@version      0.9.161
+@namespace    https://github.com/JunkiEDM
+@author       JunkiEDM, IgChi, pawelos076232
+@version      0.9.162
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
 @license      BSD 2-Clause
-@author       JunkiEDM, IgChi, pawelos076232
 @preprocessor uso
 @advanced text hue "Orange Hue" "-20"
 @advanced text blu "Blue Hue" "15"
 @advanced text font "Font" "Inter"
-@advanced select widget "Style embeds?" {
-    "Yes": "\/**\/",
-    "No": "\/*"
+@advanced dropdown widget "Style embeds?" {
+    embeds-on   "Yes" <<<EOT 
+    \/**\/ EOT;
+    embeds-off  "No" <<<EOT 
+    \/* EOT;
 }
-@advanced select sin "Insights on sidebar?" {
-    "Show": "height:100%;",
-    "Hide": "height:0;"
+@advanced dropdown sin "Insights on sidebar?" {
+    stats-on    "Show" <<<EOT 
+    height:100%; EOT;
+    stats-off   "Hide" <<<EOT 
+    height:0; EOT;
 }
-@advanced select gdpr "Cookie Notice?" {
-    "Show": "display:inherit;",
-    "Hide": "display:none;"
+@advanced dropdown gdpr "Cookie Notice?" {
+    gdpr-on     "Show" <<<EOT 
+    display:inherit; EOT;
+    gdpr-off    "Hide" <<<EOT 
+    display:none; EOT;
 }
 ==/UserStyle== *//* --- REMOVE THIS LINE TO SHOW ADVANCED FILTERS ---
 @advanced dropdown adv "Enable Advanced Filters?" {
-    adv-off "Disabled" <<<EOT /* ---[ Disabled ]--- *\/ EOT;
-    adv-on "Enabled" <<<EOT /*[[fil]]*\/ EOT;
+    adv-off "Disabled" <<<EOT 
+    /* ---[ Disabled ]--- *\/ EOT;
+    adv-on "Enabled" <<<EOT 
+    /*[[fil]]*\/ EOT;
 }
 @advanced text fil "Advanced CSS Filters" "brightness(100%) contrast(100%) saturate(100%)"
 ==/UserStyle== */
 
-@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
+@-moz-document domain("soundcloud.com") {
+    /* Font imports */
+    @import url('https://rsms.me/inter/inter.css');
+    @import url('https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/spoticons.css');
+
+    /* Required colours */
     :root {
+        --shd-accent-primary: #f50;
+        --shd-accent-secondary: #f30;
+        --shd-accent-orange: hsl(calc(20deg + /*[[hue]]*/deg) 100% 61%);
+        --shd-accent-blue: hsl(calc(203deg + /*[[blu]]*/deg) 100% 65%);
+        --shd-bg-primary: #111;
+        --shd-bg-lighter: #1a1a1a;
+        --shd-bg-darker: #0d0d0d;
+        --shd-bg-translucent: #1119;
+        --shd-bg-dropdown: #191919aa;
+        --shd-ds-small: drop-shadow(0 2px 5px #0009);
+
+        --background-surface-color: var(--shd-bg-primary);
+        --background-highlight-color: #303030;
+        --background-light-color: #fff;
+        --background-dark-color: var(--shd-bg-primary);
+        --font-primary-color: #fff;
+        --font-secondary-color: #999;
+        --font-special-color: #f50;
+        --font-link-color: #3370dd;
+        --font-error-color: #d61348;
+        --font-light-color: #fff;
+        --font-dark-color: #111;
+        --button-primary-background-color: #fff;
+        --button-primary-font-color: #000;
+        --button-secondary-background-color: #303030;
+        --button-secondary-font-color: #fff;
+        --button-disabled-background-color: #303030;
+        --button-disabled-font-color: #999;
+        --button-special-background-color: #f50;
+        --button-special-font-color: #fff;
+        --button-light-background-color: #fff;
+        --button-light-font-color: #000;
+        --button-dark-background-color: var(--shd-bg-primary);
+        --button-dark-font-color: #fff;
+        --overlay-default-color: hsla(0, 0%, 100%, 0.4);
+        --input-default-background-color: #f3f3f3;
+        --input-default-border-color: transparent;
+        --input-focused-background-color: #f3f3f3;
+        --input-focused-border-color: #666;
+        --input-invalid-background-color: #f3f3f3;
+        --input-invalid-border-color: #d61348;
+        --checkbox-default-background-color: transparent;
+        --checkbox-default-border-color: #666;
+        --checkbox-checked-background-color: #f50;
+        --checkbox-checked-border-color: #f50;
+
         --fil: /*[[adv]]*/;
         --hue: /*[[hue]]*/;
         --blu: /*[[blu]]*/;
         --sin: /*[[sin]]*/;
         --gdpr: /*[[gdpr]]*/;
         --font: /*[[font]]*/;
-        
-        --orange: hsl(calc(20deg + /*[[hue]]*/deg) 100% 61%);
-        --blue: hsl(calc(203deg + /*[[blu]]*/deg) 100% 65%);
+    }    
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+        :root {
+            --shd-bg-translucent: var(--shd-bg-primary);
+            --shd-bg-dropdown: #151515;
+        }
     }
-    /*----------------------------------------------------------------- IMPORT INTER FONT (https://rsms.me/inter) -----------------------------------------------------------------*/
-    /*@import url('https://rsms.me/inter/inter.css');*/
-    /*@import url('https://rsms.me/inter/inter-display.css');*/
-    /*------------------------- static ------------------------- */
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 100;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Thin.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Thin.woff?v=3.18") format("woff");
+    .sc-classic {
+        font-family: /*[[font]]*/ var,/*[[font]]*/,Interstate,'Helvetica Neue',Helvetica,Verdana,sans-serif;
     }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 100;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ThinItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ThinItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 200;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraLight.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraLight.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 200;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraLightItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraLightItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Light.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Light.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-LightItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-LightItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Regular.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Regular.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Italic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Italic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Medium.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Medium.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 500;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-MediumItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-MediumItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 600;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-SemiBold.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-SemiBold.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 600;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-SemiBoldItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-SemiBoldItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Bold.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Bold.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-BoldItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-BoldItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 800;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraBold.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraBold.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 800;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraBoldItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraBoldItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Black.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Black.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 900;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-BlackItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-BlackItalic.woff?v=3.18") format("woff");
-    }
-
-
-    /* ----------------------- variable ----------------------- */
-
-    @font-face {
-        font-family: 'Inter var';
-        font-style: normal;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url('https://rsms.me/inter/font-files/Inter-roman.var.woff2?v=3.18') format('woff2');
-        font-named-instance: 'Regular';
-    }
-
-    @font-face {
-        font-family: 'Inter var';
-        font-style: italic;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url('https://rsms.me/inter/font-files/Inter-italic.var.woff2?v=3.18') format('woff2');
-        font-named-instance: 'Italic';
-    }
-
-    /* ----------- experimental multi-axis variable -----------
-
-    Slant axis is not yet widely supported (as of February 2019) and thus this
-    multi-axis single-file variable font is opt-in rather than the default.
-    When using this, you will likely need to set font-variation-settings explicitly, e.g:
-      * { font-variation-settings: "slnt" 0deg }
-        .italic { font-variation-settings: "slnt" 10deg }
-    */
-
-    @font-face {
-        font-family: 'Inter var experimental';
-        font-style: oblique 0deg 10deg;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url('https://rsms.me/inter/font-files/Inter.var.woff2?v=3.18') format('woff2');
-    }
-
-    /* Legacy name (became legacy on Feb 2, 2019) */
-    @font-face {
-        font-family: 'Inter var alt';
-        font-weight: 100 900;
-        font-style: normal;
-        font-named-instance: 'Regular';
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-roman.var.woff2?v=3.18") format("woff2");
-    }
-    @font-face {
-        font-family: 'Inter var alt';
-        font-weight: 100 900;
-        font-style: italic;
-        font-named-instance: 'Italic';
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-italic.var.woff2?v=3.18") format("woff2");
-    }
+}
+@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     
-    /*----------------------------------------------------------------- IMPORT ULTRA DARK (https://33kk.github.io/uso-archive/?style=176264) -----------------------------------------------------------------*/
+    /* ----------- IMPORT ULTRA DARK (https://33kk.github.io/uso-archive/?style=176264) ----------- */
     /* Modification of SoundCloud Ultra Dark by IgChi: userstyles.org/styles/176264 */
     .l-collection,
     .listenNetwork {
@@ -270,106 +125,17 @@
     }
     .g-z-index-header-menu[style] {
         border: 1px solid #fff!important;
-        box-shadow: 0 0 10px #0d0d0d!important
-    }
-    @font-face {
-        font-family: glue1-spoticon;
-        src: url(https://open.scdn.co/fonts/spoticon_regular_2.woff2) format("woff2"), url(https://open.scdn.co/fonts/spoticon_regular_2.woff) format("woff"), url(https://open.scdn.co/fonts/spoticon_regular_2.ttf) format("truetype");
-        font-weight: 400;
-        font-style: normal
-    }
-    @font-face {
-        font-family: spotify-circular;
-        src: url(https://open.scdn.co/fonts/CircularSpUIv3T-Light.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUIv3T-Light.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUIv3T-Light.ttf) format("truetype");
-        font-weight: 200;
-        font-style: normal;
-        font-display: swap
-    }
-    @font-face {
-        font-family: spotify-circular;
-        src: url(https://open.scdn.co/fonts/CircularSpUIv3T-Book.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUIv3T-Book.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUIv3T-Book.ttf) format("truetype");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap
-    }
-    @font-face {
-        font-family: spotify-circular;
-        src: url(https://open.scdn.co/fonts/CircularSpUIv3T-Bold.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUIv3T-Bold.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUIv3T-Bold.ttf) format("truetype");
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap
-    }
-    @font-face {
-        font-family: spotify-circular-arabic;
-        src: url(https://open.scdn.co/fonts/CircularSpUIAraOnly-Light.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUIAraOnly-Light.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUIAraOnly-Light.otf) format("opentype");
-        font-weight: 200;
-        font-style: normal;
-        font-display: swap
-    }
-    @font-face {
-        font-family: spotify-circular-arabic;
-        src: url(https://open.scdn.co/fonts/CircularSpUIAraOnly-Book.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUIAraOnly-Book.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUIAraOnly-Book.otf) format("opentype");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap
-    }
-    @font-face {
-        font-family: spotify-circular-arabic;
-        src: url(https://open.scdn.co/fonts/CircularSpUIAraOnly-Bold.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUIAraOnly-Bold.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUIAraOnly-Bold.otf) format("opentype");
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap
-    }
-    @font-face {
-        font-family: spotify-circular-hebrew;
-        src: url(https://open.scdn.co/fonts/CircularSpUIHbrOnly-Light.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUIHbrOnly-Light.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUIHbrOnly-Light.otf) format("opentype");
-        font-weight: 200;
-        font-style: normal;
-        font-display: swap
-    }
-    @font-face {
-        font-family: spotify-circular-hebrew;
-        src: url(https://open.scdn.co/fonts/CircularSpUIHbrOnly-Book.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUIHbrOnly-Book.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUIHbrOnly-Book.otf) format("opentype");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap
-    }
-    @font-face {
-        font-family: spotify-circular-hebrew;
-        src: url(https://open.scdn.co/fonts/CircularSpUIHbrOnly-Bold.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUIHbrOnly-Bold.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUIHbrOnly-Bold.otf) format("opentype");
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap
-    }
-    @font-face {
-        font-family: spotify-circular-cyrillic;
-        src: url(https://open.scdn.co/fonts/CircularSpUICyrOnly-Light.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUICyrOnly-Light.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUICyrOnly-Light.otf) format("opentype");
-        font-weight: 200;
-        font-style: normal;
-        font-display: swap
-    }
-    @font-face {
-        font-family: spotify-circular-cyrillic;
-        src: url(https://open.scdn.co/fonts/CircularSpUICyrOnly-Book.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUICyrOnly-Book.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUICyrOnly-Book.otf) format("opentype");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap
-    }
-    @font-face {
-        font-family: spotify-circular-cyrillic;
-        src: url(https://open.scdn.co/fonts/CircularSpUICyrOnly-Bold.woff2) format("woff2"), url(https://open.scdn.co/fonts/CircularSpUICyrOnly-Bold.woff) format("woff"), url(https://open.scdn.co/fonts/CircularSpUICyrOnly-Bold.otf) format("opentype");
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap
+        box-shadow: 0 0 10px var(--shd-bg-darker)!important
     }
     html {
         min-height: 100vh;
     }
     body, body.sc-classic {
-        background: #111!important;
+        background: var(--shd-bg-primary) !important;
         max-width: 100%;
         overflow-y: auto;
         overflow-x: clip;
+        padding-right: 0px !important; /* Prevent bump when opening track cover */
     }
     ::-webkit-scrollbar,
     div::-webkit-scrollbar {
@@ -377,7 +143,7 @@
     }
     ::-webkit-scrollbar-track,
     div::-webkit-scrollbar-track {
-        background: #0d0d0d
+        background: var(--shd-bg-darker)
     }
     ::-webkit-scrollbar-thumb,
     div::-webkit-scrollbar-thumb {
@@ -456,14 +222,13 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, .3)
     }
     .listenArtworkWrapper__artwork .image__lightOutline .image__full {
-        box-shadow: 0 0 20px 0 #0008; /*box-shadow: 0 0 15px 0 #000*/
+        box-shadow: 0 0 20px 0 #0008;
     }
     .moreActions, .imageEditDropdown,
     .sc-classic .moreActions, .sc-classic .imageEditDropdown {
-        /*border: 1px solid rgba(0, 0, 0, .15);*/
         border: 1px solid #6663;
         border-radius: .5rem;
-        background: #1119;
+        background: var(--shd-bg-translucent);
         backdrop-filter: blur(32px);
         padding: 5px 0;
         box-shadow: 2px 2px 12px #0006;
@@ -492,7 +257,7 @@
         background: 0
     }
     .header__inner {
-        background: #111;
+        background: var(--shd-bg-primary);
         display: flex;
         flex-direction: column;
         height: 100%
@@ -510,16 +275,17 @@
         /*-webkit-mask-size: contain;*/
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center;
-        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAWCAQAAAAs/tcnAAABMUlEQVR4Ac3UJfQUARTGUaxnrBHpPeDu7u7uTg/QO/SK9q1U3KHg2i7fH4exNeSdc9/ZNL/RHfRfjdHOuOajt246b7Fh/T38WO/9OnfM7s+hx3gUh5XNWYN7D4wnTlOe6OGsv/6eQlQFmNX9WScTs4jqwD3DOr/j04gJxHyiOsCiTgITibnEdGIJURc410lgJrGYmE+sIuoCz1301BstGwxueqQLiVXEMmI9cVp7c9WIYmAqkUysIjYQa4mtRAJtJwb//kgXEdOJTcR2Yiuxi2g/wIYfgTnEBmIFsYvYS+whDhCdBFo/ApuJvcRO4hBxhDhMHCU6Cbz5EThKHCe+7BNEcXceKFxB/e7yFs0h1hP1u/OHXHiL6nfnr2nhO6jfR3r50L5cR9O+oX5+/FX8vfkElmh0Xu+KRLEAAAAASUVORK5CYII=)
+        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAWCAQAAAAs/tcnAAABMUlEQVR4Ac3UJfQUARTGUaxnrBHpPeDu7u7uTg/QO/SK9q1U3KHg2i7fH4exNeSdc9/ZNL/RHfRfjdHOuOajt246b7Fh/T38WO/9OnfM7s+hx3gUh5XNWYN7D4wnTlOe6OGsv/6eQlQFmNX9WScTs4jqwD3DOr/j04gJxHyiOsCiTgITibnEdGIJURc410lgJrGYmE+sIuoCz1301BstGwxueqQLiVXEMmI9cVp7c9WIYmAqkUysIjYQa4mtRAJtJwb//kgXEdOJTcR2Yiuxi2g/wIYfgTnEBmIFsYvYS+whDhCdBFo/ApuJvcRO4hBxhDhMHCU6Cbz5EThKHCe+7BNEcXceKFxB/e7yFs0h1hP1u/OHXHiL6nfnr2nhO6jfR3r50L5cR9O+oX5+/FX8vfkElmh0Xu+KRLEAAAAASUVORK5CYII=);
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAWCAQAAAAs/tcnAAABMUlEQVR4Ac3UJfQUARTGUaxnrBHpPeDu7u7uTg/QO/SK9q1U3KHg2i7fH4exNeSdc9/ZNL/RHfRfjdHOuOajt246b7Fh/T38WO/9OnfM7s+hx3gUh5XNWYN7D4wnTlOe6OGsv/6eQlQFmNX9WScTs4jqwD3DOr/j04gJxHyiOsCiTgITibnEdGIJURc410lgJrGYmE+sIuoCz1301BstGwxueqQLiVXEMmI9cVp7c9WIYmAqkUysIjYQa4mtRAJtJwb//kgXEdOJTcR2Yiuxi2g/wIYfgTnEBmIFsYvYS+whDhCdBFo/ApuJvcRO4hBxhDhMHCU6Cbz5EThKHCe+7BNEcXceKFxB/e7yFs0h1hP1u/OHXHiL6nfnr2nhO6jfR3r50L5cR9O+oX5+/FX8vfkElmh0Xu+KRLEAAAAASUVORK5CYII=);
     }
     .header__inner .header__right {
-        /*box-shadow: 2px 2px 2px #0d0d0d;*/
         box-shadow: 2px 2px 24px #0003;
         border-radius: 8px;
         position: absolute;
         left: 10px;
         height: 90px;
-        /*background: linear-gradient(30deg, #401702 -200%, transparent);*/
         background: linear-gradient(30deg, #401702 -200%, #1a181890);
         border: 1px solid #35333355;
         transition-duration: 3s
@@ -631,7 +397,7 @@
         background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+c3RhdHNfcmVwb3N0PC90aXRsZT48cGF0aCBkPSJNMiA2djVjMCAxLjEwNS45MDIgMiAyLjAwOSAyaDYuOTg3SDEwbC0yLTJINFY2aC0uNUg2TDMgMyAwIDZoMnptNC0zaC0uOTk2IDYuOTg3QzEzLjA5OCAzIDE0IDMuODk1IDE0IDV2NWgtMlY1SDhMNiAzem0xMCA3aC02bDMgMyAzLTN6IiBmaWxsPSIjMjIyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=)
     }
     #app .l-container #content .truncatedUserDescription.m-overflow.m-collapsed .truncatedUserDescription__wrapper::after {
-        background: linear-gradient(rgba(255, 255, 255, 0), #111)
+        background: linear-gradient(rgba(255, 255, 255, 0), var(--shd-bg-primary))
     }
     #app .l-container #content .dropbar {
         width: calc(100% - 230px);
@@ -640,7 +406,7 @@
     #app .l-container #content .dropbar .dropbar__content {
         width: 100%;
         box-sizing: border-box;
-        background: linear-gradient(#0d0d0d, 80%, #1110)
+        background: linear-gradient(var(--shd-bg-darker), 80%, #1110)
     }
     #app .l-container #content .statsOverview .dropbar .dropbar__content {
         height: 50px
@@ -678,7 +444,7 @@
         right: 0;
         left: 0;
         bottom: 0;
-        background: #111
+        background: var(--shd-bg-primary)
     }
     #app .l-container #content .l-user-hero .profileHeader {
         min-height: 250px;
@@ -736,7 +502,7 @@
     }
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderBackground {
         min-height: 405px;
-        background: #111
+        background: var(--shd-bg-primary)
     }
     /*#app .l-container #content .l-user-hero .profileHeader .profileHeaderBackground .profileHeaderBackground__visual {
         background-size: cover;
@@ -755,11 +521,11 @@
     }
     #app .l-container #content .commentForm__wrapper {
         border: 0;
-        background: #0d0d0d
+        background: var(--shd-bg-darker)
     }
     #app .l-container #content .commentForm__wrapper input {
         color: #fff;
-        background: #0d0d0d;
+        background: var(--shd-bg-darker);
         border: 0
     }
     #app .l-container #content .l-vertical-bar {
@@ -831,11 +597,11 @@
         /*box-shadow: inset 0 0 0 2px #b3b3b3*/
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-follow.sc-button-selected {
-        color: #f50
+        color: var(--shd-accent-primary)
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation,
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights {
-        background: #f50;
+        background: var(--shd-accent-primary);
         background: linear-gradient(#f60,#f40);
         box-shadow: inset 0px 0px 0px #c200;
         filter: brightness(1) contrast(1) hue-rotate(/*[[hue]]*/deg);
@@ -895,7 +661,7 @@
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium .g-tabs-link.active:before {
         content: "";
         height: 2px;
-        background: #f50;
+        background: var(--shd-accent-primary);
         width: 30px;
         position: absolute;
         display: block;
@@ -932,16 +698,17 @@
     }
 
     /*follow button*/
-    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected), .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.playableTile__actionButton) {
+    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected), 
+    .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.playableTile__actionButton) {
         border: 0;
         border-radius: 120px;
-        background: #f50 !important;
+        background: var(--shd-accent-primary) !important;
         color: #fff !important;
         padding: 0 15px;
         transition-duration: 0.25s;
     }
     #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.m-boldIcon):hover {
-        background: #f30 !important;
+        background: var(--shd-accent-secondary) !important;
         filter: drop-shadow(2px 2px 6px #000) hue-rotate(/*[[hue]]*/deg);
         transition-duration: 0.25s;
     }
@@ -962,7 +729,7 @@
         background: 0
     }
     #app .l-container #content .soundBadge__additional {
-        background: linear-gradient(to right, transparent, #111 17px);
+        background: linear-gradient(to right, transparent, var(--shd-bg-primary) 17px);
         top: 0
     }
     #app .l-container #content .soundBadge__additional .sc-button {
@@ -1004,7 +771,7 @@
     }
     .compactTrackList__moreLink:focus,
     .compactTrackList__moreLink:hover {
-        background: #0d0d0d
+        background: var(--shd-bg-darker)
     }
     .sound__trackList {
         margin-top: 0;
@@ -1099,14 +866,11 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__lightLink {
         font-size: 12px;
         line-height: 16px;
-        /*letter-spacing: .015em;*/
         color: #b3b3b3;
         width: auto;
         flex: 0;
-        /* background: #0a0a0a; */
         padding: 5px;
         background-color: #0006;
-        /* backdrop-filter: blur(6px); */
         border-radius: 8px;
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__lightLink:hover {
@@ -1122,13 +886,10 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__title a {
         font-size: 14px;
         line-height: 20px;
-        /*letter-spacing: .015em;*/
         color: #fff;
-        /* background: #0a0a0a; */
         padding: 5px;
         margin-bottom: 3px;
         background-color: #0006;
-        /* backdrop-filter: blur(6px); */
         border-radius: 8px;
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__soundBadge .playbackSoundBadge__titleContextContainer .playbackSoundBadge__title a:hover {
@@ -1265,14 +1026,14 @@
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat .repeatControl.m-all:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat .repeatControl.m-one:before {
         cursor: default;
-        color: #f50!important;
+        color: var(--shd-accent-primary)!important;
         opacity: 1
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat .repeatControl.m-all:after,
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat .repeatControl.m-one:after,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat .repeatControl.m-all:after,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat .repeatControl.m-one:after {
-        background: #f50!important;
+        background: var(--shd-accent-primary)!important;
         opacity: 1;
         border-radius: 50px;
         width: 4px;
@@ -1291,7 +1052,7 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__shuffle .shuffleControl.m-shuffling:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__shuffle .shuffleControl.m-shuffling:before {
-        color: #f50!important;
+        color: var(--shd-accent-primary)!important;
         opacity: 1
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__shuffle .shuffleControl.m-shuffling:after,
@@ -1330,11 +1091,11 @@
         cursor: default
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline .playbackTimeline__progressWrapper:hover .playbackTimeline__progressBar {
-        background: #f50
+        background: var(--shd-accent-primary)
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline .playbackTimeline__progressWrapper .playbackTimeline__progressHandle {
         background: #c84200;
-        box-shadow: 2px 2px 2px #0d0d0d;
+        box-shadow: 2px 2px 2px var(--shd-bg-darker);
         position: relative;
         top: -4px;
         transform: translateX(-6px);
@@ -1365,10 +1126,10 @@
         left: -5px;
         background: #000000cc;
         border-radius: 5px;
-        box-shadow: 0 0 5px #0d0d0d
+        box-shadow: 0 0 5px var(--shd-bg-darker)
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__volume .volume__sliderWrapper:hover .volume__sliderProgress {
-        background: #f50!important
+        background: var(--shd-accent-primary)!important
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__volume .volume__sliderWrapper:hover .volume__sliderHandle {
         opacity: 1
@@ -1384,7 +1145,7 @@
         border-radius: 0
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__volume .volume__sliderWrapper .volume__sliderProgress {
-        background: #f50
+        background: var(--shd-accent-primary)
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__volume .volume__sliderWrapper .volume__sliderBackground {
         background: #1d1d1d
@@ -1405,14 +1166,14 @@
     .playControls__inner {
         width: 100%;
         border: 0;
-        background: #1119;
+        background: var(--shd-bg-translucent);
         border-top: 1px solid #222c;
-        box-shadow: 0 0 5px #111;
+        box-shadow: 0 0 5px var(--shd-bg-primary);
     }
     input,
     select,
     textarea {
-        background: #111;
+        background: var(--shd-bg-primary);
         border-color: #333
     }
     .g-dark input[type=password],
@@ -1422,7 +1183,7 @@
     .g-dark textarea,
     .sc-classic .frontContent__actions input[type=search]{
         color: #999;
-        background: #1a1a1a;
+        background: var(--shd-bg-lighter);
         transition: 3s
     }
     .collectionSection__filters {
@@ -1442,11 +1203,11 @@
     }
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton),
     .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown) {
-        border-color: #1a1a1a;
+        border-color: var(--shd-bg-lighter);
         /*background: #111;*/
         border: 0;
         border-radius: 120px;
-        background: #f50 !important;
+        background: var(--shd-accent-primary) !important;
         box-shadow: inset -1px -2px 8px #f40c;
         color: #fff !important;
         padding: 0 15px;
@@ -1456,12 +1217,9 @@
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton),
     .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown) {
         border-color: #fff;
-        /*background: #111*/
         border: 0;
         border-radius: 120px;
-        /* background: #f30 !important; */
-        /* box-shadow: inset -2px -5px 12px #c20; */
-        background: #f50 !important;
+        background: var(--shd-accent-primary) !important;
         box-shadow: inset -1px -2px 8px #f40c;
         color: #fff !important;
         padding: 0 15px;
@@ -1515,7 +1273,7 @@
     }
     .g-tabs-link:focus,
     .g-tabs-link:hover {
-        border-color: #f50
+        border-color: var(--shd-accent-primary)
     }
     .paging-eof:before, .sc-classic .paging-eof:before {
         display: none
@@ -1538,11 +1296,11 @@
     }
     .playControls {
         z-index: 9999;
-        overflow-x: clip;
+        overflow-x: visible;
     }
     .dialog {
         z-index: 9999999;
-        background: #111;
+        background: var(--shd-bg-primary);
         box-shadow: 0 0 15px #000
     }
     a.sc-link-dark,
@@ -1657,21 +1415,21 @@
     }
     .queueItemView.m-active,
     .queueItemView:hover {
-        background: #0d0d0d;
-        box-shadow: 0 0 5px #111
+        background: var(--shd-bg-darker);
+        box-shadow: 0 0 5px var(--shd-bg-primary)
     }
     .g-z-index-header-menu {
         z-index: 11000
     }
     a.playableTile__heading,
     a.playableTile__heading:hover,
-    .sc-classic .playableTile__mainHeading 
+    .sc-classic .playableTile__mainHeading,
     .sc-classic .playableTile__mainHeading:hover {
         font-size: 14px
     }
     .linkMenu, .sc-classic .linkMenu {
-        box-shadow: 0 1px 8px #0d0d0d;
-        background: #111;
+        box-shadow: 0 1px 8px var(--shd-bg-darker);
+        background: var(--shd-bg-primary);
         border: 1px solid #3338;
         border-radius: 4px;
     }
@@ -1683,7 +1441,7 @@
     }
     .g-modal-section, .sc-classic .g-modal-section,
     .tabs__headingContainer, .tabs__tabs, .sc-classic .tabs__headingContainer, .sc-classic .tabs__tabs {
-        background: #0d0d0d
+        background: var(--shd-bg-darker)
     }
     .embedPanel__tabLink,
     .embedPanel__upsellTabLink {
@@ -1696,7 +1454,7 @@
         margin: 40px 15px 15px
     }
     .sc-classic .l-fixed-top-one-column > .l-top {
-        background: #111;
+        background: var(--shd-bg-primary);
         top: 0;
         width: calc(100% - 235px)
     }
@@ -1718,7 +1476,7 @@
     .compactTrackListItem.clickToPlay.active,
     .compactTrackListItem.clickToPlay:focus,
     .compactTrackListItem.clickToPlay:hover {
-        background: #0d0d0d;
+        background: var(--shd-bg-darker);
         color: #999
     }
     .compactTrackListItem.clickToPlay.active .compactTrackListItem__additional,
@@ -1741,7 +1499,7 @@
     .sc-button.sc-pending:hover,
     .sc-button:disabled,
     .sc-button:disabled:hover {
-        background: #0d0d0d
+        background: var(--shd-bg-darker)
     }
     .suggestedUserList__item {
         width: 10%
@@ -1749,7 +1507,7 @@
     .conversation__actions, .sc-classic .conversation__actions {
         width: calc(100% - 245px);
         height: 55px;
-        background: #111;
+        background: var(--shd-bg-primary);
         padding-top: 15px;
         padding-left: 0;
         margin-left: 0;
@@ -1785,10 +1543,10 @@
         right: 120px
     }
     .readMoreTile__countWrapper {
-        background: #111
+        background: var(--shd-bg-primary)
     }
     .localeSelectorContent {
-        background: #0d0d0d
+        background: var(--shd-bg-darker)
     }
     .fullHero {
         background: linear-gradient(to right, #1d0101, #200122)!important
@@ -1804,7 +1562,7 @@
     .trackItem:active, .trackItem:hover, 
     .trackItem.active, .trackItem.hover, 
     .sc-classic .trackItem.active, .sc-classic .trackItem.hover {
-        background-color: #0d0d0d;
+        background-color: var(--shd-bg-darker);
     }
     .trackItem:not(.m-disabled).active .trackItem__additional, .trackItem:not(.m-disabled).hover .trackItem__additional,
     .sc-classic .trackItem:not(.m-disabled).active .trackItem__additional, .sc-classic .trackItem:not(.m-disabled).hover .trackItem__additional {
@@ -1869,7 +1627,7 @@
         z-index: 2
     }
     .sc-background-white {
-        background: #111
+        background: var(--shd-bg-primary)
     }
     .accountConnectionControl__displayName,
     .accountEmailsControl__list,
@@ -1971,7 +1729,7 @@
         margin: 10px 35px
     }
     .emptyNetworkPage__image {
-        filter: invert(1) brightness(1.5) drop-shadow(2px 2px 0 #0d0d0d)
+        filter: invert(1) brightness(1.5) drop-shadow(2px 2px 0 var(--shd-bg-darker))
     }
     .backgroundGradient.m-imageOverlay .backgroundGradient__imageOverlay {
         filter: blur(15px) brightness(.3);
@@ -1988,7 +1746,7 @@
     }
     .headerImageEditDropdown__button:focus,
     .headerImageEditDropdown__button:hover {
-        color: #f50;
+        color: var(--shd-accent-primary);
         background: #000;
         outline: 0
     }
@@ -1996,7 +1754,7 @@
     .sc-button.sc-button-translucent:not(.sc-button-cta):focus,
     .sc-button.sc-button-translucent:not(.sc-button-cta):hover {
         background: #000;
-        color: #f50
+        color: var(--shd-accent-primary)
     }
     .activeUpload__form,
     .activeUpload__hqNote,
@@ -2006,7 +1764,7 @@
     .statsOverview__separator,
     .tokenInput__wrapper.tagInput__wrapper.sc-input.sc-input-medium,
     .trackManager__upsellWrapper {
-        background: #111
+        background: var(--shd-bg-primary)
     }
     .activeUpload__savedFieldsSharingContainer,
     .activeUpload__shareContainer input,
@@ -2023,7 +1781,7 @@
         background: #321100
     }
     .quotaMeter__minutesUsed[style] {
-        background: #f50!important
+        background: var(--shd-accent-primary)!important
     }
     .sc-classic .uploadButton.selected, .uploadButton.selected {
         background: #0000;
@@ -2038,7 +1796,7 @@
     .topStats__wrapperEligible:focus,
     .topStats__wrapperEligible:hover,
     .uploadTarget__frame {
-        background: #0d0d0d
+        background: var(--shd-bg-darker)
     }
     .topStatsModule__header.l-container.sc-background-light .g-flex-row-spread {
         padding: 20px
@@ -2152,7 +1910,7 @@
         filter: invert(.982) hue-rotate(180deg);
     }
     .frontMobileTeaser {
-        background: #111;
+        background: var(--shd-bg-primary);
     }
     .header__loginMenu {
         padding: 16px 6px 2px;
@@ -2169,7 +1927,7 @@
         color: #fff!important
     }
     .uploadLoggedOut__testimonials {
-        background-color: #111!important
+        background-color: var(--shd-bg-primary)!important
     }
     a.soundActions__purchaseLink {
         color: #ccc!important;
@@ -2191,7 +1949,7 @@
         background-color: #222
     }
     .sc-classic .headerMenu.m-light, .headerMenu.m-light {  /*modified*/
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
         border-color: #333;
         transition-duration: 1s;
         box-shadow: none;
@@ -2219,7 +1977,7 @@
         border-color: #1c1c1c
     }
     .dropdownContent__container {
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
         border-color: #333
     }
     .dropdownContent__listItem,
@@ -2294,9 +2052,7 @@
 
 
     
-    /*----------------------------------------------------------------- BEGIN CUSTOM STYLING -----------------------------------------------------------------*/
-    
-    
+    /*--------------------------- BEGIN CUSTOM STYLING ---------------------------*/
     
     .g-z-index-header-menu[style] {
         border-radius: 32px!important;
@@ -2349,13 +2105,13 @@
         transition: top 0s, left 0s, box-shadow 1s;
     }
     .visualSound.listenContext .visualSound__wrapper {
-        background: #111;
+        background: var(--shd-bg-primary);
     }
     /* queue and dropdowns */
     .sc-classic .dropdownContent__container, .dropdownContent__container, .sc-classic .headerMenu.m-light, .headerMenu.m-light, .sc-classic .dialog, .dialog, .playControls__queue, .sc-classic .playControls__queue {
         border-radius: 12px;
         border: 1px solid #4448;
-        background-color: #191919aa;
+        background-color: var(--shd-bg-dropdown);
         backdrop-filter: blur(32px);
     }
     .sc-classic .m-light .headerMenu__list:first-child li:first-child .headerMenu__link {
@@ -2412,15 +2168,15 @@
         border-color: #fff;
         border: 0;
         border-radius: 120px;
-        background: #f30 !important;
+        background: var(--shd-accent-secondary) !important;
         color: #fff !important;
         transition-duration: 0.25s;
     }
     .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected):not(.playbackSoundBadge__follow) {
-        border-color: #1a1a1a;
+        border-color: var(--shd-bg-lighter);
         border: 0;
         border-radius: 120px;
-        background: #f50 !important;
+        background: var(--shd-accent-primary) !important;
         color: #fff !important;
         transition-duration: 1s;
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
@@ -2462,8 +2218,8 @@
         transition-duration: 0.25s;
     }
     .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove), .sc-button-group .sc-button-insights.sc-button-cta, .imageEditDropdown .sc-button, .uiEvoButton {
-        border-color: #1a1a1a;
-        background: #111;
+        border-color: var(--shd-bg-lighter);
+        background: var(--shd-bg-primary);
         color: #ccc;
         transition-duration: 0.25s;
     }
@@ -2475,8 +2231,8 @@
         transition-duration: 0.25s;
     }
     .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-selected.sc-button-like):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button:hover), .sc-button-selected.playbackSoundBadge__follow, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
-        border-color: #1a1a1a;
-        background: #111;
+        border-color: var(--shd-bg-lighter);
+        background: var(--shd-bg-primary);
         transition-duration: 0.25s;
     }
     .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), 
@@ -2489,7 +2245,7 @@
     .sc-border-light, .sc-classic .sc-border-light {
         border: 1px solid #222;
         border-radius: 4px;
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
     }
     .modal__content {
         border-radius: 16px;
@@ -2508,7 +2264,20 @@
     /*.sc-button-group > .sc-button-medium:not(.sc-button-follow) {
         filter: brightness(1)!important;
     }*/
-    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):not(.soundTitle__info), .g-type-shrinkwrap-inline {
+    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):not(.soundTitle__info),
+    .g-type-shrinkwrap-inline,
+    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), 
+    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, 
+    .g-type-shrinkwrap-block:visited, 
+    .g-type-shrinkwrap-inline, 
+    .g-type-shrinkwrap-inline:hover, 
+    .g-type-shrinkwrap-inline:visited,
+    .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), 
+    .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, 
+    .sc-classic .g-type-shrinkwrap-block:visited, 
+    .sc-classic .g-type-shrinkwrap-inline, 
+    .sc-classic .g-type-shrinkwrap-inline:hover, 
+    .sc-classic .g-type-shrinkwrap-inline:visited {
         background-color: rgba(0,0,0,.5);
         backdrop-filter: blur(6px);
     }
@@ -2568,7 +2337,7 @@
     }
     .soundEditForm, .audibleEditForm__audio, .audibleEditForm__progress, .audibleEditForm__form,
     .sc-classic .soundEditForm, .sc-classic .audibleEditForm__audio, .sc-classic .audibleEditForm__progress, .sc-classic .audibleEditForm__form{
-        background: #0d0d0d;
+        background: var(--shd-bg-darker);
     }
     .listenEngagement, .sc-classic .listenEngagement {
         box-shadow: none;
@@ -2649,7 +2418,7 @@
         border: 1px solid #222;
     }
     .sc-radio-input:checked+.sc-radio-radio {
-        background-color: #f50;
+        background-color: var(--shd-accent-primary);
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
         box-shadow: inset 0 0 0 2px #333;
     }
@@ -2705,11 +2474,6 @@
     .moreActions__group:not(:first-child), .sc-classic .moreActions__group:not(:first-child) {
         border-top: 1px solid #6661;
     }
-    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, .g-type-shrinkwrap-block:visited, .g-type-shrinkwrap-inline, .g-type-shrinkwrap-inline:hover, .g-type-shrinkwrap-inline:visited,
-    .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, .sc-classic .g-type-shrinkwrap-block:visited, .sc-classic .g-type-shrinkwrap-inline, .sc-classic .g-type-shrinkwrap-inline:hover, .sc-classic .g-type-shrinkwrap-inline:visited {
-        background-color: rgba(0,0,0,.5);
-        backdrop-filter: blur(6px);
-    }    
     .sound.streamContext .soundTitle.m-visualSound .soundTitle__info {
         margin-left: -3px;
         padding-left: 3px;
@@ -2748,7 +2512,7 @@
         filter: brightness(0.55) contrast(6.4);
         border-radius: 100%;
         box-shadow: inset 0 -0.3px 3px 3px #d7d7d7;
-        min-width: fit-content!important;
+        min-width: fit-content !important;
         padding: 0;
         transition-duration: 0.25s;
     }
@@ -2794,7 +2558,7 @@
         color: #fff;
         font-size: 11px;
         padding-right: 4px;
-        background-color: #f50;
+        background-color: var(--shd-accent-primary);
         border-radius: 12px;
         filter: hue-rotate(/*[[hue]]*/deg) hue-rotate(-5deg) var(--fil);
         text-align: center;
@@ -2881,8 +2645,8 @@
     .sc-classic .profileHeaderInfo__additional, .profileHeaderInfo__additional {
         margin-top: -8px;
         margin-right: 30px;
-        background: none!important;
-        backdrop-filter: none!important;
+        background: none !important;
+        backdrop-filter: none !important;
         color: #fff;
         font-weight: 400;
         font-size: 2em;
@@ -2986,8 +2750,8 @@
         box-shadow: 2px 4px 16px -4px #0005;
     }
     .repostOverlay__container, .sc-classic .repostOverlay__container {
-        backdrop-filter: brightness(0.5) blur(12px);
-        background-color: #4444;
+        backdrop-filter: blur(32px);
+        background-color: var(--shd-bg-dropdown);
         border-radius: 8px;
         border: 1px solid #292929;
     }
@@ -3027,28 +2791,7 @@
         filter: drop-shadow(5px 5px 12px #0006);
         transition: filter 0.4s;
     }
-    /*a,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    h7,
-    h8,
-    p {*/
-        /*font-family: spotify-circular, spotify-circular-cyrillic, spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
-        /*font-family: Product Sans, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;*/
-        /*font-family: Inter, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif!important;
-    } */
-    /* .sc-font-light, .sc-button, .notificationBadge, .sc-input, .sc-type-medium, .sc-type-small {
-        font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
-    }
-    .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6 {
-        font-family: Product Sans,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
-    } */
     .sc-button-small:not(.sc-button-cta), .sc-button-medium:not(.sc-button-cta):not(.sc-button-nostyle) {
-        /*font-family: Product Sans,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
         font-size: 12px;
     }
     .infoStats__value {
@@ -3084,15 +2827,15 @@
     .callout__bubble {
         background-color: #191919;
         border-radius: 12px;
-        border: solid 2px #f50;
+        border: solid 2px var(--shd-accent-primary);
         filter: drop-shadow(2px 6px 12px #0009) hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     .callout__bubble:before {
         bottom: -12px;
         background-color: #191919;
-        background: linear-gradient(-45deg, #f50 -50%, #191919 50%);
-        border-bottom: solid 2px #f50;
-        border-right: solid 2px #f50;
+        background: linear-gradient(-45deg, var(--shd-accent-primary) -50%, #191919 50%);
+        border-bottom: solid 2px var(--shd-accent-primary);
+        border-right: solid 2px var(--shd-accent-primary);
     }
     .callout__captionBody {
         color: #ccc;
@@ -3175,9 +2918,8 @@
     /* Change font to Inter */
     body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header, .sc-classic .notificationBadge {
-        font-family: /*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
-        -webkit-font-smoothing: subpixel-antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        font-family: /*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif !important;
+
     }
     .spotlightTitle, .sc-classic .spotlightTitle, .userstream__header, .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
         font-weight: 300;
@@ -3248,13 +2990,13 @@
         padding-bottom: 120px;
     }*/
     .sidebarInfoBox {
-        background: #111;
+        background: var(--shd-bg-primary);
         border: 1px solid #222!important;
         border-radius: 4px;
         box-shadow: 0px 0px 24px #0004;
     }
     .listenContent__visual .commentFormDisabled {
-        background: #1a1a1a;
+        background: var(--shd-bg-lighter);
     }
     .soundTitle.m-visualSound.listenContext .soundTitle__uploadTime {
         color: #fff;
@@ -3297,11 +3039,11 @@
         font-weight: 600;
     }
     .g-tabs-link.active {
-        color: #f50!important;
+        color: var(--shd-accent-primary)!important;
     }
     .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover {
         color: #ccc;
-        border-color: #f50;
+        border-color: var(--shd-accent-primary);
     }
     .sc-toggle.toggleFormControl__toggle:not(.sc-toggle-active) {
         border: 2px solid #393939;
@@ -3320,13 +3062,13 @@
         padding-top: 50px; /* old: 30px */
     }
     .sc-button-next, .sc-button-pause, .sc-button-play, .sc-button-prev, .sc-button.sc-button-blocked, .sc-button.sc-button-play.sc-button-disabled:disabled, .sc-button.sc-button-play:disabled, .sc-button.sc-button-play:disabled:hover {
-        background-color: #f50;
+        background-color: var(--shd-accent-primary);
         background: linear-gradient(#f60,#f40);
         filter: brightness(1) contrast(1) hue-rotate(/*[[hue]]*/deg)!important;
         transition-duration: 0.5s;
     }
     .sc-button-next.sc-button-focus, .sc-button-next:focus, .sc-button-next:hover, .sc-button-pause.sc-button-focus, .sc-button-pause:focus, .sc-button-pause:hover, .sc-button-play.sc-button-focus, .sc-button-play:not(.playableTile__playButton .playButton):focus, .sc-button-play:not(.playableTile__playButton .playButton):hover, .sc-button-prev.sc-button-focus, .sc-button-prev:focus, .sc-button-prev:hover {
-        background-color: #f30;
+        background-color: var(--shd-accent-secondary);
         background: linear-gradient(#f60,#f40);
         box-shadow: inset -2px -8px 16px #c20c;
         filter: brightness(0.9) contrast(1.3) hue-rotate(/*[[hue]]*/deg) hue-rotate(-2deg)!important;
@@ -3342,10 +3084,9 @@
         border-radius: 5px;
     }
     .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover {
-      background-color: #f50;
+      background-color: var(--shd-accent-primary);
     }
     .artistShortcutsModal {
-        /*background-image: unset!important;*/
         background: radial-gradient(transparent 0, black 100%);
         backdrop-filter: sepia(0.5) saturate(1) hue-rotate(/*[[hue]]*/deg) hue-rotate(-20deg) brightness(1.2) contrast(8) blur(200px);
     }
@@ -3353,16 +3094,15 @@
         height: calc(100% - 90px);
     }
     #overlay_634 .modal__modal {
-        background: #111;
+        background: var(--shd-bg-primary);
         border: 1px solid #222
     }
     .sc-classic .suggestedTags, .suggestedTags {
-        background-color: #1a1a1a;
+        background-color: var(--shd-bg-lighter);
         border: 1px solid #222;
-        /* border-radius: 8px; */
     }
     .sc-classic .suggestedTags__listItem.selected, .suggestedTags__listItem.selected {
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
     }
     #overlay_40417 {
         border-radius: 4px;
@@ -3372,7 +3112,7 @@
     }
     .audibleEditForm {
         border-radius: 12px;
-        border: 1px solid #111;
+        border: 1px solid var(--shd-bg-primary);
         margin-bottom: 144px;
     }
     .fullListenHero.fullHero.l-inner-fullwidth {
@@ -3405,7 +3145,7 @@
         border-bottom: none;
     }
     .reports__headers {
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
     }
     ._4OE7oO4wnIjZNEbkMLsPQ {
         background-color: rgb(13 13 13 / 70%);
@@ -3427,11 +3167,16 @@
         /*transform: scale(0.9);*/
     }
     .playlistConsumerSubUpsell__messageBox {
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
         border: none;
     }
-    .listenLogin {
-        background-color: #111;
+    .sc-classic .listenLogin, .listenLogin {
+        background-color: var(--shd-bg-primary);
+        padding: 0;
+    }
+    .sc-classic .listenLogin .sc-media-content {
+        display: flex;
+        justify-content: space-between;
     }
     .uploadLoggedOut__header {
         background: url(https://a-v2.sndcdn.com/assets/images/img-upload-hero-0fd428fc.jpg) 100% 100%/1240px 460px no-repeat;
@@ -3518,7 +3263,7 @@
     }
      /* gdpr aka cookie consent dickbar */
     #onetrust-consent-sdk #onetrust-banner-sdk {
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
     }
     #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc {
         color: #fff!important;
@@ -3535,7 +3280,7 @@
         pointer-events: none;
     }
     #onetrust-consent-sdk #onetrust-pc-sdk, #onetrust-consent-sdk #ot-search-cntr, #onetrust-consent-sdk #onetrust-pc-sdk .ot-switch.ot-toggle, #onetrust-consent-sdk #onetrust-pc-sdk ot-grp-hdr1 .checkbox, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title:after, #onetrust-consent-sdk #onetrust-pc-sdk #ot-sel-blk, #onetrust-consent-sdk #onetrust-pc-sdk #ot-fltr-cnt, #onetrust-consent-sdk #onetrust-pc-sdk #ot-anchor {
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
         box-shadow: 0px 2px 16px -3px #000;
         border-radius: 24px;
     }
@@ -3567,7 +3312,7 @@
         border: 1px solid #666;
     }
     #onetrust-consent-sdk #onetrust-pc-sdk .ot-acc-grpcntr.ot-acc-txt, #onetrust-consent-sdk #onetrust-pc-sdk .ot-acc-txt .ot-subgrp-tgl .ot-switch.ot-toggle {
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
     }
     #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link {
         color: #3c8fe6;
@@ -3580,9 +3325,6 @@
     }
     .frontHero__title {
         text-align: center;
-    }
-    .sc-classic .g-type-marketing-header {
-        font-family: /*[[font]]*/,sans-serif;
     }
 
     .onSoundCloudTeaser__title.sc-font-light {
@@ -3643,7 +3385,7 @@
     
     .editTrackList__list .sortable-placeholder {
         background: #060606;
-        border-top: 1px solid #1a1a1a;
+        border-top: 1px solid var(--shd-bg-lighter);
     }
     .editTrackItem.m-dragging {
         background-color: #1c1c1c;
@@ -3651,7 +3393,7 @@
     }
     .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional,
     .sc-classic .createPlaylistSuggestion__addContainer, .sc-classic .editTrackItem__additional, .sc-classic .editTrackItem.m-active .editTrackItem__additional, .sc-classic .editTrackItem.m-hover .editTrackItem__additional {
-        background: #0d0d0d;
+        background: var(--shd-bg-darker);
         background: linear-gradient(90deg,#0d0d0d11,#0d0d0d 17px);
     }
     .editTrackItem.m-dragging .editTrackItem__additional {
@@ -3688,7 +3430,7 @@
         padding: 2px 3px;
         font-size: 10px;
         font-weight: 800;
-        background-color: #0d0d0d;
+        background-color: var(--shd-bg-darker);
     }
     span.sc-artwork.sc-artwork-placeholder-0:not([style*="background-image:"]) {
         background-image: linear-gradient(135deg,hsl(calc(20deg + /*[[hue]]*/deg) 18% 44%) -20%,hsl(calc(210deg + /*[[blu]]*/deg) 16% 50%) 120%);
@@ -3737,14 +3479,14 @@
     }
     .sc-classic .modal__modal, .sc-classic .modal__modal.transparentBackground {
         padding: 25px;
-        background: #0d0d0d;
+        background: var(--shd-bg-darker);
         border: 1px solid #222;
         border-radius: 16px;
     }
     .sc-classic .dialog__arrow {
         border: 1px solid #6666;
         border-width: 1px 0 0 1px;
-        background-color: #1118;
+        background-color: var(--shd-bg-translucent);
         backdrop-filter: blur(18px);
     }
     /*.widgetCustomization__upsell .widgetCustomization__checkbox {
@@ -3778,7 +3520,7 @@
     .sc-classic .compactTrackListItem.clickToPlay.active, .sc-classic .compactTrackListItem.clickToPlay:focus, .sc-classic .compactTrackListItem.clickToPlay:hover,
     .sc-classic .compactTrackList__moreLink:focus, .sc-classic .compactTrackList__moreLink:hover {
         /*background: linear-gradient(178deg, #f53 -2000%, #0d0d0d 200%);*/
-        background: #0d0d0d;
+        background: var(--shd-bg-darker);
         /*filter: hue-rotate([[hue]]deg);*/
         border-radius: 4px;
         transition-duration: 0.2s;
@@ -3787,7 +3529,7 @@
         background: linear-gradient(90deg,#0d0d0d00,#0d0d0d 17px);
     }
     .sc-classic .compactTrackListItem.active, .sc-classic .compactTrackListItem.active .compactTrackListItem__content, .sc-classic .compactTrackListItem.active .compactTrackListItem__number, .sc-classic .compactTrackListItem.active .compactTrackListItem__plays, .sc-classic .compactTrackListItem.active .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem.active .compactTrackListItem__user {
-        color: var(--orange);
+        color: var(--shd-accent-orange);
         transition-duration: 0.2s;
     }
     .sc-classic .compactTrackListItem {
@@ -3874,7 +3616,7 @@
         flex-flow: column nowrap;
         flex: auto;
         padding: 4px 12px;
-        background: linear-gradient(30deg, #401702 -500%, #111 150%)!important;
+        background: linear-gradient(30deg, #401702 -500%, var(--shd-bg-primary) 150%)!important;
         filter: hue-rotate(/*[[hue]]*/deg);
         border-radius: 8px;
         text-align: center;
@@ -3905,7 +3647,7 @@
         margin-bottom: 0;
     }
     .sc-button-active:not(.hintButton), .sc-button-selected, .sc-classic .sc-button-active:not(.hintButton), .sc-classic .sc-button-selected {
-        color: #f50;
+        color: var(--shd-accent-primary);
     }
     .sc-classic .frontContent__actions input[type=search], .sc-classic .frontContent__actions input[type=search]:focus {
         padding: 0 16px;
@@ -3922,10 +3664,10 @@
 
     /* update datepicker */
     .textfield.datefield .textfield__input {
-        background: url(https://a-v2.sndcdn.com/assets/images/calendar-96bbd47c.svg) no-repeat right 8px center, #111;
+        background: url(https://a-v2.sndcdn.com/assets/images/calendar-96bbd47c.svg) no-repeat right 8px center, var(--shd-bg-primary);
     }
     .sc-classic .ui-datepicker {
-        background: #111;
+        background: var(--shd-bg-primary);
         border: 1px solid #222;
         border-top: none;
         border-radius: 0 0 8px 8px;
@@ -4019,8 +3761,8 @@
     div#searchMenuList {
         margin: 0 0px;
         border-radius: 8px;
-        box-shadow: 0 0 10px #0d0d0d!important;
-        background-color: #191919dd;
+        box-shadow: 0 0 10px var(--shd-bg-darker)!important;
+        background-color: var(--shd-bg-dropdown);
         backdrop-filter: blur(32px);
     }
 
@@ -4059,7 +3801,7 @@
     .sc-button-dropdown.sc-button-dropdown-plain:not(.sc-button-disabled):not(:disabled) {
         border-color: #333;
         color: #ccc;
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
         transition-duration: .25s;
     }
     .sc-button-dropdown.sc-button-dropdown-plain:hover:not(.sc-button-disabled):not(:disabled) {
@@ -4076,7 +3818,7 @@
         transition-property: filter;
     }
     .sc-classic .header__userNavButton.selected, .sc-classic .header__userNavItem.selected, .sc-classic .header__navMenu>li>a.header__moreButton.selected {
-        background-color: #1119;
+        background-color: var(--shd-bg-translucent);
         border-radius: 8px;
         box-shadow: inset 0 6px 16px #0009;
         transition-duration: 0.1s;
@@ -4144,13 +3886,13 @@
         transition-duration: 0.25s;
         filter: drop-shadow(0px 0px 0px #fff0);
         border-radius: 4px;
-        border-left: 0px solid #f50;
+        border-left: 0px solid var(--shd-accent-primary);
         transition: border-left .1s ease, background .1s ease;
     }
     .header__navWrapper .header__navMenu li a.selected {
-        border-left: 4px solid #f50;
+        border-left: 4px solid var(--shd-accent-primary);
         /*background: linear-gradient(90deg, #401702 -400%, transparent);*/
-        background: linear-gradient(90deg, #f50 -400%, transparent);
+        background: linear-gradient(90deg, var(--shd-accent-primary) -400%, transparent);
     }
     .header__navWrapper .header__navMenu li a:not(.selected):hover {
         color: #fff;
@@ -4219,7 +3961,7 @@
     .sc-button-small.reportCopyright {
         padding: 2px 9px 2px 24px;
         color: #888!important;
-        border: 1px solid #1a1a1a;
+        border: 1px solid var(--shd-bg-lighter);
         width: auto;
     }
     .sc-button-small.reportCopyright:before {
@@ -4247,7 +3989,7 @@
     .sc-button-small.reportCopyright:hover:before {
         filter: contrast(0) sepia(1) hue-rotate(-49.95deg) saturate(12) brightness(1.71) contrast(1)!important;
     }
-    
+
     .g-stats-icon {
         width: 20px;
         height: 18px;
@@ -4255,7 +3997,7 @@
     /* stats modal fix - see line 3728 */
     .sc-classic .modal__header ~ .modal__modal {
         padding: 25px;
-        background: #0d0d0d;
+        background: var(--shd-bg-darker);
         border: 1px solid #222;
         border-top: none;
         border-radius: 0px 0px 16px 16px;
@@ -4323,7 +4065,7 @@
         border-radius: 4px;
     }
     .sc-classic .inboxItem.active {
-        background: linear-gradient(90deg, #f50 -400%, transparent);
+        background: linear-gradient(90deg, var(--shd-accent-primary) -400%, transparent);
     }
     
     .paymentMethod__appleContent, .paymentMethod__editableContent, .paymentMethod__googlePlayContent,
@@ -4336,181 +4078,10 @@
 }
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget/iframe */
-    /* INTER *//*[[widget]]*/
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 100;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Thin.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Thin.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 100;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ThinItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ThinItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 200;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraLight.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraLight.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 200;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraLightItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraLightItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Light.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Light.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-LightItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-LightItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Regular.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Regular.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Italic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Italic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Medium.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Medium.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 500;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-MediumItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-MediumItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 600;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-SemiBold.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-SemiBold.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 600;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-SemiBoldItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-SemiBoldItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Bold.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Bold.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-BoldItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-BoldItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 800;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraBold.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraBold.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 800;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-ExtraBoldItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-ExtraBoldItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-Black.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-Black.woff?v=3.18") format("woff");
-    }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  italic;
-        font-weight: 900;
-        font-display: swap;
-        src: url("https://rsms.me/inter/font-files/Inter-BlackItalic.woff2?v=3.18") format("woff2"),
-            url("https://rsms.me/inter/font-files/Inter-BlackItalic.woff?v=3.18") format("woff");
-    }
-
-    @font-face {
-        font-family: 'Inter var';
-        font-style: normal;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url('https://rsms.me/inter/font-files/Inter-roman.var.woff2?v=3.18') format('woff2');
-        font-named-instance: 'Regular';
-    }
-
-    @font-face {
-        font-family: 'Inter var';
-        font-style: italic;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url('https://rsms.me/inter/font-files/Inter-italic.var.woff2?v=3.18') format('woff2');
-        font-named-instance: 'Italic';
-    }
-    
+    /*[[widget]]*/
     
     .g-background-default {
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
     }
     .g-text-shadow {
         text-shadow: none;
@@ -4579,7 +4150,7 @@
         transition: filter 0.5s;
     }
     .teaser {
-        background: #111;
+        background: var(--shd-bg-primary);
     }
     .teaser__trackLink, .teaser__trackLink:visited {
         color: #fff;
@@ -4592,7 +4163,7 @@
         background: #191919;
     }
     .thinProgressbar__played {
-        background-color: #f50;
+        background-color: var(--shd-accent-primary);
     }
     .sc-background-dark {
         background-color: #ddd;
@@ -4622,7 +4193,7 @@
     }
 
     .sc-background-white {
-        background-color: #111;
+        background-color: var(--shd-bg-primary);
     }
 
     .sc-border-dark-bottom {
@@ -4661,7 +4232,7 @@
 
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     html {
-        background: #0d0d0d;
+        background: var(--shd-bg-darker);
     }
     body, body.sc-classic {
         background: #0000!important;
@@ -4672,7 +4243,7 @@
         justify-content: center;
     }
     body[contextmenu*="gm-registered-menu"] div#app:not(a+div+div#app) {
-        background: #111!important;
+        background: var(--shd-bg-primary)!important;
     }
     a+div+div#app {
         height: 100%!important
@@ -4681,52 +4252,14 @@
         color: #59e;
     }
 }
-@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
-    :root {
-        --background-surface-color: #111;
-        --background-highlight-color: #303030;
-        --background-light-color: #fff;
-        --background-dark-color: #111;
-        --font-primary-color: #fff;
-        --font-secondary-color: #999;
-        --font-special-color: #f50;
-        --font-link-color: #3370dd;
-        --font-error-color: #d61348;
-        --font-light-color: #fff;
-        --font-dark-color: #111;
-        --button-primary-background-color: #fff;
-        --button-primary-font-color: #000;
-        --button-secondary-background-color: #303030;
-        --button-secondary-font-color: #fff;
-        --button-disabled-background-color: #303030;
-        --button-disabled-font-color: #999;
-        --button-special-background-color: #f50;
-        --button-special-font-color: #fff;
-        --button-light-background-color: #fff;
-        --button-light-font-color: #000;
-        --button-dark-background-color: #111;
-        --button-dark-font-color: #fff;
-        --overlay-default-color: hsla(0, 0%, 100%, 0.4);
-        --input-default-background-color: #f3f3f3;
-        --input-default-border-color: transparent;
-        --input-focused-background-color: #f3f3f3;
-        --input-focused-border-color: #666;
-        --input-invalid-background-color: #f3f3f3;
-        --input-invalid-border-color: #d61348;
-        --checkbox-default-background-color: transparent;
-        --checkbox-default-border-color: #666;
-        --checkbox-checked-background-color: #f50;
-        --checkbox-checked-border-color: #f50;
-    }
-}
 
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/library") {
     /* Make Library section a hell of a lot nicer :) */
     .collection__section {
         width: 50%;
-        background: #1a1a1a;
+        background: var(--shd-bg-lighter);
         padding: 8px;
-        border: 1px solid #ccc6!important;
+        border: 1px solid #ccc6 !important;
         border-radius: 8px;
         transform: scale(0.98);
         box-shadow: 0px 0px 18px #000c;
@@ -4743,7 +4276,7 @@
         right: 0;
     }
     .collection .playableTile {
-        width: 100%!important;
+        width: 100% !important;
     }
     .sc-classic .collection .badgeList__item {
         width: 16.666%;
@@ -4754,16 +4287,16 @@
         top: 110%;
         border-radius: 124px;
         transform: scale(0.67);
-        left: 25px!important;
+        left: 25px !important;
         margin-right: -8px;
         opacity: 1;
-        background: #F50;
+        background: var(--shd-accent-primary);
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
         transition: 0.3s;
         box-shadow: 0px 0px 18px #000c;
     }
     a.readMoreTile__countWrapper:hover {
-        background: #F50;
+        background: var(--shd-accent-primary);
         box-shadow: 0px 6px 12px #000f;
         transition: 0.2s;
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
@@ -4801,18 +4334,18 @@
         --text-color-main: var(--white);
         --text-color-secondary: var(--platinum);
         --icon-color: var(--white);
-        --background-color: #111;
-        --background-surface-color: #111;
+        --background-color: var(--shd-bg-primary);
+        --background-surface-color: var(--shd-bg-primary);
         --background-highlight-color: #191919;
         --font-secondary-color: #ccc;
         --datalist-hover-background: #191919;
         --font-primary-color: #fff;
         --container-background-color: #222;
-        --divider-color-outer: #111;
-        --divider-color-inner: #111;
+        --divider-color-outer: var(--shd-bg-primary);
+        --divider-color-inner: var(--shd-bg-primary);
         --graph-legend-background: hsla(0,0%,0%,0.25);
         --graph-marker: var(--text-color-secondary);
-        --button-secondary-background-color: #111;
+        --button-secondary-background-color: var(--shd-bg-primary);
         --button-secondary-font-color: #ccc;
         --component-border-color: #333;
         --component-border: 0.114rem solid var(--component-border-color);
@@ -4822,7 +4355,7 @@
         background: none!important;
     }
     .Layout_MainSection__3PvQn {
-        background-color: #111!important;
+        background-color: var(--shd-bg-primary)!important;
     }
     .Graph_InfoMarkerText__1qCMH, .TotalCounts_CountContainer__1Vqqo, .index_CellWithBorder__3iz2K:not(:empty) {
         border-radius: 16px!important;
@@ -4839,21 +4372,19 @@
     .g-oscp-section {
         border-bottom: 1px solid #0a0a0a;
     }
-    
     .GraphBar_GraphMargin__3LKW4 svg>g>rect[fill="#FFFFFF"], .GraphBar_GraphMargin__3LKW4 svg>g>rect[fill="#F5F7F8"] {
-        fill: #0d0d0d;
+        fill: var(--shd-bg-darker);
     }
     .GraphBar_GraphMargin__3LKW4 svg {
         border-radius: 8px;
     }
     .Bar_FadedBar__2oq7v {
-        fill: #0d0d0d;
+        fill: var(--shd-bg-darker);
     }
     .Bar_FadedBar__2oq7v.Bar_ForegroundBar__WvgRY {
         fill: #ff463780
     }
     .DataList_Blur__dVuaL:before {
-        -webkit-backdrop-filter: none;
         backdrop-filter: none;
     }
     .ResolutionDropdown_Toggle__OhrMk, .Dropdown_DropdownToggleButton__goVmf[aria-owns="dropdown-button-timewindow-select"] {
@@ -4867,7 +4398,7 @@
     #oauth2_authorization,
     body #main-wrapper,
     .sessions__formContainer {
-        background: #111
+        background: var(--shd-bg-primary)
     }
     html,
     body,
