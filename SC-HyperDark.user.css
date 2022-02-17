@@ -1001,7 +1001,7 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat {
         top: 15px;
-        left: calc(50% - 16px + 112px);
+        left: calc(50% - 16px + 144px);
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat .repeatControl:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat .repeatControl:before {
@@ -1041,7 +1041,7 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__shuffle,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__shuffle {
         top: 15px;
-        left: calc(50% - 16px - 112px);
+        left: calc(50% - 16px - 144px);
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__shuffle .shuffleControl:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__shuffle .shuffleControl:before {
