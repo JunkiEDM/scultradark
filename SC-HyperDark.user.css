@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.162
+@version      0.9.163
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -918,10 +918,11 @@
         width: 32px;
         height: 32px;
         background-image: unset;
-        color: #b3b3b3
+        color: #b3b3b3;
+        transition: color 0.3s;
     }
-    .playControls__inner .playControls__wrapper .playControls__elements .playControls__control:hover,
-    .playControls__inner .playControls__wrapper .playControls__elements .sc-ir:hover {
+    .playControls__inner .playControls__wrapper .playControls__elements .playControls__control:not(.disabled):hover,
+    .playControls__inner .playControls__wrapper .playControls__elements .sc-ir:not(.disabled):hover {
         color: #fff
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control:before,
@@ -952,7 +953,7 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__play:hover:after,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__play:hover:after {
-        border: 1px solid #fff
+        border-color: #fff
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__play:after,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__play:after {
@@ -963,28 +964,24 @@
         bottom: 0;
         left: 0;
         border-radius: 500px;
-        border: 1px solid rgba(255, 255, 255, .6)
+        border: 2px solid #fff9;
+        transition: border-color 0.3s;
+    }
+    .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__play,
+    .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__play {
+        top: 15px;
+        left: calc(50% - 16px);
+        transform: scale(1.5)!important
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__play:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__play:before {
         left: 0;
         content: "\f132"
     }
-    .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__shuffle,
-    .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__shuffle {
-        top: 15px;
-        left: 41.71%
-    }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__prev,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__prev {
         top: 15px;
-        left: 45.3%;
-        transform: scale(1.5)!important
-    }
-    .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__play,
-    .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__play {
-        top: 15px;
-        left: 49.2%;
+        left: calc(50% - 16px - 80px);
         transform: scale(1.5)!important
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__prev:before,
@@ -994,7 +991,7 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__next,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__next {
         top: 15px;
-        left: 52.8%;
+        left: calc(50% - 16px + 80px);
         transform: scale(1.5)!important
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__next:before,
@@ -1004,7 +1001,7 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat {
         top: 15px;
-        left: 56%
+        left: calc(50% - 16px + 112px);
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat .repeatControl:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat .repeatControl:before {
@@ -1040,6 +1037,11 @@
         height: 4px;
         top: 28px;
         left: 14px
+    }
+    .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__shuffle,
+    .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__shuffle {
+        top: 15px;
+        left: calc(50% - 16px - 112px);
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__shuffle .shuffleControl:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__shuffle .shuffleControl:before {
