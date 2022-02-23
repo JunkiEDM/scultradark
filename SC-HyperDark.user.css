@@ -1,17 +1,23 @@
 /* ==UserStyle==
-@name         Soundcloud Hyper Dark
+@name         Soundcloud Hyper Dark test
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.163
+@version      0.9.164
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
-@updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
+@updateURL    https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark@latest/SC-HyperDark.user.css
 @license      BSD 2-Clause
 @preprocessor uso
 @advanced text hue "Orange Hue" "-20"
 @advanced text blu "Blue Hue" "15"
 @advanced text font "Font" "Inter"
+@advanced dropdown mcis "Iconset (Media Controls)" {
+    phosphor    "Phosphor" <<<EOT 
+    ph EOT;
+    spoticons   "Spotify" <<<EOT 
+    sp EOT;
+}
 @advanced dropdown widget "Style embeds?" {
     embeds-on   "Yes" <<<EOT 
     \/**\/ EOT;
@@ -43,10 +49,39 @@
 @-moz-document domain("soundcloud.com") {
     /* Font imports */
     @import url('https://rsms.me/inter/inter.css');
+    
+    /* Icon select */
     @import url('https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/spoticons.css');
+    @import url('https://cdn.jsdelivr.net/gh/phosphor-icons/phosphor-icons/src/css/icons.css');
+    :root {
+        --ph-font: Phosphor;
+        --ph-play: "\fd5a";
+        --ph-pause: "\fd38";
+        --ph-next: "\fdb7";
+        --ph-prev: "\fdb5";
+        --ph-repeat: "\f96b";
+        --ph-repeat-1: "\f96c";
+        --ph-shuffle: "\f994";
+        --ph-volume-0: "\fdd2";
+        --ph-volume-1: "\fdcf";
+        --ph-volume-2: "\fdce";
+        --sp-font: glue1-spoticon;
+        --sp-play: "\f132";
+        --sp-pause: "\f130";
+        --sp-next: "\f148";
+        --sp-prev: "\f146";
+        --sp-repeat: "\f13e";
+        --sp-repeat-1: "\f200";
+        --sp-shuffle: "\f144";
+        --sp-volume-0: "\f1EF";
+        --sp-volume-1: "\f206";
+        --sp-volume-2: "\f15e";
+        
+    }
 
     /* Required colours */
     :root {
+        --shd-modal-width: 880px;
         --shd-accent-primary: #f50;
         --shd-accent-secondary: #f30;
         --shd-accent-orange: hsl(calc(20deg + /*[[hue]]*/deg) 100% 61%);
@@ -934,6 +969,8 @@
         height: 32px;
         font-size: 16px;
         font-family: glue1-spoticon;
+        font-family: Phosphor;
+        font-family: var(--/*[[mcis]]*/-font);
         font-style: normal;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
@@ -945,7 +982,9 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__play.playing:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__play.playing:before {
-        content: "\f130"
+        content: "\f130";
+        content: "\fd38";
+        content: var(--/*[[mcis]]*/-pause);
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__play:hover,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__play:hover {
@@ -976,7 +1015,9 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__play:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__play:before {
         left: 0;
-        content: "\f132"
+        content: "\f132";
+        content: "\fd5a";
+        content: var(--/*[[mcis]]*/-play);
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__prev,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__prev {
@@ -986,7 +1027,9 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__prev:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__prev:before {
-        content: "\f146"
+        content: "\f146";
+        content: "\fdb5";
+        content: var(--/*[[mcis]]*/-prev);
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__next,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__next {
@@ -996,7 +1039,9 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__next:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__next:before {
-        content: "\f148"
+        content: "\f148";
+        content: "\fdb7";
+        content: var(--/*[[mcis]]*/-next);
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat {
@@ -1007,6 +1052,8 @@
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat .repeatControl:before {
         background-image: none;
         content: "\f13e";
+        content: "\f96b";
+        content: var(--/*[[mcis]]*/-repeat);
         opacity: 1
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat .repeatControl:after,
@@ -1016,7 +1063,9 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat .repeatControl.m-one:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat .repeatControl.m-one:before {
-        content: "\f200"
+        content: "\f200";
+        content: "\f96c";
+        content: var(--/*[[mcis]]*/-repeat-1);
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat .repeatControl.m-all:before,
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat .repeatControl.m-one:before,
@@ -1046,7 +1095,9 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__shuffle .shuffleControl:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__shuffle .shuffleControl:before {
         background-image: none;
-        content: "\f144"
+        content: "\f144";
+        content: "\f994";
+        content: var(--/*[[mcis]]*/-shuffle);
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__shuffle .shuffleControl:after,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__shuffle .shuffleControl:after {
@@ -1076,7 +1127,30 @@
         top: 14px;
         left: -5px;
         background-image: none;
-        content: "\f15e"
+        /*content: "\f15e";
+        content: "\fdce";*/
+    }
+    .volume.muted .volume__button:before {
+        content: "\fdd2";
+        content: var(--/*[[mcis]]*/-volume-0);
+    }
+    .volume[data-level="1"] .volume__button:before, 
+    .volume[data-level="2"] .volume__button:before,
+    .volume[data-level="3"] .volume__button:before, 
+    .volume[data-level="4"] .volume__button:before, 
+    .volume[data-level="5"] .volume__button:before {
+        content: "\fdcf";
+        content: var(--/*[[mcis]]*/-volume-1);
+    }
+    
+    .volume[data-level="6"] .volume__button:before,
+    .volume[data-level="7"] .volume__button:before, 
+    .volume[data-level="8"] .volume__button:before, 
+    .volume[data-level="9"] .volume__button:before, 
+    .volume[data-level="10"] .volume__button:before {
+        content: "\f15e";
+        content: "\fdce";
+        content: var(--/*[[mcis]]*/-volume-2);
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline {
         position: absolute;
@@ -1797,8 +1871,18 @@
     .soundBadge:hover:not(.compact),
     .topStats__wrapperEligible:focus,
     .topStats__wrapperEligible:hover,
-    .uploadTarget__frame {
+    .uploadTarget__frame, 
+    .sc-classic .uploadTarget__frame{
         background: var(--shd-bg-darker)
+    }
+    .sc-classic .uploadTarget__frame {
+        border-radius: 12px;
+        border: 1px solid #4448;
+    }
+    .sc-classic .uploadTarget.entered .uploadTarget__title {
+        color: #ccc;
+        border: 2px dashed #4448;
+        border-radius: 8px;
     }
     .topStatsModule__header.l-container.sc-background-light .g-flex-row-spread {
         padding: 20px
@@ -3484,6 +3568,8 @@
         background: var(--shd-bg-darker);
         border: 1px solid #222;
         border-radius: 16px;
+        width: var(--shd-modal-width)!important;
+        left: calc(50% - calc(var(--shd-modal-width) / 2))!important;
     }
     .sc-classic .dialog__arrow {
         border: 1px solid #6666;
@@ -4076,6 +4162,67 @@
     }
     .consumerSubscription__upsell {
         padding: 0;
+    }
+    .sc-classic .editStatus__info {
+        color: #eee;
+    }
+    
+    /* modal flexbox test */
+    ul.g-tabs.g-tabs-large {
+        display: flex;
+        flex-flow: row nowrap;
+        place-content: normal;
+        align-items: center;
+    }
+    ul.g-tabs.g-tabs-large li {flex: none;}
+
+    .tokenInput__inputContainer, .tagInput__input {
+        width: 100%;
+    }
+
+    .baseFields__tagInput .tagInput {
+        display: flex;
+        flex-flow: row nowrap;
+        place-content: space-between;
+        align-items: baseline;
+    }
+
+    .tokenInput__wrapper.tagInput__wrapper.sc-input.sc-input-medium {
+        width: max-content;
+        flex: auto;
+    }
+
+    .sc-classic .tokenInput__label {
+        padding-right: 8px;
+    }
+
+    .sc-classic .tokenInput__input {
+        padding: 0;
+        margin-right: -8px
+    }
+    .baseFields__data, .sc-classic .editBasicTab .textfield {
+        display: flex;
+        flex-flow: column nowrap;
+        place-content: space-between;
+        place-items: stretch;
+        place-self: center;
+        width: 100%;
+    }
+
+    .baseFields__data > *[class*="baseFields__"], .sc-classic .textfield > * {
+        flex: auto;
+    }
+    .sc-classic .baseFields__genreSelect {
+        -webkit-flex-basis: calc(50% - 5px);
+        flex-basis: calc(50% - 5px);
+    }
+    .sc-classic .baseFields__tagInput,
+    .sc-classic .baseFields__customGenre
+    {
+        margin: 0;
+    }
+    .baseFields__genreRow.g-flex-row-spread {
+        margin: 0 0 8px;
     }
 }
 
