@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.164
+@version      0.9.165
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark@latest/SC-HyperDark.user.css
@@ -1239,7 +1239,9 @@
         width: 100%
     }
     .playControls__bg,
-    .playControls__inner {
+    .playControls__inner,
+    .sc-classic .playControls__bg,
+    .sc-classic .playControls__inner{
         width: 100%;
         border: 0;
         background: var(--shd-bg-translucent);
@@ -2591,7 +2593,7 @@
     .l-product-banners {
         display: none;
     }
-    .playControls__bg {
+    .playControls__bg, .sc-classic .playControls__bg {
         backdrop-filter: brightness(0.8) blur(32px);
     }
     .spotlightRemove, .sc-classic .spotlightRemove, .g-button-remove {
