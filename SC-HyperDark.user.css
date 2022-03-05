@@ -3,10 +3,10 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.165
+@version      0.9.166
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
-@updateURL    https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark@latest/SC-HyperDark.user.css
+@updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
 @license      BSD 2-Clause
 @preprocessor uso
 @advanced text hue "Orange Hue" "-20"
@@ -2825,8 +2825,11 @@
     div#content>div>div.l-fluid-fixed:only-child div.l-sidebar-right {
         top: 4px!important;
     }
+    .header__navWrapper .header__navMenu li a {
+        filter: hue-rotate(/*[[hue]]*/deg) hue-rotate(-1deg) saturate(1.5) var(--fil) !important;
+    }
     .header__navWrapper .header__navMenu li a.selected {
-        filter: hue-rotate(/*[[hue]]*/deg) hue-rotate(-1deg) contrast(0.8) brightness(1.2) contrast(1.5) saturate(1.5) var(--fil);
+        filter: hue-rotate(/*[[hue]]*/deg) hue-rotate(-1deg) contrast(0.8) brightness(1.2) contrast(1.5) saturate(1.5) var(--fil) !important;
     }
     /*.backgroundGradient__buffer {
         border-radius: 24px;
@@ -3163,7 +3166,7 @@
         transition-duration: 0.2s;
     }
     /* Color changer (switched from https://33kk.github.io/uso-archive/?style=123974 to simpler method) */
-    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link:focus, .sc-classic .g-tabs-link:hover, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static,
+    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static,
     .imageCrop__zoomSlider, .sc-classic .imageCrop__zoomSlider {
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
