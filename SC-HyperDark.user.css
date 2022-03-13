@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.166
+@version      0.9.167
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1525,8 +1525,11 @@
     .embedPanel__upsellTabLink {
         background: inherit
     }
-    .composeMessage__bottomWrapper {
+    .composeMessage__bottomWrapper, .sc-classic .composeMessage__bottomWrapper {
         border: 0
+    }
+    .sc-classic .conversation__form {
+        border-top: 1px dashed #4448;
     }
     .userNetwork {
         margin: 40px 15px 15px
@@ -1945,7 +1948,7 @@
     .sc-button-medium.sc-button-pageright:before {
         filter: invert(1)
     }
-    .recipientChooser .tokenInput__wrapper {
+    .recipientChooser .tokenInput__wrapper, .sc-classic .recipientChooser .tokenInput__wrapper {
         background: 0 0
     }
     .quotaMeterWrapper.sc-border-light {
@@ -1956,8 +1959,9 @@
     .statsBadge .statsBadge__upsell.sc-border-light-top {
         display: none
     }
-    .tokenInput__token {
-        background: #131313
+    .tokenInput__token, .sc-classic .tokenInput__token { 
+        background: var(--shd-bg-dropdown);
+        border: 1px solid #4448;
     }
     .spotlight__item {
         padding: 0
@@ -2109,7 +2113,7 @@
     .localeSelector__body,
     .localeSelectorContent__link:hover,
     .sc-button-nostyle,
-    .commentBadge:hover .commentBadge__title a
+    .commentBadge:hover .commentBadge__title a,
     .sc-classic textarea,
     .sc-classic select,
     .sc-classic button,
