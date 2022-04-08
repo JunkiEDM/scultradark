@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.167
+@version      0.9.168
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -2919,16 +2919,17 @@
         /*filter: brightness(0.5) sepia(1) contrast(2) saturate(24) hue-rotate(-2deg) saturate(1.1)!important;*/
         filter: invert(0) hue-rotate(8deg) brightness(1.1)!important;
     }
-    .callout__bubble {
-        background-color: #191919;
+    .callout__bubble, .sc-classic .callout__bubble {
+        background-color: var(--shd-bg-dropdown);
         border-radius: 12px;
         border: solid 2px var(--shd-accent-primary);
+        backdrop-filter: blur(60px);
         filter: drop-shadow(2px 6px 12px #0009) hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
-    .callout__bubble:before {
+    .callout__bubble:before, .sc-classic .callout__bubble:before {
         bottom: -12px;
         background-color: #191919;
-        background: linear-gradient(-45deg, var(--shd-accent-primary) -50%, #191919 50%);
+        background: linear-gradient(-45deg, var(--shd-accent-primary) -50%, #191919 50%, #19191900 55%));
         border-bottom: solid 2px var(--shd-accent-primary);
         border-right: solid 2px var(--shd-accent-primary);
     }
@@ -4185,7 +4186,7 @@
     }
     ul.g-tabs.g-tabs-large li {flex: none;}
 
-    .tokenInput__inputContainer, .tagInput__input {
+    .tokenInput__inputContainer:not(.autoTagger *), .tagInput__input {
         width: 100%;
     }
 
@@ -4204,8 +4205,8 @@
     .sc-classic .tokenInput__label {
         padding-right: 8px;
     }
-
-    .sc-classic .tokenInput__input {
+    
+    .sc-classic .tokenInput__input:not(.autoTagger *) {
         padding: 0;
         margin-right: -8px
     }
@@ -4232,6 +4233,10 @@
     }
     .baseFields__genreRow.g-flex-row-spread {
         margin: 0 0 8px;
+    }
+    
+    .sc-classic .activeUpload__shareContainer {
+        background-color: initial;
     }
 }
 
