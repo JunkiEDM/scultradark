@@ -2929,7 +2929,7 @@
     .callout__bubble:before, .sc-classic .callout__bubble:before {
         bottom: -12px;
         background-color: #191919;
-        background: linear-gradient(-45deg, var(--shd-accent-primary) -50%, #191919 50%, #19191900 55%));
+        background: linear-gradient(-45deg, var(--shd-accent-primary) -50%, #191919 50%, #19191900 55%);
         border-bottom: solid 2px var(--shd-accent-primary);
         border-right: solid 2px var(--shd-accent-primary);
     }
