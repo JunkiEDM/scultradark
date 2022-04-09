@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.168
+@version      0.9.169
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1339,7 +1339,7 @@
     .selectionPlaylistBanner {
         background: linear-gradient(to right, #1d0101, #200122)
     }
-    .queue__scrollableInner.g-scrollable-inner {
+    .queue__scrollableInner.g-scrollable-inner, .sc-classic .queue__scrollableInner.g-scrollable-inner {
         background: 0 0
     }
     .l-fluid-fixed .l-main, .sc-classic .l-fluid-fixed .l-main {
@@ -1413,11 +1413,17 @@
     .queueItemView.m-active,
     .queueItemView:hover a.sc-link-light:hover,
     .queue__title,
-    .sc-ministats {
+    .sc-ministats,
+    .sc-classic .queueItemView.m-active,
+    .sc-classic .queueItemView:hover a.sc-link-light:hover,
+    .sc-classic .queue__title,
+    .sc-classic .sc-ministats {
         color: #fff
     }
     .queueFallback__stationMode,
-    .queue__panel {
+    .queue__panel,
+    .sc-classic .queueFallback__stationMode,
+    .sc-classic .queue__panel {
         border-color: #333
     }
     .sc-tag:hover {
@@ -1477,22 +1483,29 @@
         right: unset;
         left: 240px
     }
-    .queue__fallback.queue__itemWrapper {
+    .queue__fallback.queue__itemWrapper,
+    .sc-classic .queue__fallback.queue__itemWrapper {
         height: 70px;
         padding-top: 67px
     }
-    .queue__itemsHeight {
+    .queue__itemsHeight,
+    .sc-classic .queue__itemsHeight {
         background: 0 0
     }
     .queueItemView,
-    .queue__fallback.queue__itemWrapper {
+    .queue__fallback.queue__itemWrapper,
+    .sc-classic .queueItemView,
+    .sc-classic .queue__fallback.queue__itemWrapper {
         background: #151515f3
     }
-    .queue__panel {
+    .queue__panel,
+    .sc-classic .queue__panel {
         background: #151515
     }
     .queueItemView.m-active,
-    .queueItemView:hover {
+    .queueItemView:hover,
+    .sc-classic .queueItemView.m-active,
+    .sc-classic .queueItemView:hover {
         background: var(--shd-bg-darker);
         box-shadow: 0 0 5px var(--shd-bg-primary)
     }
@@ -1632,7 +1645,8 @@
     .fullHero {
         background: linear-gradient(to right, #1d0101, #200122)!important
     }
-    .queue {
+    .queue,
+    .sc-classic .queue {
         background: 0 0;
         box-shadow: 0 0 15px #0a0a0a
     }
@@ -1780,7 +1794,8 @@
     .tileGallery .playableTile {
         width: 150px
     }
-    .queue__itemWrapper {
+    .queue__itemWrapper,
+    .sc-classic .queue__itemWrapper {
         background: #fff0
     }
     .featuredProfiles {
@@ -2234,7 +2249,8 @@
         filter: invert(1) hue-rotate(180deg) contrast(1.5) brightness(0.7);
         transition-duration: 0.25s;
     }
-    .queue__panel, .queueItemView, .queue__fallback.queue__itemWrapper {
+    .queue__panel, .queueItemView, .queue__fallback.queue__itemWrapper,
+    .sc-classic .queue__panel, .sc-classic .queueItemView, .sc-classic .queue__fallback.queue__itemWrapper {
         background-color: inherit;
     }
     .queueItemView.m-active, .queueItemView:hover {
