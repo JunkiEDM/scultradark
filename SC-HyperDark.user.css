@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.169
+@version      0.9.170
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -36,6 +36,7 @@
     gdpr-off    "Hide" <<<EOT 
     display:none; EOT;
 }
+@advanced color bg1 "Background color" #111
 ==/UserStyle== *//* --- REMOVE THIS LINE TO SHOW ADVANCED FILTERS ---
 @advanced dropdown adv "Enable Advanced Filters?" {
     adv-off "Disabled" <<<EOT 
@@ -86,7 +87,7 @@
         --shd-accent-secondary: #f30;
         --shd-accent-orange: hsl(calc(20deg + /*[[hue]]*/deg) 100% 61%);
         --shd-accent-blue: hsl(calc(203deg + /*[[blu]]*/deg) 100% 65%);
-        --shd-bg-primary: #111;
+        --shd-bg-primary: /*[[bg1]]*/;
         --shd-bg-lighter: #1a1a1a;
         --shd-bg-darker: #0d0d0d;
         --shd-bg-translucent: #1119;
@@ -2682,12 +2683,13 @@
     .tileGallery__sliderPanel {
         margin-right: 7.8vw;
     }
-    .tileGallery .playableTile {
-        width: 8.5vw;
-        transform: scale(1.25);
+    .tileGallery .playableTile, .sc-classic .userBadgeListItem {
+        width: 9vw;
+        transform: scale(1.2);
         transform-origin: top left;
-        height: 192px;
+        height: 210px;
     }
+    .sc-classic .userBadgeListItem {padding-bottom: 0;}
     .tileGallery {
         width: 100%;
     }
