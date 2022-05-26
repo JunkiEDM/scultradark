@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.170
+@version      0.9.171
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -2683,13 +2683,13 @@
     .tileGallery__sliderPanel {
         margin-right: 7.8vw;
     }
-    .tileGallery .playableTile, .sc-classic .userBadgeListItem {
+    .tileGallery .playableTile, .sc-classic .tileGallery .userBadgeListItem {
         width: 9vw;
         transform: scale(1.2);
         transform-origin: top left;
         height: 210px;
     }
-    .sc-classic .userBadgeListItem {padding-bottom: 0;}
+    .sc-classic .tileGallery .userBadgeListItem {padding-bottom: 0;}
     .tileGallery {
         width: 100%;
     }
