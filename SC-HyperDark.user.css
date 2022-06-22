@@ -2690,6 +2690,10 @@
         height: 210px;
     }
     .sc-classic .tileGallery .userBadgeListItem {padding-bottom: 0;}
+    .sc-classic .tileGallery .userBadgeListItem__action {
+        display: flex;
+        justify-content: center;
+    }
     .tileGallery {
         width: 100%;
     }
