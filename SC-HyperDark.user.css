@@ -2679,6 +2679,10 @@
         padding-right: 4px;
         display: none;
     }
+    .userBadgeListItem__action {
+        display: flex;
+        justify-content: center;
+    }
     /* make the discover tile carousel less empty */
     .tileGallery__sliderPanel {
         margin-right: 7.8vw;
@@ -2690,10 +2694,6 @@
         height: 210px;
     }
     .sc-classic .tileGallery .userBadgeListItem {padding-bottom: 0;}
-    .sc-classic .tileGallery .userBadgeListItem__action {
-        display: flex;
-        justify-content: center;
-    }
     .tileGallery {
         width: 100%;
     }
