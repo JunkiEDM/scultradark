@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.172
+@version      0.9.173
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -17,12 +17,16 @@
     ph EOT;
     spoticons   "Spotify" <<<EOT 
     sp EOT;
+    fluentfill  "Fluent Filled" <<<EOT 
+    ff EOT;
+    fluentreg   "Fluent Outlined" <<<EOT 
+    fo EOT;
 }
 @advanced dropdown widget "Style embeds?" {
     embeds-on   "Yes" <<<EOT 
-    \/**\/ EOT;
+    /**\/ EOT;
     embeds-off  "No" <<<EOT 
-    \/* EOT;
+    /* EOT;
 }
 @advanced dropdown sin "Insights on sidebar?" {
     stats-on    "Show" <<<EOT 
@@ -54,6 +58,12 @@
     /* Icon select */
     @import url('https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/spoticons.css');
     @import url('https://cdn.jsdelivr.net/gh/phosphor-icons/phosphor-icons/src/css/icons.css');
+    @font-face {
+        font-family: "FluentSystemIcons-Resizable";
+        src: url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/fonts/FluentSystemIcons-Resizable-mod.woff2") format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/fonts/FluentSystemIcons-Resizable-mod.woff") format("woff"),
+    url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/fonts/FluentSystemIcons-Resizable-mod.ttf") format("truetype");
+    }
     :root {
         --ph-font: Phosphor;
         --ph-play: "\fd5a";
@@ -77,7 +87,28 @@
         --sp-volume-0: "\f1EF";
         --sp-volume-1: "\f206";
         --sp-volume-2: "\f15e";
-        
+        --ff-font: FluentSystemIcons-Resizable;
+        --ff-play: "\ea69";
+        --ff-pause: "\e995";
+        --ff-next: "\e922";
+        --ff-prev: "\eaa5";
+        --ff-repeat: "\f002";
+        --ff-repeat-1: "\f004";
+        --ff-shuffle: "\f000";
+        --ff-volume-0: "\ec49";
+        --ff-volume-1: "\ec41";
+        --ff-volume-2: "\ec43";
+        --fo-font: FluentSystemIcons-Resizable;
+        --fo-play: "\ea6a";
+        --fo-pause: "\e996";
+        --fo-next: "\e923";
+        --fo-prev: "\eaa6";
+        --fo-repeat: "\f003";
+        --fo-repeat-1: "\f005";
+        --fo-shuffle: "\f001";
+        --fo-volume-0: "\ec4a";
+        --fo-volume-1: "\ec42";
+        --fo-volume-2: "\ec44";
     }
 
     /* Required colours */
@@ -143,7 +174,7 @@
         }
     }
     .sc-classic {
-        font-family: /*[[font]]*/ var,/*[[font]]*/,Interstate,'Helvetica Neue',Helvetica,Verdana,sans-serif;
+        font-family: /*[[font]]*/ var,/*[[font]]*/,'Inter var',Inter,Interstate,'Helvetica Neue',Helvetica,Verdana,sans-serif;
     }
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
@@ -507,7 +538,8 @@
         justify-content: center;
         flex-direction: column;
         align-items: flex-end;
-        z-index: 2;
+        z-index: 10;
+        pointer-events: none;
         position: relative;
         margin-right: 360px;
         float: right;
@@ -515,6 +547,9 @@
         /*bottom: 45px;
         left: 87%;*/
         filter: drop-shadow(2px 6px 12px #000);
+    }
+    #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content > * {
+        pointer-events: all;
     }
     /*#app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h2, */#app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content .profileHeaderInfo__userName {
         margin-top: 0px;
@@ -4259,6 +4294,9 @@
     
     .sc-classic .activeUpload__shareContainer {
         background-color: initial;
+    }
+    .sc-visuallyhidden, .actorUser > .actorUser__username {
+        user-select: none;
     }
 }
 
