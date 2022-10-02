@@ -4635,3 +4635,7 @@
         border-color: #222
     }
 }
+
+.header__link header__goUpsell_side_by_side_experience{
+ display: none;   
+}
