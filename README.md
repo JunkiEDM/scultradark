@@ -31,4 +31,4 @@
 ['SoundCloud - Quite Dark' by pawelos076232](https://33kk.github.io/uso-archive/?style=143738) <br>
 *~~['Custom Waveform Hue' by CriAsuDre](https://33kk.github.io/uso-archive/?style=123974)~~ (No longer included as of v0.9.120)*  <br>
 [Font used: 'Inter'](https://rsms.me/inter/) [by @rsms](https://twitter.com/rsms) <br> <br>
-***NO LONGER MAINTAINED:** [📦 Ultra Dark "Cover-style" Profile Headers](https://github.com/JunkiEDM/scultradark/raw/master/SC-UltraDark-MOD-oldheader.user.css)* <br>
+***This repo is maintained**<br>
