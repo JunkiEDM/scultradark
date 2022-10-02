@@ -186,6 +186,9 @@
         margin-left: 15px;
         margin-right: 15px
     }
+    .header__link.header__goUpsell_side_by_side_experience{
+     display: none;   
+    }
     #app:not(body[marginwidth="0"][marginheight="0"] #app),
     #app header:not(.g-flex-row-spread) {
         height: calc(100vh - 90px)
@@ -4636,6 +4639,4 @@
     }
 }
 
-.header__link header__goUpsell_side_by_side_experience{
- display: none;   
-}
+
