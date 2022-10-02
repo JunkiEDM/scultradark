@@ -3,7 +3,8 @@
 <h2>Installation:</h2>
 <ol>
   <li><b>Install the Stylus extension: <a href="https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne">Chrome Web Store</a></b> <i>|</i> <b><a href="https://addons.mozilla.org/en-US/firefox/addon/styl-us/">Firefox</a></b></li>
-  <li><p><b>Install UserStyle from: <a href="https://github.com/JunkiEDM/scultradark/raw/master/SC-HyperDark.user.css">📦 GitHub (Supports automatic updates)</a></b> <i>|</i> <b><a href="https://userstyles.world/style/70">🔗 UserStyles.world Page</a></b></p></li>
+  <li><p><b>Install UserStyle from: <a href="https://github.com/tadghh/scultradark/raw/master/SC-HyperDark.user.css">📦
+    GitHub (Supports automatic updates)</a></b> <i>|</i> <b><a href="https://userstyles.world/style/70">🔗 UserStyles.world Page</a></b></p></li>
 </ol>
 <br>
 
