@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.173
+@version      0.9.18
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -40,7 +40,19 @@
     gdpr-off    "Hide" <<<EOT 
     display:none; EOT;
 }
+@advanced dropdown gopro "Soundcloud Go/Next Links?" {
+    gopro-off    "Hide" <<<EOT 
+    display:none; EOT;
+    gopro-on     "Show" <<<EOT 
+    display:flex; EOT;
+}
 @advanced color bg1 "Background color" #111
+@advanced dropdown promoted "EXPERIMENTAL: Hide promoted tracks (Requires Chromium 105+. See: https://caniuse.com/css-has)" {
+    promo-off    "Hide" <<<EOT 
+    display:none; EOT;
+    promo-on     "Show" <<<EOT 
+    display:inherit; EOT;
+}
 ==/UserStyle== *//* --- REMOVE THIS LINE TO SHOW ADVANCED FILTERS ---
 @advanced dropdown adv "Enable Advanced Filters?" {
     adv-off "Disabled" <<<EOT 
@@ -1675,7 +1687,7 @@
     .readMoreTile__countWrapper {
         background: var(--shd-bg-primary)
     }
-    .localeSelectorContent {
+    .localeSelectorContent, .sc-classic .localeSelectorContent {
         background: var(--shd-bg-darker)
     }
     .fullHero {
@@ -1753,9 +1765,56 @@
     }
     .header__soundInput {
         position: absolute;
-        top: 45px;
-        left: 95px;
-        z-index: 2
+        top: 44px;
+        left: 93px;
+        z-index: 2;
+        width: 69px;
+    }
+    .header__soundInput, .header__upload {
+        height: 46px;
+    }
+    .sc-classic .header__link:not(.sc-classic .header__link.header__goUpsell, .sc-classic .header__link.header__goUpsell_side_by_side_experience, .sc-classic .header__link.header__proUpsell_side_by_side_experience) { /* center upload text dynamically for other languages */
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        padding: 0;
+        text-align: center;
+        float: none;
+        height: 100%;
+    }
+    .sc-classic .uploadButton, .uploadButton {
+        transition-duration: 0.2s;
+        transition-property: background-color, box-shadow, filter;
+    }
+    .sc-classic .uploadButton.selected, .uploadButton.selected {
+        background: var(--shd-bg-translucent);
+        border-radius: 8px;
+        box-shadow: inset 0 6px 16px #0009;
+        filter: brightness(.5);
+        transition-duration: 0.1s;
+    }
+    .uploadButton__title {
+        width: 69px;
+        transition: color 0.2s;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .header__soundInput > .uploadButton.selected .uploadButton__title, .header__soundInput:hover .uploadButton__title {
+        color: #fff;
+    }
+    .sc-classic .header__link.header__goUpsell, .sc-classic .header__link.header__goUpsell_side_by_side_experience, .sc-classic .header__link.header__proUpsell_side_by_side_experience {
+        /*[[gopro]]*/
+        padding: 4px;
+        transform: translateY(317px);
+        opacity: 0.8;
+        transition-property: color, opacity;
+    }
+    .sc-classic .header__link.header__goUpsell:active, .sc-classic .header__link.header__goUpsell:focus, .sc-classic .header__link.header__goUpsell:hover, .sc-classic .header__link.header__goUpsell_side_by_side_experience:active, .sc-classic .header__link.header__goUpsell_side_by_side_experience:focus, .sc-classic .header__link.header__goUpsell_side_by_side_experience:hover, .sc-classic .header__link.header__proUpsell_side_by_side_experience:active, .sc-classic .header__link.header__proUpsell_side_by_side_experience:focus, .sc-classic .header__link.header__proUpsell_side_by_side_experience:hover {
+        opacity: 1;
+    }
+    .sc-classic .header__link.header__goUpsell:nth-of-type(2), .sc-classic .header__link.header__goUpsell_side_by_side_experience:nth-of-type(2), .sc-classic .header__link.header__proUpsell_side_by_side_experience:nth-of-type(2) {
+        float: right;
     }
     .sc-background-white {
         background: var(--shd-bg-primary)
@@ -1914,9 +1973,6 @@
     }
     .quotaMeter__minutesUsed[style] {
         background: var(--shd-accent-primary)!important
-    }
-    .sc-classic .uploadButton.selected, .uploadButton.selected {
-        background: #0000;
     }
     .quotaMeter__link {
         color: gray!important
@@ -2380,7 +2436,8 @@
         transition-duration: 0.25s;
     }
     .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), 
-    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover, .uiEvoButton.uiEvoButton--isSelected:hover {
+    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover, .uiEvoButton.uiEvoButton--isSelected:hover,
+    .sc-button-dropdown.sc-button-active:not(.sc-button-dropdown-plain), .sc-button-dropdown:hover:not(.sc-button-dropdown-plain), .sc-button-dropdown.sc-button-selected:not(.sc-button-dropdown-plain) {
         border-color: #f506;
         background: #310;
         filter: drop-shadow(2px 2px 6px #000) hue-rotate(/*[[hue]]*/deg) var(--fil);
@@ -3228,7 +3285,7 @@
         transition-duration: 0.2s;
     }
     /* Color changer (switched from https://33kk.github.io/uso-archive/?style=123974 to simpler method) */
-    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a, .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static,
+    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a:not(.sc-classic .header__link.header__goUpsell, .sc-classic .header__link.header__goUpsell_side_by_side_experience, .sc-classic .header__link.header__proUpsell_side_by_side_experience), .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static,
     .imageCrop__zoomSlider, .sc-classic .imageCrop__zoomSlider {
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
@@ -3291,7 +3348,8 @@
     .tileGallery.m-hasItemsBackward .tileGallery__sliderPeekBackward, .tileGallery.m-hasItemsForward .tileGallery__sliderPeekForward {
         z-index: 1;
     }
-    .chartTrack.m-interactive:hover, .chartTrack.m-playing {
+    .chartTrack.m-interactive:hover, .chartTrack.m-playing,
+    .sc-classic .chartTrack.m-interactive:hover, .sc-classic .chartTrack.m-playing{
         background-color: #090909;
     }
     .g-oscp-section {
@@ -3437,7 +3495,7 @@
         box-shadow: 0px 2px 16px -3px #000;
         border-radius: 24px;
     }
-    #onetrust-consent-sdk #onetrust-pc-sdk h3, #onetrust-consent-sdk #onetrust-pc-sdk h4, #onetrust-consent-sdk #onetrust-pc-sdk h5, #onetrust-consent-sdk #onetrust-pc-sdk h6, #onetrust-consent-sdk #onetrust-pc-sdk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-ven-lst .ot-ven-opts p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-desc, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-li-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-sel-all-hdr span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-info, #onetrust-consent-sdk #onetrust-pc-sdk #ot-fltr-modal #modal-header, #onetrust-consent-sdk #onetrust-pc-sdk .ot-checkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-sel-blk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-lst-title span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .back-btn-handler p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .ot-ven-name, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-ven-lst .consent-category, #onetrust-consent-sdk #onetrust-pc-sdk .ot-leg-btn-container .ot-inactive-leg-btn, #onetrust-consent-sdk #onetrust-pc-sdk .ot-label-status, #onetrust-consent-sdk #onetrust-pc-sdk .ot-chkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #clear-filters-handler {
+    #onetrust-consent-sdk #onetrust-pc-sdk h3, #onetrust-consent-sdk #onetrust-pc-sdk h4, #onetrust-consent-sdk #onetrust-pc-sdk h5, #onetrust-consent-sdk #onetrust-pc-sdk h6, #onetrust-consent-sdk #onetrust-pc-sdk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-ven-lst .ot-ven-opts p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-desc, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-li-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-sel-all-hdr span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-info, #onetrust-consent-sdk #onetrust-pc-sdk #ot-fltr-modal #modal-header, #onetrust-consent-sdk #onetrust-pc-sdk .ot-checkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-sel-blk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-lst-title span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .back-btn-handler p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .ot-ven-name, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-ven-lst .consent-category, #onetrust-consent-sdk #onetrust-pc-sdk .ot-leg-btn-container .ot-inactive-leg-btn, #onetrust-consent-sdk #onetrust-pc-sdk .ot-label-status, #onetrust-consent-sdk #onetrust-pc-sdk .ot-chkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #clear-filters-handler, #onetrust-consent-sdk #onetrust-banner-sdk #onetrust-policy #onetrust-policy-title, #onetrust-consent-sdk #onetrust-banner-sdk #onetrust-policy h3, #onetrust-consent-sdk #onetrust-pc-sdk .ot-accordion-layout h4 ~ .ot-always-active {
         color: #fff;
     }
     #onetrust-pc-sdk button + .ot-acc-hdr .ot-plus-minus:before {
@@ -3565,7 +3623,7 @@
         padding: 4px;
         border-top: 1px solid #222;
         margin-top: -18px!important;
-        margin-bottom: -22px;
+        margin-bottom: -22px!important;
     }
     ._1srmB4exym6W6iYDJh87lM {
         background-color: #0e0e0e99;
@@ -4224,7 +4282,9 @@
     }
     
     .paymentMethod__appleContent, .paymentMethod__editableContent, .paymentMethod__googlePlayContent,
-    .currentPlan__planContainer, .currentPlan__planUpsell, .g-upsell-container {
+    .currentPlan__planContainer, .currentPlan__planUpsell, .g-upsell-container,
+    .sc-classic .paymentMethod__appleContent, .sc-classic .paymentMethod__editableContent, .sc-classic .paymentMethod__googlePlayContent,
+    .sc-classic .currentPlan__planContainer, .sc-classic .currentPlan__planUpsell, .sc-classic .g-upsell-container {
         background: none;
     }
     .consumerSubscription__upsell {
@@ -4297,6 +4357,10 @@
     }
     .sc-visuallyhidden, .actorUser > .actorUser__username {
         user-select: none;
+    }
+    
+    .downloadLandingIntro {
+        margin: 0 30px 160px;
     }
 }
 
@@ -4450,6 +4514,10 @@
     .playButton[style*="color: rgb(204, 68, 0);"], .sc-background-orange, .waveform__layer, .soundHeader__logo {
         filter: hue-rotate(/*[[hue]]*/deg);
     }
+    
+    .sc-classic li.soundList__item:has(.soundContext .sc-promoted-icon) {
+        /*[[promoted]]*/
+    }
     /**/
 }
 
@@ -4460,7 +4528,7 @@
     body, body.sc-classic {
         background: #0000!important;
     }
-    div#app:not(a+div+div#app) {
+    div#app:first-of-type {
         background: #090909;
         height: 100vh!important;
         justify-content: center;
@@ -4554,16 +4622,25 @@
 @-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
     :root { /* Messy new insights page update */
         --soundcloudOrange: #ff4637;
+        --special-color: var(--shd-accent-orange);
         --text-color-main: var(--white);
         --text-color-secondary: var(--platinum);
         --icon-color: var(--white);
         --background-color: var(--shd-bg-primary);
         --background-surface-color: var(--shd-bg-primary);
-        --background-highlight-color: #191919;
+        --background-highlight-color: #303030;
+        --primary-color: #fff;
+        --primary-rgb: 255,255,255;
+        --overlay-color: rgba(255,255,255,0.4);
+        --overlay-rgb: 255,255,255,0.4;
         --font-secondary-color: #ccc;
-        --datalist-hover-background: #191919;
+        --datalist-hover-background: #303030;
         --font-primary-color: #fff;
         --container-background-color: #222;
+        --surface-color: var(--shd-bg-lighter);
+        --surface-rgb: 26,26,26;
+        --highlight-color: #303030;
+        --highlight-rgb: 48,48,48;
         --divider-color-outer: var(--shd-bg-primary);
         --divider-color-inner: var(--shd-bg-primary);
         --graph-legend-background: hsla(0,0%,0%,0.25);
@@ -4573,6 +4650,23 @@
         --component-border-color: #333;
         --component-border: 0.114rem solid var(--component-border-color);
         
+    }
+    html, body {
+        background-color: #111111;
+    }
+    .DetailsPageLayout_ContentCell__2o2X6 > .Card_Card__1zOh7 {
+        background-color: var(--background-surface-color);
+    }
+    .List_Blur__79BH4:before {
+        -webkit-backdrop-filter: blur(0);
+        backdrop-filter: blur(0);
+    }
+    .List_ListItem__2XtIP.List_Blur__79BH4 {
+        pointer-events: revert;
+        background: revert;
+    }
+    .DataList_PlaceholderFadeOutBackground__2Tc9T:not(.DetailsPageLayout_ContentCell__2o2X6 > .Card_Card__1zOh7 .DataList_PlaceholderFadeOutBackground__2Tc9T) {
+        fill: var(--surface-color);
     }
     .TotalCounts_TotalCounts__3AozJ {
         background: none!important;
@@ -4612,6 +4706,9 @@
     }
     .ResolutionDropdown_Toggle__OhrMk, .Dropdown_DropdownToggleButton__goVmf[aria-owns="dropdown-button-timewindow-select"] {
         border: var(--component-border);
+    }
+    .Pill_Pill__2lBjK.Pill_isActive__1nv81 > .MetricNavigation_Icon__1tj-o, button.Pill_Pill__2lBjK.Pill_isActive__1nv81:not(isDisabled):hover > .MetricNavigation_Icon__1tj-o {
+        color: var(--button-primary-font-color)!important;
     }
 }
 
