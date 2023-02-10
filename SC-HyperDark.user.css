@@ -2,7 +2,7 @@
 @name         Soundcloud Hyper Dark
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
-@author       JunkiEDM, IgChi, pawelos076232
+@author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
 @version      0.9.19
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
@@ -916,7 +916,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, .6)
+        background: rgba(0, 0, 0, .6);
+        border-radius: 8px;
     }
     #app .l-container #content .playableTile__playButton .playButton {
         border: 4px solid #fff;
