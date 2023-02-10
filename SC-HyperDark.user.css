@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232
-@version      0.9.18
+@version      0.9.19
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -76,6 +76,20 @@
     url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/fonts/FluentSystemIcons-Resizable-mod.woff") format("woff"),
     url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/fonts/FluentSystemIcons-Resizable-mod.ttf") format("truetype");
     }
+    
+    
+    /* navmenu icons */
+    :root {
+        --ic-home: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m16 3.08 14.44 10.31-.88 1.22-1.81-1.3v15.44h-8.5V21a3.25 3.25 0 1 0-6.5 0v7.75h-8.5V13.31l-1.81 1.3-.88-1.22L16 3.08Zm0 1.84L5.75 12.24v15.01h5.5V21a4.75 4.75 0 0 1 9.5 0v6.25h5.5v-15L16 4.91Z" fill="white" stroke="white"/></svg>');
+        --ic-home-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 2.77 30.58 13.2l-1.16 1.62-1.67-1.19v15.13h-8.5V21a3.25 3.25 0 1 0-6.5 0v7.75h-8.5V13.62l-1.67 1.2-1.16-1.63L16 2.77Z" fill="white" stroke="white"/></svg>');
+        --ic-stream: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="white" stroke="white" fill-rule="evenodd" d="M4.25 14.5c0-.69.56-1.25 1.25-1.25h21c.69 0 1.25.56 1.25 1.25v13c0 .69-.56 1.25-1.25 1.25h-21c-.69 0-1.25-.56-1.25-1.25v-13Zm1.5.25v12.5h20.5v-12.5H5.75ZM8.25 9c0-.414.336-.75.75-.75h14c.414 0 .75.336.75.75s-.336.75-.75.75H9c-.414 0-.75-.336-.75-.75Zm3-5c0-.414.336-.75.75-.75h8c.414 0 .75.336.75.75s-.336.75-.75.75h-8c-.414 0-.75-.336-.75-.75Z"/></svg>');
+        --ic-stream-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="white" stroke="white" fill-rule="evenodd" d="M4.25 14.5c0-.69.56-1.25 1.25-1.25h21c.69 0 1.25.56 1.25 1.25v13c0 .69-.56 1.25-1.25 1.25h-21c-.69 0-1.25-.56-1.25-1.25v-13Zm4-5.5A.75.75 0 0 1 9 8.25h14a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9Zm3-5a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5h-8a.75.75 0 0 1-.75-.75Z"/></svg>');
+        --ic-stream-old: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M10.35 4.21A2.75 2.75 0 0 1 13 2.25h6.32a2.75 2.75 0 0 1 2.64 3.54L20 12.25h2.47a2.75 2.75 0 0 1 1.76 4.86L8.57 30.17l3.42-11.42H6l4.36-14.54ZM13 3.75c-.55 0-1.04.36-1.2.9l-3.78 12.6h6l-2.58 8.58 11.85-9.87c.9-.75.36-2.2-.8-2.2h-4.49l2.52-8.4c.24-.8-.36-1.61-1.2-1.61H13Z" fill="white" stroke="white"/></svg>');
+        --ic-stream-active-old: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M12.99 2.25c-1.22 0-2.29.8-2.64 1.96L6 18.75h6L8.56 30.17l15.68-13.06a2.75 2.75 0 0 0-1.76-4.86H20l1.94-6.46a2.75 2.75 0 0 0-2.64-3.54H13Z" fill="white" stroke="white"/></svg>');
+        --ic-library: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25A2.75 2.75 0 0 1 7.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 5 4.25Zm8 0A2.75 2.75 0 0 1 15.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53ZM5 5.75c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm8 0c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm7.68 0c-.74 0-1.27.7-1.1 1.4l.04.12 6.63 18.24a1.13 1.13 0 0 0 2.16-.66l-.03-.12L21.75 6.5a1.13 1.13 0 0 0-1.07-.74Z" fill="white" stroke="white"/></svg>');
+        --ic-library-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25a2.75 2.75 0 0 1 2.75 2.58V25a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 5 4.25Zm8 0a2.75 2.75 0 0 1 2.74 2.58l.01.17v18a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53Z" fill="white" stroke="white"/></svg>');
+    }
+    
     :root {
         --ph-font: Phosphor;
         --ph-play: "\fd5a";
@@ -1327,8 +1341,8 @@
         border: 1px solid #222;
         transition: border-color .1s
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-privacy),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy) {
         border-color: var(--shd-bg-lighter);
         /*background: #111;*/
         border: 0;
@@ -1340,8 +1354,8 @@
         transition-duration: 0.5s;
         filter: hue-rotate(/*[[hue]]*/deg);
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-privacy),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy) {
         border-color: #fff;
         border: 0;
         border-radius: 120px;
@@ -1352,7 +1366,7 @@
         transition-duration: 0.2s;
         filter: hue-rotate(/*[[hue]]*/deg);
     }
-    .sc-button-selected:not(.sc-button-like):not(.sc-button-repost):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.m-boldIcon):before {
+    .sc-button-selected:not(.sc-button-like):not(.sc-button-repost):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.m-boldIcon):not(.sc-button-privacy):before {
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij4KICA8cGF0aCBmaWxsPSJyZ2IoMjU1LCAyNTUsIDI1NSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTUuNTQyIDEuMTY3YzIuMTA3IDAgMi43OTUgMi4yNDYgMS42MSA1LjMzMi0uNDQ0Ljc5My4wMyAxLjIxMS4zMjIgMS4zMzIgMi4wMjYuODM2IDIuODc1IDIuMjEzIDMuMDI2IDMuODM2di41ODNILjU4M3YtLjU4M2MuMTUxLTEuNjIzIDEtMyAzLjAyNi0zLjgzNi4yOTItLjEyLjc2Ni0uNTQuMzIyLTEuMzMxLTEuMTg0LTMuMDk1LS40OTctNS4zMzMgMS42MS01LjMzM3pNMTMuNDcgMy4xOGwuMDU4LjA1LjIzLjIyOGEuNDE1LjQxNSAwIDAgMSAuMDU3LjUyNmwtLjA1My4wNjUtMi43MTQgMi43MTRhLjQwOS40MDkgMCAwIDEtLjUuMDY2bC0uMDQ1LS4wMy0uMDQzLS4wMzgtMS40NzItMS40NzJhLjQyMi40MjIgMCAwIDEtLjA1MS0uNTI3bC4wNTQtLjA2Ni4yMjktLjIzYS40MTUuNDE1IDAgMCAxIC41MjgtLjA1NWwuMDY1LjA1My45NDIuOTQzIDIuMTgyLTIuMTgzYS40MS40MSAwIDAgMSAuNTMzLS4wNDR6Ii8+Cjwvc3ZnPgo=) !important;
     }
     .sc-button-selected:not(.sc-button-like):not(.sc-button-repost):not(.playbackSoundBadge__follow):not(.sc-button-queue):before {
@@ -2783,7 +2797,11 @@
         width: 9vw;
         transform: scale(1.2);
         transform-origin: top left;
-        height: 210px;
+        height: 11vw;
+    }
+    .sc-classic .userBadgeListItem__action {
+        transform: scale(0.83);
+        transform-origin: 50% 80%;
     }
     .sc-classic .tileGallery .userBadgeListItem {padding-bottom: 0;}
     .tileGallery {
@@ -2799,9 +2817,6 @@
     .tileGallery__sliderPeekBackward {
         right: auto!important;
         background: linear-gradient(to left, #0000 10%, #1119 60%, #111 80%);
-    }
-    .tileGallery__sliderPeek {
-        width: 96px;
     }
     .tileGallery__sliderButton, .tileGallery__sliderButton:not(.artistShortcutsGallery .tileGallery__sliderButton):focus { /* background-color: #333; */
         border: none;
@@ -2824,12 +2839,19 @@
     .tileGallery__sliderPeek {
         display: block;
         opacity: 0;
-        transition: opacity ease-in 0.6s;
+        width: 0px;
+        pointer-events: none;
+        transition-property: opacity, width;
+        transition-duration: 0.6s;
+        transition-timing-function: ease-in;
     }
     .tileGallery.m-hasItemsBackward .tileGallery__sliderPeekBackward, .tileGallery.m-hasItemsForward .tileGallery__sliderPeekForward {
         display: block;
         opacity: 1;
-        transition: opacity ease-out 0.3s;
+        width: 96px;
+        pointer-events: auto;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
     }
     .sc-classic .l-search .l-fixed-left, .l-search .l-fixed-left {
         z-index: 1000;
@@ -3696,6 +3718,11 @@
         width: var(--shd-modal-width)!important;
         left: calc(50% - calc(var(--shd-modal-width) / 2))!important;
     }
+    .sc-classic .modal__modal:has(.imageContent), .sc-classic .modal__modal.transparentBackground:has(.imageContent) {
+        --shd-modal-width: 550px;
+        /*width: 550px!important;
+        left: 656px!important;*/
+    }
     .sc-classic .dialog__arrow {
         border: 1px solid #6666;
         border-width: 1px 0 0 1px;
@@ -4113,15 +4140,6 @@
         filter: drop-shadow(0px 0px 6px #fff8);
     }
     
-    /* navmenu icons */
-    :root {
-        --ic-home: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m16 3.08 14.44 10.31-.88 1.22-1.81-1.3v15.44h-8.5V21a3.25 3.25 0 1 0-6.5 0v7.75h-8.5V13.31l-1.81 1.3-.88-1.22L16 3.08Zm0 1.84L5.75 12.24v15.01h5.5V21a4.75 4.75 0 0 1 9.5 0v6.25h5.5v-15L16 4.91Z" fill="white" stroke="white"/></svg>');
-        --ic-home-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 2.77 30.58 13.2l-1.16 1.62-1.67-1.19v15.13h-8.5V21a3.25 3.25 0 1 0-6.5 0v7.75h-8.5V13.62l-1.67 1.2-1.16-1.63L16 2.77Z" fill="white" stroke="white"/></svg>');
-        --ic-stream: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M10.35 4.21A2.75 2.75 0 0 1 13 2.25h6.32a2.75 2.75 0 0 1 2.64 3.54L20 12.25h2.47a2.75 2.75 0 0 1 1.76 4.86L8.57 30.17l3.42-11.42H6l4.36-14.54ZM13 3.75c-.55 0-1.04.36-1.2.9l-3.78 12.6h6l-2.58 8.58 11.85-9.87c.9-.75.36-2.2-.8-2.2h-4.49l2.52-8.4c.24-.8-.36-1.61-1.2-1.61H13Z" fill="white" stroke="white"/></svg>');
-        --ic-stream-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M12.99 2.25c-1.22 0-2.29.8-2.64 1.96L6 18.75h6L8.56 30.17l15.68-13.06a2.75 2.75 0 0 0-1.76-4.86H20l1.94-6.46a2.75 2.75 0 0 0-2.64-3.54H13Z" fill="white" stroke="white"/></svg>');
-        --ic-library: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25A2.75 2.75 0 0 1 7.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 5 4.25Zm8 0A2.75 2.75 0 0 1 15.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53ZM5 5.75c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm8 0c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm7.68 0c-.74 0-1.27.7-1.1 1.4l.04.12 6.63 18.24a1.13 1.13 0 0 0 2.16-.66l-.03-.12L21.75 6.5a1.13 1.13 0 0 0-1.07-.74Z" fill="white" stroke="white"/></svg>');
-        --ic-library-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25a2.75 2.75 0 0 1 2.75 2.58V25a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 5 4.25Zm8 0a2.75 2.75 0 0 1 2.74 2.58l.01.17v18a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53Z" fill="white" stroke="white"/></svg>');
-    }
     .header__navWrapper .header__navMenu li a:before {
         content: "";
         display: block;
