@@ -3716,8 +3716,6 @@
         background: var(--shd-bg-darker);
         border: 1px solid #222;
         border-radius: 16px;
-        width: var(--shd-modal-width)!important;
-        left: calc(50% - calc(var(--shd-modal-width) / 2))!important;
     }
     .sc-classic .modal__modal:has(.imageContent), .sc-classic .modal__modal.transparentBackground:has(.imageContent) {
         --shd-modal-width: 550px;
