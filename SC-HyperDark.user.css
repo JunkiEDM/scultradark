@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.19
+@version      0.9.20
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -22,25 +22,43 @@
     fluentreg   "Fluent Outlined" <<<EOT 
     fo EOT;
 }
-@advanced dropdown widget "Style embeds?" {
+@advanced dropdown widget "Style embeds" {
     embeds-on   "Yes" <<<EOT 
     /**\/ EOT;
     embeds-off  "No" <<<EOT 
     /* EOT;
 }
-@advanced dropdown sin "Insights on sidebar?" {
+@advanced dropdown sort-pl "Playlist sorting mode" {
+    sort-pl-reg   "Normal" <<<EOT 
+    column EOT;
+    sort-pl-rev   "Reversed" <<<EOT 
+    column-reverse EOT;
+}
+@advanced dropdown sort-fol "Following list sorting mode" {
+    sort-fol-reg   "Normal" <<<EOT 
+    wrap EOT;
+    sort-fol-rev   "Reversed" <<<EOT 
+    wrap-reverse EOT;
+}
+@advanced dropdown sin "Insights on sidebar" {
     stats-on    "Show" <<<EOT 
     height:100%; EOT;
     stats-off   "Hide" <<<EOT 
     height:0; EOT;
 }
-@advanced dropdown gdpr "Cookie Notice?" {
+@advanced dropdown gdpr "Cookie Notice" {
     gdpr-on     "Show" <<<EOT 
     display:inherit; EOT;
     gdpr-off    "Hide" <<<EOT 
     display:none; EOT;
 }
-@advanced dropdown gopro "Soundcloud Go/Next Links?" {
+@advanced dropdown prban "Promotion Banners" {
+    prban-off    "Hide" <<<EOT 
+    display:none; EOT;
+    prban-on     "Show" <<<EOT 
+    display:block; EOT;
+}
+@advanced dropdown gopro "Soundcloud Go/Next Links" {
     gopro-off    "Hide" <<<EOT 
     display:none; EOT;
     gopro-on     "Show" <<<EOT 
@@ -53,7 +71,7 @@
     promo-on     "Show" <<<EOT 
     display:inherit; EOT;
 }
-==/UserStyle== *//* --- REMOVE THIS LINE TO SHOW ADVANCED FILTERS ---
+==/UserStyle== *//* --- REMOVE THIS LINE TO SHOW ADVANCED FILTER CONTROLS ---
 @advanced dropdown adv "Enable Advanced Filters?" {
     adv-off "Disabled" <<<EOT 
     /* ---[ Disabled ]--- *\/ EOT;
@@ -198,6 +216,9 @@
             --shd-bg-translucent: var(--shd-bg-primary);
             --shd-bg-dropdown: #151515;
         }
+    }
+    @supports not (selector(:has(*))) {
+        --shd-modal-width: 550px;
     }
     .sc-classic {
         font-family: /*[[font]]*/ var,/*[[font]]*/,'Inter var',Inter,Interstate,'Helvetica Neue',Helvetica,Verdana,sans-serif;
@@ -1541,7 +1562,8 @@
     .sc-button-small.sc-button-follow:before {
         filter: invert(1)
     }
-    .playControls__queue {
+    .playControls__queue,
+    .sc-classic .playControls__queue {
         bottom: 100px;
         right: unset;
         left: 240px
@@ -1681,7 +1703,8 @@
         z-index: 1000
     }
     .sc-classic .l-messages-main, .l-messages-main {
-        padding: 0 15px
+        padding: 0 15px;
+        margin-bottom: 90px;
     }
     .conversationParticipant {
         font-size: 32px;
@@ -1690,6 +1713,9 @@
     .sc-classic .conversation__messages, .conversation__messages {
         padding-right: 15px;
         padding-top: 72px;
+    }
+    .dropdownMenu.g-z-index-content[style] {
+        background: var(--shd-bg-primary);
     }
     .ownActivity.large .ownActivity__user {
         width: 100%;
@@ -1969,7 +1995,15 @@
     .quotaMeterWrapper,
     .statsOverview__separator,
     .tokenInput__wrapper.tagInput__wrapper.sc-input.sc-input-medium,
-    .trackManager__upsellWrapper {
+    .trackManager__upsellWrapper,
+    .sc-classic .activeUpload__form,
+    .sc-classic .activeUpload__hqNote,
+    .sc-classic .activeUpload__shareContainer,
+    .sc-classic .editAccessTab__quietTeaser.g-upsell-container,
+    .sc-classic .quotaMeterWrapper,
+    .sc-classic .statsOverview__separator,
+    .sc-classic .tokenInput__wrapper.tagInput__wrapper.sc-input.sc-input-medium,
+    .sc-classic .trackManager__upsellWrapper {
         background: var(--shd-bg-primary)
     }
     .activeUpload__savedFieldsSharingContainer,
@@ -2718,8 +2752,27 @@
             background: linear-gradient(rgba(255, 255, 255, 0), #181818);
         }
     }
+    .banner {
+        justify-items: center;
+    }
+    .sc-classic .l-inner-fullwidth { /* promotion banners */
+        margin-left: inherit; 
+        margin-right: inherit; 
+    }
+    .sc-classic .l-product-banners .banner.m-alert {
+        background-color: #221b1b;
+        font-size: 15px;
+        padding: 8px 30px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+    .sc-classic .l-product-banners .banner.m-alert > * {
+        transform: scale(0.92);
+        transform-origin: bottom center;
+        z-index: 9;
+    }
     .l-product-banners {
-        display: none;
+        /*[[prban]]*/
     }
     .playControls__bg, .sc-classic .playControls__bg {
         backdrop-filter: brightness(0.8) blur(32px);
@@ -3150,7 +3203,8 @@
     }
     /* Change font to Inter */
     body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
-    body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header, .sc-classic .notificationBadge {
+    body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header, .sc-classic .notificationBadge,
+    .app-header-black-title {
         font-family: /*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif !important;
 
     }
@@ -3176,7 +3230,8 @@
     }
     @supports (font-variation-settings: normal) {
         body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
-        body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header {
+        body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header,
+        .app-header-black-title {
             font-family: /*[[font]]*/ var,/*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
         }
         .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .sc-classic .soundTitle__title:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .listenInfo__releaseData {
@@ -3308,7 +3363,7 @@
         transition-duration: 0.2s;
     }
     /* Color changer (switched from https://33kk.github.io/uso-archive/?style=123974 to simpler method) */
-    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a:not(.sc-classic .header__link.header__goUpsell, .sc-classic .header__link.header__goUpsell_side_by_side_experience, .sc-classic .header__link.header__proUpsell_side_by_side_experience), .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, .tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static,
+    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a:not(.sc-classic .header__link.header__goUpsell, .sc-classic .header__link.header__goUpsell_side_by_side_experience, .sc-classic .header__link.header__proUpsell_side_by_side_experience), .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, /*.tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), */ .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static,
     .imageCrop__zoomSlider, .sc-classic .imageCrop__zoomSlider {
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
@@ -3716,13 +3771,18 @@
         background: var(--shd-bg-darker);
         border: 1px solid #222;
         border-radius: 16px;
-        width: var(--shd-modal-width)!important;
-        left: calc(50% - calc(var(--shd-modal-width) / 2))!important;
     }
-    .sc-classic .modal__modal:has(.imageContent), .sc-classic .modal__modal.transparentBackground:has(.imageContent) {
-        --shd-modal-width: 550px;
-        /*width: 550px!important;
-        left: 656px!important;*/
+    
+    @supports (selector(:has(*))) {
+        .sc-classic .modal__modal, .sc-classic .modal__modal.transparentBackground {
+            width: var(--shd-modal-width)!important;
+            left: calc(50% - calc(var(--shd-modal-width) / 2))!important;
+        }
+        .sc-classic .modal__modal:has(.imageContent), .sc-classic .modal__modal.transparentBackground:has(.imageContent) {
+            --shd-modal-width: 550px;
+            /*width: 550px!important;
+            left: 656px!important;*/
+        }
     }
     .sc-classic .dialog__arrow {
         border: 1px solid #6666;
@@ -3845,7 +3905,7 @@
         color: #fff!important;
     }
     .userAudibleSearchResults__item.selected,
-    .sc-classic .userAudibleSearchResultItem {
+    .sc-classic .userAudibleSearchResults__item.selected {
         background-color: #222;
     }
 
@@ -4381,8 +4441,42 @@
     .downloadLandingIntro {
         margin: 0 30px 160px;
     }
-}
+    
+    .trackList__list { /* Playlist sorting */
+        display: flex;
+        flex-direction: /*[[sort-pl]]*/;
+    }
+    
+    .dhG3yr_3xo0-P0NVkEUAf { /* edit preview */
+        background-color: hsla(0,0%,7%,.7);
+    }
 
+    .webAuthContainerWrapper[style*="left: 255px"] { /* login */
+        margin-left: 230px;
+    }
+    .webAuthContainerWrapper iframe {
+        filter: drop-shadow(2px 6px 9px #0006);
+    }
+    .captcha, .captcha > div {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .captcha > div > div[style] {
+        background: #111!important;
+    }
+    .captcha > div > div[style] > textarea {
+        border: 1px solid #666!important;
+        border-radius: 3px;
+    }
+}
+@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/.*/following/?") {
+    .badgeList ul { /* Follow list sorting */
+        display: flex;
+        flex-flow: row /*[[sort-fol]]*/;
+    }
+}
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget/iframe */
     /*[[widget]]*/
     
@@ -4540,26 +4634,67 @@
     /**/
 }
 
-@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?secure\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
-    html {
-        background: var(--shd-bg-darker);
-    }
-    body, body.sc-classic {
+@-moz-document regexp("https?:\\/\\/(?:|www\\.)?secure\\.soundcloud\\.com\\/?(?:(?!jobs|settings\\/connections)(?:.|[\\?\\&=\\-_\\/+])*)") {
+    body[marginwidth="0"][marginheight="0"], body[marginwidth="0"][marginheight="0"].sc-classic {
         background: #0000!important;
+    }
+    html:not([stylus-iframe="https://soundcloud.com"]):has(body:not([marginwidth="0"][marginheight="0"])),
+    html:not([stylus-iframe="https://soundcloud.com"]) body div#app, 
+    html:not([stylus-iframe="https://soundcloud.com"]) body.sc-classic div#app {
+        background: var(--shd-bg-darker);
     }
     div#app:first-of-type {
         background: #090909;
         height: 100vh!important;
         justify-content: center;
     }
-    body[contextmenu*="gm-registered-menu"] div#app:not(a+div+div#app) {
-        background: var(--shd-bg-primary)!important;
+    body[marginwidth="0"][marginheight="0"] div#app:not(a+div+div#app) {
+        background: #0000!important;
+    }
+    
+    .provider-buttons > .form-row > 
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):not(:hover) {
+        background: #161616;
+        border-color: #333;
+    }
+    
+    fieldset, form {
+        background-color: #0000;
     }
     a+div+div#app {
         height: 100%!important
     }
     a, a:visited {
         color: #59e;
+    }
+    
+    .app-attribution { /* connect */
+        color: #ccc;
+    }
+    .sign-in-up-form-tabs li a, .app-attribution, .app-header-black-title {
+        font-weight: 300;
+    }
+    ul.sign-in-up-form-tabs li a, ul.sign-in-up-form-tabs li span {
+        color: #ccc;
+    }
+    ul.sign-in-up-form-tabs li.current a, ul.sign-in-up-form-tabs li.current span { /* connect tabs */
+        background: var(--shd-bg-lighter);
+        border-color: #333 #333 #111;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        font-weight: 400;
+        color: #fff
+    }
+    ul.sign-in-up-form-tabs li a:hover, ul.sign-in-up-form-tabs li span:hover {
+        color: #eee;
+    }
+    .sign-in-up-form-tabs {
+        border-bottom: 1px solid #333;
+    }
+    
+    /* "Tell me more" */
+    .connect-layout-popup .tell-me-more .tell-me-more-text {
+        background: var(--shd-bg-lighter);
     }
 }
 
