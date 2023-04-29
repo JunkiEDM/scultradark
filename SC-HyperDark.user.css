@@ -2635,7 +2635,7 @@
     }
     .keyboardShortcuts__shortcutsGroup>dl>dt>kbd>kbd {
         background: #fff1;
-        color: #fff;
+        color: #000;
         font-weight: 400;
         border-radius: 5px;
         box-shadow: 2px 4px 6px #000a;
