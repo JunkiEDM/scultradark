@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.21
+@version      0.9.22
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -368,7 +368,7 @@
         color: #fff;
         background: #333
     }
-    .moreActions .moreActions__button.sc-button-medium:hover:before {
+    .moreActions .moreActions__button.sc-button-medium:not(.sc-button-selected):hover:before {
         filter: brightness(6)
     }
     #app {
@@ -2582,13 +2582,13 @@
         filter: drop-shadow(2px 2px 6px #000);
         transition-duration: 0.25s;
     }
-    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-selected.sc-button-like):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button:hover), .sc-button-selected.playbackSoundBadge__follow, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
+    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-selected.sc-button-like):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button:hover):not(.moreActions__button), .sc-button-selected.playbackSoundBadge__follow, .sc-button-selected.sc-button-repost, .sc-button-selected.addToPlaylistButton, .sc-button-selected.createPlaylistSuggestion__add {
         border-color: var(--shd-bg-lighter);
         background: var(--shd-bg-primary);
         transition-duration: 0.25s;
     }
     .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), 
-    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover, .uiEvoButton.uiEvoButton--isSelected:hover,
+    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):not(.moreActions__button):hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:not(.moreActions__button):hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover, .uiEvoButton.uiEvoButton--isSelected:hover,
     .sc-button-dropdown.sc-button-active:not(.sc-button-dropdown-plain), .sc-button-dropdown:hover:not(.sc-button-dropdown-plain), .sc-button-dropdown.sc-button-selected:not(.sc-button-dropdown-plain) {
         border-color: #f506;
         background: #310;
@@ -3191,9 +3191,14 @@
         padding-top: 12px!important;
     }
     .sc-status-icon-verified.sc-status-icon-small {
-        width: 15px;
-        height: 15px;
-        background-size: 15px;
+        width: 14px;
+        height: 14px;
+        background-size: 14px;
+    }
+    .sc-classic .userBadgeListItem__title .userBadgeListItem__verifiedBadge { /* fix verified badge wrapping */
+        width: 12px;
+        display: block;
+        top: -4px;
     }
     .sc-status-icon.sc-status-icon-verified.sc-status-icon-small.sc-ir {
         filter: contrast(1.2) brightness(1.1) hue-rotate(/*[[blu]]*/deg) var(--fil);
@@ -3313,12 +3318,12 @@
     .spotlightTitle, .sc-classic .spotlightTitle, .userstream__header, .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
         font-weight: 300;
     }
-    .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .infoStats__value, .sc-classic .infoStats__value, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell,   
+    .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell,   
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
     .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input {
         font-weight: 300;
     }
-    body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .infoStats__value, .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
+    body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .sc-classic .statsBadge__value, .infoStats__value, .sc-classic .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
     .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays), 
     .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count {
@@ -4571,6 +4576,10 @@
     .captcha > div > div[style] > textarea {
         border: 1px solid #666!important;
         border-radius: 3px;
+    }
+    /* fix go+ icons on artwork hover in library */
+    .sc-classic .tierIndicator__smallGoPlus.tierIndicator__artwork {
+        z-index: 101;
     }
 }
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/.*/following/?") {
