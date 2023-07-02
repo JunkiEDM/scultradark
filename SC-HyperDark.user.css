@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.22
+@version      0.9.23
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -251,7 +251,7 @@
     html {
         min-height: 100vh;
     }
-    body, body.sc-classic {
+    body:not(html[stylus-iframe="https://soundcloud.com"] > body), body.sc-classic {
         background: var(--shd-bg-primary) !important;
         max-width: 100%;
         overflow-y: auto;
@@ -480,6 +480,20 @@
     .sc-classic .header__right > .header__link:hover {
         opacity: 1;
     }
+    @supports (selector(:has(*))) { /* move artists button to bottom if more button isn't found */
+        .sc-classic .header__right:not(:has(.header__moreButton)) > .header__link {  
+            top: unset;
+            bottom: 0;
+            height: 46px;
+            padding: 0px 0px 0px var(--w2);
+        }
+        .sc-classic .header__right:not(:has(.header__moreButton)) > .header__link:before {
+            background-position: 50% 42%;
+        }
+        .sc-classic .header__inner .header__right:not(:has(.header__moreButton)) div.header__userNav .header__userNavUsernameButton {
+            width: 100%;
+        }
+    }
     
     .sc-classic  .header__userNavAvatar:after {
         content: "/*[[user]]*/";
@@ -510,11 +524,10 @@
         opacity: .75;
     }
     .header__inner .header__right div.header__userNav .header__userNavUsernameButton {
-        /* width: 100%; *//* broken */
         width: calc(207px - var(--w1));
         position: absolute;
         bottom: 46px;
-        left: 0
+        left: 0;
     }
     .header__inner .header__right div.header__userNav .header__userNavUsernameButton .header__userNavUsername {
         display: block
@@ -2589,7 +2602,7 @@
         transition-duration: 0.25s;
     }
     .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), 
-    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):not(.moreActions__button):hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:not(.moreActions__button):hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover, .uiEvoButton.uiEvoButton--isSelected:hover,
+    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):not(.moreActions__button):hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:not(.moreActions__button):not(.sc-button-icon):hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover, .uiEvoButton.uiEvoButton--isSelected:hover,
     .sc-button-dropdown.sc-button-active:not(.sc-button-dropdown-plain), .sc-button-dropdown:hover:not(.sc-button-dropdown-plain), .sc-button-dropdown.sc-button-selected:not(.sc-button-dropdown-plain) {
         border-color: #f506;
         background: #310;
@@ -3316,7 +3329,7 @@
         font-family: /*[[font]]*/,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif !important;
 
     }
-    .spotlightTitle, .sc-classic .spotlightTitle, .userstream__header, .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
+    .spotlightTitle, .sc-classic .spotlightTitle, .userstream__header, .sc-classic .userstream__header, .sc-font, .sc-classic .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
         font-weight: 300;
     }
     .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell,   
@@ -3608,14 +3621,15 @@
             margin-right: 80px!important;
         }
     }
-    @media only screen and (min-width: 2000px) {
+    @media only screen and (min-width: 1925px) {
         .profileHeaderBackground > div {
             /*height: 30vh;*/
             /*background-size: 100% 100%!important;*/
             /*filter: blur(20px);*/
-            background-repeat: repeat;
-            background-size: 100%;
-            background-position: left bottom;
+            /* height: 280px; */
+            background-repeat: repeat-x;
+            background-size: max(1335px, 100%);
+            background-position: left center;
         }
     }
 
