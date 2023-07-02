@@ -513,7 +513,8 @@
         /* width: 100%; *//* broken */
         width: calc(207px - var(--w1));
         position: absolute;
-        bottom: 46px
+        bottom: 46px;
+        left: 0
     }
     .header__inner .header__right div.header__userNav .header__userNavUsernameButton .header__userNavUsername {
         display: block
