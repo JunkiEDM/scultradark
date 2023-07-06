@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.23
+@version      0.9.24
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -3332,7 +3332,7 @@
     .spotlightTitle, .sc-classic .spotlightTitle, .userstream__header, .sc-classic .userstream__header, .sc-font, .sc-classic .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
         font-weight: 300;
     }
-    .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell,   
+    .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell, .sc-classic .staticPage h2,  
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
     .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input {
         font-weight: 300;
@@ -4595,6 +4595,48 @@
     /* fix go+ icons on artwork hover in library */
     .sc-classic .tierIndicator__smallGoPlus.tierIndicator__artwork {
         z-index: 101;
+    }
+    /* fix profile footer */
+    .userMain__content {
+        margin-bottom: 90px;
+    }
+    .sc-classic .profileUploadFooter {
+        background-color: #0000;
+        border-top: 1px solid #6663 !important;
+    }
+    .sc-classic .profileUploadFooter:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 14px;
+        position: absolute;
+        left: 0;
+        top: -9px;
+        background: 50% / 24px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 48 21.64'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M41.2 21.6c3.6.05 6.6-2.77 6.8-6.39a6.62 6.62 0 0 0-1.86-4.8 6.53 6.53 0 0 0-6.46-1.75A10.95 10.95 0 0 0 29.06 0c-3.17 0-4.68 1.05-4.68 1.05a1.5 1.5 0 0 0-.9 1.44v17.74c0 .75.6 1.36 1.36 1.37zm-19.76-.49c.85-6 .5-11.48 0-17.5a.54.54 0 0 0-.25-.5.53.53 0 0 0-.56 0c-.17.1-.27.3-.25.5-.45 5.97-.8 11.56 0 17.5a.53.53 0 0 0 1.06 0zm-3.31 0a.56.56 0 0 1-.55.48.55.55 0 0 1-.55-.47 67.3 67.3 0 0 1 0-15.44c.03-.29.27-.5.55-.5.29 0 .53.21.56.5a60.5 60.5 0 0 1-.01 15.44zm-3.32 0c.78-5.5.54-10.44 0-15.95a.54.54 0 0 0-.53-.49c-.28 0-.5.21-.54.49-.5 5.44-.76 10.52 0 15.94a.54.54 0 1 0 1.07 0zm-3.32.01a.55.55 0 0 1-.54.5.55.55 0 0 1-.54-.5 56.87 56.87 0 0 1 0-14.41c0-.3.25-.56.55-.56.3 0 .55.25.55.56.65 4.78.64 9.63-.02 14.41zm-3.35.04c.5-3.8.87-7.1.04-10.85a.55.55 0 0 0-1.09 0c-.79 3.72-.42 7.1.03 10.85.04.26.26.44.51.44a.5.5 0 0 0 .51-.44zM4.87 9.75c.76 3.83.51 7.07-.02 10.9-.07.58-1.03.58-1.08 0-.5-3.77-.72-7.11-.02-10.9.03-.3.27-.51.56-.51.28 0 .53.22.56.5zM1.49 18.8c.57-2.6.84-4.67.04-7.2a.56.56 0 0 0-.56-.51.56.56 0 0 0-.57.5c-.64 2.55-.44 4.66.05 7.2.03.28.25.48.52.48s.5-.2.52-.47z' clip-rule='evenodd'/%3E%3C/svg%3E"), radial-gradient(circle, var(--shd-bg-primary) 20px, #0000 20px);
+    }
+    /* insanely subtle track title ellipses color in playlists*/
+    .sc-classic .trackItem__content,
+    .sc-classic .trackItem:not(.m-disabled).active .trackItem__content, .sc-classic .trackItem:not(.m-disabled).active .trackItem__trackTitle {
+        color: #666;
+    }
+    /* add cast controls */
+    .playControls.m-googleCastActive .playControls__castControl {
+        cursor: default;
+        position: absolute;
+        margin: 0;
+        background-image: unset;
+        color: #b3b3b3;
+        transition: color 0.3s;
+        right: 70px;
+    }
+    .playControls.m-googleCastActive .playControls__castControl:hover {
+        color: #fff;
+    }
+    .sc-classic .playControls__castControl>#castbutton {
+        filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
+        --connected-color: var(--shd-accent-primary);
+        --disconnected-color: currentColor;
+        padding: 0px;
     }
 }
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/.*/following/?") {
