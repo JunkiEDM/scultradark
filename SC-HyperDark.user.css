@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.24
+@version      0.9.25
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1483,8 +1483,8 @@
         border: 1px solid #222;
         transition: border-color .1s
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-privacy),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-privacy):not(.sc-button-delete),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy):not(.sc-button-delete) {
         border-color: var(--shd-bg-lighter);
         /*background: #111;*/
         border: 0;
@@ -1496,8 +1496,8 @@
         transition-duration: 0.5s;
         filter: hue-rotate(/*[[hue]]*/deg);
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-privacy),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-privacy):not(.sc-button-delete),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy):not(.sc-button-delete) {
         border-color: #fff;
         border: 0;
         border-radius: 120px;
@@ -2432,8 +2432,15 @@
         padding: 0 15px!important;
         filter: invert(1)brightness(105%)contrast(150%)hue-rotate(-20deg)!important;
     }*/
-    .activitiesListFull__item + .activitiesListFull__item {
-        border: none
+    .sc-classic .activitiesListFull__item + .activitiesListFull__item {
+        border-top: 1px solid var(--shd-bg-lighter);
+    }
+    .sc-classic .notificationBadge__link:focus:after {
+        border-bottom: 1px solid var(--button-secondary-background-color);
+        border-top: 1px solid var(--button-secondary-background-color);
+    }
+    .sc-classic .activitiesListFull {
+        margin-bottom: 80px;
     }
     a.sc-link-verylight, .localeSelector {
         color: #ccc!important;
@@ -2726,6 +2733,22 @@
     }
     .sc-select, .sc-input, .sc-classic .sc-select, .sc-classic .sc-input {
         border: 1px solid #222;
+    }
+    /* autoplay etc switch toggle */
+    .sc-toggle.sc-toggle-off {
+        filter: brightness(0.4) contrast(2) hue-rotate(-20deg) hue-rotate(-5deg) brightness(1) contrast(1.3) saturate(1.4) var(--fil);
+    }
+    .sc-toggle.sc-toggle-on {
+        border: 2px solid #222;
+    }
+    .sc-toggle.sc-toggle-active:before {
+        box-shadow: inset 2px -2px 12px #0004;
+    }
+    .sc-toggle-active .sc-toggle-handle {
+        box-shadow: inset -4px -4px 12px #0002;
+    }
+    .sc-toggle-active:hover .sc-toggle-handle {
+        box-shadow: inset -2px -2px 9px #0003, -3px 1px 9px #0003;
     }
     .blockCheckbox__icon {
         filter: hue-rotate(/*[[hue]]*/deg) hue-rotate(-5deg) brightness(1) contrast(1.3) saturate(1.4) var(--fil);
