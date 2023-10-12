@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.25
+@version      0.9.26
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -91,6 +91,7 @@
 @-moz-document domain("soundcloud.com") {
     /* Font imports */
     @import url('https://rsms.me/inter/inter.css');
+    @import url('https://style.sndcdn.com/css/interstate-a86f07cf94ae5a496b24.css');
     
     /* Icon select */
     @import url('https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/spoticons.css');
@@ -98,8 +99,8 @@
     @font-face {
         font-family: "FluentSystemIcons-Resizable";
         src: url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/fonts/FluentSystemIcons-Resizable-mod.woff2") format("woff2"),
-    url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/fonts/FluentSystemIcons-Resizable-mod.woff") format("woff"),
-    url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/fonts/FluentSystemIcons-Resizable-mod.ttf") format("truetype");
+          url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/fonts/FluentSystemIcons-Resizable-mod.woff") format("woff"),
+          url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/fonts/FluentSystemIcons-Resizable-mod.ttf") format("truetype");
     }
     
     
@@ -2221,7 +2222,7 @@
         border: 1px solid #1d1d1d!important;
         background: #131313
     }
-    .dashbox,
+    /*.dashbox,*/
     .statsBadge .statsBadge__upsell.sc-border-light-top {
         display: none
     }
@@ -2609,8 +2610,15 @@
         transition-duration: 0.25s;
     }
     .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), 
-    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):not(.moreActions__button):hover, .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:not(.moreActions__button):not(.sc-button-icon):hover, .sc-button-selected.addToPlaylistButton:hover, .sc-button-selected.createPlaylistSuggestion__add:hover, .uiEvoButton.uiEvoButton--isSelected:hover,
-    .sc-button-dropdown.sc-button-active:not(.sc-button-dropdown-plain), .sc-button-dropdown:hover:not(.sc-button-dropdown-plain), .sc-button-dropdown.sc-button-selected:not(.sc-button-dropdown-plain) {
+    .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):not(.moreActions__button):hover,
+    .sc-button-selected.sc-button-repost:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):not(.moreActions__button):hover,
+    .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:not(.moreActions__button):not(.sc-button-icon):hover,
+    .sc-button-selected.addToPlaylistButton:hover,
+    .sc-button-selected.createPlaylistSuggestion__add:hover,
+    .uiEvoButton.uiEvoButton--isSelected:hover,
+    .sc-button-dropdown.sc-button-active:not(.sc-button-dropdown-plain),
+    .sc-button-dropdown:hover:not(.sc-button-dropdown-plain),
+    .sc-button-dropdown.sc-button-selected:not(.sc-button-dropdown-plain) {
         border-color: #f506;
         background: #310;
         filter: drop-shadow(2px 2px 6px #000) hue-rotate(/*[[hue]]*/deg) var(--fil);
@@ -3363,7 +3371,7 @@
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .sc-classic .statsBadge__value, .infoStats__value, .sc-classic .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
     .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays), 
-    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count {
+    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count, .sc-label {
         font-weight: 400;
     }
     .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title, .onSoundCloudTeaser__title.sc-font-light, .insightsSidebarModule__plays, a.userStatsLegend__itemTitleWrapper, .uploadButton__status, .linkMenu__groupTitle, .sc-classic .g-type-shrinkwrap-large-primary, .sc-classic .g-type-shrinkwrap-primary:not(.soundTitle__title), .listenInfo__releaseData, .sc-classic .listenInfo__releaseData {
@@ -4660,6 +4668,30 @@
         --connected-color: var(--shd-accent-primary);
         --disconnected-color: currentColor;
         padding: 0px;
+    }
+    /* fix button alignment */
+    .sc-button-small.sc-button-icon:not(.sc-button-stretch-icon):before {
+        left: 0 !important;
+        width: 100%;
+    }
+    .sc-button-small.sc-button-icon:not(.sc-button-stretch-icon) {
+        padding: 0;
+    }
+
+    .sc-button-small.sc-button-pause:before {
+        top: 0;
+    }
+    .sc-classic .profileMenu .headerMenu__link:after {
+        background-position: 50%;
+    }
+    
+    @supports (selector(:has(*))) {
+        #app:not(body[marginwidth="0"][marginheight="0"] #app):not(:has(.playControls)),
+        #app:not(:has(.playControls)) header:not(.g-flex-row-spread),
+        #app:not(:has(.playControls)) div.g-z-index-modal-background,
+        body:not(:has(.playControls)) div.g-z-index-modal-background {
+            height: 100vh;
+        }
     }
 }
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/.*/following/?") {
