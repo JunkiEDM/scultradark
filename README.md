@@ -2,12 +2,12 @@
 <h1>Soundcloud Hyper Dark</h1>
 <h3>A full modern redesign of the outdated Soundcloud UI.</h3>
 
-[![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](https://cdn.jsdelivr.net/gh/junkiedm/scultradark/SC-HyperDark.user.css) ![View on UserStyles.world](https://img.shields.io/badge/View%20on-UserStyles.world-%23008d8a)
+[![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](https://cdn.jsdelivr.net/gh/junkiedm/scultradark/SC-HyperDark.user.css) [![View on UserStyles.world](https://img.shields.io/badge/View%20on-UserStyles.world-%23008d8a)](https://userstyles.world/style/70) [![View on Greasy Fork](https://img.shields.io/badge/View%20on-Greasy%20Fork-%23990000)]([https://userstyles.world/style/70](https://greasyfork.org/en/scripts/466541-soundcloud-hyper-dark)) 
 </div>
 <h2>Installation:</h2>
 <ol>
   <li><b>Install the Stylus extension: <a href="https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne">Chrome Web Store</a></b> <i>|</i> <b><a href="https://addons.mozilla.org/en-US/firefox/addon/styl-us/">Firefox</a></b></li>
-  <li><p><b>Install UserCSS style from: <a href="https://cdn.jsdelivr.net/gh/junkiedm/scultradark/SC-HyperDark.user.css">📦 GitHub</a></b> <i>|</i> <b><a href="https://userstyles.world/style/70">🔗 UserStyles.world Page</a></b></p></li>
+  <li><p><b>Install UserCSS style from: <a href="https://cdn.jsdelivr.net/gh/junkiedm/scultradark/SC-HyperDark.user.css">📦 GitHub</a></b> <i>|</i> <b><a href="https://userstyles.world/style/70">🔗 UserStyles.world</a></b> <i>|</i> <b><a href="https://greasyfork.org/en/scripts/466541-soundcloud-hyper-dark">🔗 Greasy Fork</a></b></p></p></li>
 </ol>
 <br>
 
