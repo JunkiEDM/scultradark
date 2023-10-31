@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.26
+@version      0.9.27
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -355,7 +355,9 @@
         padding: 5px 0;
         box-shadow: 2px 2px 12px #0006;
     }
-    .moreActions .moreActions__button.sc-button-medium, .imageEditDropdown .sc-button {
+    .moreActions .moreActions__button.sc-button-medium, 
+    .imageEditDropdown .sc-button
+    {
         border: 0;
         background: 0 0;
         color: #b3b3b3;
@@ -760,7 +762,8 @@
     }
     #app .l-container #content .commentForm__wrapper {
         border: 0;
-        background: var(--shd-bg-darker)
+        background: var(--shd-bg-darker);
+        border-radius: 8px;
     }
     #app .l-container #content .commentForm__wrapper input {
         color: #fff;
@@ -970,6 +973,12 @@
     #app .l-container #content .soundBadge__additional {
         background: linear-gradient(to right, transparent, var(--shd-bg-primary) 17px);
         top: 0
+    }
+    .sc-classic #app .l-container #content .soundBadge.active:not(.compact) .soundBadge__additional,
+    .sc-classic #app .l-container #content .soundBadge.hover:not(.compact) .soundBadge__additional, 
+    .sc-classic #app .l-container #content .soundBadge.selected:not(.compact) .soundBadge__additional, 
+    .sc-classic #app .l-container #content .soundBadge:hover:not(.compact) .soundBadge__additional {
+        background: linear-gradient(to right, transparent, var(--shd-bg-darker) 17px);
     }
     #app .l-container #content .soundBadge__additional .sc-button {
         background: 0 0;
@@ -1640,19 +1649,6 @@
         background: linear-gradient(to right, #1d0101, #200122)!important*/
         filter: saturate(2) contrast(0.75) brightness(0.5);
     }
-    .commentItem.m-isReply,
-    .sc-classic .commentItem.m-isReply {
-        margin-left: 10px;
-        background-color: #131313;
-        border: 1px solid #222;
-        border-radius: 0 12px 12px 12px;
-        padding-left: 10px;
-    }
-    .commentItem.m-creatorComment,
-    .sc-classic .commentItem.m-creatorComment {
-        background-color: #161616;
-        border: 1px solid #333;
-    }
     /* brighten buttons */
     .sc-button-queue:before,
     .sc-button-small.sc-button-cta.sc-button-follow:before,
@@ -2141,6 +2137,10 @@
     .soundBadge.hover:not(.compact),
     .soundBadge.selected:not(.compact),
     .soundBadge:hover:not(.compact),
+    .sc-classic .soundBadge.active:not(.compact), 
+    .sc-classic .soundBadge.hover:not(.compact), 
+    .sc-classic .soundBadge.selected:not(.compact), 
+    .sc-classic .soundBadge:hover:not(.compact),
     .topStats__wrapperEligible:focus,
     .topStats__wrapperEligible:hover,
     .uploadTarget__frame, 
@@ -2407,7 +2407,8 @@
     .sc-classic .localeSelector__body,
     .sc-classic .localeSelectorContent__link:hover,
     .sc-classic .sc-button-nostyle,
-    .sc-classic .commentBadge:hover .commentBadge__title a {
+    .sc-classic .commentBadge:hover .commentBadge__title a,
+    .sc-classic ._10BTeIqCrlRC9qFdVckf7v:hover, .sc-classic ._1PFHeR8bDiS4o1IWHAwVDu:disabled{
         color: #ccc
     }
     a.sc-link-dark:hover,
@@ -3365,13 +3366,13 @@
     }
     .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell, .sc-classic .staticPage h2,  
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
-    .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input {
+    .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input, .sc-classic ._10BTeIqCrlRC9qFdVckf7v, .sc-classic .l-footer.marketing a {
         font-weight: 300;
     }
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .sc-classic .statsBadge__value, .infoStats__value, .sc-classic .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
     .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays), 
-    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count, .sc-label {
+    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count, .sc-label, .sc-classic .editTrackModalButton, .commentItem__createdAt, .commentItem__separator, .commentItem__timestamp, .commentItem__body {
         font-weight: 400;
     }
     .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title, .onSoundCloudTeaser__title.sc-font-light, .insightsSidebarModule__plays, a.userStatsLegend__itemTitleWrapper, .uploadButton__status, .linkMenu__groupTitle, .sc-classic .g-type-shrinkwrap-large-primary, .sc-classic .g-type-shrinkwrap-primary:not(.soundTitle__title), .listenInfo__releaseData, .sc-classic .listenInfo__releaseData {
@@ -4242,7 +4243,9 @@
         border-radius: 4px;
     }
     
-    .dropdownMenu .sc-list-nostyle .sc-button:hover {
+    .dropdownMenu .sc-list-nostyle .sc-button:hover,
+    .sc-classic .editTrackModalButton:not(:disabled):focus, 
+    .sc-classic .editTrackModalButton:not(:disabled):hover{
         background: #2226;
         color: #fff;
         transition-duration: 0.25s;
@@ -4459,16 +4462,6 @@
     
     .creatorsNavigation__onSoundCloudLink {
         background: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjY2NjYSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTExLDQgTDgsNCBMOCwzIEwxMywzIEwxMyw0IEwxMyw0IEwxMyw4IEwxMiw4IEwxMiw1IEw2LDEwIEw2LDEwIEwxMSw0IFoiPjwvcGF0aD4KICAgIDxwYXRoIGQ9Ik0zLDEyIEw5LDEyIEw5LDEzIEwzLDEzIEwzLDEyIFogTTMsMTIgTDMsNyBMNCw3IEw0LDEyIEwzLDEyIFogTTksMTMgTDksMTAgTDEwLDkgTDEwLDEzIEw5LDEzIFogTTMsNyBMMyw2IEw3LDYgTDYsNyBMMyw3IFoiPjwvcGF0aD4KPC9zdmc+) no-repeat 0 15px/16px 16px!important;
-    }
-    
-    .commentItem__controls {
-        visibility: visible;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-    }
-    .commentItem.m-dialogOpen .commentItem__controls, .commentItem:hover .commentItem__controls {
-        visibility: visible;
-        opacity: 1;
     }
     
     .imageCrop__previewContainer.sc-artwork.sc-artwork-placeholder-9 {
@@ -4693,6 +4686,127 @@
             height: 100vh;
         }
     }
+    /* new tracks */
+    .webiRedirectionHeader {
+        background: var(--shd-accent-blue) linear-gradient(0deg, #0005, #0004);
+    }
+    .webiRedirectionHeader__new {
+        background: #000;
+        border: 2px solid #000;
+    }
+    
+    .sc-classic button.editTrackModalButton {
+        color: #b3b3b3;
+        cursor: default;
+    }
+    
+    .l-main ~ .l-stats-footer {
+        margin-bottom: 60px;
+    }
+    .l-main:last-child {
+        margin-bottom: 60px;
+    }
+    
+    /* 2023 comments update */
+    .commentItem.m-isReply,
+    .sc-classic .commentsList__item .commentItem.m-isReply {
+        margin-left: 20px;
+        background-color: #131313;
+        border: 1px solid #222;
+        border-radius: 12px;
+        padding: 8px 0 0 0;
+        padding-left: 0px;
+        margin-top: -1px;
+        margin-bottom: 6px;
+    }
+    .commentItem.m-creatorComment,
+    .sc-classic .commentItem.m-creatorComment {
+        background-color: #161616;
+        border: 1px solid #333;
+    }
+    
+    .commentItem__timestampLink, .commentItem__timestampLink:hover, .commentItem__timestampLink:visited {
+        background-color: #0000;
+        font-size: inherit;
+        padding: 3px 0px;
+        font-weight: 400;
+    }
+    .commentItem__createdAt, .commentItem__separator, .commentItem__timestamp {
+        color: var(--font-secondary-color);
+    }
+    
+    .commentItem__controls {
+        visibility: visible;
+        height: 4px;
+        opacity: 0;
+        transition: opacity 0.3s ease, height 0.2s ease-out;
+    }
+    .commentItem.m-dialogOpen .commentItem__controls, .commentItem:hover .commentItem__controls {
+        visibility: visible;
+        height: 32px;
+        opacity: 1;
+    }
+    .commentItem__replyButton, .commentItem__replyButton:hover, .commentItem__replyButton:visited {
+        height: 26px;
+        margin: 0;
+        padding: 2px 11px 2px 10px;
+        border: 1px solid #e5e5e5;
+        border-radius: 3px;
+        cursor: pointer;
+        line-height: 20px;
+        white-space: nowrap;
+        text-align: center;
+        vertical-align: initial;
+        box-sizing: border-box;
+        font-size: 12px;
+        min-width: 31px;
+        float: left;
+        margin-right: 0;
+    }
+    .commentItem__replyButton, .commentItem__replyButton:visited {
+        border-color: var(--shd-bg-lighter) ;
+        background: var(--shd-bg-primary) ;
+        color: #ccc !important;
+        filter: drop-shadow(0px 0px 0px #0000);
+        transition-duration: 0.25s;
+    }
+    
+    .commentItem__replyButton:hover {
+        border-color: #fff6;
+        background: #222;
+        color: #eee !important;
+        filter: drop-shadow(2px 2px 6px #000);
+    }
+    
+    .commentItem.m-isReply .commentForm.visible .commentForm__wrapper, .commentItem.m-isReply .sc-classic .commentForm.visible.m-small .commentForm__wrapper {
+        border-radius: 12px !important;
+        margin-top: -8px
+    }
+    /* Was going to try using an icon with the reply button but decided against it. */
+    /* Un-comment The lines below to re-enable */
+    
+/*     .commentItem__replyButton, .commentItem__replyButton:hover, .commentItem__replyButton:visited {
+        text-indent: 17px;
+    }
+    .commentItem__replyButton:before { 
+        content: "";
+        display: block;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        width: 20px;
+        height: 20px;
+        top: -1px;
+        bottom: 0;
+        margin: auto 0;
+        left: 4px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%23ddd' fill-rule='evenodd' d='M5 3a2 2 0 0 0-2 2v3c0 1.1.9 2 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm0 7v3l3-3H5Z'/%3E%3C/svg%3E");
+        background-size: 17px 17px;
+    } */
+    
+    
+    
+    
 }
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/.*/following/?") {
     .badgeList ul { /* Follow list sorting */
