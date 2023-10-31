@@ -28,6 +28,8 @@
   </ol>
 </details>
 
+**Note**: Soundcloud is currently testing a UI redesign, starting with the [user tracks page](https://soundcloud.com/n/you/tracks). Some things are styled with this theme but most aren't, and many things are likely to be broken as SC rolls this update out for other pages. When more pages are updated to the new UI I'll try to start trying to rewrite this style for it since this one is over 5k lines of inconsistent conventions, overriding properties and overall messiness. I'll be using the less preprocessor that's built-in to Stylus for the rewrite to make organizing things a bit easier.
+
 ### *Find more styles at [UserStyles.world](https://userstyles.world/explore) and [UserStyles.org (Archive)](https://33kk.github.io/uso-archive/)!* <br> <br>
 ### Credits: <br>
 [Primarily based on 'SoundCloud Ultra Dark' by IgChi](https://33kk.github.io/uso-archive/?style=176264) <br>
