@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.29
+@version      0.9.30
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -13,6 +13,7 @@
 @advanced text hue "Orange Hue" "-20"
 @advanced text blu "Blue Hue" "15"
 @advanced text font "Font" "Inter"
+@advanced range avradius "Avatar Roundedness" [50, 0, 50, 2.5]
 @advanced dropdown mcis "Iconset (Media Controls)" {
     phosphor    "Phosphor" <<<EOT 
     ph EOT;
@@ -777,7 +778,8 @@
     #app .l-container #content .commentForm__wrapper input {
         color: #fff;
         background: var(--shd-bg-darker);
-        border: 0
+        border: 0;
+        border-radius: 8px;
     }
     #app .l-container #content .l-vertical-bar {
         /*z-index: 9;*/
@@ -3396,13 +3398,13 @@
     }
     .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell, .sc-classic .staticPage h2,  
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
-    .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input, .sc-classic ._10BTeIqCrlRC9qFdVckf7v, .sc-classic .l-footer.marketing a, .downloadLandingIntro__subheader, .sc-classic .downloadLanding__heading, .sc-classic .downloadLandingSection__header, .sc-classic .downloadLandingSection__copy {
+    .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input, .sc-classic ._10BTeIqCrlRC9qFdVckf7v, .sc-classic .l-footer.marketing a, .downloadLandingIntro__subheader, .sc-classic .downloadLanding__heading, .sc-classic .downloadLandingSection__header, .sc-classic .downloadLandingSection__copy, .sc-classic .commentForm .commentForm__input {
         font-weight: 300;
     }
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .sc-classic .statsBadge__value, .infoStats__value, .sc-classic .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
     .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays), 
-    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count, .sc-label, .sc-classic .editTrackModalButton, .commentItem__createdAt, .commentItem__separator, .commentItem__timestamp, .commentItem__body, .sc-classic .commentForm.m-small .commentForm__input  {
+    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count, .sc-label, .sc-classic .editTrackModalButton, .commentItem__createdAt, .commentItem__separator, .commentItem__timestamp, .commentItem__body {
         font-weight: 400;
     }
     .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title, .onSoundCloudTeaser__title.sc-font-light, .insightsSidebarModule__plays, a.userStatsLegend__itemTitleWrapper, .uploadButton__status, .linkMenu__groupTitle, .sc-classic .g-type-shrinkwrap-large-primary, .sc-classic .g-type-shrinkwrap-primary:not(.soundTitle__title), .listenInfo__releaseData, .sc-classic .listenInfo__releaseData {
@@ -4923,6 +4925,9 @@
         height: var(--comment-height)!important;
         width: var(--comment-height)!important;
         transition: height 0.3s;
+    }
+    .sc-classic .commentForm .commentForm__avatar,
+    .sc-classic .commentForm .commentForm__avatar > .sc-artwork {
         border-radius: 8px;
     }
 
@@ -5024,6 +5029,45 @@
         filter: none;
         opacity: 1;
         transform: scale(1.1);
+    }
+    
+    /* commend send button */
+    .sc-classic .commentForm__submitButton {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        cursor: pointer;
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.0808 4.08454c.0817-.26553.0099-.55446-.1865-.7509-.1964-.19644-.4854-.2682-.7509-.1865L1.75863 8.80399c-.2994.09213-.51001.36063-.52817.67336-.01816.31273.15995.60385.44668.72995l8.57186 3.7716 3.7716 8.5719c.1262.2867.4173.4648.73.4467.3127-.0182.5812-.2288.6734-.5282l5.6568-18.38476ZM10.6505 12.5168 4.12458 9.64541 19.2305 4.99743l-4.648 15.10597-2.8714-6.526 3.3496-3.3495L14 9.16725l-3.3495 3.34955Z' fill='%23fff' stroke='%23fff' stroke-width='0.5'/%3E%3C/svg%3E") !important;
+        background-position-x: 49% !important;
+        background-position-y: 50% !important;
+        background-repeat: no-repeat !important;
+        background-color: var(--shd-accent-primary) !important;
+        background-size: 50% !important;
+        filter: hue-rotate(/*[[hue]]*/deg) var(--fil) !important;
+        border: 0px solid #0000;
+        border-bottom: 3px solid #0004;
+        border-radius: 8px;
+        margin-left: 6px;
+        padding: 12px;
+        width: 48px;
+        color: #ccc;
+        box-shadow: inset 0px -3px 0px -6px #000;
+        transition-duration: 0.1s;
+        transition-timing-function: ease-out;
+    }
+    .sc-classic .commentForm__submitButton:disabled {
+        cursor: default;
+        box-shadow: inset 0 0 0 1px var(--shd-bg-lighter);
+        background-color: var(--shd-bg-primary) !important;
+    }
+    .sc-classic .commentForm__submitButton:not(:disabled):hover {
+        border: 0px solid #0000;
+        box-shadow: inset 0px 1px 6px 0px #0008, 2px 2px 6px #000;
+        background-color: var(--shd-accent-secondary) !important;
+    }
+    
+    .image__rounded {
+        border-radius: max(/*[[avradius]]*/%, calc(/*[[avradius]]*/px * 0.75));
     }
 }
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/.*/following/?") {
