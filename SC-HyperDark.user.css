@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.31
+@version      0.9.32
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -55,6 +55,12 @@
     height:100%; EOT;
     stats-off   "Hide" <<<EOT 
     height:0; EOT;
+}
+@advanced dropdown hin "Insights on homepage (\"Your Latest Upload\")" {
+    stats-on    "Show" <<<EOT 
+    display:block; EOT;
+    stats-off   "Hide" <<<EOT 
+    display:none; EOT;
 }
 @advanced dropdown gdpr "Cookie Notice" {
     gdpr-on     "Show" <<<EOT 
@@ -965,7 +971,7 @@
         background: 0 0;
         border: 0
     }
-    #app .l-container #content a:not(.sc-button-startstation),
+    #app .l-container #content a:not(.sc-button-startstation,.sc-button-small),
     #app .l-container #content h1,
     #app .l-container #content h2,
     #app .l-container #content h3 {
@@ -5025,7 +5031,7 @@
     }
     .uiEvoButton--isLight.commentItem__likeButton {
         color: var(--font-secondary-color);
-        margin-left: -6px;
+        margin-left: 2px;
         border: none !important;
         background: none !important;
         padding: 0px;
@@ -5122,6 +5128,47 @@
         /*[[adblk]]*/
     }
     /**/
+    
+    /* Homepage insights ("Your Latest Upload") */
+    .sc-button-pinToProfile:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13' fill='none'%3E%3Cpath d='M3.40725 8.88557L0.460991 5.93931C0.265729 5.74405 0.265729 5.42746 0.460991 5.2322C1.28209 4.4111 2.41921 3.98692 3.57747 4.06965L3.95369 4.09652L6.82495 1.22526C7.54091 0.509303 8.70171 0.509303 9.41768 1.22526L11.7747 3.58229C12.4907 4.29825 12.4907 5.45905 11.7747 6.17501L8.90344 9.04627L8.93031 9.42249C9.01305 10.5807 8.58886 11.7179 7.76776 12.539C7.5725 12.7342 7.25592 12.7342 7.06065 12.539L4.11436 9.59268L1.75735 11.9497L1.05025 11.2426L3.40725 8.88557ZM7.53206 1.93237L4.49936 4.96507C4.39682 5.06761 4.25482 5.12058 4.11018 5.11025L3.50623 5.06711C2.80562 5.01707 2.11531 5.21424 1.55127 5.61537L7.38459 11.4487C7.78572 10.8847 7.9829 10.1943 7.93285 9.49374L7.88971 8.88978C7.87938 8.74514 7.93235 8.60314 8.03489 8.50061L11.0676 5.46791C11.393 5.14247 11.393 4.61483 11.0676 4.28939L8.71057 1.93237C8.38513 1.60693 7.8575 1.60693 7.53206 1.93237Z' fill='%23222' stroke='%23222' stroke-width='0.7'/%3E%3C/svg%3E%0A");
+    }
+
+    .latestUploadModule__moreActionsButton:before {
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjE0cHgiIGhlaWdodD0iNHB4IiB2aWV3Qm94PSIwIDAgMTQgNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICA8dGl0bGU+bW9yZTwvdGl0bGU+CiAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9InJnYigzNCwgMzQsIDM0KSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxjaXJjbGUgY3g9IjIiIGN5PSIyIiByPSIyIi8+CiAgICA8Y2lyY2xlIGN4PSI3IiBjeT0iMiIgcj0iMiIvPgogICAgPGNpcmNsZSBjeD0iMTIiIGN5PSIyIiByPSIyIi8+CiAgPC9nPgo8L3N2Zz4K) no-repeat 50% 50% !important;
+        background-size: 14px 4px!important;
+    }
+    
+    .latestUploadContainer__soundDetails__stats .soundStats__container {
+        font-weight: 400;
+    }
+    .latestUploadContainer__soundDetails__stats {
+        margin: 2px 0 10px;
+    }
+    .latestUploadContainer__soundWrapper {
+        height: 136px;
+    }
+    .latestUploadContainer__soundArtwork {
+        width: 128px;
+    }
+    .latestUploadContainer {
+        height: 160px;
+    }
+    .latestUploadContainer, .latestUploadContainer__gradient .backgroundGradient__buffer {
+        border-radius: 16px;
+        box-shadow: 2px 4px 16px -4px #0005;
+    }
+    .l-content > div > div:first-child:not(.modular-home-mixed-selection) > .mixedModularHome__item:has(.latestUploadContainer) {
+        /*[[hin]]*/
+    }
+    
+    /* fix queue buttons */
+    .sc-classic .queueItemView__like.sc-button-small.sc-button-like:not(.sc-button-selected):before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23ccc' fill-rule='evenodd' d='M10.8 3C8.78 3 8 5.34 8 5.34S7.21 3 5.2 3C3.5 3 1.75 4.1 2.03 6.51c.34 2.96 5.72 6.48 5.96 6.5.24 0 5.74-3.73 6-6.5C14.18 4.2 12.5 3 10.8 3Z'/%3E%3C/svg%3E");
+    }
+    .sc-button-medium.sc-button-like:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23222' fill-rule='evenodd' d='M10.8 3C8.78 3 8 5.34 8 5.34S7.21 3 5.2 3C3.5 3 1.75 4.1 2.03 6.51c.34 2.96 5.72 6.48 5.96 6.5.24 0 5.74-3.73 6-6.5C14.18 4.2 12.5 3 10.8 3Z'/%3E%3C/svg%3E");
+    }
 }
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/.*/following/?") {
     .badgeList ul { /* Follow list sorting */
