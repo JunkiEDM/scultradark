@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.32
+@version      0.9.33
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -3008,6 +3008,8 @@
     }
     .playControls__bg, .sc-classic .playControls__bg {
         backdrop-filter: brightness(0.8) blur(32px);
+        margin-bottom: 1px; /* fix blur issues with hw acceleration on */
+        border-bottom: 1px solid #111;
     }
     .spotlightRemove, .sc-classic .spotlightRemove, .g-button-remove {
         filter: brightness(0.55) contrast(6.4);
@@ -5076,7 +5078,7 @@
         transform: scale(1.1);
     }
     
-    /* commend send button */
+    /* comment send button */
     .sc-classic .commentForm__submitButton {
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -5110,6 +5112,11 @@
         border: 0px solid #0000;
         box-shadow: inset 0px 1px 6px 0px #0008, 2px 2px 6px #000;
         background-color: var(--shd-accent-secondary) !important;
+    }
+    
+    /* comment names */
+    .commentItem__creatorLink, .commentItem__creatorLink:hover, .commentItem__creatorLink:visited, .commentItem__username, .commentItem__usernameLink, .commentItem__usernameLink:hover, .commentItem__usernameLink:visited {
+        color: #fff;
     }
     
     .image__rounded {
@@ -5169,6 +5176,66 @@
     .sc-button-medium.sc-button-like:before {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23222' fill-rule='evenodd' d='M10.8 3C8.78 3 8 5.34 8 5.34S7.21 3 5.2 3C3.5 3 1.75 4.1 2.03 6.51c.34 2.96 5.72 6.48 5.96 6.5.24 0 5.74-3.73 6-6.5C14.18 4.2 12.5 3 10.8 3Z'/%3E%3C/svg%3E");
     }
+    
+    /* better upload-in-progress button */
+    .header__soundInput > .uploadButton.selected.active .uploadButton__title {
+        font-size: 0;
+        color: #0000;
+        text-align: center;
+        max-width: 22px;
+    }
+    .header__soundInput > .uploadButton.selected.active .uploadButton__title::before {
+        --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23fff' viewBox='0 0 256 256'%3E%3Cpath d='M228,152v56a20,20,0,0,1-20,20H48a20,20,0,0,1-20-20V152a12,12,0,0,1,24,0v52H204V152a12,12,0,0,1,24,0ZM96.49,88.49,116,69v83a12,12,0,0,0,24,0V69l19.51,19.52a12,12,0,0,0,17-17l-40-40a12,12,0,0,0-17,0l-40,40a12,12,0,0,0,17,17Z'%3E%3C/path%3E%3C/svg%3E"); /* phosphor - simple */
+        --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23ededed' viewBox='0 0 256 256'%3E%3Cpath d='M232,136v64a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V136a8,8,0,0,1,8-8H224A8,8,0,0,1,232,136Z' opacity='0.2'%3E%3C/path%3E%3Cpath d='M240,136v64a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V136a16,16,0,0,1,16-16H80a8,8,0,0,1,0,16H32v64H224V136H176a8,8,0,0,1,0-16h48A16,16,0,0,1,240,136ZM85.66,77.66,120,43.31V128a8,8,0,0,0,16,0V43.31l34.34,34.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,77.66ZM200,168a12,12,0,1,0-12,12A12,12,0,0,0,200,168Z'%3E%3C/path%3E%3C/svg%3E"); /* phosphor - duotone */
+        --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23222' fill-rule='evenodd' d='M3 11v2h10v-2H3Zm10-3H3l5-6 5 6ZM6 8v2h4V8H6Z'/%3E%3C/svg%3E"); /* soundcloud */
+        content: "";
+        display: block;
+        position: relative;
+        width: 22px;
+        height: 22px;
+        top: 0;
+        margin: auto 0;
+        padding: 0 0;
+        opacity: 1;
+        transition-duration: 0.2s;
+        background-image: linear-gradient(0deg, #f75 0%, #f50 50%, #f75 100%);
+        background-repeat: repeat-y;
+        animation: gradient 3s linear infinite;
+        background-size: 22px 22px;
+        background-position: 50% 50%;
+        -webkit-mask-image: var(--upload-button);
+        mask-image: var(--upload-button);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: 22px 22px;
+        mask-size: 22px 22px;
+        -webkit-mask-position: 50% 50%;
+        mask-position: 50% 50%;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 50% 22px;
+        }
+        100% {
+            background-position: 50% 0px;
+        }
+    }
+
+    .header__soundInput > .uploadButton.selected.active {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 2%;
+    }
+
+    .sc-classic .uploadButton.selected.active .uploadButton__status {
+        margin-left: 0;
+        -webkit-text-stroke: thin;
+        text-stroke: thin;
+    }
+
 }
 @-moz-document regexp("http(s)?://(|www.)?soundcloud.com/.*/following/?") {
     .badgeList ul { /* Follow list sorting */
