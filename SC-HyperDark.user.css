@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.33
+@version      0.9.34
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -413,17 +413,20 @@
         background: 0 0;
         color: #b3b3b3;
         cursor: default;
-        font-size: 14px!important
+        font-size: 14px!important;
+        transition: color .2s,border-color .2s;
     }
     .moreActions .moreActions__button.sc-button-medium:before {
-        filter: brightness(3)
+        filter: contrast(0) brightness(0.8);
+        transition: filter .2s;
     }
     .moreActions .moreActions__button.sc-button-medium:hover, .imageEditDropdown .sc-button:hover {
         color: #fff;
         background: #333
     }
     .moreActions .moreActions__button.sc-button-medium:not(.sc-button-selected):hover:before {
-        filter: brightness(6)
+        filter: contrast(0) brightness(2);
+/*         transition: filter 0.2s; */
     }
     #app {
         display: flex
@@ -1722,6 +1725,7 @@
     .sc-button-medium.sc-button-mastering:before,
     .sc-button-medium.sc-button-share:before,
     .sc-button-medium.sc-button-copylink:before,
+    .sc-button-medium.sc-button-upload:before,
     .sc-button-medium.sc-button-edit:before,
     .sc-button-medium.sc-button-distribute:before,
     .sc-button-medium.sc-button-more:not(.sc-button-active):before,
@@ -3441,7 +3445,7 @@
     }
     .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell, .sc-classic .staticPage h2,  
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
-    .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input, .sc-classic ._10BTeIqCrlRC9qFdVckf7v, .sc-classic .l-footer.marketing a, .downloadLandingIntro__subheader, .sc-classic .downloadLanding__heading, .sc-classic .downloadLandingSection__header, .sc-classic .downloadLandingSection__copy, .sc-classic .commentForm .commentForm__input {
+    .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input, .sc-classic ._10BTeIqCrlRC9qFdVckf7v, .sc-classic .l-footer.marketing a, .downloadLandingIntro__subheader, .sc-classic .downloadLanding__heading, .sc-classic .downloadLandingSection__header, .sc-classic .downloadLandingSection__copy, .sc-classic .commentForm .commentForm__input, .sc-select {
         font-weight: 300;
     }
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .sc-classic .statsBadge__value, .infoStats__value, .sc-classic .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
@@ -3785,7 +3789,9 @@
         font-size: 16px;
     }
      /* gdpr aka cookie consent dickbar */
-    #onetrust-consent-sdk #onetrust-banner-sdk {
+    
+    #onetrust-consent-sdk #onetrust-banner-sdk,
+    #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-info, #onetrust-consent-sdk #onetrust-pc-sdk .ot-acc-txt .ot-ven-dets {
         background-color: var(--shd-bg-primary);
     }
     #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc {
@@ -3802,13 +3808,27 @@
     .onetrust-pc-dark-filter.ot-fade-in {
         pointer-events: none;
     }
-    #onetrust-consent-sdk #onetrust-pc-sdk, #onetrust-consent-sdk #ot-search-cntr, #onetrust-consent-sdk #onetrust-pc-sdk .ot-switch.ot-toggle, #onetrust-consent-sdk #onetrust-pc-sdk ot-grp-hdr1 .checkbox, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title:after, #onetrust-consent-sdk #onetrust-pc-sdk #ot-sel-blk, #onetrust-consent-sdk #onetrust-pc-sdk #ot-fltr-cnt, #onetrust-consent-sdk #onetrust-pc-sdk #ot-anchor {
+    #onetrust-consent-sdk #onetrust-pc-sdk, #onetrust-consent-sdk #ot-search-cntr, #onetrust-consent-sdk #onetrust-pc-sdk .ot-switch.ot-toggle, #onetrust-consent-sdk #onetrust-pc-sdk ot-grp-hdr1 .checkbox, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title:after, #onetrust-consent-sdk #onetrust-pc-sdk #ot-sel-blk, #onetrust-consent-sdk #onetrust-pc-sdk #ot-fltr-cnt, #onetrust-consent-sdk #onetrust-pc-sdk #ot-anchor,
+    #onetrust-consent-sdk #onetrust-pc-sdk #filter-btn-handler {
         background-color: var(--shd-bg-primary);
         box-shadow: 0px 2px 16px -3px #000;
         border-radius: 24px;
     }
-    #onetrust-consent-sdk #onetrust-pc-sdk h3, #onetrust-consent-sdk #onetrust-pc-sdk h4, #onetrust-consent-sdk #onetrust-pc-sdk h5, #onetrust-consent-sdk #onetrust-pc-sdk h6, #onetrust-consent-sdk #onetrust-pc-sdk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-ven-lst .ot-ven-opts p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-desc, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-li-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-sel-all-hdr span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-info, #onetrust-consent-sdk #onetrust-pc-sdk #ot-fltr-modal #modal-header, #onetrust-consent-sdk #onetrust-pc-sdk .ot-checkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-sel-blk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-lst-title span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .back-btn-handler p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .ot-ven-name, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-ven-lst .consent-category, #onetrust-consent-sdk #onetrust-pc-sdk .ot-leg-btn-container .ot-inactive-leg-btn, #onetrust-consent-sdk #onetrust-pc-sdk .ot-label-status, #onetrust-consent-sdk #onetrust-pc-sdk .ot-chkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #clear-filters-handler, #onetrust-consent-sdk #onetrust-banner-sdk #onetrust-policy #onetrust-policy-title, #onetrust-consent-sdk #onetrust-banner-sdk #onetrust-policy h3, #onetrust-consent-sdk #onetrust-pc-sdk .ot-accordion-layout h4 ~ .ot-always-active {
+    #onetrust-consent-sdk #onetrust-pc-sdk #ot-sel-blk {
+        border-bottom: 1px solid #000;
+    }
+    #onetrust-consent-sdk #onetrust-pc-sdk h3, #onetrust-consent-sdk #onetrust-pc-sdk h4, #onetrust-consent-sdk #onetrust-pc-sdk h5, #onetrust-consent-sdk #onetrust-pc-sdk h6, #onetrust-consent-sdk #onetrust-pc-sdk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-ven-lst .ot-ven-opts p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-desc, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-li-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-sel-all-hdr span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-info, #onetrust-consent-sdk #onetrust-pc-sdk #ot-fltr-modal #modal-header, #onetrust-consent-sdk #onetrust-pc-sdk .ot-checkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-sel-blk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-lst-title span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .back-btn-handler p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .ot-ven-name, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-ven-lst .consent-category, #onetrust-consent-sdk #onetrust-pc-sdk .ot-leg-btn-container .ot-inactive-leg-btn, #onetrust-consent-sdk #onetrust-pc-sdk .ot-label-status, #onetrust-consent-sdk #onetrust-pc-sdk .ot-chkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #clear-filters-handler, #onetrust-consent-sdk #onetrust-banner-sdk #onetrust-policy #onetrust-policy-title, #onetrust-consent-sdk #onetrust-banner-sdk #onetrust-policy h3, #onetrust-consent-sdk #onetrust-pc-sdk .ot-accordion-layout h4 ~ .ot-always-active,
+    #onetrust-consent-sdk #onetrust-policy-title, #onetrust-consent-sdk #onetrust-policy-text, #onetrust-consent-sdk .ot-b-addl-desc, #onetrust-consent-sdk .ot-dpd-desc, #onetrust-consent-sdk .ot-dpd-title, #onetrust-consent-sdk #onetrust-policy-text *:not(.onetrust-vendors-list-handler), #onetrust-consent-sdk .ot-dpd-desc *:not(.onetrust-vendors-list-handler), #onetrust-consent-sdk #onetrust-banner-sdk #banner-options *, #onetrust-banner-sdk .ot-cat-header, #onetrust-banner-sdk .ot-optout-signal,
+    #onetrust-consent-sdk #onetrust-pc-sdk .privacy-notice-link, #onetrust-consent-sdk #onetrust-pc-sdk .ot-pgph-link, #onetrust-consent-sdk #onetrust-pc-sdk .category-vendors-list-handler, #onetrust-consent-sdk #onetrust-pc-sdk .category-vendors-list-handler + a, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-consent-sdk #onetrust-pc-sdk .ot-ven-link, #onetrust-consent-sdk #onetrust-pc-sdk .ot-ven-legclaim-link, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-name a, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-acc-hdr .ot-host-expand, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-info a, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-content #ot-pc-desc .ot-link-btn, #onetrust-consent-sdk #onetrust-pc-sdk .ot-vnd-serv .ot-vnd-item .ot-vnd-info a, #onetrust-consent-sdk #onetrust-pc-sdk #ot-lst-cnt .ot-vnd-info a,
+    #onetrust-consent-sdk #onetrust-pc-sdk h3, #onetrust-consent-sdk #onetrust-pc-sdk h4, #onetrust-consent-sdk #onetrust-pc-sdk h5, #onetrust-consent-sdk #onetrust-pc-sdk h6, #onetrust-consent-sdk #onetrust-pc-sdk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-ven-lst .ot-ven-opts p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-desc, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-li-title, #onetrust-consent-sdk #onetrust-pc-sdk .ot-sel-all-hdr span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-info, #onetrust-consent-sdk #onetrust-pc-sdk #ot-fltr-modal #modal-header, #onetrust-consent-sdk #onetrust-pc-sdk .ot-checkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-sel-blk p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-lst-title h3, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .back-btn-handler p, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst .ot-ven-name, #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-ven-lst .consent-category, #onetrust-consent-sdk #onetrust-pc-sdk .ot-leg-btn-container .ot-inactive-leg-btn, #onetrust-consent-sdk #onetrust-pc-sdk .ot-label-status, #onetrust-consent-sdk #onetrust-pc-sdk .ot-chkbox label span, #onetrust-consent-sdk #onetrust-pc-sdk #clear-filters-handler, #onetrust-consent-sdk #onetrust-pc-sdk .ot-optout-signal,
+    #onetrust-consent-sdk #onetrust-pc-sdk #filter-btn-handler {
         color: #fff;
+    }
+    #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-desc, #onetrust-consent-sdk #onetrust-pc-sdk h4, #onetrust-consent-sdk #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-pc-sdk button, #onetrust-consent-sdk #onetrust-pc-sdk #accept-recommended-btn-handler, #onetrust-consent-sdk #onetrust-pc-sdk .ot-accordion-layout .ot-acc-grpdesc,
+    #onetrust-consent-sdk #onetrust-banner-sdk #onetrust-policy-text, #onetrust-consent-sdk #onetrust-banner-sdk .ot-dpd-desc, #onetrust-consent-sdk #onetrust-banner-sdk .ot-b-addl-desc,
+    #onetrust-consent-sdk #onetrust-pc-sdk #filter-btn-handler {
+        font-family: var(--font-main);
+        font-weight: 200;
     }
     #onetrust-pc-sdk button + .ot-acc-hdr .ot-plus-minus:before {
         filter: invert(1);
@@ -3821,12 +3841,12 @@
         height: 32px!important;
         padding: 12px!important;
         border: none!important;
-        font-weight: 100!important;
     }
     #onetrust-pc-sdk #close-pc-btn-handler.ot-close-icon {
         filter: invert(0.9) brightness(1.2);
     }
-    #onetrust-pc-sdk .ot-switch-nob {
+    #onetrust-pc-sdk .ot-switch-nob,
+    #onetrust-consent-sdk #onetrust-pc-sdk #vendor-search-handler {
         background: #222;
         border: 1px solid #333;
     }
@@ -3837,9 +3857,21 @@
     #onetrust-consent-sdk #onetrust-pc-sdk .ot-acc-grpcntr.ot-acc-txt, #onetrust-consent-sdk #onetrust-pc-sdk .ot-acc-txt .ot-subgrp-tgl .ot-switch.ot-toggle {
         background-color: var(--shd-bg-primary);
     }
-    #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link {
+    #onetrust-consent-sdk #onetrust-banner-sdk a[href], #onetrust-consent-sdk #onetrust-banner-sdk a[href] font, #onetrust-consent-sdk #onetrust-banner-sdk .ot-link-btn {
+        color: #3c8fe6;
+    }
+    #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link,
+    #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link {
         color: #3c8fe6;
         font-weight: 300;
+    }
+    #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-lst-cnt .ot-chkbox > input:checked ~ label,
+    #onetrust-consent-sdk #onetrust-pc-sdk .ot-tgl input:checked + .ot-switch .ot-switch-nob {
+        background: var(--shd-accent-orange)
+    }
+    #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-lst-cnt .ot-chkbox > input:not(:checked) ~ label,
+    #onetrust-consent-sdk #onetrust-pc-sdk .ot-tgl input:not(:checked) + .ot-switch .ot-switch-nob {
+        filter: brightness(0.4) contrast(2) hue-rotate(-20deg) hue-rotate(-5deg) brightness(1) contrast(1.3) saturate(1.4) var(--fil);
     }
 
     /* logged out landing page */
@@ -4328,7 +4360,7 @@
     .sc-classic .editTrackModalButton:not(:disabled):hover{
         background: #2226;
         color: #fff;
-        transition-duration: 0.25s;
+/*         transition-duration: 0.25s; */
     }
     
     .sc-classic .linkMenu__activeItem, .sc-classic .linkMenu__item:hover {
@@ -5234,6 +5266,11 @@
         margin-left: 0;
         -webkit-text-stroke: thin;
         text-stroke: thin;
+    }
+    
+    /* 2fa settings */
+    iframe#two-factor-iframe {
+        filter: brightness(0.9335) invert(1) hue-rotate(180deg);
     }
 
 }
