@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.34
+@version      0.9.35
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1548,8 +1548,8 @@
         border: 1px solid #222;
         transition: border-color .1s
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-privacy):not(.sc-button-delete),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy):not(.sc-button-delete) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-privacy):not(.sc-button-delete):not(.sc-button-icon),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy):not(.sc-button-delete):not(.sc-button-icon) {
         border-color: var(--shd-bg-lighter);
         /*background: #111;*/
         border: 0;
@@ -1561,8 +1561,8 @@
         transition-duration: 0.5s;
         filter: hue-rotate(/*[[hue]]*/deg);
     }
-    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-privacy):not(.sc-button-delete),
-    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy):not(.sc-button-delete) {
+    .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-privacy):not(.sc-button-delete):not(.sc-button-icon),
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy):not(.sc-button-delete):not(.sc-button-icon) {
         border-color: #fff;
         border: 0;
         border-radius: 120px;
@@ -3451,7 +3451,7 @@
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .sc-classic .statsBadge__value, .infoStats__value, .sc-classic .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
     .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays), 
-    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count, .sc-label, .sc-classic .editTrackModalButton, .commentItem__createdAt, .commentItem__separator, .commentItem__timestamp, .commentItem__body {
+    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count, .sc-label, .sc-classic .editTrackModalButton, .commentItem__createdAt, .commentItem__separator, .commentItem__timestamp, .commentItem__body, .creatorLikeInline {
         font-weight: 400;
     }
     .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title, .onSoundCloudTeaser__title.sc-font-light, .insightsSidebarModule__plays, a.userStatsLegend__itemTitleWrapper, .uploadButton__status, .linkMenu__groupTitle, .sc-classic .g-type-shrinkwrap-large-primary, .sc-classic .g-type-shrinkwrap-primary:not(.soundTitle__title), .listenInfo__releaseData, .sc-classic .listenInfo__releaseData {
@@ -4864,6 +4864,7 @@
         height: 4px;
         opacity: 0;
         transition: opacity 0.3s ease, height 0.2s ease-out;
+        gap: 6px;
     }
     .commentItem.m-dialogOpen .commentItem__controls, .commentItem:hover .commentItem__controls {
         visibility: visible;
@@ -4893,6 +4894,36 @@
         color: #ccc !important;
         filter: drop-shadow(0px 0px 0px #0000);
         transition-duration: 0.25s;
+    }
+    .commentItem__delete {
+        width: 26px;
+        height: 26px;
+        margin: 0;
+        padding: 2px 11px 2px 10px;
+        border: 1px solid #e5e5e5;
+        border-radius: 3px;
+        cursor: pointer;
+        line-height: 20px;
+        white-space: nowrap;
+        text-align: center;
+        vertical-align: initial;
+        box-sizing: border-box;
+        font-size: 12px;
+        float: left;
+        margin-right: 0;
+    }
+    .commentItem__delete:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0 !important;
+        top: 0;
+        background-image: url(https://a-v2.sndcdn.com/assets/images/Trash-3b76d75e.svg);
+        background-size: 16px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        filter: invert(1)
     }
     
     .commentItem__replyButton:hover {
@@ -5094,6 +5125,12 @@
         filter: hue-rotate(/*[[hue]]*/deg);
         padding-right: 0;
     }
+    .creatorLikeInline {
+        color: var(--font-secondary-color);
+    }
+    .creatorLikeInlineLikeIcon {
+        filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
+    }
 
     .commentItem__likeWrapper {
         visibility: visible;
@@ -5197,7 +5234,7 @@
         border-radius: 16px;
         box-shadow: 2px 4px 16px -4px #0005;
     }
-    .l-content > div > div:first-child:not(.modular-home-mixed-selection) > .mixedModularHome__item:has(.latestUploadContainer) {
+    .l-content > div > div:first-child:not(.modular-home-mixed-selection) > .mixedModularHome__item:has(.latestUploadContainer), .latestUpload, [classname*="latestUpload"] {
         /*[[hin]]*/
     }
     
