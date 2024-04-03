@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.35
+@version      0.9.36
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -17,6 +17,8 @@
 @advanced dropdown mcis "Iconset (Media Controls)" {
     phosphor    "Phosphor" <<<EOT 
     ph EOT;
+    phosphorol  "Phosphor Outlined" <<<EOT 
+    po EOT;
     spoticons   "Spotify" <<<EOT 
     sp EOT;
     fluentfill  "Fluent Filled" <<<EOT 
@@ -99,6 +101,24 @@
     embeds-on   "Yes" <<<EOT 
     /**\/ EOT;
 }
+@advanced dropdown home "Home button style" {
+    regular     "Regular" <<<EOT 
+     EOT;
+    old         "Old" <<<EOT 
+    -old EOT;
+}
+@advanced dropdown feed "Feed button style" {
+    regular     "Regular" <<<EOT 
+     EOT;
+    old         "Old" <<<EOT 
+    -old EOT;
+}
+@advanced dropdown libs "Library button style" {
+    regular     "Regular" <<<EOT 
+     EOT;
+    old         "Old" <<<EOT 
+    -old EOT;
+}
 ==/UserStyle== *//* --- REMOVE THIS LINE TO SHOW ADVANCED FILTER CONTROLS ---
 @advanced dropdown adv "Enable Advanced Filters?" {
     adv-off "Disabled" <<<EOT 
@@ -116,7 +136,26 @@
     
     /* Icon select */
     @import url('https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/spoticons.css');
-    @import url('https://cdn.jsdelivr.net/gh/phosphor-icons/phosphor-icons/src/css/icons.css');
+    @font-face {
+        font-family: "Phosphor";
+        src: url("https://unpkg.com/@phosphor-icons/web/src/regular/Phosphor.woff2") format("woff2"),
+            url("https://unpkg.com/@phosphor-icons/web/src/regular/Phosphor.woff") format("woff"),
+            url("https://unpkg.com/@phosphor-icons/web/src/regular/Phosphor.ttf") format("truetype"),
+            url("https://unpkg.com/@phosphor-icons/web/src/regular/Phosphor.svg#Phosphor") format("svg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+    }
+    @font-face {
+        font-family: "Phosphor-Fill";
+        src: url("https://unpkg.com/@phosphor-icons/web/src/fill/Phosphor-Fill.woff2") format("woff2"),
+            url("https://unpkg.com/@phosphor-icons/web/src/fill/Phosphor-Fill.woff") format("woff"),
+            url("https://unpkg.com/@phosphor-icons/web/src/fill/Phosphor-Fill.ttf") format("truetype"),
+            url("https://unpkg.com/@phosphor-icons/web/src/fill/Phosphor-Fill.svg#Phosphor-Fill") format("svg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+    }
     @font-face {
         font-family: "FluentSystemIcons-Resizable";
         src: url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/fonts/FluentSystemIcons-Resizable-mod.woff2") format("woff2"),
@@ -131,28 +170,44 @@
     
     /* navmenu icons */
     :root {
-        --ic-home: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m16 3.08 14.44 10.31-.88 1.22-1.81-1.3v15.44h-8.5V21a3.25 3.25 0 1 0-6.5 0v7.75h-8.5V13.31l-1.81 1.3-.88-1.22L16 3.08Zm0 1.84L5.75 12.24v15.01h5.5V21a4.75 4.75 0 0 1 9.5 0v6.25h5.5v-15L16 4.91Z" fill="white" stroke="white"/></svg>');
-        --ic-home-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 2.77 30.58 13.2l-1.16 1.62-1.67-1.19v15.13h-8.5V21a3.25 3.25 0 1 0-6.5 0v7.75h-8.5V13.62l-1.67 1.2-1.16-1.63L16 2.77Z" fill="white" stroke="white"/></svg>');
+        --ic-old-home: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m16 3.08 14.44 10.31-.88 1.22-1.81-1.3v15.44h-8.5V21a3.25 3.25 0 1 0-6.5 0v7.75h-8.5V13.31l-1.81 1.3-.88-1.22L16 3.08Zm0 1.84L5.75 12.24v15.01h5.5V21a4.75 4.75 0 0 1 9.5 0v6.25h5.5v-15L16 4.91Z" fill="white" stroke="white"/></svg>');
+        --ic-old-home-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 2.77 30.58 13.2l-1.16 1.62-1.67-1.19v15.13h-8.5V21a3.25 3.25 0 1 0-6.5 0v7.75h-8.5V13.62l-1.67 1.2-1.16-1.63L16 2.77Z" fill="white" stroke="white"/></svg>');
+        --ic-old-stream: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M10.35 4.21A2.75 2.75 0 0 1 13 2.25h6.32a2.75 2.75 0 0 1 2.64 3.54L20 12.25h2.47a2.75 2.75 0 0 1 1.76 4.86L8.57 30.17l3.42-11.42H6l4.36-14.54ZM13 3.75c-.55 0-1.04.36-1.2.9l-3.78 12.6h6l-2.58 8.58 11.85-9.87c.9-.75.36-2.2-.8-2.2h-4.49l2.52-8.4c.24-.8-.36-1.61-1.2-1.61H13Z" fill="white" stroke="white"/></svg>');
+        --ic-old-stream-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M12.99 2.25c-1.22 0-2.29.8-2.64 1.96L6 18.75h6L8.56 30.17l15.68-13.06a2.75 2.75 0 0 0-1.76-4.86H20l1.94-6.46a2.75 2.75 0 0 0-2.64-3.54H13Z" fill="white" stroke="white"/></svg>');
+        --ic-old-library: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25A2.75 2.75 0 0 1 7.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 5 4.25Zm8 0A2.75 2.75 0 0 1 15.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53ZM5 5.75c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm8 0c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm7.68 0c-.74 0-1.27.7-1.1 1.4l.04.12 6.63 18.24a1.13 1.13 0 0 0 2.16-.66l-.03-.12L21.75 6.5a1.13 1.13 0 0 0-1.07-.74Z" fill="white" stroke="white"/></svg>');
+        --ic-old-library-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25a2.75 2.75 0 0 1 2.75 2.58V25a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 5 4.25Zm8 0a2.75 2.75 0 0 1 2.74 2.58l.01.17v18a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53Z" fill="white" stroke="white"/></svg>');
+        
+        --ic-home: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" stroke="white" stroke-width="0.3" d="M11.53 2.41a.75.75 0 0 1 .94 0l8.5 6.8c.18.13.28.35.28.58V21c0 .41-.34.75-.75.75h-6a.75.75 0 0 1-.75-.75v-4.5a1.75 1.75 0 1 0-3.5 0V21c0 .41-.34.75-.75.75h-6a.75.75 0 0 1-.75-.75V9.79c0-.23.1-.44.28-.59l8.5-6.79Zm-7.28 7.74v10.1h4.5V16.5a3.25 3.25 0 1 1 6.5 0v3.75h4.5v-10.1L12 3.96l-7.75 6.19Z"/></svg>');
+        --ic-home-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" stroke="white" stroke-width="0.3" d="M12.47 2.41a.75.75 0 0 0-.94 0l-8.5 6.8a.75.75 0 0 0-.28.58V21c0 .41.34.75.75.75h6c.41 0 .75-.34.75-.75v-4.5a1.75 1.75 0 1 1 3.5 0V21c0 .41.34.75.75.75h6c.41 0 .75-.34.75-.75V9.79c0-.23-.1-.44-.28-.59l-8.5-6.79Z"/></svg>');
         --ic-stream: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="white" stroke="white" fill-rule="evenodd" d="M4.25 14.5c0-.69.56-1.25 1.25-1.25h21c.69 0 1.25.56 1.25 1.25v13c0 .69-.56 1.25-1.25 1.25h-21c-.69 0-1.25-.56-1.25-1.25v-13Zm1.5.25v12.5h20.5v-12.5H5.75ZM8.25 9c0-.414.336-.75.75-.75h14c.414 0 .75.336.75.75s-.336.75-.75.75H9c-.414 0-.75-.336-.75-.75Zm3-5c0-.414.336-.75.75-.75h8c.414 0 .75.336.75.75s-.336.75-.75.75h-8c-.414 0-.75-.336-.75-.75Z"/></svg>');
         --ic-stream-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="white" stroke="white" fill-rule="evenodd" d="M4.25 14.5c0-.69.56-1.25 1.25-1.25h21c.69 0 1.25.56 1.25 1.25v13c0 .69-.56 1.25-1.25 1.25h-21c-.69 0-1.25-.56-1.25-1.25v-13Zm4-5.5A.75.75 0 0 1 9 8.25h14a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9Zm3-5a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5h-8a.75.75 0 0 1-.75-.75Z"/></svg>');
-        --ic-stream-old: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M10.35 4.21A2.75 2.75 0 0 1 13 2.25h6.32a2.75 2.75 0 0 1 2.64 3.54L20 12.25h2.47a2.75 2.75 0 0 1 1.76 4.86L8.57 30.17l3.42-11.42H6l4.36-14.54ZM13 3.75c-.55 0-1.04.36-1.2.9l-3.78 12.6h6l-2.58 8.58 11.85-9.87c.9-.75.36-2.2-.8-2.2h-4.49l2.52-8.4c.24-.8-.36-1.61-1.2-1.61H13Z" fill="white" stroke="white"/></svg>');
-        --ic-stream-active-old: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M12.99 2.25c-1.22 0-2.29.8-2.64 1.96L6 18.75h6L8.56 30.17l15.68-13.06a2.75 2.75 0 0 0-1.76-4.86H20l1.94-6.46a2.75 2.75 0 0 0-2.64-3.54H13Z" fill="white" stroke="white"/></svg>');
-        --ic-library: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25A2.75 2.75 0 0 1 7.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 5 4.25Zm8 0A2.75 2.75 0 0 1 15.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53ZM5 5.75c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm8 0c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm7.68 0c-.74 0-1.27.7-1.1 1.4l.04.12 6.63 18.24a1.13 1.13 0 0 0 2.16-.66l-.03-.12L21.75 6.5a1.13 1.13 0 0 0-1.07-.74Z" fill="white" stroke="white"/></svg>');
-        --ic-library-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25a2.75 2.75 0 0 1 2.75 2.58V25a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 5 4.25Zm8 0a2.75 2.75 0 0 1 2.74 2.58l.01.17v18a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53Z" fill="white" stroke="white"/></svg>');
+        --ic-library: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" stroke="white" stroke-width="0.3" d="M3.25 4c0-.41.34-.75.75-.75h3c.41 0 .75.34.75.75v16c0 .41-.34.75-.75.75H4a.75.75 0 0 1-.75-.75V4Zm1.5.75v14.5h1.5V4.75h-1.5Zm5-.75c0-.41.34-.75.75-.75h3c.41 0 .75.34.75.75v16c0 .41-.34.75-.75.75h-3a.75.75 0 0 1-.75-.75V4Zm1.5.75v14.5h1.5V4.75h-1.5Zm4.31 2.08a.76.76 0 0 0-.53.92l3.37 12.56c.1.4.52.64.92.53l2.9-.78c.4-.1.63-.51.52-.91L19.38 6.58a.75.75 0 0 0-.92-.53l-2.9.77Zm4.1 12.37L16.67 8.09l1.45-.39 2.97 11.1-1.45.4Z"/></svg>');
+        --ic-library-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" stroke="white" stroke-width="0.3" d="M4 3.25a.75.75 0 0 0-.75.75v16c0 .41.34.75.75.75h3c.41 0 .75-.34.75-.75V4A.75.75 0 0 0 7 3.25H4Zm6.5 0a.75.75 0 0 0-.75.75v16c0 .41.34.75.75.75h3c.41 0 .75-.34.75-.75V4a.75.75 0 0 0-.75-.75h-3Zm5.06 3.58a.76.76 0 0 0-.53.92l3.37 12.56c.1.4.52.64.92.53l2.9-.78c.4-.1.63-.51.52-.91L19.38 6.58a.75.75 0 0 0-.92-.53l-2.9.77Z"/></svg>');
     }
     
     :root {
-        --ph-font: Phosphor;
-        --ph-play: "\fd5a";
-        --ph-pause: "\fd38";
-        --ph-next: "\fdb7";
-        --ph-prev: "\fdb5";
-        --ph-repeat: "\f96b";
-        --ph-repeat-1: "\f96c";
-        --ph-shuffle: "\f994";
-        --ph-volume-0: "\fdd2";
-        --ph-volume-1: "\fdcf";
-        --ph-volume-2: "\fdce";
+        --ph-font: Phosphor-Fill;
+        --ph-play: "\e3d0";
+        --ph-pause: "\e39e";
+        --ph-next: "\e5a6";
+        --ph-prev: "\e5a4";
+        --ph-repeat: "\e3f6";
+        --ph-repeat-1: "\e3f8";
+        --ph-shuffle: "\e422";
+        --ph-volume-0: "\e458";
+        --ph-volume-1: "\e452";
+        --ph-volume-2: "\e450";
+        --po-font: Phosphor;
+        --po-play: var(--ph-play);
+        --po-pause: var(--ph-pause);
+        --po-next: var(--ph-next);
+        --po-prev: var(--ph-prev);
+        --po-repeat: var(--ph-repeat);
+        --po-repeat-1: var(--ph-repeat-1);
+        --po-shuffle: var(--ph-shuffle);
+        --po-volume-0: var(--ph-volume-0);
+        --po-volume-1: var(--ph-volume-1);
+        --po-volume-2: var(--ph-volume-2);
         --sp-font: glue1-spoticon;
         --sp-play: "\f132";
         --sp-pause: "\f130";
@@ -4487,22 +4542,22 @@
         background-size: 22px 22px;
     }
     .header__navWrapper .header__navMenu li a[data-menu-name="home"]:before {
-        background-image: var(--ic-home);
+        background-image: var(--ic/*[[home]]*/-home);
     }
     .header__navWrapper .header__navMenu li a.selected[data-menu-name="home"]:before {
-        background-image: var(--ic-home-active);
+        background-image: var(--ic/*[[home]]*/-home-active);
     }
     .header__navWrapper .header__navMenu li a[data-menu-name="stream"]:before {
-        background-image: var(--ic-stream);
+        background-image: var(--ic/*[[feed]]*/-stream);
     }
     .header__navWrapper .header__navMenu li a.selected[data-menu-name="stream"]:before {
-        background-image: var(--ic-stream-active);
+        background-image: var(--ic/*[[feed]]*/-stream-active);
     }
     .header__navWrapper .header__navMenu li a[data-menu-name="library"]:before {
-        background-image: var(--ic-library);
+        background-image: var(--ic/*[[libs]]*/-library);
     }
     .header__navWrapper .header__navMenu li a.selected[data-menu-name="library"]:before {
-        background-image: var(--ic-library-active);
+        background-image: var(--ic/*[[libs]]*/-library-active);
     }
     .header__navWrapper .header__navMenu li a.selected:before, .header__navWrapper .header__navMenu li a:hover:before, .header__navWrapper .header__navMenu>li>a:focus:before {
         opacity: 1;
