@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.36
+@version      0.9.37
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -472,7 +472,7 @@
         transition: color .2s,border-color .2s;
     }
     .moreActions .moreActions__button.sc-button-medium:before {
-        filter: contrast(0) brightness(0.8);
+        filter: contrast(0) brightness(1.2);
         transition: filter .2s;
     }
     .moreActions .moreActions__button.sc-button-medium:hover, .imageEditDropdown .sc-button:hover {
@@ -1762,7 +1762,8 @@
     /* brighten buttons */
     .sc-button-queue:before,
     .sc-button-small.sc-button-cta.sc-button-follow:before,
-    .sc-button-medium.sc-button-delete:before {
+    .sc-button-medium.sc-button-delete:before,
+    .sc-button-report:before {
         filter: brightness(7.5)
     }
     /*.gritter-close,*/
@@ -3921,7 +3922,8 @@
         font-weight: 300;
     }
     #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-lst-cnt .ot-chkbox > input:checked ~ label,
-    #onetrust-consent-sdk #onetrust-pc-sdk .ot-tgl input:checked + .ot-switch .ot-switch-nob {
+    #onetrust-consent-sdk #onetrust-pc-sdk .ot-tgl input:checked + .ot-switch .ot-switch-nob,
+    #onetrust-consent-sdk #onetrust-pc-sdk .ot-leg-btn-container .ot-inactive-leg-btn {
         background: var(--shd-accent-orange)
     }
     #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-lst #ot-lst-cnt .ot-chkbox > input:not(:checked) ~ label,
@@ -4186,6 +4188,11 @@
         width: auto;
         height: 100%;
         max-width: 52px;
+/*         max-height: 52px;
+        align-self: flex-start;
+        margin: 6px 0 6px 6px;
+        margin-right: 0;
+        border-radius: 6px; */
     }
     .sc-classic .gritter-with-image, .sc-classic .gritter-without-image {
         padding: 6px;
@@ -5364,15 +5371,35 @@
     iframe#two-factor-iframe {
         filter: brightness(0.9335) invert(1) hue-rotate(180deg);
     }
+    
+    /* textfield clear button */
+    .sc-classic .textfield__clear {
+        background: #444;
+    }
+    .sc-classic .textfield__clear:hover {
+        background: #333;
+    }
+    .sc-classic .textfield__clear:after, .sc-classic .textfield__clear:before {
+        width: 8px;
+        margin-left: -4px;
+    }
+    
+    /* filter dropdown */
+    .sc-classic .linkMenu__link {
+        padding: 0 12px;
+    }
+    .sc-classic .linkMenu__list {
+        padding: 6px 0;
+    }
 
 }
-@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/.*/following/?") {
+@-moz-document regexp("http(s)?:\\/\\/(www\\.)?soundcloud\\.com\\/.*\\/following\\/?") {
     .badgeList ul { /* Follow list sorting */
         display: flex;
         flex-flow: row /*[[sort-fol]]*/;
     }
 }
-@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?w\.soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") { /* widget/iframe */
+@-moz-document regexp("http(s)?:\\/\\/(www\\.)?w\\.soundcloud\\.com\\/?((?!jobs|settings\\/connections)(.|[\\?\\&=\\-_\\/+])*)") { /* widget/iframe */
     /*[[widget]]*/
     
     .g-background-default {
@@ -5525,7 +5552,7 @@
     
 }
 
-@-moz-document regexp("https?:\\/\\/(?:|www\\.)?secure\\.soundcloud\\.com\\/?(?:(?!jobs|settings\\/connections)(?:.|[\\?\\&=\\-_\\/+])*)") {
+@-moz-document regexp("https?:\\/\\/(www\\.)?secure\\.soundcloud\\.com\\/?((?!jobs|settings\\/connections)(.|[\\?\\&=\\-_\\/+])*)") {
     body[marginwidth="0"][marginheight="0"], body[marginwidth="0"][marginheight="0"].sc-classic {
         background: #0000!important;
     }
@@ -5589,7 +5616,7 @@
     }
 }
 
-@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/library") {
+@-moz-document regexp("https?:\\/\\/(www\\.)?soundcloud.com\\/you\\/library.*") {
     /* Make Library section a hell of a lot nicer :) */
     .collection__section {
         width: 50%;
@@ -5651,7 +5678,7 @@
         visibility: hidden;
     }
 }
-@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/(sets|albums|stations|following)/?") {
+@-moz-document regexp("https?:\\/\\/(www\\.)?soundcloud\\.com\\/you\\/(sets|albums|stations|following)\\/?") {
     .badgeList__item {
         width: 150px!important;
     }
@@ -5659,13 +5686,14 @@
         right: 40px;
     }
 }
-@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/you/history/?") {
+@-moz-document regexp("https?:\\/\\/(www\\.)?soundcloud\\.com\\/you\\/history\\/?") {
     .collectionSection__filters {
         right: 140px;
     }
 }
-@-moz-document regexp("http(s)?://(|www.)?insights-ui.soundcloud.com/.*") {
+@-moz-document regexp("https?:\\/\\/(www\\.)?insights-ui\\.soundcloud\\.com\\/.*") {
     :root { /* Messy new insights page update */
+        --font-inter: var(--font-main);
         --soundcloudOrange: #ff4637;
         --special-color: var(--shd-accent-orange);
         --text-color-main: var(--white);
@@ -5755,9 +5783,177 @@
     .Pill_Pill__2lBjK.Pill_isActive__1nv81 > .MetricNavigation_Icon__1tj-o, button.Pill_Pill__2lBjK.Pill_isActive__1nv81:not(isDisabled):hover > .MetricNavigation_Icon__1tj-o {
         color: var(--button-primary-font-color)!important;
     }
+    svg[class*="Badges_Badge_"] > path[fill="black"] {
+        fill: white;
+    }
+    [class*="fans_FanBookTitle_"], [class*="fans_TopFansTotal_"] {
+        border-color: #fff3;
+    }
+    svg[class*="mui-"] > g:is(.MuiChartsAxis-bottom,.MuiChartsAxis-left) .MuiChartsAxis-tickLabel {
+        fill: var(--primary-color);
+    }
+    svg[class*="mui-"] .MuiBarElement-root {
+        fill: var(--soundcloudOrange);
+    }
+    .mui-1fltio3 {
+        background-color: var(--shd-bg-lighter);
+    }
+    .mui-dd877o {
+        color: rgb(255, 255, 255);
+        background-color: rgba(255, 255, 255, 0.16);
+    }
+    .mui-dd877o:hover {
+        background-color: rgb(48, 48, 48);
+    }
+    /* fixing soundclouds mistakes */
+    [class*="List_Container_"] {
+        overflow: auto;
+    }
+    [class*="List_ListItemContentMain_"], [class*="TopWebsites_SelectableUrl_"] {
+        overflow-x: auto;
+    }
+    /* selected tab pill thing */
+    .Pill_Pill__dL_w3.Pill_isActive__MIs14 > .MetricNavigation_Icon__2_mGA {
+        color: var(--button-primary-font-color);
+    }
+    .Pill_Pill__dL_w3.Pill_isActive__MIs14, button.Pill_Pill__dL_w3.Pill_isActive__MIs14:not(isDisabled):hover {
+        font-weight: 700;
+    }
+    .mui-1rtvqhv rect[fill="rgba(255, 255, 255, 0.16)"] {
+        fill: rgba(0, 0, 0, 0.08);
+    }
+    
+    /* world map */
+/*     svg[class*="WorldMap_WorldMap_"] > path[style*="fill: rgb(243, 243, 243)"] {
+        fill: rgb(48, 48, 48) !important;
+    }
+    svg[class*="WorldMap_WorldMap_"] > path:is([style*="fill: rgb(121, 57, 42)"],[style*="fill: rgb(245, 220, 217)"]) {
+        fill: hsl(7, 48%, 32%) !important;
+    }
+    svg[class*="WorldMap_WorldMap_"] > path:is([style*="fill: rgb(138, 60, 41)"],[style*="fill: rgb(246, 212, 207)"]) {
+        fill: hsl(7, 54%, 37%) !important;
+    }
+    svg[class*="WorldMap_WorldMap_"] > path:is([style*="fill: rgb(139, 60, 40)"],[style*="fill: rgb(246, 211, 207)"]) {
+        fill: hsl(8, 55%, 38%) !important;
+    }
+    svg[class*="WorldMap_WorldMap_"] > path:is([style*="fill: rgb(146, 61, 39)"],[style*="fill: rgb(246, 207, 202)"]) {
+        fill: hsl(8, 58%, 39%) !important;
+    }
+    svg[class*="WorldMap_WorldMap_"] > path:is([style*="fill: rgb(168, 65, 36)"],[style*="fill: rgb(248, 193, 186)"]) {
+        fill: hsl(8, 55%, 42%) !important;
+    }
+    svg[class*="WorldMap_WorldMap_"] > path:is([style*="fill: rgb(176, 67, 35)"],[style*="fill: rgb(248, 187, 178)"]) {
+        fill: hsl(10, 67%, 43%) !important;
+    }
+    svg[class*="WorldMap_WorldMap_"] > path:is([style*="fill: rgb(198, 72, 30)"],[style*="fill: rgb(250, 168, 155)"]) {
+        fill: hsl(11, 74%, 45%) !important;
+    }
+    svg[class*="WorldMap_WorldMap_"] > path[style*="fill: rgb(255, 85, 0)"] {
+        fill: var(--soundcloudOrange) !important;
+    } */
+    svg[class*="WorldMap_WorldMap_"][fill="rgb(48, 48, 48)"] {
+        filter: saturate(0) contrast(1.7) sepia(1) contrast(0.625) hue-rotate(-25deg) saturate(11) hue-rotate(/*[[hue]]*/deg) hue-rotate(2deg);
+    }
+    svg[class*="WorldMap_WorldMap_"][fill="rgb(243, 243, 243)"] {
+        filter: contrast(0.78) invert() hue-rotate(180deg) saturate(2.8) brightness(1.28) saturate(0) contrast(1.6) sepia(1) contrast(0.625) hue-rotate(-25deg) saturate(11) hue-rotate(/*[[hue]]*/deg) hue-rotate(2deg);
+    }
+    
+    /* cards */
+    [class*="DetailsPageLayout_Grid_"] [class*="Card_DetailsPageCard_"] {
+        background-color: unset;
+    }
+    .Card_CardResponsive__WtKB1 .DataList_PlaceholderFadeOutBackground__hw2xw {
+        fill: var(--surface-color);
+        border-bottom: 2px solid var(--highlight-color);
+        margin-bottom: 2px;
+    }
+    
+    /* dropdown menu */
+    .mui-1k5xlfx .MuiMenu-paper, .mui-1y2ffr5 .MuiMenu-paper  {
+        border-radius: 12px;
+        border: 1px solid #4448;
+        background-color: var(--shd-bg-dropdown);
+        backdrop-filter: blur(32px);
+        color: #999;
+    }
+    .MuiMenu-paper .MuiMenu-list .MuiMenuItem-root, .MuiMenu-paper .MuiMenu-list :is(.mui-1wgfqo9,.mui-pxfwaq):not(:hover) {
+        background-color: #0000;
+        color: #999;
+    }
+    .mui-1y2ffr5 .MuiMenu-paper .MuiMenuItem-root.Mui-selected {
+        color: #fff;
+    }
+    
+    /* calendar */
+    .mui-d9ba2b, .mui-9fykwh {
+        border-radius: 12px !important;
+        background-color: var(--shd-bg-dropdown) !important;
+        backdrop-filter: blur(32px);
+        color: rgb(255, 255, 255);
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background-image: unset !important;
+    }
+    .mui-1p6jwil {
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .mui-rlsl4u, .mui-a11gmb {
+        color: rgb(255, 255, 255);
+    }
+    .mui-rlsl4u.Mui-disabled:not(.Mui-selected), .mui-a11gmb.Mui-disabled:not(.Mui-selected) {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    /* date pills */
+    :is(.Mui-selected, *):is(.mui-6aagbz, .mui-17n8gub, .mui-1rjk8z, .mui-13umkdg, .mui-yi6m1z, .mui-uobnux, .mui-12fu2jv, .mui-iod049, .mui-ahsg8z, .mui-1lca0dv, .mui-1p8n8vs, .mui-1gt6v4z, .mui-1iopzwm, .mui-1qkyeur, .mui-azw6oe, .mui-1lly2kj) {
+        color: rgb(255, 255, 255);
+        background-color: var(--soundcloudOrange);
+    }
+    :is(.Mui-selected, *):is(.mui-6aagbz, .mui-17n8gub, .mui-1rjk8z, .mui-13umkdg, .mui-yi6m1z, .mui-uobnux, .mui-12fu2jv, .mui-iod049, .mui-ahsg8z, .mui-1lca0dv, .mui-1p8n8vs, .mui-1gt6v4z, .mui-1iopzwm, .mui-1qkyeur, .mui-azw6oe, .mui-1lly2kj):is(:focus,:hover) {
+        background-color: #ff463780;
+    }
+    :is(.mui-1p8n8vs, .mui-1qkyeur):is(:not(.Mui-selected), *) {
+        background-color: #fff2;
+        border: none;
+        box-shadow: inset 0 0 4px 2px #fff2, 0 0 8px #fff2;
+    }
+    :is(.mui-1p8n8vs, .mui-1qkyeur):is(:not(.Mui-selected), *):is(:focus,:hover) {
+        background-color: #fff3;
+    }
+    :is(.mui-1lca0dv, .mui-1iopzwm):is(:not(.Mui-selected), *) {
+        border: none;
+        box-shadow: inset -8px 0 8px -4px #fff4, 8px 0 8px -6px #fff4;
+    }
+    /* arrows/buttons */
+    .mui-1gyulev, .mui-1e03iha, .mui-zzbkxf, .mui-8s6vvw, .mui-104wej5 {
+        color: rgb(255, 255, 255);
+    }
+    :is(.mui-1gyulev, .mui-1e03iha, .mui-zzbkxf, .mui-8s6vvw):hover {
+        background-color: rgb(48, 48, 48);
+    }
+    .Mui-disabled:is(.mui-1gyulev, .mui-1e03iha, .mui-zzbkxf, .mui-8s6vvw) {
+        color: rgba(255, 255, 255, 0.3);
+    }
+    .mui-104wej5:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+    /* month/year pills */
+    :is(.mui-126qsd2,.mui-zydket,.mui-4ydb6g):hover {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+    .Mui-disabled:is(.mui-126qsd2,.mui-zydket,.mui-4ydb6g) {
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .Mui-selected:is(.mui-126qsd2,.mui-zydket,.mui-4ydb6g) {
+        color: rgba(0, 0, 0, 0.87);
+        background-color: rgb(255, 255, 255);
+    }
+    .Mui-selected:is(.mui-126qsd2,.mui-zydket,.mui-4ydb6g):is(:focus,:hover) {
+        background-color: rgb(178, 178, 178);
+    }
+    
 }
 
-@-moz-document regexp("http(s)?://(|www.)?soundcloud.com/connect?.*") {
+@-moz-document regexp("https?:\\/\\/(www\\.)?soundcloud\\.com\\/connect\\?.*") {
     /* Snippet from 'SoundCloud - Quite Dark' by pawelos076232: userstyles.org/styles/143738 */
     #oauth,
     #oauth2_authorization,
@@ -5775,5 +5971,36 @@
     }
     .userbadge.context {
         border-color: #222
+    }
+}
+@-moz-document regexp("https?:\\/\\/(www\\.)?artists\\.soundcloud\\.com\\/?.*") {
+    :root, .dark {
+        --color-surface: 17, 17, 17;
+        --color-highlight: 24, 24, 24;
+        --color-special: 255, 70, 55;
+    }
+    .theme-dark {
+        --surface-color: var(--shd-bg-primary);
+    }
+    html.dark {
+        --tw-bg-opacity: 1;
+        background-color: rgba(var(--color-surface), var(--tw-bg-opacity));
+    }
+    
+    .dark [alt="Notification Image"][src="https://s3.amazonaws.com/repost-prod-public/notifications/PAYMENT_SUCCESSFUL.svg"] {
+        filter: invert(1);
+    }
+    html.dark .tooltip-arrow-left:after, html.dark .tooltip-arrow-right:after {
+        --tw-bg-opacity: 1;
+        background-color: rgba(var(--color-highlight), var(--tw-bg-opacity));
+    }
+    .border-primary.border-b {
+        border-bottom-width: 2px;
+    }
+    .border-primary, .border-t-2, .border-t-thin {
+        --tw-border-opacity: 0.1;
+    }
+    .border-t-2, .border-t-thin {
+        border-color: rgba(var(--color-primary), var(--tw-border-opacity));
     }
 }
