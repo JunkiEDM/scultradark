@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.38
+@version      0.9.39
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -58,7 +58,7 @@
     stats-off   "Hide" <<<EOT 
     height:0; EOT;
 }
-@advanced dropdown hin "Insights on homepage (\"Your Latest Upload\")" {
+@advanced dropdown hin "Artist Insights on homepage" {
     stats-on    "Show" <<<EOT 
     display:block; EOT;
     stats-off   "Hide" <<<EOT 
@@ -718,7 +718,7 @@
         filter: hue-rotate(360deg)
     }
     #app .l-container #content .sc-button.sc-button-small:not(.sc-button-follow):before {
-        filter: brightness(10)
+        filter: contrast(0) brightness(2);
     }
     #app .l-container #content .sc-button.sc-button-small:not(.sc-button-follow).sc-button-repost:not(.sc-button-selected):before {
         background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+c3RhdHNfcmVwb3N0PC90aXRsZT48cGF0aCBkPSJNMiA2djVjMCAxLjEwNS45MDIgMiAyLjAwOSAyaDYuOTg3SDEwbC0yLTJINFY2aC0uNUg2TDMgMyAwIDZoMnptNC0zaC0uOTk2IDYuOTg3QzEzLjA5OCAzIDE0IDMuODk1IDE0IDV2NWgtMlY1SDhMNiAzem0xMCA3aC02bDMgMyAzLTN6IiBmaWxsPSIjMjIyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=)
@@ -970,10 +970,10 @@
         transition-duration: 0.2s;
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation:before,
-    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights:before {
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights:before,
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-follow:before {
         left: 36px;
-        background-position: center;
-        background-size: 16px 12px;
+        background-position: 50% 45%;
         filter: brightness(10)
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .profileTabs.g-tabs.g-tabs-medium {
@@ -1058,10 +1058,11 @@
         color: #fff !important;
         padding: 0 15px;
         transition-duration: 0.25s;
+        filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.m-boldIcon):hover {
         background: var(--shd-accent-secondary) !important;
-        filter: drop-shadow(2px 2px 6px #000) hue-rotate(/*[[hue]]*/deg);
+        filter: drop-shadow(2px 2px 6px #000) hue-rotate(/*[[hue]]*/deg) var(--fil) !important;
         transition-duration: 0.25s;
     }
 
@@ -1728,11 +1729,15 @@
         opacity: 1;
     }
     .sc-tag,
+    .artistConnectSoundBadge__tag>.sc-tag.sc-tag-small,
     .sc-tag:visited {
         color: #ccc!important;
         background: #2d2d2d;
         box-shadow: inset 0 0 2px #000;
         border: none
+    }
+    .sc-tag:hover {
+        background: #222!important;
     }
     .queueItemView.m-active,
     .queueItemView:hover a.sc-link-light:hover,
@@ -1749,9 +1754,6 @@
     .sc-classic .queueFallback__stationMode,
     .sc-classic .queue__panel {
         border-color: #333
-    }
-    .sc-tag:hover {
-        background: #222
     }
     .backgroundGradient__buffer[style] {
         /*background: #200122!important;
@@ -2651,21 +2653,18 @@
     /* .moreActions .moreActions__button.sc-button-medium.sc-button-like:before {
         filter: invert(1) brightness(0.5);
     } */
-    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected):not(.playbackSoundBadge__follow):hover {
-        border-color: #fff;
-        border: 0;
-        border-radius: 120px;
+    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow):hover {
         background: var(--shd-accent-secondary) !important;
-        color: #fff !important;
         transition-duration: 0.25s;
     }
-    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.sc-button-selected):not(.playbackSoundBadge__follow) {
+    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow) {
         border-color: var(--shd-bg-lighter);
         border: 0;
         border-radius: 120px;
         background: var(--shd-accent-primary) !important;
         color: #fff !important;
-        transition-duration: 1s;
+        padding: 0 15px;
+        transition-duration: 0.25s;
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     .audibleAttributeDesc, .listenInfo__releaseTitle, .listenInfo__releaseData {
@@ -3285,7 +3284,7 @@
     .userInfoBar {
         padding-top: 20px!important;
     }
-    .profileHeaderBackground > div {
+    :not(.artistConnectContainerItem__userInfo)>.profileHeaderBackground > div {
         border-radius: 0px 0px 32px 32px!important;
         box-shadow: inset 0px -10px 24px 4px #1118;
         height: 69.5%;
@@ -4475,10 +4474,6 @@
     .soundTitle__titleHeroContainer {
         margin-top: 4px;
     }
-    
-    .soundTitle__titleHeroContainer {
-        margin-top: 4px;
-    }
     .soundTitle__title {
         padding-top: 4px;
     }
@@ -5286,12 +5281,15 @@
     
     /* Homepage insights ("Your Latest Upload") */
     .sc-button-pinToProfile:before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13' fill='none'%3E%3Cpath d='M3.40725 8.88557L0.460991 5.93931C0.265729 5.74405 0.265729 5.42746 0.460991 5.2322C1.28209 4.4111 2.41921 3.98692 3.57747 4.06965L3.95369 4.09652L6.82495 1.22526C7.54091 0.509303 8.70171 0.509303 9.41768 1.22526L11.7747 3.58229C12.4907 4.29825 12.4907 5.45905 11.7747 6.17501L8.90344 9.04627L8.93031 9.42249C9.01305 10.5807 8.58886 11.7179 7.76776 12.539C7.5725 12.7342 7.25592 12.7342 7.06065 12.539L4.11436 9.59268L1.75735 11.9497L1.05025 11.2426L3.40725 8.88557ZM7.53206 1.93237L4.49936 4.96507C4.39682 5.06761 4.25482 5.12058 4.11018 5.11025L3.50623 5.06711C2.80562 5.01707 2.11531 5.21424 1.55127 5.61537L7.38459 11.4487C7.78572 10.8847 7.9829 10.1943 7.93285 9.49374L7.88971 8.88978C7.87938 8.74514 7.93235 8.60314 8.03489 8.50061L11.0676 5.46791C11.393 5.14247 11.393 4.61483 11.0676 4.28939L8.71057 1.93237C8.38513 1.60693 7.8575 1.60693 7.53206 1.93237Z' fill='%23222' stroke='%23222' stroke-width='0.7'/%3E%3C/svg%3E%0A");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13' fill='none'%3E%3Cpath d='M3.40725 8.88557L0.460991 5.93931C0.265729 5.74405 0.265729 5.42746 0.460991 5.2322C1.28209 4.4111 2.41921 3.98692 3.57747 4.06965L3.95369 4.09652L6.82495 1.22526C7.54091 0.509303 8.70171 0.509303 9.41768 1.22526L11.7747 3.58229C12.4907 4.29825 12.4907 5.45905 11.7747 6.17501L8.90344 9.04627L8.93031 9.42249C9.01305 10.5807 8.58886 11.7179 7.76776 12.539C7.5725 12.7342 7.25592 12.7342 7.06065 12.539L4.11436 9.59268L1.75735 11.9497L1.05025 11.2426L3.40725 8.88557ZM7.53206 1.93237L4.49936 4.96507C4.39682 5.06761 4.25482 5.12058 4.11018 5.11025L3.50623 5.06711C2.80562 5.01707 2.11531 5.21424 1.55127 5.61537L7.38459 11.4487C7.78572 10.8847 7.9829 10.1943 7.93285 9.49374L7.88971 8.88978C7.87938 8.74514 7.93235 8.60314 8.03489 8.50061L11.0676 5.46791C11.393 5.14247 11.393 4.61483 11.0676 4.28939L8.71057 1.93237C8.38513 1.60693 7.8575 1.60693 7.53206 1.93237Z' fill='%23222' stroke='%23222' stroke-width='0.6'/%3E%3C/svg%3E%0A");
     }
 
     .latestUploadModule__moreActionsButton:before {
         background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjE0cHgiIGhlaWdodD0iNHB4IiB2aWV3Qm94PSIwIDAgMTQgNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICA8dGl0bGU+bW9yZTwvdGl0bGU+CiAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9InJnYigzNCwgMzQsIDM0KSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxjaXJjbGUgY3g9IjIiIGN5PSIyIiByPSIyIi8+CiAgICA8Y2lyY2xlIGN4PSI3IiBjeT0iMiIgcj0iMiIvPgogICAgPGNpcmNsZSBjeD0iMTIiIGN5PSIyIiByPSIyIi8+CiAgPC9nPgo8L3N2Zz4K) no-repeat 50% 50% !important;
         background-size: 14px 4px!important;
+    }
+    .latestUploadModule__moreActionsButton.sc-button-active:before, .latestUploadModule__moreActionsButton.sc-button-selected:before {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjE0cHgiIGhlaWdodD0iNHB4IiB2aWV3Qm94PSIwIDAgMTQgNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICA8dGl0bGU+bW9yZTwvdGl0bGU+CiAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9InJnYigyNTUsIDg1LCAwKSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxjaXJjbGUgY3g9IjIiIGN5PSIyIiByPSIyIi8+CiAgICA8Y2lyY2xlIGN4PSI3IiBjeT0iMiIgcj0iMiIvPgogICAgPGNpcmNsZSBjeD0iMTIiIGN5PSIyIiByPSIyIi8+CiAgPC9nPgo8L3N2Zz4K) !important;
     }
     
     .latestUploadContainer__soundDetails__stats .soundStats__container {
@@ -5424,7 +5422,91 @@
     .getHeard__firstFansMoreInfoLinkArrow {
         filter: invert(1);
     }
-
+    
+    /* homepage - artist connect */
+    .artistConnectContainerItem__userInfo>.profileHeaderBackground,
+    .artistConnectContainer .artistConnectContainerItem__userInfo>.profileHeaderBackground.artistConnectContainerItem__background.m-visualLoaded>.profileHeaderBackground__visual{
+        background-color: var(--shd-bg-primary);
+    }
+    .artistConnectContainer .artistConnectContainerItem__userInfo>.profileHeaderBackground.artistConnectContainerItem__background.m-visualLoaded>.profileHeaderBackground__visual:after {
+        content: "";
+        display: block;
+        width: 100%;
+        max-height: 100%;
+        position: absolute;
+        background-image: linear-gradient(0deg, #111 -10%, #1110);
+        aspect-ratio: 62/13;
+    }
+    .artistConnectContainerItem__location {
+        color: #ccc;
+    }
+    .artistConnectContainerItem__followButton {
+        margin-bottom: 46px;
+    }
+    .artistConnectItem {
+        width: 100%;
+    }
+    .artistConnect.artistConnectContext .soundTitle__title {
+        padding: 0;
+        margin-top: -3px;
+        background: none;
+    }
+    .artistConnect.artistConnectContext.visualSound .sound__header {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    .artistConnect.artistConnectContext.visualSound .sound__header > .soundTitle {
+        width: 100%;
+    }
+    .artistConnect.artistConnectContext.visualSound .sound__header > .soundTitle .soundTitle__playButton .sc-button-xlarge {
+        width: 28px;
+        height: 28px;
+        margin: 1px 0 1px 1px;
+        line-height: 42px;
+    }
+    .artistConnect.artistConnectContext.visualSound .sound__header > .soundTitle .soundTitle__playButton .sc-button-xlarge:before {
+        background-size: auto;
+    }
+    .sound.artistConnectContext .soundTitle__usernameTitleContainer {
+        max-width: 100%;
+    }
+    .artistConnect.artistConnectContext.visualSound .soundTitle__username {
+        display: none;
+    }
+    
+    .artistConnectSoundBadge__commentAndTag .commentForm.commentForm__transition.m-small.visible .commentForm__wrapper {
+        height: var(--comment-height);
+        margin: 0;
+    }
+    .artistConnectSoundBadge__commentAndTag .commentForm.commentForm__transition.m-small.visible .commentForm__wrapper input {
+        padding: 0 16px;
+    }
+    .artistConnectSoundBadge__tag {
+        margin-top: 12px;
+    }
+    
+    .userStats__item:before {
+        filter: contrast(0) brightness(1.2)
+    }
+    .userStats__item, .userStats__item:hover, .userStats__item:visited {
+        color: #ccc !important;
+    }
+    
+    /* your first upload */
+    .firstUploadNudge__soundArtwork.audibleTile.playableTile {
+        max-width: 128px;
+    }
+    .firstUploadNudge {
+        background: linear-gradient(135deg, #1F3C39 0%, #405656 100%);
+        background: linear-gradient(135deg, #1F3C39 0%, #564c40 100%);
+        border-radius: 16px;
+        box-shadow: 2px 4px 16px -4px #0005;
+    }
+    .firstUploadNudge__soundDetails {
+        overflow: unset;
+    }
 }
 @-moz-document regexp("http(s)?:\\/\\/(www\\.)?soundcloud\\.com\\/.*\\/following\\/?") {
     .badgeList ul { /* Follow list sorting */
