@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.39
+@version      0.9.40
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -268,41 +268,6 @@
         --shd-bg-dropdown: #191919aa;
         --shd-ds-small: drop-shadow(0 2px 5px #0009);
 
-        --background-surface-color: var(--shd-bg-primary);
-        --background-highlight-color: #303030;
-        --background-light-color: #fff;
-        --background-dark-color: var(--shd-bg-primary);
-        --font-primary-color: #fff;
-        --font-secondary-color: #999;
-        --font-special-color: #f50;
-        --font-link-color: #3370dd;
-        --font-error-color: #d61348;
-        --font-light-color: #fff;
-        --font-dark-color: #111;
-        --button-primary-background-color: #fff;
-        --button-primary-font-color: #000;
-        --button-secondary-background-color: #303030;
-        --button-secondary-font-color: #fff;
-        --button-disabled-background-color: #303030;
-        --button-disabled-font-color: #999;
-        --button-special-background-color: #f50;
-        --button-special-font-color: #fff;
-        --button-light-background-color: #fff;
-        --button-light-font-color: #000;
-        --button-dark-background-color: var(--shd-bg-primary);
-        --button-dark-font-color: #fff;
-        --overlay-default-color: hsla(0, 0%, 100%, 0.4);
-        --input-default-background-color: #f3f3f3;
-        --input-default-border-color: transparent;
-        --input-focused-background-color: #f3f3f3;
-        --input-focused-border-color: #666;
-        --input-invalid-background-color: #f3f3f3;
-        --input-invalid-border-color: #d61348;
-        --checkbox-default-background-color: transparent;
-        --checkbox-default-border-color: #666;
-        --checkbox-checked-background-color: #f50;
-        --checkbox-checked-border-color: #f50;
-
         --fil: /*[[adv]]*/;
         --hue: /*[[hue]]*/;
         --blu: /*[[blu]]*/;
@@ -311,7 +276,126 @@
         --font: /*[[font]]*/;
         
         --font-main: /*[[font]]*/Variable, /*[[font]]*/ var, /*[[font]]*/, "InterVariable", "Inter var", Inter, Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
-    }    
+    }
+    /* soundcloud colors */
+    :root {
+        --special-color: var(--shd-accent-orange);
+        --surface-color: var(--shd-bg-lighter);
+        --surface-rgb: 17,17,17;
+        --primary-color: #fff;
+        --primary-rgb: 255,255,255;
+        --secondary-color: #999;
+        --secondary-rgb: 153,153,153;
+        --highlight-color: #303030;
+        --highlight-rgb: 48,48,48;
+        --link-color: #699fff;
+        --link-rgb: 105,159,255;
+        --overlay-color: hsla(0,0%,100%,.4);
+        --overlay-rgb: 255,255,255,0.4;
+        --imageBorder-color: hsla(0,0%,100%,.15);
+        --imageBorder-rgb: 255,255,255,0.15;
+        --background-surface-color: var(--shd-bg-primary);
+        --background-highlight-color: #303030;
+        --background-light-color: #fff;
+        --background-dark-color: var(--shd-bg-primary);
+        --font-primary-color: #fff;
+        --font-secondary-color: #999;
+        --font-link-color: #699fff;
+        --font-special-color: var(--special-color);
+        --font-error-color: #d61348;
+        --font-light-color: #fff;
+        --font-dark-color: #111;
+        --button-disabled-background-color: #303030;
+        --button-disabled-font-color: #999;
+        --button-special-background-color: var(--special-color);
+        --button-special-font-color: #fff;
+        --button-light-background-color: #fff;
+        --button-light-font-color: #000;
+        --button-dark-background-color: var(--shd-bg-primary);
+        --button-dark-font-color: #fff;
+        --button-primary-background-color: #fff;
+        --button-primary-font-color: #000;
+        --button-primary-hover-font-color: rgba(0,0,0,.4);
+        --button-primary-disabled-background-color: #fff;
+        --button-primary-disabled-font-color: #000;
+        --button-primary-selected-background-color: #303030;
+        --button-primary-selected-font-color: #fff;
+        --button-primary-selected-hover-font-color: hsla(0,0%,100%,.4);
+        --button-primary-selected-active-font-color: #fff;
+        --button-primary-selected-active-background-color: #303030;
+        --button-primary-loading-background-color: #fff;
+        --button-primary-loading-font-color: rgba(0,0,0,.6);
+        --button-primary-loading-icon-color: #000;
+        --button-primary-active-background-color: #fff;
+        --button-primary-active-font-color: #000;
+        --button-secondary-background-color: #303030;
+        --button-secondary-font-color: #fff;
+        --button-secondary-hover-font-color: hsla(0,0%,100%,.4);
+        --button-secondary-disabled-background-color: #303030;
+        --button-secondary-disabled-font-color: #fff;
+        --button-secondary-selected-background-color: #303030;
+        --button-secondary-selected-active-background-color: #303030;
+        --button-secondary-loading-background-color: #303030;
+        --button-secondary-loading-font-color: hsla(0,0%,100%,.6);
+        --button-secondary-loading-icon-color: #fff;
+        --button-secondary-active-background-color: #303030;
+        --button-secondary-active-font-color: #fff;
+        --button-tertiary-font-color: #fff;
+        --button-tertiary-hover-font-color: hsla(0,0%,100%,.4);
+        --button-tertiary-disabled-background-color: #000;
+        --button-tertiary-disabled-font-color: #fff;
+        --button-tertiary-selected-background-color: #000;
+        --button-tertiary-selected-active-background-color: #000;
+        --button-tertiary-loading-background-color: #000;
+        --button-tertiary-loading-font-color: hsla(0,0%,100%,.6);
+        --button-tertiary-loading-icon-color: #fff;
+        --button-tertiary-active-font-color: #fff;
+        --overlay-default-color: hsla(0,0%,100%,.4);
+        --link-standard-color: #699fff;
+        --link-standard-focus-box-shadow: 0 0 0 2px #699fff;
+        --link-standard-active-color: rgba(105,159,255,.6);
+        --link-standard-hover-color: #699fff;
+        --link-standard-disabled-color: rgba(105,159,255,.6);
+        --link-primary-color: #fff;
+        --link-primary-focus-box-shadow: 0 0 0 2px #699fff;
+        --link-primary-disabled-color: hsla(0,0%,100%,.6);
+        --link-primary-active-color: hsla(0,0%,100%,.6);
+        --link-primary-hover-color: hsla(0,0%,100%,.4);
+        --link-secondary-color: #999;
+        --link-secondary-focus-box-shadow: 0 0 0 2px #699fff;
+        --link-secondary-disabled-color: hsla(0,0%,60%,.6);
+        --link-secondary-active-color: hsla(0,0%,60%,.6);
+        --link-secondary-hover-color: hsla(0,0%,60%,.4);
+        --tag-focused-box-shadow: 0 0 0 2px #699fff inset;
+        --tag-default-background-color: #303030;
+        --tag-default-font-color: #fff;
+        --tag-default-font-hover-color: hsla(0,0%,100%,.4);
+        --tag-selected-background-color: #fff;
+        --tag-selected-font-color: #000;
+        --tag-selected-font-hover-color: rgba(0,0,0,.4);
+        --input-default-background-color: #303030;
+        --input-default-border-color: transparent;
+        --input-default-font-color: #fff;
+        --input-placeholder-background-color: #303030;
+        --input-placeholder-font-color: #999;
+        --input-focused-background-color: #303030;
+        --input-focused-border-color: #999;
+        --input-focused-font-color: #fff;
+        --input-invalid-background-color: #303030;
+        --input-invalid-border-color: #d61348;
+        --input-disabled-background-color: hsla(0,0%,100%,.15);
+        --input-disabled-font-color: #fff;
+        --checkbox-default-background-color: transparent;
+        --checkbox-default-border-color: #666;
+        --checkbox-checked-background-color: var(--special-color);
+        --checkbox-checked-border-color: var(--special-color);
+        --toggle-on-handle-color: #000;
+        --toggle-on-handle-hover-color: rgba(0,0,0,.4);
+        --toggle-off-body-color: #999;
+        --toggle-off-body-hover-color: #999;
+        --toggle-off-handle-color: #000;
+        --toggle-off-handle-hover-color: rgba(0,0,0,.4);
+    }
     
     @supports not (font-variation-settings: normal) {
         :root {
@@ -5507,6 +5591,166 @@
     .firstUploadNudge__soundDetails {
         overflow: unset;
     }
+    
+    
+    /* new soundcloud ui redesign */
+    
+    /* dark mode variables */
+    ._1bqm8km0,._1iz3r9b0 {
+        --_4g70vm0: var(--shd-accent-primary);
+        --_4g70vm1: #00995c;
+        --_4g70vm2: #d61348;
+        --_4g70vm3: #fff;
+        --_4g70vm4: #000;
+        --_4g70vm5: linear-gradient(135deg,#9f34a9,#ff4600);
+        --_4g70vm6: #1877f2;
+        --_4g70vm7: #1da1f2;
+        --_4g70vm8: #e60023;
+        --_4g70vm9: #36465d;
+        --_4g70vma: transparent;
+        --_4g70vmb: #e6f7ee;
+        --_4g70vmc: #fff8e1;
+        --_4g70vmd: #ffebee;
+        --_4g70vme: var(--shd-bg-primary);
+        --_4g70vmf: #fff;
+        --_4g70vmg: #999;
+        --_4g70vmh: #303030;
+        --_4g70vmi: #699fff;
+        --_4g70vmj: hsla(0,0%,100%,.4);
+        --_4g70vmk: hsla(0,0%,100%,.15)
+    }
+    /* this is going to be hell to maintain */
+    
+    .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root):has(.Mui-checked), /* form group button selected */
+    .MuiSwitch-colorSuccess.Mui-checked + .MuiSwitch-track /* switch button */
+    {
+        background-color: var(--_4g70vm0);
+        filter: hue-rotate(/*[[hue]]*/deg);
+    }
+    .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root):has(.Mui-checked):hover /* form group button selected hover */
+    {
+        background-color: var(--shd-accent-secondary);
+    }
+    .mui-n430uj, /* tracks view primary text */
+    .mui-fmfkj, /* selected track bulk edit + add to playlist button icons */
+    .mui-15yj62u, /* tracks more button icon */
+    .MuiTypography-root, /* generic text selector */
+    .MuiButton-textPrimary, /* generic button text selector */
+    .MuiFormLabel-colorPrimary, /* form label */
+    .MuiAccordionSummary-content, /* accordion label */
+    .MuiAccordionSummary-expandIconWrapper, /* accordion expand arrow */
+    .MuiInputBase-colorPrimary /* input text */
+    {
+        color: var(--_4g70vmf);
+    }
+    .MuiInputAdornment-positionStart, /* input prefix */
+    .MuiCircularProgress-colorPrimary, /* loading spinner */
+    .MuiListSubheader-root /* list subheader */
+    {
+        color: var(--_4g70vmg);
+    }
+    .mui-28466c, /* all tracks checkbox */
+    ._2r4ec00, /* my tracks underline */
+    ._11yjo627, /* track view table header underline */
+    ._11yjo622 tr:last-child td, /* track view last child underline */
+    .svq6pq0, /* track view paginator overline */
+    .MuiOutlinedInput-root, /* input box */
+    .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root) /* form group button */
+    {
+        border-color: #666;
+    }
+    
+    .MuiOutlinedInput-root.Mui-focused /* focused input box */ {
+        border-color: #999;
+    }
+    .mui-15yj62u:hover, /* tracks more button hover */
+    .mui-fmfkj:hover, /* selected track bulk edit + add to playlist buttons */
+    .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root):hover, /* form group button hover */
+    .MuiButtonBase-root:hover, /* button hover */
+    .h2ki1a3 /* vertical rule */
+    {
+        background-color: #fff2;
+    }
+    ._11yjo622 ._11yjo626 td, /* selected tracks */
+    .MuiListSubheader-root /* list subheader */
+    {
+        background: var(--shd-bg-lighter);
+    }
+    ._1jk87g70 /* uploaded track hd indicator */
+    {
+        color: var(--shd-accent-blue);
+    }
+    .mui-14m35er:hover /* notifications, messages */
+    {
+        background-color: rgba(102, 102, 102, 0.04);
+        border-color: rgba(102, 102, 102, 0.15);
+    }
+    .tlirws0 /* bottom seekbar */
+    {
+        background-color: var(--_4g70vme);
+        color: var(--_4g70vmf);
+        filter: hue-rotate(/*[[hue]]*/deg) var(--fil)
+    }
+    .mui-ijebwn, /* dropdown menu */
+    .MuiMenu-paper.MuiPaper-root {
+        border-radius: 12px;
+        border: 1px solid #4448;
+        background-color: var(--shd-bg-dropdown);
+        backdrop-filter: blur(32px);
+        color: #999;
+    }
+    :is(.MuiMenu-paper.MuiPaper-root .MuiMenu-list .MuiButtonBase-root, /* dropdown menuitem hover */
+        .mui-wakfts.MuiButtonBase-root
+    ):is(:hover, .Mui-selected) {
+        background-color: #0d0d0d80;
+        box-shadow: 16px -4px 12px #1114 inset;
+        color: #ccc;
+    }
+    :is(.MuiMenu-paper.MuiPaper-root .MuiMenu-list .MuiButtonBase-root, /* dropdown menuitem */
+        .mui-wakfts.MuiButtonBase-root
+    ) {
+        transition-duration: 0.25s;
+    }
+    .MuiMenuItem-root .MuiListItemIcon-root { /* menuitem icon */
+        color: inherit;
+    }
+    .MuiTooltip-tooltip { /* hover tooltips */
+        border-radius: 12px;
+        border: 1px solid #4448;
+        background-color: var(--shd-bg-dropdown);
+        backdrop-filter: blur(32px);
+    }
+    ._1htqjyq0 /* hover tooltip contents */
+    { 
+        background-color: #0000;
+    }
+    .MuiTooltip-tooltip .MuiTooltip-arrow /* hover tooltip arrow */
+    {
+        border: 1px solid #4448;
+        color: var(--shd-bg-lighter);
+    }
+    img[alt="broken hourglass"] /* broken hourglass icon (next pro unlimited uploads) */
+    {
+        filter: invert(1);
+    }
+    .MuiPaper-root.MuiPaper-elevation /* generic elevated background selector */
+    {
+        background: var(--_4g70vme);
+        color: var(--_4g70vmf);
+    }
+    svg.h2ki1a1 > path /* 808 cut in half */
+    {
+        fill: #999;
+    }
+    .SideNavFooterLink_Link__HA5me, .SideNavFooterLink_Link__HA5me:visited /* footer links */
+    {
+        outline: none;
+        border: none;
+    }
+    .SideNavFooterLink_Link__HA5me:hover, .SideNavFooterLink_Link__HA5me:visited:hover /* footer links hover */
+    {
+        color: inherit;
+    }
 }
 @-moz-document regexp("http(s)?:\\/\\/(www\\.)?soundcloud\\.com\\/.*\\/following\\/?") {
     .badgeList ul { /* Follow list sorting */
@@ -6089,17 +6333,38 @@
     }
 }
 @-moz-document regexp("https?:\\/\\/(www\\.)?artists\\.soundcloud\\.com\\/?.*") {
+    :root {
+        --color-surface: 0, 0, 0;
+        --color-primary: 255, 255, 255;
+        --color-secondary: 153, 153, 153;
+        --color-highlight: 48, 48, 48;
+        --color-overlay: hsla(0,0%,100%,.4);
+        --color-disabled: hsla(0,0%,100%,.15);
+        --color-link: 105, 159, 255;
+        --border-color-image: hsla(0,0%,100%,.25);
+        --color-warning: rgba(255,194,51,.3);
+        --icon-primary-invert-percentage: 100%;
+    }
     :root, .dark {
+        scrollbar-color: dark;
         --color-surface: 17, 17, 17;
         --color-highlight: 24, 24, 24;
         --color-special: 255, 70, 55;
     }
-    .theme-dark {
+    .theme-dark, :root {
         --surface-color: var(--shd-bg-primary);
+        --secondary-color: #999;
+        --imageBorder-color: hsla(0,0%,100%,.15);
     }
-    html.dark {
+    html.dark, html, #should-cover-here {
         --tw-bg-opacity: 1;
         background-color: rgba(var(--color-surface), var(--tw-bg-opacity));
+    }
+    html .tooltip-arrow-left:after,html .tooltip-arrow-right:after {
+        background-color: #303030
+    }
+    html .icon-primary {
+        filter: brightness(0) saturate(100%) invert(100%)
     }
     
     .dark [alt="Notification Image"][src="https://s3.amazonaws.com/repost-prod-public/notifications/PAYMENT_SUCCESSFUL.svg"] {
@@ -6117,5 +6382,83 @@
     }
     .border-t-2, .border-t-thin {
         border-color: rgba(var(--color-primary), var(--tw-border-opacity));
+    }
+    
+    .dark\:border-0 {
+        border-width: 0
+    }
+    .dark\:border-primary {
+        --tw-border-opacity: 1;
+        border-color: rgba(var(--color-primary),var(--tw-border-opacity))
+    }
+    .dark\:bg-\[\#273C33\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(39 60 51/var(--tw-bg-opacity))
+    }
+    .dark\:bg-\[\#4d2e33\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(77 46 51/var(--tw-bg-opacity))
+    }
+    .dark\:bg-\[\#6461E0\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(100 97 224/var(--tw-bg-opacity))
+    }
+    .dark\:bg-\[\#DA3320\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(218 51 32/var(--tw-bg-opacity))
+    }
+    .dark\:bg-\[\#E0F2F1\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(224 242 241/var(--tw-bg-opacity))
+    }
+    .dark\:bg-\[\#EFEFF0\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(239 239 240/var(--tw-bg-opacity))
+    }
+    .dark\:bg-\[black\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(0 0 0/var(--tw-bg-opacity))
+    }
+    .dark\:bg-primary {
+        --tw-bg-opacity: 1;
+        background-color: rgba(var(--color-primary),var(--tw-bg-opacity))
+    }
+    .dark\:bg-surface {
+        --tw-bg-opacity: 1;
+        background-color: rgba(var(--color-surface),var(--tw-bg-opacity))
+    }
+    .dark\:text-\[black\] {
+        --tw-text-opacity: 1;
+        color: rgb(0 0 0/var(--tw-text-opacity))
+    }
+    .dark\:text-primary {
+        --tw-text-opacity: 1;
+        color: rgba(var(--color-primary),var(--tw-text-opacity))
+    }
+    .dark\:text-surface {
+        --tw-text-opacity: 1;
+        color: rgba(var(--color-surface),var(--tw-text-opacity))
+    }
+    .dark\:opacity-25 {
+        opacity: .25
+    }
+    .dark\:opacity-50 {
+        opacity: .5
+    }
+    .dark\:shadow-white {
+        --tw-shadow-color: #fff;
+        --tw-shadow: var(--tw-shadow-colored)
+    }
+    .dark\:brightness-200 {
+        --tw-brightness: brightness(2);
+        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+    }
+    .dark\:invert {
+        --tw-invert: invert(100%);
+        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+    }
+    .dark\:invert-0 {
+        --tw-invert: invert(0);
+        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
     }
 }
