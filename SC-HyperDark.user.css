@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.40
+@version      0.9.41
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -93,6 +93,12 @@
     display:none; EOT;
     adblk-on     "Show" <<<EOT 
     display:revert; EOT;
+}
+@advanced dropdown evt "Events on homepage" {
+    evt-on     "Show" <<<EOT 
+    display:revert; EOT;
+    evt-off    "Hide" <<<EOT 
+    display:none; EOT;
 }
 @advanced color bg1 "Background color" #111
 @advanced dropdown lowmotion "Reduce motion" {
@@ -1730,7 +1736,8 @@
     .searchTitle__text, .sc-classic .searchTitle__text,
     .selectionModule, .sc-classic .selectionModule,
     .statsOverview__main:before, .sc-classic .statsOverview__main:before,
-    .statsOverview__top:before, .sc-classic .statsOverview__top:before {
+    .statsOverview__top:before, .sc-classic .statsOverview__top:before,
+    .sc-classic .velvetCakeModule {
         border-bottom-color: #181818
     }
     .collection.m-overview .collection__section:not(:last-child) {
@@ -1739,7 +1746,7 @@
     .collection__oneRowSection {
         min-height: unset
     }
-    .mixedSelectionModule, .sc-classic .mixedSelectionModule {
+    .mixedSelectionModule, .sc-classic .mixedSelectionModule, .sc-classic .velvetCakeModule {
         margin-bottom: 20px
     }
     .selectionPlaylistBanner {
@@ -3587,12 +3594,9 @@
     body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header, .sc-classic .notificationBadge,
     .app-header-black-title {
         font-family: var(--font-main) !important;
-
     }
-    .spotlightTitle, .sc-classic .spotlightTitle, .userstream__header, .sc-classic .userstream__header, .sc-font, .sc-classic .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder {
-        font-weight: 300;
-    }
-    .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell, .sc-classic .staticPage h2,  
+    .spotlightTitle, .sc-classic .spotlightTitle, .userstream__header, .sc-classic .userstream__header, .sc-font, .sc-classic .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder,
+    .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .sc-classic .velvetCakeModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell, .sc-classic .staticPage h2,  
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
     .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input, .sc-classic ._10BTeIqCrlRC9qFdVckf7v, .sc-classic .l-footer.marketing a, .downloadLandingIntro__subheader, .sc-classic .downloadLanding__heading, .sc-classic .downloadLandingSection__header, .sc-classic .downloadLandingSection__copy, .sc-classic .commentForm .commentForm__input, .sc-select {
         font-weight: 300;
@@ -3615,7 +3619,7 @@
         .app-header-black-title {
             font-family: var(--font-main)!important;
         }
-        .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .sc-classic .soundTitle__title:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell {
+        .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .sc-classic .velvetCakeModule__titleText, .sc-classic .header, body, .soundTitle__usernameTitleContainer .soundTitle__title:hover, .sc-classic .soundTitle__title:hover, .g-nav-item>.g-nav-link:hover:not(.g-nav-item.active>.g-nav-link), .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell {
             font-weight: 330;
         }
     }
@@ -5350,8 +5354,10 @@
         border-radius: max(/*[[avradius]]*/%, calc(/*[[avradius]]*/px * 0.75));
     }
     
-    .sc-classic li.soundList__item:has(.soundContext .sc-promoted-icon) {
-        /*[[promoted]]*/
+    @supports (selector(:has(*))) { /* hide promoted tracks */
+        .sc-classic li.soundList__item:has(.soundContext .sc-promoted-icon) {
+            /*[[promoted]]*/
+        }
     }
     /**/
     
@@ -5592,6 +5598,21 @@
         overflow: unset;
     }
     
+    /* events near you */
+    .velvetCakeModuleWrapper {
+        /*[[evt]]*/
+    }
+    @supports (selector(:has(*))) {
+        .mixedModularHome__item:has(.velvetCakeModuleWrapper) {
+            /*[[evt]]*/
+        }
+    }
+    .velvetCakeModule__iframe {
+        border-radius: 16px;
+    }
+    .sc-classic .velvetCakeModule {
+        padding-bottom: 28px;
+    }
     
     /* new soundcloud ui redesign */
     
@@ -6460,5 +6481,15 @@
     .dark\:invert-0 {
         --tw-invert: invert(0);
         filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+    }
+}
+
+@-moz-document regexp("https?:\\/\\/(www\\.)?soundcloud\\.velvetcake\\.live\\/?.*") {
+    /* events near you iframe */
+    .h-screen.bg-white > .bg-cover {
+        max-width: 100%;
+    }
+    .h-screen.bg-white {
+        background-color: #111;
     }
 }
