@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.41
+@version      0.9.42
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -832,7 +832,8 @@
         padding: 10px 0
     }
     #app .l-container #content .dropbar .dropbar__content .userDropbar {
-        padding: 14px 0
+        padding: 14px 0;
+        background: transparent;
     }
     #app .l-container #content .dropbar.m-active {
         transform: translate3d(15px, -46px, 0)
