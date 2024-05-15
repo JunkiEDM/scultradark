@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.42
+@version      0.9.43
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -3749,7 +3749,7 @@
         transition-duration: 0.2s;
     }
     /* Color changer (switched from https://33kk.github.io/uso-archive/?style=123974 to simpler method) */
-    canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a:not(.sc-classic .header__link.header__goUpsell, .sc-classic .header__link.header__goUpsell_side_by_side_experience, .sc-classic .header__link.header__proUpsell_side_by_side_experience), .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, /*.tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), */ .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static,
+    .waveform canvas, .repeatControl:after, .commentPopover__username, a.commentPopover__username:hover, a.commentPopover__username:visited, .volume__sliderHandle, .volume__sliderProgress, .sc-button-play, .playbackTimeline, .heroPlayButton, #app > header > div > div.header__left > div, #app > header > div > div.header__right.sc-clearfix > a:not(.sc-classic .header__link.header__goUpsell, .sc-classic .header__link.header__goUpsell_side_by_side_experience, .sc-classic .header__link.header__proUpsell_side_by_side_experience), .sc-button-active, .sc-button-selected, .sc-button-cta, .sc-button-cta:hover, .sc-button-cta:focus, .sc-button-cta:visited, .sc-toggle:before, #content > div > div.l-listen-wrapper > div.l-about-main > div > div:nth-child(1) > div > div > div > div.listenEngagement__extras > div.listenEngagement__shuffle > div > label > span, .moreMenu__link.moreMenu__goUpsell, .newItemBadge.newItems__some, .sc-status-icon:not(.sc-status-icon-verified), .g-tabs-link.active, .sc-classic .g-tabs-link, .g-required-label:after, .sc-button-startstation, .sc-orange, .uiEvoButton, .uiEvoButton--isSelected, .uiEvoButton.uiEvoButton--isSelected:hover, /*.tabs__tabNew:not(.g-tabs-link.active .tabs__tabNew):not(.g-tabs-link:hover .tabs__tabNew), */ .tileGallery__sliderButton:active:after, .tileGallery__sliderButton:focus:after, .tileGallery__sliderPeek:hover .tileGallery__sliderButton:after, .mobileLandingDemo__static,
     .imageCrop__zoomSlider, .sc-classic .imageCrop__zoomSlider {
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
@@ -3892,7 +3892,7 @@
         }
     }
     @media only screen and (min-width: 1925px) {
-        .profileHeaderBackground > div {
+        :not(.artistConnectContainerItem__userInfo)>.profileHeaderBackground > div {
             /*height: 30vh;*/
             /*background-size: 100% 100%!important;*/
             /*filter: blur(20px);*/
@@ -3900,6 +3900,9 @@
             background-repeat: repeat-x;
             background-size: max(1335px, 100%);
             background-position: left center;
+        }
+        .profileHeader .profileHeaderInfo__avatar.sc-media-image {
+            filter: drop-shadow(5px 5px 12px #0006);
         }
     }
 
@@ -5656,49 +5659,67 @@
     .mui-n430uj, /* tracks view primary text */
     .mui-fmfkj, /* selected track bulk edit + add to playlist button icons */
     .mui-15yj62u, /* tracks more button icon */
+    .MuiIconButton-sizeSmall, .MuiIconButton-sizeMedium, /* generic button icons */
     .MuiTypography-root, /* generic text selector */
     .MuiButton-textPrimary, /* generic button text selector */
     .MuiFormLabel-colorPrimary, /* form label */
     .MuiAccordionSummary-content, /* accordion label */
     .MuiAccordionSummary-expandIconWrapper, /* accordion expand arrow */
-    .MuiInputBase-colorPrimary /* input text */
+    .MuiInputBase-colorPrimary, /* input text */
+    .MuiChip-labelMedium /* tags */
     {
         color: var(--_4g70vmf);
     }
     .MuiInputAdornment-positionStart, /* input prefix */
     .MuiCircularProgress-colorPrimary, /* loading spinner */
-    .MuiListSubheader-root /* list subheader */
+    .MuiListSubheader-root, /* list subheader */
+    .Mui-checked, .MuiCheckbox-indeterminate, /* generic checkbox */
+    .MuiChip-filled .MuiChip-deleteIcon /* remove tag icon */
     {
         color: var(--_4g70vmg);
     }
+    .MuiChip-filled .MuiChip-deleteIcon:hover  /* remove tag icon hover */ {
+        color: #ccc;
+    }
     .mui-28466c, /* all tracks checkbox */
+    .MuiCheckbox-colorPrimary, .Mui-checked, .MuiCheckbox-indeterminate, /* generic checkbox */
     ._2r4ec00, /* my tracks underline */
-    ._11yjo627, /* track view table header underline */
-    ._11yjo622 tr:last-child td, /* track view last child underline */
+    ._11yjo627, .t0cm2o7, #main table[aria-label="My Tracks"] > thead th, /* track view table header underline */
+    ._11yjo622 tr:last-child td, .t0cm2o2 tr:last-child td, #main table[aria-label="My Tracks"] > tbody tr:last-child td, /* track view last child underline */
     .svq6pq0, /* track view paginator overline */
     .MuiOutlinedInput-root, /* input box */
-    .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root) /* form group button */
+    .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root), /* form group button */
+    #panel-content.MuiBox-root > div > div:last-child, /* playlist pagination border */
+    .MuiButtonBase-root[variant="outlined"], .MuiButton-outlined, .MuiButton-outlined:hover /* generic outlined button */
     {
         border-color: #666;
     }
-    
+    li:focus-within > button.MuiIconButton-sizeMedium img /* user menu focus */
+    {
+        outline: none;
+        box-shadow: 0px 0px 4px 0.8px #fff;
+    }
     .MuiOutlinedInput-root.Mui-focused /* focused input box */ {
         border-color: #999;
     }
     .mui-15yj62u:hover, /* tracks more button hover */
+    .MuiIconButton-sizeSmall:hover, .MuiIconButton-sizeMedium:hover, /* generic button hover */
     .mui-fmfkj:hover, /* selected track bulk edit + add to playlist buttons */
     .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root):hover, /* form group button hover */
     .MuiButtonBase-root:hover, /* button hover */
-    .h2ki1a3 /* vertical rule */
+    .h2ki1a3, /* vertical rule */
+    #main table[aria-label="My Tracks"] > tbody > tr:hover td /* hovered tracks */
     {
         background-color: #fff2;
     }
-    ._11yjo622 ._11yjo626 td, /* selected tracks */
-    .MuiListSubheader-root /* list subheader */
+    ._11yjo622 ._11yjo626 td, .t0cm2o2 .t0cm2o6 td, /* selected tracks */
+    .MuiListSubheader-root, /* list subheader */
+    button[aria-label="Add artwork"], /* add artwork panel */
+    .MuiChip-filled /* tag background */
     {
         background: var(--shd-bg-lighter);
     }
-    ._1jk87g70 /* uploaded track hd indicator */
+    ._1jk87g70, ._1i6f4ag0 /* uploaded track hd indicator */
     {
         color: var(--shd-accent-blue);
     }
@@ -5713,8 +5734,10 @@
         color: var(--_4g70vmf);
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil)
     }
-    .mui-ijebwn, /* dropdown menu */
-    .MuiMenu-paper.MuiPaper-root {
+    .mui-ijebwn, .MuiPaper-root.MuiMenu-paper, /* dropdown menu */
+    .MuiTooltip-tooltip, /* hover tooltips */
+    button[aria-label="Add artwork"] /* add artwork panel */
+    {
         border-radius: 12px;
         border: 1px solid #4448;
         background-color: var(--shd-bg-dropdown);
@@ -5736,12 +5759,6 @@
     .MuiMenuItem-root .MuiListItemIcon-root { /* menuitem icon */
         color: inherit;
     }
-    .MuiTooltip-tooltip { /* hover tooltips */
-        border-radius: 12px;
-        border: 1px solid #4448;
-        background-color: var(--shd-bg-dropdown);
-        backdrop-filter: blur(32px);
-    }
     ._1htqjyq0 /* hover tooltip contents */
     { 
         background-color: #0000;
@@ -5757,7 +5774,7 @@
     }
     .MuiPaper-root.MuiPaper-elevation /* generic elevated background selector */
     {
-        background: var(--_4g70vme);
+        background-color: var(--_4g70vme);
         color: var(--_4g70vmf);
     }
     svg.h2ki1a1 > path /* 808 cut in half */
