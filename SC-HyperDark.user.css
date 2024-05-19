@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.43
+@version      0.9.44
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -33,6 +33,41 @@
     --w1:46px;--w2:46px; EOT;
     dist-off   "Hide" <<<EOT 
     --w1:0px;--w2:0px; EOT;
+}
+@advanced dropdown probdg "Next Pro profile badges" {
+    probdg-off    "Hide" <<<EOT 
+    .proUnlimitedBadge, .creatorBadge {
+        display: none;
+    } EOT;
+    probdg-a     "Style A" <<<EOT 
+    .proUnlimitedBadge, .creatorBadge {
+        margin-right: 1px;
+        margin-top: 7px;
+        margin-bottom: -12px;
+        display: flex;
+    }
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons {
+        bottom: 118px;
+    }
+    :is(.proUnlimitedBadge, .creatorBadge) svg > g[clip-path="url(#a)"] {
+        transform: translateX(78px)
+    }
+    :is(.proUnlimitedBadge, .creatorBadge) svg > path[fill^="#fff"] {
+        transform: translateX(-16px);
+    }
+    :is(.proUnlimitedBadge, .creatorBadge) svg > rect[fill^="#000"] {
+        fill: #0000 !important;
+    } EOT;
+    probdg-b     "Style B" <<<EOT 
+    .proUnlimitedBadge, .creatorBadge {
+        display: flex;
+        position: absolute;
+        top: 198px;
+        right: -124px
+    }
+    :is(.proUnlimitedBadge, .creatorBadge) svg > rect[fill^="#000"] {
+        fill: #0000 !important;
+    } EOT;
 }
 @advanced dropdown widget "Style embeds" {
     embeds-on   "Yes" <<<EOT 
@@ -594,7 +629,7 @@
         margin-left: 100px;
         background: #f40;
         /*background: linear-gradient(#f70,#f00);*/
-        background: linear-gradient(#f80,#f10);
+        background: linear-gradient(#f80,#f10) !important;
         /*-webkit-mask-size: contain;*/
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center;
@@ -3491,9 +3526,10 @@
     /*.audibleEditForm__form {
         margin-bottom: 96px;
     }*/
-    .proUnlimitedBadge, .creatorBadge {
-        display: none;
-    }
+    
+    /* next pro badge */
+    /*[[probdg]]*/
+    
     .sc-button-selected.playbackSoundBadge__follow:before {
         /*filter: brightness(0.5) sepia(1) contrast(2) saturate(24) hue-rotate(-2deg) saturate(1.1)!important;*/
         filter: invert(0) hue-rotate(8deg) brightness(1.1)!important;
@@ -5618,6 +5654,45 @@
         padding-bottom: 28px;
     }
     
+    /* captcha/blocked */
+    div[style*="z-index:2147483647;background-color:#ffffff"] {
+        height: 360px !important;
+        width: 720px !important;
+        background-color: #111 !important;
+        border: 1px solid #6663;
+        border-radius: 24px;
+        backdrop-filter: blur(40px);
+        box-shadow: 2px 8px 18px #0006, 0 0 0 99999px #0006;
+        overflow: hidden;
+        position: fixed;
+        top: unset !important;
+        left: calc(50% - 720px / 2) !important;
+        transform: scale(0.9);
+        bottom: 100px;
+        z-index: 3000 !important;
+    }
+    /* fancy transitions arent worth it for this but they're here if you want em */
+    /* div[style*="z-index:2147483647;background-color:#ffffff"] { 
+        opacity: 0.9;
+        bottom: -120px;
+        transform: scale(0.8);
+        transition-property: bottom, transform, box-shadow, opacity;
+        transition-duration: 0.6s;
+        transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    }
+    div[style*="z-index:2147483647;background-color:#ffffff"]:hover {
+        opacity: 1;
+        bottom: 100px;
+        transform: scale(0.9);
+        transition-duration: 0.3s;
+        transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    } */
+    iframe[src^="https://geo.captcha-delivery.com/"] {
+        height: 100% !important;
+        width: 100% !important;
+        overflow: hidden;
+    }
+    
     /* new soundcloud ui redesign */
     
     /* dark mode variables */
@@ -5706,7 +5781,7 @@
     .MuiIconButton-sizeSmall:hover, .MuiIconButton-sizeMedium:hover, /* generic button hover */
     .mui-fmfkj:hover, /* selected track bulk edit + add to playlist buttons */
     .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root):hover, /* form group button hover */
-    .MuiButtonBase-root:hover, /* button hover */
+    .MuiButtonBase-root:not(.MuiButton-containedPrimary):hover, /* button hover */
     .h2ki1a3, /* vertical rule */
     #main table[aria-label="My Tracks"] > tbody > tr:hover td /* hovered tracks */
     {
@@ -5772,9 +5847,10 @@
     {
         filter: invert(1);
     }
-    .MuiPaper-root.MuiPaper-elevation /* generic elevated background selector */
+    .MuiPaper-root.MuiPaper-elevation, /* generic elevated background selector */
+    .MuiModal-root > .MuiBox-root > .MuiBox-root[class*="mui-"] /* generic modal selector */
     {
-        background-color: var(--_4g70vme);
+        background-color: var(--_4g70vme) !important;
         color: var(--_4g70vmf);
     }
     svg.h2ki1a1 > path /* 808 cut in half */
@@ -6509,5 +6585,52 @@
     }
     .h-screen.bg-white {
         background-color: #111;
+    }
+}
+@-moz-document regexp("https?:\\/\\/(www\\.)?geo\\.captcha\\-delivery\\.com\\/captcha\\/.*(referer=http%3A%2F%2Fapi-v2\\.soundcloud\\.com|Domain=\\.?soundcloud\\.com).*") {
+    /* captcha/blocked */
+    @import url('https://rsms.me/inter/inter.css');
+    *, *::before, *::after {
+        color: #fff;
+        font-family: /*[[font]]*/Variable, /*[[font]]*/ var, /*[[font]]*/, Inter, Roboto, Verdana, Arial;
+    }
+    html, body {
+        overflow: hidden;
+    }
+    html, .captcha__header, .captcha__human, .captcha__footer {
+        background-color: #0000 !important;
+    }
+    .captcha__header, .captcha__footer {
+        height: 0;
+        padding: 0;
+    }
+    .captcha {
+        background-color: #0000;
+        padding: 0 24px;
+    }
+    .captcha__human {
+        padding: 20px 0 12px;
+    }
+    .captcha__human__title {
+        font-size: 20px;
+    }
+    .captcha__robot {
+        background-color: #6662;
+        padding: 24px 32px;
+        border-radius: 18px;
+        height: 256px;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center safe;
+        align-content: center safe;
+    }
+    .captcha__contact__input {
+        background-color: #111;
+        border-radius: 8px;
+    }
+    .captcha__contact_support__submit {
+        color: hsl(calc(203deg + /*[[blu]]*/deg) 100% 65%);
+        font-weight: bold;
     }
 }
