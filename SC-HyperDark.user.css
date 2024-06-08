@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.44
+@version      0.9.45
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -76,15 +76,15 @@
     /* EOT;
 }
 @advanced dropdown sort-pl "Playlist sorting mode" {
-    sort-pl-reg   "Normal" <<<EOT 
+    sort-pl-reg "Normal" <<<EOT 
     column EOT;
-    sort-pl-rev   "Reversed" <<<EOT 
+    sort-pl-rev "Reversed" <<<EOT 
     column-reverse EOT;
 }
 @advanced dropdown sort-fol "Following list sorting mode" {
-    sort-fol-reg   "Normal" <<<EOT 
+    sort-fol-reg    "Normal" <<<EOT 
     wrap EOT;
-    sort-fol-rev   "Reversed" <<<EOT 
+    sort-fol-rev    "Reversed" <<<EOT 
     wrap-reverse EOT;
 }
 @advanced dropdown sin "Insights on sidebar" {
@@ -94,10 +94,19 @@
     height:0; EOT;
 }
 @advanced dropdown hin "Artist Insights on homepage" {
-    stats-on    "Show" <<<EOT 
-    display:block; EOT;
-    stats-off   "Hide" <<<EOT 
-    display:none; EOT;
+    hin-on  "Show Both" <<<EOT EOT;
+    hin-a   "Latest Upload only" <<<EOT
+    .artistConnectExperimentWrapper {
+        display: none;
+    } EOT;
+    hin-b   "Artist Connect only" <<<EOT
+    .l-content > div > div[classname*="latestUpload"]:not(.modular-home-mixed-selection) > div:has(.mixedModularHome__item .latestUploadContainer) {
+        display: none;
+    } EOT;
+    hin-off "Hide Both" <<<EOT 
+    [classname*="latestUpload"], [classname*="artistConnect"] {
+        display:none;
+    } EOT;
 }
 @advanced dropdown gdpr "Cookie Notice" {
     gdpr-on     "Show" <<<EOT 
@@ -134,6 +143,28 @@
     display:revert; EOT;
     evt-off    "Hide" <<<EOT 
     display:none; EOT;
+}
+@advanced dropdown logo "Sidebar logo" {
+    logo-on     "Show" <<<EOT EOT;
+    logo-off    "Hide" <<<EOT
+    .sc-classic .show .header__logo {
+        display: none;
+    }
+    .header__right {
+        top: 14px;
+    }
+    .header__left {
+        top: 108px;
+    }
+    .header__middle {
+        top: 288px;
+    }
+    .sc-classic .l-search .l-fixed-left, .l-search .l-fixed-left {
+        top: 338px;
+    }
+    .searchOptions__scrollable {
+        height: 515px !important;
+    } EOT;
 }
 @advanced color bg1 "Background color" #111
 @advanced dropdown lowmotion "Reduce motion" {
@@ -450,7 +481,9 @@
         }
     }
     @supports not (selector(:has(*))) {
-        --shd-modal-width: 550px;
+        :root {
+            --shd-modal-width: 550px;
+        }
     }
     .sc-classic {
         font-family: var(--font-main);
@@ -465,7 +498,7 @@
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     
-    /* ----------- IMPORT ULTRA DARK (https://33kk.github.io/uso-archive/?style=176264) ----------- */
+    /* ----------- IMPORT ULTRA DARK (https://uso.kkx.one/style/176264) ----------- */
     /* Modification of SoundCloud Ultra Dark by IgChi: userstyles.org/styles/176264 */
     .l-collection,
     .listenNetwork {
@@ -646,11 +679,11 @@
         height: 90px;
         background: linear-gradient(30deg, #401702 -200%, #1a181890);
         border: 1px solid #35333355;
-        transition-duration: 3s
+        transition: box-shadow 3s
     }
     .header__inner .header__right:hover {
         box-shadow: 2px 2px 12px #0009;
-        transition-duration: 0.5s
+        transition: box-shadow 0.5s
     }
     .header__inner .header__right div.header__userNav {
         position: absolute;
@@ -1436,10 +1469,6 @@
         content: "\f130";
         content: "\fd38";
         content: var(--/*[[mcis]]*/-pause);
-    }
-    .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__play:hover,
-    .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__play:hover {
-        transform: scale(1.08)
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__play:hover:after,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__play:hover:after {
@@ -2257,8 +2286,8 @@
     .sc-button-selected.sc-button-queue:before {
         filter: brightness(1)
     }
-    .sc-button-small.sc-button-active.sc-button-more:before,
-    .sc-button-small.sc-button-selected.sc-button-more:before {
+    #app .l-container #content .sc-button-small.sc-button-active.sc-button-more:before,
+    #app .l-container #content .sc-button-small.sc-button-selected.sc-button-more:before {
         filter: invert(0)!important
     }
     .sc-button-small.sc-button-icon:not(.sc-button-stretch-icon),
@@ -2943,7 +2972,7 @@
     }
     /* fix choose image culling */
     .imageChooser__chooseButton, .imageChooser__chooseButton:hover {
-        border-color: none;
+        border-color: transparent;
         transition-duration: 0.25s;
     }
     .imageChooser__chooseButton {
@@ -3290,12 +3319,12 @@
         transform: scale(0.96);
     }
     .tileGallery__sliderPeekForward {
-        background: linear-gradient(to right, #0000 5%, #1119 60%, #111 80%);
+        background: linear-gradient(to right, #0000 5%, #1119 60%, var(--shd-bg-primary) 80%);
         left: auto!important;
     }
     .tileGallery__sliderPeekBackward {
         right: auto!important;
-        background: linear-gradient(to left, #0000 10%, #1119 60%, #111 80%);
+        background: linear-gradient(to left, #0000 10%, #1119 60%, var(--shd-bg-primary) 80%);
     }
     .tileGallery__sliderButton, .tileGallery__sliderButton:not(.artistShortcutsGallery .tileGallery__sliderButton):focus { /* background-color: #333; */
         border: none;
@@ -3530,7 +3559,7 @@
     /* next pro badge */
     /*[[probdg]]*/
     
-    .sc-button-selected.playbackSoundBadge__follow:before {
+    .sc-classic .sc-button-selected.playbackSoundBadge__follow.sc-button-follow:before {
         /*filter: brightness(0.5) sepia(1) contrast(2) saturate(24) hue-rotate(-2deg) saturate(1.1)!important;*/
         filter: invert(0) hue-rotate(8deg) brightness(1.1)!important;
     }
@@ -4238,7 +4267,7 @@
             width: var(--shd-modal-width)!important;
             left: calc(50% - calc(var(--shd-modal-width) / 2))!important;
         }
-        .sc-classic .modal__modal:has(.imageContent), .sc-classic .modal__modal.transparentBackground:has(.imageContent) {
+        .sc-classic .modal__modal:has(.imageContent, .imageSelect), .sc-classic .modal__modal.transparentBackground:has(.imageContent, .imageSelect) {
             --shd-modal-width: 550px;
             /*width: 550px!important;
             left: 656px!important;*/
@@ -4647,7 +4676,6 @@
         font-weight: 400;
         /*letter-spacing: 1px;*/
         width: 100%;
-        transition-duration: 0.25s;
         filter: drop-shadow(0px 0px 0px #fff0);
         border-radius: 4px;
         border-left: 0px solid var(--shd-accent-primary);
@@ -4903,13 +4931,22 @@
     .dhG3yr_3xo0-P0NVkEUAf { /* edit preview */
         background-color: hsla(0,0%,7%,.7);
     }
-
+    /* image cropper title */
+    .sc-classic .g-modal-title-h1 { /* title */
+        margin-bottom: 0
+    }
+    .sc-classic .imageSelect__hint { /* hint */
+        color: #999;
+    }
+    
+    /* web auth */
     .webAuthContainerWrapper[style*="left: 255px"] { /* login */
         margin-left: 230px;
     }
     .webAuthContainerWrapper iframe {
         filter: drop-shadow(2px 6px 9px #0006);
     }
+    /* captcha */
     .captcha, .captcha > div {
         display: flex;
         flex-flow: column;
@@ -5441,9 +5478,8 @@
         border-radius: 16px;
         box-shadow: 2px 4px 16px -4px #0005;
     }
-    .l-content > div > div:first-child:not(.modular-home-mixed-selection) > .mixedModularHome__item:has(.latestUploadContainer), .latestUpload, [classname*="latestUpload"] {
-        /*[[hin]]*/
-    }
+    
+    /*[[hin]]*/
     
     /* fix queue buttons */
     .sc-classic .queueItemView__like.sc-button-small.sc-button-like:not(.sc-button-selected):before {
@@ -5616,6 +5652,26 @@
     .artistConnectSoundBadge__tag {
         margin-top: 12px;
     }
+    .sc-classic .artistConnectSoundBadge .loading.small {
+        height: 120px;
+        background: url(https://a-v2.sndcdn.com/assets/images/loader-dark-45940ae3d4.gif) no-repeat 50%;
+        background-size: 24px;
+        filter: none;
+        border-radius: 8px;
+        box-shadow: inset 0px 0px 3px #fff3;
+        background-size: 200% 200%, 24px;
+        background-repeat: repeat, no-repeat;
+        background-image: linear-gradient(45deg, #fff0 5%, #ffffff11 40%, #ffffff11 45%, #fff0 80%, #fff0 85%, #ffffff11 130%), url();
+        animation: loading-gradient 2.5s linear infinite;
+    }
+    @keyframes loading-gradient {
+        0% {
+            background-position: 200% 50%, 50%;
+        }
+        100% {
+            background-position: 0% 50%, 50%;
+        }
+    }
     
     .userStats__item:before {
         filter: contrast(0) brightness(1.2)
@@ -5653,6 +5709,9 @@
     .sc-classic .velvetCakeModule {
         padding-bottom: 28px;
     }
+    
+    /* hide logo option */
+    /*[[logo]]*/
     
     /* captcha/blocked */
     div[style*="z-index:2147483647;background-color:#ffffff"] {
@@ -6099,12 +6158,22 @@
         border: 1px solid #ccc6 !important;
         border-radius: 8px;
         transform: scale(0.98);
+        transform-origin: top center;
         box-shadow: 0px 0px 18px #000c;
         float: left;
+    }
+    .sc-classic .collection.m-overview .collection__section:not(:last-child) {
+        margin-bottom: 20px
     }
     .collection__likesSection, .collection__albumsSection, .collection__followingsSection {
         width: 50%;
         float: right;
+    }
+    .collection__likesSection {
+        padding-bottom: 0;
+    }
+    .collection__likesSection > .collectionSection {
+        margin-top: -8px;
     }
     .collection__section > div {
         transform: scale(0.96);
@@ -6114,6 +6183,21 @@
     }
     .collection .playableTile {
         width: 100% !important;
+        padding-bottom: 64px;
+    }
+    .sc-classic .userBadgeListItem {
+        padding-bottom: 64px;
+        transition: padding-bottom 0.3s ease-out;
+    }
+    .sc-classic .readMoreTile__tile .userBadgeListItem:hover {
+        padding-bottom: 76px;
+    }
+    .sc-classic .userBadgeListItem__action {
+        transition: opacity 0.2s ease-out;
+    }
+    .userBadgeListItem__subtitle .sc-ministats-followers > span:not(.sc-visuallyhidden) {
+        margin-right: -48px;
+        clip-path: margin-box;
     }
     .sc-classic .collection .badgeList__item {
         width: 16.666%;
@@ -6121,7 +6205,7 @@
     a.readMoreTile__countWrapper, .sc-classic .readMoreTile__countWrapper {
         height: 48px;
         width: 120px;
-        top: 110%;
+        bottom: -120%;
         border-radius: 124px;
         transform: scale(0.67);
         left: 25px !important;
@@ -6130,10 +6214,9 @@
         background: var(--shd-accent-primary);
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
         transition: 0.3s;
-        box-shadow: 0px 0px 18px #000c;
+        box-shadow: 0px 0px 4px #0006;
     }
     a.readMoreTile__countWrapper:hover {
-        background: var(--shd-accent-primary);
         box-shadow: 0px 6px 12px #000f;
         transition: 0.2s;
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
