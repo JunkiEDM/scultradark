@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.45
+@version      0.9.46
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -104,7 +104,7 @@
         display: none;
     } EOT;
     hin-off "Hide Both" <<<EOT 
-    [classname*="latestUpload"], [classname*="artistConnect"] {
+    [classname*="latestUpload"], [classname*="artistConnect"], .artistConnectExperimentWrapper, .mixedModularHome__item:has(.artistConnectExperimentWrapper) {
         display:none;
     } EOT;
 }
@@ -3563,6 +3563,7 @@
         /*filter: brightness(0.5) sepia(1) contrast(2) saturate(24) hue-rotate(-2deg) saturate(1.1)!important;*/
         filter: invert(0) hue-rotate(8deg) brightness(1.1)!important;
     }
+    /* callout bubbles */
     .callout__bubble, .sc-classic .callout__bubble {
         background-color: var(--shd-bg-dropdown);
         border-radius: 12px;
@@ -3588,6 +3589,9 @@
     }
     .callout__button {
         filter: hue-rotate(calc(/*[[hue]]*/deg * -1));
+    }
+    .calloutBackground {
+        filter: hue-rotate(/*[[hue]]*/deg);
     }
     /* modify sidebar jank */
     .infoStats {
@@ -5641,6 +5645,13 @@
     .artistConnect.artistConnectContext.visualSound .soundTitle__username {
         display: none;
     }
+    .artistConnect.artistConnectContext.visualSound.playing:not(.focused) .sound__waveform,
+    .artistConnect.artistConnectContext.sound:not(.focused) .soundTitle.m-visualSound.m-playing .soundTitle__info,
+    .artistConnect.artistConnectContext.sound:not(.focused) .soundTitle.m-visualSound.m-playing .soundTitle__playButton,
+    .artistConnect.artistConnectContext.sound:not(.focused) .soundTitle.m-visualSound.m-playing .soundTitle__title,
+    .artistConnect.artistConnectContext.sound:not(.focused) .soundTitle.m-visualSound.m-playing .soundTitle__username {
+        opacity: 1;
+    }
     
     .artistConnectSoundBadge__commentAndTag .commentForm.commentForm__transition.m-small.visible .commentForm__wrapper {
         height: var(--comment-height);
@@ -5656,20 +5667,31 @@
         height: 120px;
         background: url(https://a-v2.sndcdn.com/assets/images/loader-dark-45940ae3d4.gif) no-repeat 50%;
         background-size: 24px;
+        background: none;
         filter: none;
         border-radius: 8px;
         box-shadow: inset 0px 0px 3px #fff3;
-        background-size: 200% 200%, 24px;
-        background-repeat: repeat, no-repeat;
-        background-image: linear-gradient(45deg, #fff0 5%, #ffffff11 40%, #ffffff11 45%, #fff0 80%, #fff0 85%, #ffffff11 130%), url();
-        animation: loading-gradient 2.5s linear infinite;
+        overflow: hidden;
+    }
+    .sc-classic .artistConnectSoundBadge .loading.small:before {
+        content: "";
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        -webkit-transform: skew(-30deg) scaleX(1.5);
+        transform: skew(-30deg) scaleX(1.5);
+        background-size: 300% 300%;
+        background-repeat: repeat;
+        background-image: linear-gradient(90deg, #fff0 33%, #fff1 47.5%, #fff1 52.5%, #fff0 66%);
+        animation: loading-gradient 1.5s linear infinite;
     }
     @keyframes loading-gradient {
         0% {
-            background-position: 200% 50%, 50%;
+            background-position: right;
         }
         100% {
-            background-position: 0% 50%, 50%;
+            background-position: left;
         }
     }
     
@@ -5781,7 +5803,8 @@
     /* this is going to be hell to maintain */
     
     .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root):has(.Mui-checked), /* form group button selected */
-    .MuiSwitch-colorSuccess.Mui-checked + .MuiSwitch-track /* switch button */
+    .MuiSwitch-colorSuccess.Mui-checked + .MuiSwitch-track, /* switch button */
+    .MuiButton-containedSuccess /* generic green button (like continue button on upload page) */
     {
         background-color: var(--_4g70vm0);
         filter: hue-rotate(/*[[hue]]*/deg);
@@ -5800,7 +5823,8 @@
     .MuiAccordionSummary-content, /* accordion label */
     .MuiAccordionSummary-expandIconWrapper, /* accordion expand arrow */
     .MuiInputBase-colorPrimary, /* input text */
-    .MuiChip-labelMedium /* tags */
+    .MuiChip-labelMedium, /* tags */
+    .MuiButton-outlined /* generic outlined button */
     {
         color: var(--_4g70vmf);
     }
@@ -5849,11 +5873,14 @@
     ._11yjo622 ._11yjo626 td, .t0cm2o2 .t0cm2o6 td, /* selected tracks */
     .MuiListSubheader-root, /* list subheader */
     button[aria-label="Add artwork"], /* add artwork panel */
-    .MuiChip-filled /* tag background */
+    .MuiChip-filled, /* tag background */
+    .mupd0r6, /* upload footer background */
+    .byzetif /* review your track info */
     {
         background: var(--shd-bg-lighter);
     }
-    ._1jk87g70, ._1i6f4ag0 /* uploaded track hd indicator */
+    ._1jk87g70, ._1i6f4ag0, /* uploaded track hd indicator */
+    ._47gh084 /* upload completed checkmark */
     {
         color: var(--shd-accent-blue);
     }
@@ -5916,6 +5943,11 @@
     {
         fill: #999;
     }
+    svg > path[stroke="#000"] /* black outlined svg paths */
+    {
+        stroke: #999;
+        stroke-width: 2;
+    }
     .SideNavFooterLink_Link__HA5me, .SideNavFooterLink_Link__HA5me:visited /* footer links */
     {
         outline: none;
@@ -5924,6 +5956,10 @@
     .SideNavFooterLink_Link__HA5me:hover, .SideNavFooterLink_Link__HA5me:visited:hover /* footer links hover */
     {
         color: inherit;
+    }
+    ._47gh083 /* upload completed header */
+    {
+        background-color: hsl(calc(203deg + /*[[blu]]*/deg), 23%, 16%);
     }
 }
 @-moz-document regexp("http(s)?:\\/\\/(www\\.)?soundcloud\\.com\\/.*\\/following\\/?") {
@@ -6670,7 +6706,7 @@
         background-color: #111;
     }
 }
-@-moz-document regexp("https?:\\/\\/(www\\.)?geo\\.captcha\\-delivery\\.com\\/captcha\\/.*(referer=http%3A%2F%2Fapi-v2\\.soundcloud\\.com|Domain=\\.?soundcloud\\.com).*") {
+@-moz-document regexp("https?:\\/\\/(www\\.)?geo\\.captcha\\-delivery\\.com\\/captcha\\/.*(?=referer=http%3A%2F%2Fapi-v2\\.soundcloud\\.com|Domain=\\.?soundcloud\\.com).*") {
     /* captcha/blocked */
     @import url('https://rsms.me/inter/inter.css');
     *, *::before, *::after {
