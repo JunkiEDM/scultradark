@@ -681,6 +681,10 @@
         border: 1px solid #35333355;
         transition: box-shadow 3s
     }
+    /*   Hide upsell button   */
+    .header__fanUpsell{
+        display: none
+    }
     .header__inner .header__right:hover {
         box-shadow: 2px 2px 12px #0009;
         transition: box-shadow 0.5s
