@@ -1485,6 +1485,7 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__play,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__play {
+        cursor: pointer;
         top: 15px;
         left: calc(50% - 16px);
         transform: scale(1.5)!important
@@ -1498,6 +1499,7 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__prev,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__prev {
+        cursor: pointer;
         top: 15px;
         left: calc(50% - 16px - 80px);
         transform: scale(1.5)!important
@@ -1510,6 +1512,7 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__next,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__next {
+        cursor: pointer;
         top: 15px;
         left: calc(50% - 16px + 80px);
         transform: scale(1.5)!important
@@ -1536,7 +1539,7 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat .repeatControl:after,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat .repeatControl:after {
         background-image: none;
-        cursor: default
+        cursor: pointer;
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__repeat .repeatControl.m-one:before,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__repeat .repeatControl.m-one:before {
@@ -1578,6 +1581,7 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__shuffle .shuffleControl:after,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__shuffle .shuffleControl:after {
+        cursor: pointer;
         background-image: none
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__shuffle .shuffleControl.m-shuffling:before,
@@ -1596,6 +1600,7 @@
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.volume__button,
     .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.volume__button {
+        cursor: pointer;
         top: 15px;
         transform: scale(1.5)
     }
