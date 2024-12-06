@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.47
+@version      0.9.48
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -2542,7 +2542,7 @@
     .sidebarContent[style] {
         min-height: unset!important
     }
-    .sidebarModule {
+    .sidebarModule, .sc-classic .sidebarModule {
         margin-bottom: 15px
     }
     .statsBadge__recent {
@@ -3175,6 +3175,9 @@
     .sc-social-logo-interactive>.sc-social-logo-personal:after {
         background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+c2gtd2Vic2l0ZS0xNi1jb2xvcjwvdGl0bGU+PHBhdGggZD0iTTggMkM0LjY4OCAyIDIgNC42ODggMiA4czIuNjg4IDYgNiA2IDYtMi42ODggNi02LTIuNjg4LTYtNi02em0tLjYgMTAuNzU4QTQuNzkzIDQuNzkzIDAgMCAxIDMuMiA4YzAtLjM3Mi4wNDgtLjcyNi4xMjYtMS4wNzRMNi4yIDkuOHYuNmMwIC42Ni41NCAxLjIgMS4yIDEuMnYxLjE1OHptNC4xNC0xLjUyNGExLjE5IDEuMTkgMCAwIDAtMS4xNC0uODM0aC0uNlY4LjZjMC0uMzMtLjI3LS42LS42LS42SDUuNlY2LjhoMS4yYy4zMyAwIC42LS4yNy42LS42VjVoMS4yYy42NiAwIDEuMi0uNTQgMS4yLTEuMnYtLjI0NmMxLjc1OC43MTQgMyAyLjQzNiAzIDQuNDQ2IDAgMS4yNDgtLjQ4IDIuMzgyLTEuMjYgMy4yMzR6IiBmaWxsPSIjNThmIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=) no-repeat 50% 50%;
     }
+    .sc-social-logo-interactive .sc-social-logo-residentadvisor:after {
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ff4848' d='M2 5v4h3.333l2.445 2h4.555L14 9.222l-3.556-3.555-1 1L12 9.222H8L6 7.667H3.556V6.556H6L7.778 8.11 8.888 7 6.668 5z' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
     .moreActions__group:not(:first-child), .sc-classic .moreActions__group:not(:first-child) {
         border-top: 1px solid #6661;
     }
@@ -3701,7 +3704,7 @@
     body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .sc-classic .statsBadge__value, .infoStats__value, .sc-classic .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
     .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays), 
-    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count, .sc-label, .sc-classic .editTrackModalButton, .commentItem__createdAt, .commentItem__separator, .commentItem__timestamp, .commentItem__body, .creatorLikeInline, .sc-classic .header .creatorSubscriptionsButton {
+    .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count, .sc-label, .sc-classic .editTrackModalButton, .commentItem__createdAt, .commentItem__separator, .commentItem__timestamp, .commentItem__body, .creatorLikeInline, .sc-classic .header .creatorSubscriptionsButton, .sidebarHeader__actualTitle__webi__style {
         font-weight: 400;
     }
     .uiEvoButton, .repostOverlay--uiEvo .repostOverlay__message, .repostOverlay--uiEvo .repostOverlay__youReposted, .artistNavigationItem__name, .storyItemViewerHeader__username a, .signupModule__title, .onSoundCloudTeaser__title.sc-font-light, .sc-classic .g-type-marketing-header, .frontHero__title, .onSoundCloudTeaser__title.sc-font-light, .insightsSidebarModule__plays, a.userStatsLegend__itemTitleWrapper, .uploadButton__status, .linkMenu__groupTitle, .sc-classic .g-type-shrinkwrap-large-primary, .sc-classic .g-type-shrinkwrap-primary:not(.soundTitle__title), .listenInfo__releaseData, .sc-classic .listenInfo__releaseData {
@@ -4655,7 +4658,8 @@
         height: 44px;
     }
     
-    .sc-classic .whoToFollowModule .sc-link-light:hover .sidebarHeader__more {
+    .sc-classic .whoToFollowModule .sc-link-light:hover .sidebarHeader__more,
+    .sc-classic .sc-link-light:hover .sidebarHeader__more__webi_style {
         filter: contrast(0.8) brightness(2);
     }
     
@@ -5776,7 +5780,9 @@
     
     /* captcha/blocked */
     div[style*="z-index:2147483647;background-color:#ffffff"] {
-        height: 360px !important;
+        height: 100% !important;
+        min-height: 360px !important;
+        max-height: 720px !important;
         width: 720px !important;
         background-color: #111 !important;
         border: 1px solid #6663;
@@ -5811,6 +5817,17 @@
         height: 100% !important;
         width: 100% !important;
         overflow: hidden;
+        overflow-y: auto;
+    }
+    
+    /* your soundcloud 2024 */
+    .ysc24-banner {
+        background-size: cover;
+    }
+    
+    /* sidebar class update */
+    .sidebarHeader__actualTitle__webi__style {
+        color: #ccc;
     }
     
     /* new soundcloud ui redesign */
@@ -5840,6 +5857,10 @@
         --_4g70vmk: hsla(0,0%,100%,.15)
     }
     /* this is going to be hell to maintain */
+    
+    html._1iz3r9b0 > body:not(.sc-classic) {
+        background: var(--shd-bg-primary) !important;
+    }
     
     .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root):has(.Mui-checked), /* form group button selected */
     .MuiSwitch-colorSuccess.Mui-checked + .MuiSwitch-track, /* switch button */
@@ -5986,6 +6007,15 @@
     {
         stroke: #999;
         stroke-width: 2;
+    }
+    ._1iah1691 > ._1iah1693 > svg > path[fill="black"] {
+        fill: currentColor;
+    }
+    ._1iah1691 > ._1iah1693 > svg > path[stroke="black"] {
+        stroke: currentColor;
+    }
+    ._1rtxtao1 > ._1rtxtao3 > svg > path[fill="black"] {
+        fill: #0004;
     }
     .SideNavFooterLink_Link__HA5me, .SideNavFooterLink_Link__HA5me:visited /* footer links */
     {
@@ -6906,6 +6936,10 @@
     .captcha__human__title {
         font-size: 20px;
     }
+    .captcha__human__not_accessible_text.visually-hidden,
+    .captcha__human__not_accessible_text.visually-hidden + .captcha__human__captcha-container:not(:has(>*)) {
+        display: none;
+    }
     .captcha__robot {
         background-color: #6662;
         padding: 24px 32px;
@@ -6924,5 +6958,22 @@
     .captcha__contact_support__submit {
         color: hsl(calc(203deg + /*[[blu]]*/deg) 100% 65%);
         font-weight: bold;
+    }
+    
+    #captcha__frame {
+        border-color: #fff2;
+    }
+    #captcha__frame__top,
+    #captcha__frame__bottom,
+    .captcha-toggle {
+        background-color: #1d1d1d;
+        border-color: #fff2;
+    }
+    .sliderContainer {
+        background-color: #0000;
+        color: #ccc;
+    }
+    .sliderbg {
+        background-color: #fff1
     }
 }
