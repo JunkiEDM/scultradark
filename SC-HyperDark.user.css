@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.48
+@version      0.9.49
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -487,6 +487,7 @@
     }
     .sc-classic {
         font-family: var(--font-main);
+        -webkit-font-feature-settings: 'liga' 1, 'calt' 1;
         font-feature-settings: 'liga' 1, 'calt' 1;
     }
     
@@ -1056,7 +1057,7 @@
         display: flex;
         justify-content: flex-end;
         z-index: 9;
-        filter: drop-shadow(2px 6px 8px #0006);
+        filter: drop-shadow(1px 2px 2px #0004) drop-shadow(2px 6px 6px #0004);
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-more:before {
         background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iNCIgdmlld0JveD0iMCAwIDE0IDQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPm1vcmU8L3RpdGxlPjxnIGZpbGw9IiMyMjIiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiLz48Y2lyY2xlIGN4PSI3IiBjeT0iMiIgcj0iMiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMiIgcj0iMiIvPjwvZz48L3N2Zz4=)
@@ -5826,9 +5827,56 @@
     }
     
     /* sidebar class update */
-    .sidebarHeader__actualTitle__webi__style {
+    .sidebarHeader__more__webi_style {
         color: #ccc;
+        font-size: 12px;
     }
+    
+    .sidebarHeader__actualTitle__webi__style {
+        color: #fff;
+        text-transform: none;
+        font-size: 14px;
+        -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
+        font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .sidebarHeader__title:before {
+        display: inline-block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-size: 20px 20px;
+        vertical-align: top;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        margin-right: 4px;
+    }
+    .artistShortcutsModule .sidebarHeader__title:before, .relatedSoundsModule .sidebarHeader__title:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%23999' d='M8.667 2v12H7.333V2h1.334zM6 4v8H4.667V4H6zm5.333 1.333v5.334H10V5.333h1.333zm-8 1.334v2.666H2V6.667h1.333zm10.667 0v2.666h-1.333V6.667H14z'/%3E%3C/svg%3E");
+    }
+    .likesModule .sidebarHeader__title:before, .soundLikesModule .sidebarHeader__title:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%23999' fill-rule='evenodd' d='M10.8 3C8.78 3 8 5.34 8 5.34S7.21 3 5.2 3C3.5 3 1.75 4.1 2.03 6.51c.34 2.96 5.72 6.48 5.96 6.5.24 0 5.74-3.73 6-6.5C14.18 4.2 12.5 3 10.8 3Z'/%3E%3C/svg%3E");
+    }
+    .soundRepostsModule .sidebarHeader__title:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%23999' fill-rule='evenodd' d='M2 6v5c0 1.1.9 2 2 2h7-1l-2-2H4V6h-.5H6L3 3 0 6h2Zm4-3H5h7a2 2 0 0 1 2 2v5h-2V5H8L6 3Zm10 7h-6l3 3 3-3Z'/%3E%3C/svg%3E");
+    }
+    .followersModule .sidebarHeader__title:before, .relatedArtistsModule .sidebarHeader__title:before, .whoToFollowModule .sidebarHeader__title:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath fill='rgba(153, 153, 153, 0.7)' d='m18.4 18.5 2.5 5 .2.5H28l-2.1-4.3-4.1-1.5v-2.5c1.2-1.1 1.8-3.2 1.8-5.1 0-2.1-2-3.6-3.5-3.6s-3.5 1.6-3.5 3.6c0 1.9.5 4 1.8 5.1v2.5h-.1l.1.3z'/%3E%3Cpath fill='%23999' d='m17.5 19-5-1.8v-3c1.4-1.2 2-3.8 2-5.9 0-2.4-2.3-4.3-4-4.3-1.7 0-4 1.8-4 4.3 0 2.2.6 4.7 2 5.9v3l-5 1.8L1 24h19l-2.5-5z'/%3E%3C/svg%3E");
+    }
+    .followingsModule .sidebarHeader__title:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath fill='%23999' d='m18.4 18.5 2.5 5 .2.5H28l-2.1-4.3-4.1-1.5v-2.5c1.2-1.1 1.8-3.2 1.8-5.1 0-2.1-2-3.6-3.5-3.6s-3.5 1.6-3.5 3.6c0 1.9.5 4 1.8 5.1v2.5h-.1l.1.3z'/%3E%3Cpath fill='rgba(153, 153, 153, 0.7)' d='m17.5 19-5-1.8v-3c1.4-1.2 2-3.8 2-5.9 0-2.4-2.3-4.3-4-4.3-1.7 0-4 1.8-4 4.3 0 2.2.6 4.7 2 5.9v3l-5 1.8L1 24h19l-2.5-5z'/%3E%3C/svg%3E");
+    }
+    .commentsModule .sidebarHeader__title:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%23999' fill-rule='evenodd' d='M5 3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm0 7v3l3-3H5Z'/%3E%3C/svg%3E");
+    }
+    .historyModule .sidebarHeader__title:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cg fill='%23999' fill-rule='evenodd'%3E%3Cpath d='M1 4.2C1 3.5 1.5 3 2.2 3h13.6c.7 0 1.2.5 1.2 1.2v10.6c0 .7-.5 1.2-1.2 1.2H2.2c-.7 0-1.2-.5-1.2-1.2V4.2ZM3 7v7h12V7H3Z'/%3E%3Cpath d='M4 1h2v3H4zm8 0h2v3h-2zM4 8h3v3H4z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .setsModule .sidebarHeader__title:before, .soundInSetsModule .sidebarHeader__title:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cg fill='%23999' fill-rule='evenodd'%3E%3Cpath d='M2 6h10v10H2z'/%3E%3Cpath fill-opacity='.7' d='M5 2h11v10h-2V4H5z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    
     
     /* new soundcloud ui redesign */
     
