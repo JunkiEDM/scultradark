@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.49
+@version      0.9.50
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -87,6 +87,15 @@
     sort-fol-rev    "Reversed" <<<EOT 
     wrap-reverse EOT;
 }
+@advanced dropdown compact "Compact mode" {
+    compact-off   "Off" <<<EOT 
+    /* EOT;
+    compact-max   "Auto" <<<EOT 
+    @media only screen and (max-width: /*[[cmth]]*\/) EOT;
+    compact-on    "Always on" <<<EOT 
+    @media only screen and (min-width: 0px) EOT;
+}
+@advanced range cmth "Compact mode auto threshold" [1240, 160, 2560, 40, "px"]
 @advanced dropdown sin "Insights on sidebar" {
     stats-on    "Show" <<<EOT 
     height:100%; EOT;
@@ -144,6 +153,16 @@
     evt-off    "Hide" <<<EOT 
     display:none; EOT;
 }
+@advanced dropdown msgwarn "First message warning" {
+    msgwarn-on  "Show" <<<EOT EOT;
+    msgwarn-off "Hide" <<<EOT
+    .minorProtectionBanner__container {
+        display: none;
+    }
+    .sc-classic .conversation__messages.showMinorProtectionBanner {
+        padding-top: 64px;
+    }  EOT;
+}
 @advanced dropdown logo "Sidebar logo" {
     logo-on     "Show" <<<EOT EOT;
     logo-off    "Hide" <<<EOT
@@ -167,10 +186,16 @@
     } EOT;
 }
 @advanced color bg1 "Background color" #111
-@advanced dropdown lowmotion "Reduce motion" {
-    embeds-off  "No" <<<EOT 
+@advanced dropdown bgblur "Background blur" {
+    blur-on   "Enabled" <<<EOT 
     /* EOT;
-    embeds-on   "Yes" <<<EOT 
+    blur-off  "Disabled" <<<EOT 
+    /**\/ EOT;
+}
+@advanced dropdown lowmotion "Reduce motion" {
+    lm-off  "No" <<<EOT 
+    /* EOT;
+    lm-on   "Yes" <<<EOT 
     /**\/ EOT;
 }
 @advanced dropdown home "Home button style" {
@@ -210,20 +235,20 @@
     @import url('https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/spoticons.css');
     @font-face {
         font-family: "Phosphor";
-        src: url("https://unpkg.com/@phosphor-icons/web/src/regular/Phosphor.woff2") format("woff2"),
-            url("https://unpkg.com/@phosphor-icons/web/src/regular/Phosphor.woff") format("woff"),
-            url("https://unpkg.com/@phosphor-icons/web/src/regular/Phosphor.ttf") format("truetype"),
-            url("https://unpkg.com/@phosphor-icons/web/src/regular/Phosphor.svg#Phosphor") format("svg");
+        src: url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/Phosphor.woff2") format("woff2"),
+            url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/Phosphor.woff") format("woff"),
+            url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/Phosphor.ttf") format("truetype"),
+            url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/Phosphor.svg#Phosphor") format("svg");
         font-weight: normal;
         font-style: normal;
         font-display: block;
     }
     @font-face {
         font-family: "Phosphor-Fill";
-        src: url("https://unpkg.com/@phosphor-icons/web/src/fill/Phosphor-Fill.woff2") format("woff2"),
-            url("https://unpkg.com/@phosphor-icons/web/src/fill/Phosphor-Fill.woff") format("woff"),
-            url("https://unpkg.com/@phosphor-icons/web/src/fill/Phosphor-Fill.ttf") format("truetype"),
-            url("https://unpkg.com/@phosphor-icons/web/src/fill/Phosphor-Fill.svg#Phosphor-Fill") format("svg");
+        src: url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/fill/Phosphor-Fill.woff2") format("woff2"),
+            url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/fill/Phosphor-Fill.woff") format("woff"),
+            url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/fill/Phosphor-Fill.ttf") format("truetype"),
+            url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/fill/Phosphor-Fill.svg#Phosphor-Fill") format("svg");
         font-weight: normal;
         font-style: normal;
         font-display: block;
@@ -257,6 +282,14 @@
         --ic-library-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" stroke="white" stroke-width="0.3" d="M4 3.25a.75.75 0 0 0-.75.75v16c0 .41.34.75.75.75h3c.41 0 .75-.34.75-.75V4A.75.75 0 0 0 7 3.25H4Zm6.5 0a.75.75 0 0 0-.75.75v16c0 .41.34.75.75.75h3c.41 0 .75-.34.75-.75V4a.75.75 0 0 0-.75-.75h-3Zm5.06 3.58a.76.76 0 0 0-.53.92l3.37 12.56c.1.4.52.64.92.53l2.9-.78c.4-.1.63-.51.52-.91L19.38 6.58a.75.75 0 0 0-.92-.53l-2.9.77Z"/></svg>');
     }
     
+    /* upload icon */
+    :root {
+        --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23fff' viewBox='0 0 256 256'%3E%3Cpath d='M228,152v56a20,20,0,0,1-20,20H48a20,20,0,0,1-20-20V152a12,12,0,0,1,24,0v52H204V152a12,12,0,0,1,24,0ZM96.49,88.49,116,69v83a12,12,0,0,0,24,0V69l19.51,19.52a12,12,0,0,0,17-17l-40-40a12,12,0,0,0-17,0l-40,40a12,12,0,0,0,17,17Z'%3E%3C/path%3E%3C/svg%3E"); /* phosphor - simple */
+        --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23ededed' viewBox='0 0 256 256'%3E%3Cpath d='M232,136v64a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V136a8,8,0,0,1,8-8H224A8,8,0,0,1,232,136Z' opacity='0.2'%3E%3C/path%3E%3Cpath d='M240,136v64a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V136a16,16,0,0,1,16-16H80a8,8,0,0,1,0,16H32v64H224V136H176a8,8,0,0,1,0-16h48A16,16,0,0,1,240,136ZM85.66,77.66,120,43.31V128a8,8,0,0,0,16,0V43.31l34.34,34.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,77.66ZM200,168a12,12,0,1,0-12,12A12,12,0,0,0,200,168Z'%3E%3C/path%3E%3C/svg%3E"); /* phosphor - duotone */
+        --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23222' fill-rule='evenodd' d='M3 11v2h10v-2H3Zm10-3H3l5-6 5 6ZM6 8v2h4V8H6Z'/%3E%3C/svg%3E"); /* soundcloud */
+    }
+    
+    /* media icons */
     :root {
         --ph-font: Phosphor-Fill;
         --ph-play: "\e3d0";
@@ -328,16 +361,21 @@
 
     /* Required colours */
     :root {
+        --blur-on: 1;
+        /*[[bgblur]]*/
+        --blur-on: 0;
+        /**/
+
         --shd-modal-width: 880px;
         --shd-accent-primary: #f50;
         --shd-accent-secondary: #f30;
         --shd-accent-orange: hsl(calc(20deg + /*[[hue]]*/deg) 100% 61%);
         --shd-accent-blue: hsl(calc(203deg + /*[[blu]]*/deg) 100% 65%);
         --shd-bg-primary: /*[[bg1]]*/;
-        --shd-bg-lighter: #1a1a1a;
+        --shd-bg-lighter: #1a1a1b;
         --shd-bg-darker: #0d0d0d;
-        --shd-bg-translucent: #1119;
-        --shd-bg-dropdown: #191919aa;
+        --shd-bg-translucent: rgba(17, 17, 17, max(.6, calc(var(--blur-on, 1) * -1 + 1)) );
+        --shd-bg-dropdown: rgba(25, 25, 26, max(.667, calc(var(--blur-on, 1) * -1 + 1)));
         --shd-ds-small: drop-shadow(0 2px 5px #0009);
 
         --fil: /*[[adv]]*/;
@@ -616,7 +654,7 @@
         border: 1px solid #6663;
         border-radius: .5rem;
         background: var(--shd-bg-translucent);
-        backdrop-filter: blur(32px);
+        backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
         padding: 5px 0;
         box-shadow: 2px 2px 12px #0006;
     }
@@ -659,7 +697,7 @@
         background: 0
     }
     .header__inner .header__logo .header__logoLink {
-        width: 20%;
+        width: 46px;
         margin-left: 100px;
         background: #f40;
         /*background: linear-gradient(#f70,#f00);*/
@@ -844,12 +882,39 @@
         }
         #app .l-container.l-content .l-fluid-fixed .l-sidebar-right {
             right: -260px!important;
-            z-index: 9;
+            z-index: 20;
             padding: 0 15px;
-            background: #181818
+            background: #181818;
+            border-radius: 8px 0 0 8px;
+            transition: right 0.15s;
+            border: 1px solid #4448;
         }
         #app .l-container.l-content .l-fluid-fixed .l-sidebar-right:hover {
-            right: 0!important
+            right: 0!important;
+            box-shadow: 0 0 10px var(--shd-bg-darker);
+        }
+        #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content .profileHeaderInfo__userName {
+            max-width: calc(100vw - 590px) !important;
+        }
+    }
+    @media only screen and (max-width: 850px) {
+        #app .l-container.l-content .l-listen-wrapper .l-about-main {
+            margin-right: 50px
+        }
+        #app .l-container.l-content .l-listen-wrapper .l-sidebar-right {
+            right: -260px!important;
+            z-index: 20;
+            padding: 0 15px;
+            background: #181818;
+            border-radius: 8px 0 0 8px;
+            transition: right 0.15s;
+            border: 1px solid #4448;
+            background-color: var(--shd-bg-dropdown);
+            backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
+        }
+        #app .l-container.l-content .l-listen-wrapper .l-sidebar-right:hover {
+            right: 0!important;
+            box-shadow: 0 0 10px var(--shd-bg-darker);
         }
     }
     #app .l-container #content {
@@ -2097,8 +2162,37 @@
     }
     .sc-classic .conversation__messages, .conversation__messages {
         padding-right: 15px;
-        padding-top: 72px;
+        padding-top: 64px;
     }
+    .sc-classic .conversation__messages.showMinorProtectionBanner {
+        padding-top: 204px;
+    }
+    .conversation__stickyHeader {
+        background: var(--shd-bg-primary);
+        box-shadow: 0 1px 0 var(--shd-bg-primary);
+        width: calc(100% - 260px);
+        margin-top: 0;
+    }
+    .minorProtectionBanner__container {
+        margin-top: 24px;
+        background-color: hsl(15deg 40% 50% / 5%);
+        border-radius: 8px;
+        border: 2px dashed hsl(20deg 40% 50% / 30%);
+        margin-left: -1px;
+        width: 100%;
+        max-height: 196.05px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .minorProtectionBanner__header {
+        margin: 24px 24px 8px;
+    }
+    .minorProtectionBanner__body {
+        margin: 0 24px 24px;
+        overflow: inherit;
+        text-overflow: inherit;
+    }
+    /*[[msgwarn]]*/
     .dropdownMenu.g-z-index-content[style] {
         background: var(--shd-bg-primary);
     }
@@ -2780,7 +2874,7 @@
         border-radius: 12px;
         border: 1px solid #4448;
         background-color: var(--shd-bg-dropdown);
-        backdrop-filter: blur(32px);
+        backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
     }
     .sc-classic .m-light .headerMenu__list:first-child li:first-child .headerMenu__link {
         border-radius: 12px 12px 0 0;
@@ -2861,19 +2955,19 @@
         filter: invert(0);
     }
     .featuredProfiles {
-        z-index: 10;
+        z-index: 30;
         border-radius: 12px;
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(calc(12px * var(--blur-on, 1)));
         transition-duration: 0.4s;
         -webkit-transform: translateY(-220px);
         transform: translateY(-220px);
     }
     .featuredProfiles:hover {
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(calc(12px * var(--blur-on, 1)));
         transition-duration: 0.2s
     }
     .modal.modalWhiteout {
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(calc(12px * var(--blur-on, 1)));
     }
     .g-tabs-link, .g-tabs-link:visited, .sc-classic .g-tabs-link, .sc-classic .g-tabs-link:visited {
         color: #ccca!important;
@@ -2953,7 +3047,7 @@
     .sc-classic .g-type-shrinkwrap-inline:hover, 
     .sc-classic .g-type-shrinkwrap-inline:visited {
         background-color: rgba(0,0,0,.5);
-        backdrop-filter: blur(6px);
+        backdrop-filter: blur(calc(6px * var(--blur-on, 1)));
     }
     .profileHeaderInfo__additional {
         border-radius: 6px;
@@ -3218,7 +3312,7 @@
         margin-left: inherit; 
         margin-right: inherit; 
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
-        backdrop-filter: blur(64px);
+        backdrop-filter: blur(calc(64px * var(--blur-on, 1)));
         box-shadow: 2px 2px 24px #0003;
         z-index: 1000;
         margin-bottom: -3px;
@@ -3258,7 +3352,7 @@
         /*[[prban]]*/
     }
     .playControls__bg, .sc-classic .playControls__bg {
-        backdrop-filter: brightness(0.8) blur(32px);
+        backdrop-filter: brightness(0.8) blur(calc(32px * var(--blur-on, 1)));
         margin-bottom: 1px; /* fix blur issues with hw acceleration on */
         border-bottom: 1px solid #111;
     }
@@ -3513,7 +3607,7 @@
         box-shadow: 2px 4px 16px -4px #0005;
     }
     .repostOverlay__container, .sc-classic .repostOverlay__container {
-        backdrop-filter: blur(32px);
+        backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
         background-color: var(--shd-bg-dropdown);
         border-radius: 8px;
         border: 1px solid #292929;
@@ -3599,7 +3693,7 @@
         background-color: var(--shd-bg-dropdown);
         border-radius: 12px;
         border: solid 2px var(--shd-accent-primary);
-        backdrop-filter: blur(60px);
+        backdrop-filter: blur(calc(50px * var(--blur-on, 1)));
         filter: drop-shadow(2px 6px 12px #0009) hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
     .callout__bubble:before, .sc-classic .callout__bubble:before {
@@ -3862,7 +3956,13 @@
     }
     .artistShortcutsModal {
         background: radial-gradient(transparent 0, black 100%);
-        backdrop-filter: sepia(0.5) saturate(1) hue-rotate(/*[[hue]]*/deg) hue-rotate(-20deg) brightness(1.2) contrast(8) blur(200px);
+        backdrop-filter: sepia(0.5) saturate(1) hue-rotate(/*[[hue]]*/deg) hue-rotate(-20deg) brightness(1.2) contrast(8) blur(calc(200px * var(--blur-on, 1)));
+        /*[[bgblur]]*/
+        background: url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/img/sc-artistshortcuts-bg.png"), #080506;
+        background: url("https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/img/sc-artistshortcuts-bg.webp"), #080506;
+        background-size: cover;
+        backdrop-filter: none;
+        /**/
     }
     .artistShortcutsModalContent {
         height: calc(100% - 90px);
@@ -3897,7 +3997,7 @@
     }
     .sc-tag.sc-tag-large {
         border-radius: 12px;
-        backdrop-filter: blur(6px);
+        backdrop-filter: blur(calc(6px * var(--blur-on, 1)));
         background: #2a2a2abb;
         box-shadow: 1px 4px 4px #0006;
         transition-duration: 0.15s;
@@ -3989,6 +4089,26 @@
         }
         .userInfoBar__buttons, .profileHeaderInfo__content.sc-media-content {
             margin-right: 80px!important;
+        }
+    }
+    @media only screen and (max-width: 1000px) {
+        #app .l-container #content .l-listen-hero .soundTitle__usernameTitleContainer > * {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 6;
+        }
+        .l-listen-hero .soundTitle__usernameTitleContainer {
+            margin-right: -65px;
+        }
+    }
+    @media only screen and (max-width: 840px) {
+        .l-listen-hero .soundTitle__titleContainer {
+            flex-direction: column;
+            gap: 12px;
+        }
+        .l-listen-hero .soundTitle__usernameTitleContainer {
+            margin-right: -1300px;
         }
     }
     @media only screen and (min-width: 1925px) {
@@ -4312,7 +4432,7 @@
         border: 1px solid #6666;
         border-width: 1px 0 0 1px;
         background-color: var(--shd-bg-translucent);
-        backdrop-filter: blur(18px);
+        backdrop-filter: blur(calc(18px * var(--blur-on, 1)));
     }
     /*.widgetCustomization__upsell .widgetCustomization__checkbox {
         opacity: 1;
@@ -4593,7 +4713,7 @@
         border-radius: 8px;
         box-shadow: 0 0 10px var(--shd-bg-darker)!important;
         background-color: var(--shd-bg-dropdown);
-        backdrop-filter: blur(32px);
+        backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
     }
 
     .sc-classic .searchMenu__searchFor {
@@ -5539,9 +5659,6 @@
         max-width: 22px;
     }
     .header__soundInput > .uploadButton.selected.active .uploadButton__title::before {
-        --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23fff' viewBox='0 0 256 256'%3E%3Cpath d='M228,152v56a20,20,0,0,1-20,20H48a20,20,0,0,1-20-20V152a12,12,0,0,1,24,0v52H204V152a12,12,0,0,1,24,0ZM96.49,88.49,116,69v83a12,12,0,0,0,24,0V69l19.51,19.52a12,12,0,0,0,17-17l-40-40a12,12,0,0,0-17,0l-40,40a12,12,0,0,0,17,17Z'%3E%3C/path%3E%3C/svg%3E"); /* phosphor - simple */
-        --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23ededed' viewBox='0 0 256 256'%3E%3Cpath d='M232,136v64a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V136a8,8,0,0,1,8-8H224A8,8,0,0,1,232,136Z' opacity='0.2'%3E%3C/path%3E%3Cpath d='M240,136v64a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V136a16,16,0,0,1,16-16H80a8,8,0,0,1,0,16H32v64H224V136H176a8,8,0,0,1,0-16h48A16,16,0,0,1,240,136ZM85.66,77.66,120,43.31V128a8,8,0,0,0,16,0V43.31l34.34,34.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,77.66ZM200,168a12,12,0,1,0-12,12A12,12,0,0,0,200,168Z'%3E%3C/path%3E%3C/svg%3E"); /* phosphor - duotone */
-        --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23222' fill-rule='evenodd' d='M3 11v2h10v-2H3Zm10-3H3l5-6 5 6ZM6 8v2h4V8H6Z'/%3E%3C/svg%3E"); /* soundcloud */
         content: "";
         display: block;
         position: relative;
@@ -5788,7 +5905,7 @@
         background-color: #111 !important;
         border: 1px solid #6663;
         border-radius: 24px;
-        backdrop-filter: blur(40px);
+        backdrop-filter: blur(calc(40px * var(--blur-on, 1)));
         box-shadow: 2px 8px 18px #0006, 0 0 0 99999px #0006;
         overflow: hidden;
         position: fixed;
@@ -5841,7 +5958,7 @@
         font-variant-numeric: tabular-nums;
     }
 
-    .sidebarHeader__title:before {
+    .sidebarModule[style="display: block;"][class*="g-all-transitions-200-linear "] .sidebarHeader__title:before {
         display: inline-block;
         content: "";
         width: 20px;
@@ -5877,6 +5994,265 @@
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cg fill='%23999' fill-rule='evenodd'%3E%3Cpath d='M2 6h10v10H2z'/%3E%3Cpath fill-opacity='.7' d='M5 2h11v10h-2V4H5z'/%3E%3C/g%3E%3C/svg%3E");
     }
     
+    /* compact mode */
+    /*[[compact]]*/ {
+        #app > header {
+            width: 52px;
+        }
+        #app .l-container.l-content:not(.siteTakeoverOverlay) {
+            width: calc(100% - 68px);
+            left: 68px;
+        }
+        .profileHeaderBackground__visual, .profileHeader__link, :not(.artistConnectContainerItem__userInfo)>.profileHeaderBackground > div {
+            width: calc(100vw - 418px);
+        }
+        .profileTabs.g-tabs.g-tabs-medium {
+            padding-right: calc(111vw - 100% + 170px) !important;
+        }
+        #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content .profileHeaderInfo__userName {
+            max-width: calc(100vw - 688px);
+        }
+
+        .header__inner .header__right {
+            top: 50px;
+            height: 225px;
+        }
+        .sc-classic .header__userNavAvatar:after, .sc-classic .header__userNavUsernameButton:after {
+            content: unset;
+            display: none;
+        }
+        .header__inner .header__right div.header__userNav .header__userNavUsernameButton {
+            width: 100%;
+            bottom: 180px;
+            position: unset;
+        }
+        .header__inner .header__right div.header__userNav {
+            display: flex;
+            flex-direction: column;
+            top: 1px;
+        }
+        .sc-classic .header__right > .header__link,
+        .sc-classic .header__right > .header__link:before,
+        .header__inner .header__right div.header__userNav .header__userNavUsernameButton {
+            --w1:0px;--w2:0px;
+        }
+        .header__soundInput {
+            left: 0;
+            top: 135px;
+            width: 100%;
+        }
+        .header__soundInput > .uploadButton .uploadButton__title {
+            font-size: 0;
+            color: #0000;
+            text-align: center;
+            max-width: 22px;
+        }
+        .header__soundInput > .uploadButton .uploadButton__title::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            opacity: .75;
+            margin: auto 0;
+            padding: 0 0;
+            transition-duration: 0.2s;
+            background-color: #fff;
+            -webkit-mask-image: var(--upload-button);
+            mask-image: var(--upload-button);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: 22px 22px;
+            mask-size: 22px 22px;
+            -webkit-mask-position: 50% 50%;
+            mask-position: 50% 50%;
+        }
+        .header__soundInput:hover > .uploadButton .uploadButton__title::before {
+            opacity: 1;
+        }
+
+        .header__left {
+            top: 280px
+        }
+        .header__logo {
+            top: -275px;
+        }
+        .header__inner .header__logo .header__logoLink {
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            height: 40px;
+            width: 40px;
+            margin-left: 16px;
+        }
+
+        .header__navWrapper .header__navMenu li a {
+            font-size: 0;
+            color: #0000;
+            padding: 0;
+            margin: 4px 10px;
+            border-radius: 8px;
+        }
+        .header__navWrapper .header__navMenu li a:before {
+            left: unset;
+            width: 100%;
+            height: 100%;
+            background-position: 50% 50%;
+        }
+        .header__navWrapper .header__navMenu li a.selected {
+            border-left: unset;
+            box-shadow: inset 24px 0px 0px -20px var(--shd-accent-primary);
+        }
+
+        .header__middle {
+            top: 420px;
+            transition: width 3s;
+        }
+
+        .sc-classic .headerSearch__submit {
+            display: none;
+            opacity: 0;
+            transition-property: display, opacity, right;
+            transition-duration: 3s;
+            transition-delay: 0s;
+            transition-timing-function: step-start;
+        }
+        .sc-classic .headerSearch__input[type=search]:focus + .headerSearch__submit {
+            display: block;
+            opacity: 1;
+            right: 10px;
+            transition-duration: 0.25s;
+        }
+        .sc-classic .headerSearch__input[type=search] {
+            padding-right: 0;
+            margin-left: 7px;
+        }
+        .sc-classic .headerSearch__input[type=search]::placeholder {
+            font-size: 0;
+            color: #0000;
+            content: "";
+            display: block;
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            top: 6px;
+            right: -5px;
+            background: url(https://a-v2.sndcdn.com/assets/images/search-dbfe5cbb.svg) 0 0 no-repeat;
+            background-size: 15px 15px;
+        }
+        .sc-classic .headerSearch__input[type=search]:focus {
+            width: 205px;
+            margin-left: 0px;
+        }
+        .sc-classic .headerSearch__input[type=search]:focus::placeholder {
+            opacity: 0;
+        }
+        .sc-classic .header__middle:has(.headerSearch__input[type=search]:focus) {
+            width: 225px;
+            transition-duration: 0.25s;
+        }
+        .dropdownMenu.g-z-index-header-menu[style*="width: 51px;"] {
+            width: 225px !important;
+        }
+        
+        .sc-classic .l-messages-left, .l-messages-left {
+            top: 8px;
+            bottom: 0;
+            left: 72px;
+        }
+        .sc-classic .l-messages-main, .l-messages-main {
+            padding-left: 230px;
+        }
+        .conversation__actions, .sc-classic .conversation__actions {
+            width: calc(100% - 298px);
+        }
+        .conversation__stickyHeader {
+            width: calc(100% - 312px);
+        }
+        .sc-classic .conversation__messages.showMinorProtectionBanner {
+            padding-top: max(calc(320px - 10vw), 204px);
+        }
+        /*[[msgwarn]]*/
+
+        @media only screen and (min-width: 1763px) {
+            :not(.artistConnectContainerItem__userInfo)>.profileHeaderBackground > div {
+                background-repeat: repeat-x;
+                background-size: max(1335px, 100%);
+                background-position: left center;
+            }
+        }
+        @media only screen and (max-width: 1000px) {
+            .profileHeaderBackground__visual, .profileHeader__link, :not(.artistConnectContainerItem__userInfo)>.profileHeaderBackground > div {
+                width: calc(100vw - 158px) !important;
+            }
+            .profileTabs.g-tabs.g-tabs-medium {
+                padding-right: calc(100vw - 96%) !important;
+            }
+            #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content .profileHeaderInfo__userName {
+                max-width: calc(100vw - 428px) !important;
+            }
+            
+            .tileGallery .playableTile, .sc-classic .tileGallery .userBadgeListItem {
+                width: 11.5vw;
+            }
+            
+            #app .l-container #content .l-listen-hero .soundTitle__usernameTitleContainer > * {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 6;
+                line-clamp: 6;
+            }
+            .l-listen-hero .soundTitle__usernameTitleContainer {
+                margin-right: -65px;
+            }
+        }
+        .l-listen-hero .soundTitle__titleContainer {
+            flex-direction: unset;
+            gap: unset;
+        }
+        @media only screen and (max-width: 678px) {
+            .l-listen-hero .soundTitle__titleContainer {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .l-listen-hero .soundTitle__usernameTitleContainer {
+                margin-right: -130px;
+            }
+        }
+        @media only screen and (max-width: 512px) {
+            .streamContext .soundTitle__titleContainer {
+                flex-direction: column;
+            }
+            .streamContext .soundTitle__usernameTitleContainer {
+                margin-top: 4px;
+                margin-right: -130px;
+            }
+        }
+        .l-fixed-fluid .sound .sc-button-responsive,.l-fluid-fixed .sound .sc-button-responsive,.l-fullwidth .sound .sc-button-responsive {
+            font-size: 12px;
+            text-indent: 19px;
+        }
+        .sc-classic .l-fixed-fluid .sound .sc-button-responsive:before,.sc-classic .l-fluid-fixed .sound .sc-button-responsive:before {
+            left: 4px
+        }
+        @media only screen and (max-width: 1077px) {
+            .l-fixed-fluid .sound .sc-button-responsive,.l-fluid-fixed .sound .sc-button-responsive,.l-fullwidth .sound .sc-button-responsive {
+                font-size:0;
+                text-indent: 0
+            }
+
+            .l-fixed-fluid .sound .sc-button-responsive *+span,.l-fluid-fixed .sound .sc-button-responsive *+span,.l-fullwidth .sound .sc-button-responsive *+span {
+                margin-left: 0
+            }
+
+            .sc-classic .l-fixed-fluid .sound .sc-button-responsive:before,.sc-classic .l-fluid-fixed .sound .sc-button-responsive:before {
+                left: 1px
+            }
+        }
+    }/**/
+    
     
     /* new soundcloud ui redesign */
     
@@ -5904,28 +6280,237 @@
         --_4g70vmj: hsla(0,0%,100%,.4);
         --_4g70vmk: hsla(0,0%,100%,.15)
     }
+    :root,.mui-theme-light,.mui-theme-dark {
+        -webkit-print-color-scheme: dark;
+        color-scheme: dark;
+        --mui-palette-common-black: #000;
+        --mui-palette-common-white: #fff;
+        --mui-palette-common-background: #000;
+        --mui-palette-common-onBackground: #fff;
+        --mui-palette-common-backgroundChannel: 0 0 0;
+        --mui-palette-common-onBackgroundChannel: 255 255 255;
+        --mui-palette-primary-main: #FFFFFF;
+        --mui-palette-primary-dark: #FFFFFF;
+        --mui-palette-primary-light: #9E9E9E;
+        --mui-palette-primary-contrastText: var(--shd-bg-primary);
+        --mui-palette-primary-hover: rgba(255, 255, 255, 0.16);
+        --mui-palette-primary-mainChannel: 255 255 255;
+        --mui-palette-primary-lightChannel: 158 158 158;
+        --mui-palette-primary-darkChannel: 255 255 255;
+        --mui-palette-primary-contrastTextChannel: 18 18 18;
+        --mui-palette-secondary-main: #9E9E9E;
+        --mui-palette-secondary-dark: #616161;
+        --mui-palette-secondary-light: #212121;
+        --mui-palette-secondary-contrastText: #FFFFFF;
+        --mui-palette-secondary-hover: rgba(117, 117, 117, 0.24);
+        --mui-palette-secondary-disabled: rgba(117, 117, 117, 0.5);
+        --mui-palette-secondary-outlinedBorder: rgba(255, 255, 255, 0.16);
+        --mui-palette-secondary-legacy: rgb(153, 153, 153);
+        --mui-palette-secondary-mainChannel: 158 158 158;
+        --mui-palette-secondary-lightChannel: 33 33 33;
+        --mui-palette-secondary-darkChannel: 97 97 97;
+        --mui-palette-secondary-contrastTextChannel: 255 255 255;
+        --mui-palette-error-main: #E61948;
+        --mui-palette-error-dark: #C10B44;
+        --mui-palette-error-light: #F25D7C;
+        --mui-palette-error-contrastText: #FFFFFF;
+        --mui-palette-error-hover: rgba(244, 67, 54, 0.08);
+        --mui-palette-error-outlinedBorder: rgba(244, 67, 54, 0.5);
+        --mui-palette-error-mainChannel: 230 25 72;
+        --mui-palette-error-lightChannel: 242 93 124;
+        --mui-palette-error-darkChannel: 193 11 68;
+        --mui-palette-error-contrastTextChannel: 255 255 255;
+        --mui-palette-warning-main: #FFA726;
+        --mui-palette-warning-dark: #F57C00;
+        --mui-palette-warning-light: rgba(18, 18, 18, 0.87);
+        --mui-palette-warning-hover: rgba(255, 167, 38, 0.08);
+        --mui-palette-warning-outlinedBorder: rgba(255, 167, 38, 0.5);
+        --mui-palette-warning-contrastText: rgba(0, 0, 0, 0.87);
+        --mui-palette-warning-mainChannel: 255 167 38;
+        --mui-palette-warning-lightChannel: 18 18 18;
+        --mui-palette-warning-darkChannel: 245 124 0;
+        --mui-palette-warning-contrastTextChannel: 0 0 0;
+        --mui-palette-info-main: #BDBDBD;
+        --mui-palette-info-dark: #616161;
+        --mui-palette-info-light: #212121;
+        --mui-palette-info-contrastText: rgba(18, 18, 18, 0.87);
+        --mui-palette-info-hover: rgba(189, 189, 189, 0.08);
+        --mui-palette-info-outlinedBorder: rgba(189, 189, 189, 0.5);
+        --mui-palette-info-mainChannel: 189 189 189;
+        --mui-palette-info-lightChannel: 33 33 33;
+        --mui-palette-info-darkChannel: 97 97 97;
+        --mui-palette-info-contrastTextChannel: 18 18 18;
+        --mui-palette-success-main: #66BB6A;
+        --mui-palette-success-dark: #388E3C;
+        --mui-palette-success-light: #81C784;
+        --mui-palette-success-contrastText: rgba(18, 18, 18, 0.87);
+        --mui-palette-success-hover: rgba(102, 187, 106, 0.08);
+        --mui-palette-success-outlinedBorder: rgba(102, 187, 106, 0.5);
+        --mui-palette-success-mainChannel: 102 187 106;
+        --mui-palette-success-lightChannel: 129 199 132;
+        --mui-palette-success-darkChannel: 56 142 60;
+        --mui-palette-success-contrastTextChannel: 18 18 18;
+        --mui-palette-grey-50: #fafafa;
+        --mui-palette-grey-100: #f5f5f5;
+        --mui-palette-grey-200: #eeeeee;
+        --mui-palette-grey-300: #e0e0e0;
+        --mui-palette-grey-400: #bdbdbd;
+        --mui-palette-grey-500: #9e9e9e;
+        --mui-palette-grey-600: #757575;
+        --mui-palette-grey-700: #616161;
+        --mui-palette-grey-800: #424242;
+        --mui-palette-grey-900: #212121;
+        --mui-palette-grey-A100: #f5f5f5;
+        --mui-palette-grey-A200: #eeeeee;
+        --mui-palette-grey-A400: #bdbdbd;
+        --mui-palette-grey-A700: #616161;
+        --mui-palette-text-primary: #FFFFFF;
+        --mui-palette-text-secondary: rgba(255, 255, 255, 0.7);
+        --mui-palette-text-disabled: rgba(255, 255, 255, 0.38);
+        --mui-palette-text-icon: rgba(255, 255, 255, 0.5);
+        --mui-palette-text-primaryChannel: 255 255 255;
+        --mui-palette-text-secondaryChannel: 255 255 255;
+        --mui-palette-divider: rgba(255, 255, 255, 0.12);
+        --mui-palette-background-paper: var(--shd-bg-primary);
+        --mui-palette-background-default: var(--shd-bg-primary);
+        --mui-palette-background-defaultChannel: 18 18 18;
+        --mui-palette-background-paperChannel: 18 18 18;
+        --mui-palette-action-active: #fff;
+        --mui-palette-action-hover: rgba(255, 255, 255, 0.08);
+        --mui-palette-action-hoverOpacity: 0.08;
+        --mui-palette-action-selected: rgba(255, 255, 255, 0.16);
+        --mui-palette-action-selectedOpacity: 0.16;
+        --mui-palette-action-disabled: rgba(255, 255, 255, 0.3);
+        --mui-palette-action-disabledBackground: rgba(255, 255, 255, 0.12);
+        --mui-palette-action-disabledOpacity: 0.38;
+        --mui-palette-action-focus: rgba(255, 255, 255, 0.12);
+        --mui-palette-action-focusOpacity: 0.12;
+        --mui-palette-action-activatedOpacity: 0.24;
+        --mui-palette-action-activeChannel: 255 255 255;
+        --mui-palette-action-selectedChannel: 255 255 255;
+        --mui-palette-contrast-main: rgba(255, 255, 255, 0.24);
+        --mui-palette-contrast-dark: rgba(255, 255, 255, 0.16);
+        --mui-palette-contrast-light: rgba(255, 255, 255, 0.6);
+        --mui-palette-contrast-contrastText: #FFFFFF;
+        --mui-palette-contrast-hover: rgba(255, 255, 255, 0.48);
+        --mui-palette-contrast-EnabledFill: rgba(18, 18, 18, 0.16);
+        --mui-palette-contrast-HoverFill: rgba(18, 18, 18, 0.24);
+        --mui-palette-contrast-mainChannel: 255 255 255;
+        --mui-palette-contrast-lightChannel: 255 255 255;
+        --mui-palette-contrast-darkChannel: 255 255 255;
+        --mui-palette-contrast-contrastTextChannel: 255 255 255;
+        --mui-palette-link-main: #1E88E5;
+        --mui-palette-link-mainChannel: 30 136 229;
+        --mui-palette-surface-main: var(--shd-bg-primary);
+        --mui-palette-surface-tonal: #212121;
+        --mui-palette-surface-dark: #212121;
+        --mui-palette-surface-mainChannel: 18 18 18;
+        --mui-palette-surface-darkChannel: 33 33 33;
+        --mui-palette-artist-main: #7517E6;
+        --mui-palette-artist-dark: #311B92;
+        --mui-palette-artist-light: #EEE8FE;
+        --mui-palette-artist-hover: rgba(117, 100, 245, 0.16);
+        --mui-palette-artist-contrastText: #FFFFFF;
+        --mui-palette-artist-mainChannel: 117 23 230;
+        --mui-palette-artist-lightChannel: 238 232 254;
+        --mui-palette-artist-darkChannel: 49 27 146;
+        --mui-palette-artist-contrastTextChannel: 255 255 255;
+        --mui-palette-highlight-main: rgb(48, 48, 48);
+        --mui-palette-highlight-mainChannel: 48 48 48;
+        --mui-palette-border-main: rgba(255, 255, 255, 0.15);
+        --mui-palette-border-mainChannel: 255 255 255;
+        --mui-palette-overlay-main: rgba(255, 255, 255, 0.4);
+        --mui-palette-overlay-mainChannel: 255 255 255;
+        --mui-palette-special-main: rgb(255, 85, 0);
+        --mui-palette-special-mainChannel: 255 85 0;
+        --mui-palette-Alert-errorColor: rgb(249, 190, 202);
+        --mui-palette-Alert-infoColor: rgb(166, 166, 166);
+        --mui-palette-Alert-successColor: rgb(204, 232, 205);
+        --mui-palette-Alert-warningColor: rgba(160, 160, 160, 0.87);
+        --mui-palette-Alert-errorFilledBg: var(--mui-palette-error-dark, #C10B44);
+        --mui-palette-Alert-infoFilledBg: var(--mui-palette-info-dark, #616161);
+        --mui-palette-Alert-successFilledBg: var(--mui-palette-success-dark, #388E3C);
+        --mui-palette-Alert-warningFilledBg: var(--mui-palette-warning-dark, #F57C00);
+        --mui-palette-Alert-errorFilledColor: #fff;
+        --mui-palette-Alert-infoFilledColor: #fff;
+        --mui-palette-Alert-successFilledColor: #fff;
+        --mui-palette-Alert-warningFilledColor: rgba(0, 0, 0, 0.87);
+        --mui-palette-Alert-errorStandardBg: rgb(24, 9, 12);
+        --mui-palette-Alert-infoStandardBg: rgb(3, 3, 3);
+        --mui-palette-Alert-successStandardBg: rgb(12, 19, 13);
+        --mui-palette-Alert-warningStandardBg: rgba(1, 1, 1, 0.87);
+        --mui-palette-Alert-errorIconColor: var(--mui-palette-error-main, #E61948);
+        --mui-palette-Alert-infoIconColor: var(--mui-palette-info-main, #BDBDBD);
+        --mui-palette-Alert-successIconColor: var(--mui-palette-success-main, #66BB6A);
+        --mui-palette-Alert-warningIconColor: var(--mui-palette-warning-main, #FFA726);
+        --mui-palette-AppBar-defaultBg: var(--mui-palette-grey-900, #212121);
+        --mui-palette-AppBar-darkBg: var(--mui-palette-background-paper, #121212);
+        --mui-palette-AppBar-darkColor: var(--mui-palette-text-primary, #FFFFFF);
+        --mui-palette-Avatar-defaultBg: var(--mui-palette-grey-600, #757575);
+        --mui-palette-Button-inheritContainedBg: var(--mui-palette-grey-800, #424242);
+        --mui-palette-Button-inheritContainedHoverBg: var(--mui-palette-grey-700, #616161);
+        --mui-palette-Chip-defaultBorder: var(--mui-palette-grey-700, #616161);
+        --mui-palette-Chip-defaultAvatarColor: var(--mui-palette-grey-300, #e0e0e0);
+        --mui-palette-Chip-defaultIconColor: var(--mui-palette-grey-300, #e0e0e0);
+        --mui-palette-FilledInput-bg: rgba(255, 255, 255, 0.09);
+        --mui-palette-FilledInput-hoverBg: rgba(255, 255, 255, 0.13);
+        --mui-palette-FilledInput-disabledBg: rgba(255, 255, 255, 0.12);
+        --mui-palette-LinearProgress-primaryBg: rgb(127, 127, 127);
+        --mui-palette-LinearProgress-secondaryBg: rgb(79, 79, 79);
+        --mui-palette-LinearProgress-errorBg: rgb(115, 12, 36);
+        --mui-palette-LinearProgress-infoBg: rgb(94, 94, 94);
+        --mui-palette-LinearProgress-successBg: rgb(51, 93, 53);
+        --mui-palette-LinearProgress-warningBg: rgb(127, 83, 19);
+        --mui-palette-Skeleton-bg: rgba(var(--mui-palette-text-primaryChannel, undefined) / 0.13);
+        --mui-palette-Slider-primaryTrack: rgb(127, 127, 127);
+        --mui-palette-Slider-secondaryTrack: rgb(79, 79, 79);
+        --mui-palette-Slider-errorTrack: rgb(115, 12, 36);
+        --mui-palette-Slider-infoTrack: rgb(94, 94, 94);
+        --mui-palette-Slider-successTrack: rgb(51, 93, 53);
+        --mui-palette-Slider-warningTrack: rgb(127, 83, 19);
+        --mui-palette-SnackbarContent-bg: rgb(250, 250, 250);
+        --mui-palette-SnackbarContent-color: rgba(0, 0, 0, 0.87);
+        --mui-palette-SpeedDialAction-fabHoverBg: rgb(53, 53, 53);
+        --mui-palette-StepConnector-border: var(--mui-palette-grey-600, #757575);
+        --mui-palette-StepContent-border: var(--mui-palette-grey-600, #757575);
+        --mui-palette-Switch-defaultColor: var(--mui-palette-grey-300, #e0e0e0);
+        --mui-palette-Switch-defaultDisabledColor: var(--mui-palette-grey-600, #757575);
+        --mui-palette-Switch-primaryDisabledColor: rgb(114, 114, 114);
+        --mui-palette-Switch-secondaryDisabledColor: rgb(71, 71, 71);
+        --mui-palette-Switch-errorDisabledColor: rgb(103, 11, 32);
+        --mui-palette-Switch-infoDisabledColor: rgb(85, 85, 85);
+        --mui-palette-Switch-successDisabledColor: rgb(45, 84, 47);
+        --mui-palette-Switch-warningDisabledColor: rgb(114, 75, 17);
+        --mui-palette-TableCell-border: rgba(81, 81, 81, 1);
+        --mui-palette-Tooltip-bg: rgba(97, 97, 97, 0.92);
+        --mui-palette-dividerChannel: 255 255 255;
+        --mui-opacity-inputPlaceholder: 0.5;
+        --mui-opacity-inputUnderline: 0.7;
+        --mui-opacity-switchTrackDisabled: 0.2;
+        --mui-opacity-switchTrack: 0.3;
+        --mui-overlays-0: none;
+    }
     /* this is going to be hell to maintain */
     
     html._1iz3r9b0 > body:not(.sc-classic) {
         background: var(--shd-bg-primary) !important;
     }
     
-    .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root):has(.Mui-checked), /* form group button selected */
+    .MuiButtonBase-root svg > path[fill="#000"] /* black button icons */
+    {
+        fill: currentColor !important;
+    }
+    
     .MuiSwitch-colorSuccess.Mui-checked + .MuiSwitch-track, /* switch button */
     .MuiButton-containedSuccess /* generic green button (like continue button on upload page) */
     {
         background-color: var(--_4g70vm0);
         filter: hue-rotate(/*[[hue]]*/deg);
     }
-    .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root):has(.Mui-checked):hover /* form group button selected hover */
-    {
-        background-color: var(--shd-accent-secondary);
-    }
     .mui-n430uj, /* tracks view primary text */
     .mui-fmfkj, /* selected track bulk edit + add to playlist button icons */
     .mui-15yj62u, /* tracks more button icon */
-    .MuiIconButton-sizeSmall, .MuiIconButton-sizeMedium, /* generic button icons */
-    .MuiTypography-root, /* generic text selector */
+    /*.MuiIconButton-sizeSmall, .MuiIconButton-sizeMedium,*/ /* generic button icons */
     .MuiButton-textPrimary, /* generic button text selector */
     .MuiFormLabel-colorPrimary, /* form label */
     .MuiAccordionSummary-content, /* accordion label */
@@ -5971,8 +6556,7 @@
     .mui-15yj62u:hover, /* tracks more button hover */
     .MuiIconButton-sizeSmall:hover, .MuiIconButton-sizeMedium:hover, /* generic button hover */
     .mui-fmfkj:hover, /* selected track bulk edit + add to playlist buttons */
-    .MuiFormGroup-root[role="radiogroup"] .MuiFormControlLabel-root:has(.MuiRadio-root):hover, /* form group button hover */
-    .MuiButtonBase-root:not(.MuiButton-containedPrimary):hover, /* button hover */
+    .MuiButtonBase-root:not(.MuiButton-containedPrimary, .MuiAccordionSummary-root, .MuiTab-root):hover, /* button hover */
     .h2ki1a3, /* vertical rule */
     #main table[aria-label="My Tracks"] > tbody > tr:hover td /* hovered tracks */
     {
@@ -5982,8 +6566,9 @@
     .MuiListSubheader-root, /* list subheader */
     button[aria-label="Add artwork"], /* add artwork panel */
     .MuiChip-filled, /* tag background */
-    .mupd0r6, /* upload footer background */
-    .byzetif /* review your track info */
+    .mupd0r6, .mupd0r3, footer.MuiBox-root, /* upload footer background */
+    .byzetif, /* review your track info */
+    .mui-1rc7l6 /* monetization upload flow */
     {
         background: var(--shd-bg-lighter);
     }
@@ -6010,7 +6595,7 @@
         border-radius: 12px;
         border: 1px solid #4448;
         background-color: var(--shd-bg-dropdown);
-        backdrop-filter: blur(32px);
+        backdrop-filter: blur();
         color: #999;
     }
     :is(.MuiMenu-paper.MuiPaper-root .MuiMenu-list .MuiButtonBase-root, /* dropdown menuitem hover */
@@ -6074,9 +6659,45 @@
     {
         color: inherit;
     }
+    [data-testid="crossfade-banner"] /* preview banner, not really sure which color to use due to inconsistent branding on the new ui */
+    {
+        background-color: color-mix(in oklab, var(--shd-accent-blue), #363636 30%);
+    }
     ._47gh083 /* upload completed header */
     {
         background-color: hsl(calc(203deg + /*[[blu]]*/deg), 23%, 16%);
+    }
+    path[stroke="#181B1F"] /* upload icon */
+    {
+        stroke: #444 !important;
+    }
+    path[fill="#181B1F"] /* upload icon */
+    {
+        fill: #444 !important;
+    }
+    .mui-bxfdfm /* final upload button */
+    {
+        --variant-containedColor: #fff;
+    }
+    .mui-wcxxnp:first-child /* post-upload sc ring */
+    {
+        box-shadow: inset 0 0 0 4px var(--mui-palette-grey-500);
+    }
+    .mui-wcxxnp:not(:first-child) /* post-upload service dotted rings */ {
+        border-color: var(--mui-palette-grey-500);
+    }
+    .mui-yw6l3c /* post-upload bg circles */
+    {
+        background-color: var(--mui-palette-grey-000);
+        color: #fff;
+    }
+    .mui-yw6l3c svg path[fill="#000"] /* post-upload service icons */
+    {
+        fill: currentColor !important;
+    }
+    .mui-yw6l3c svg path[fill="url(#xb0a5e3b8504f)"] /* post-upload using png for amazon music for some reason */
+    {
+        filter: invert(1);
     }
 }
 @-moz-document regexp("http(s)?:\\/\\/(www\\.)?soundcloud\\.com\\/.*\\/following\\/?") {
@@ -6583,7 +7204,7 @@
         border-radius: 12px;
         border: 1px solid #4448;
         background-color: var(--shd-bg-dropdown);
-        backdrop-filter: blur(32px);
+        backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
         color: #999;
     }
     .MuiMenu-paper .MuiMenu-list .MuiMenuItem-root, .MuiMenu-paper .MuiMenu-list :is(.mui-1wgfqo9,.mui-pxfwaq):not(:hover) {
@@ -6598,7 +7219,7 @@
     .mui-d9ba2b, .mui-9fykwh {
         border-radius: 12px !important;
         background-color: var(--shd-bg-dropdown) !important;
-        backdrop-filter: blur(32px);
+        backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
         color: rgb(255, 255, 255);
         box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
         border: 1px solid rgba(255, 255, 255, 0.15);
