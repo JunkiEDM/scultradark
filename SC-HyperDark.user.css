@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.51
+@version      0.9.52
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -96,17 +96,29 @@
     @media only screen and (min-width: 0px) EOT;
 }
 @advanced range cmth "Compact mode auto threshold" [1240, 160, 2560, 40, "px"]
-@advanced dropdown sin "Insights on sidebar" {
-    stats-on    "Show" <<<EOT 
-    height:100%; EOT;
-    stats-off   "Hide" <<<EOT 
-    height:0; EOT;
-}
 @advanced dropdown at "Artist tools on sidebar" {
     at-on    "Show" <<<EOT EOT;
     at-off   "Hide" <<<EOT 
     .sidebarModule:has(iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"]), iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"] {
         display: none;
+    } EOT;
+}
+@advanced dropdown sin "Insights on sidebar" {
+    stats-on    "Show" <<<EOT EOT;
+    stats-feed  "Feed only" <<<EOT 
+    .listenNetworkSidebar > div:has(iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/"]), iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/"] {
+        display: none;
+    } EOT;
+    stats-track "Track page only" <<<EOT 
+    .insightsSidebarModule.sc-font {
+        height: 0;
+    } EOT;
+    stats-off   "Hide Both" <<<EOT 
+    .listenNetworkSidebar > div:has(iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/"]), iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/"] {
+        display: none;
+    }
+    .insightsSidebarModule.sc-font {
+        height: 0;
     } EOT;
 }
 @advanced dropdown hin "Artist Insights on homepage" {
@@ -148,7 +160,7 @@
     prpop-on     "Show" <<<EOT 
     display:block; EOT;
 }
-@advanced dropdown gopro "Soundcloud Go/Next Links" {
+@advanced dropdown gopro "Soundcloud Go/Artist Links" {
     gopro-off    "Hide" <<<EOT 
     display:none; EOT;
     gopro-on     "Show" <<<EOT 
@@ -2356,16 +2368,21 @@
     .header__soundInput > .uploadButton.selected .uploadButton__title, .header__soundInput:hover .uploadButton__title {
         color: #fff;
     }
+    
     .sc-classic .header__link.header__goUpsell, 
     .sc-classic .header__link.header__goUpsell_side_by_side_experience, 
     .sc-classic .header__link.header__proUpsell_side_by_side_experience,
-    .sc-classic .header__upsellWrapper>.header__link {
+    .sc-classic .header__upsellWrapper>.header__link,
+    .sc-classic .header__upsellWrapper>.header__button {
         /*[[gopro]]*/
         filter: hue-rotate(/*[[hue]]*/deg);
         padding: 4px;
         transform: translateY(317px);
         opacity: 0.8;
         transition-property: color, opacity;
+        font-size: 13px !important;
+        line-height: 14px;
+        text-align: center;
     }
     .sc-classic .header__link.header__goUpsell:active, 
     .sc-classic .header__link.header__goUpsell:focus,
@@ -2378,17 +2395,47 @@
     .sc-classic .header__link.header__proUpsell_side_by_side_experience:hover,
     .sc-classic .header__upsellWrapper>.header__link:active,
     .sc-classic .header__upsellWrapper>.header__link:focus,
-    .sc-classic .header__upsellWrapper>.header__link:hover {
+    .sc-classic .header__upsellWrapper>.header__link:hover,
+    .sc-classic .header__upsellWrapper>.header__button:active,
+    .sc-classic .header__upsellWrapper>.header__button:focus,
+    .sc-classic .header__upsellWrapper>.header__button:hover {
         opacity: 1;
     }
     .sc-classic .header__link.header__goUpsell:nth-of-type(2), 
     .sc-classic .header__link.header__goUpsell_side_by_side_experience:nth-of-type(2), 
     .sc-classic .header__link.header__proUpsell_side_by_side_experience:nth-of-type(2),
-    .sc-classic .header__upsellWrapper>.header__link:nth-of-type(2) {
+    .sc-classic .header__upsellWrapper>.header__link:nth-of-type(2),
+    .sc-classic .header__upsellWrapper>.header__button:nth-of-type(2) {
         float: right;
     }
-    .sc-classic:has(.searchOptions) .header__upsellWrapper>.header__link {
+    .sc-classic:has(.searchOptions) .header__upsellWrapper>.header__link,
+    .sc-classic:has(.searchOptions) .header__upsellWrapper>.header__button {
         display: none;
+    }
+    .sc-classic .header__upsellWrapper {
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+    }
+    .sc-classic .header__upsellWrapper>.header__button {
+        background: none !important;
+        color: #f50 !important;
+        border: none !important;
+        margin: 0;
+        min-width: 0;
+        white-space: normal;
+        height: auto;
+    }
+    /* hide artist tools if user isnt subscribed */
+    @supports (selector(:has(*))) {
+        .sc-classic:has(
+            .header__upsellWrapper>.header__link[href^="https://checkout.soundcloud.com/artist"]
+        ) :is(
+            .sidebarModule:has(iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"]),
+            iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"]
+        ) {
+            /*[[gopro]]*/
+        }
     }
     
     .sc-background-white {
@@ -2666,11 +2713,15 @@
     .sidebarHeader.g-flex-row-centered-spread.sc-link-light.sc-border-light-bottom {
         border-bottom: 1px solid #181818
     }
-    .userSuggestionList__item {
-        padding: 5px 0
+    .userSuggestionList__item,
+    .sc-classic .userSuggestionList__item {
+        padding: 6px 0
     }
     .historicalPlays.m-soundBadge .historicalPlays__item,
-    .soundBadgeList.compact .soundBadgeList__item {
+    .soundBadgeList.compact .soundBadgeList__item,
+    .sc-classic .historicalPlays.m-soundBadge .historicalPlays__item,
+    .sc-classic .soundBadgeList.compact .soundBadgeList__item
+    {
         padding: 3px 0
     }
     .sidebarContent[style] {
@@ -2679,8 +2730,12 @@
     .sidebarModule, .sc-classic .sidebarModule {
         margin-bottom: 15px
     }
-    .statsBadge__recent {
+    .statsBadge__recent,
+    .sc-classic .statsBadge__recent {
         margin: 0
+    }
+    .soundStats.sc-ministats-group {
+        margin-top: -4px;
     }
     .l-fluid-fixed .l-sidebar-right .l-footer {
         top: 0;
@@ -3526,7 +3581,7 @@
     .tileGallery.m-hasItemsBackward .tileGallery__sliderPeekBackward, .tileGallery.m-hasItemsForward .tileGallery__sliderPeekForward {
         display: block;
         opacity: 1;
-        width: 96px;
+        width: 10%;
         pointer-events: auto;
         transition-duration: 0.3s;
         transition-timing-function: ease-out;
@@ -3979,6 +4034,7 @@
         background: linear-gradient(#f60,#f40);
         filter: brightness(1) contrast(1) hue-rotate(/*[[hue]]*/deg)!important;
         transition-duration: 0.5s;
+        transition-property: background-color, filter, box-shadow, color;
     }
     .sc-button-next.sc-button-focus, .sc-button-next:focus, .sc-button-next:hover, .sc-button-pause.sc-button-focus, .sc-button-pause:focus, .sc-button-pause:hover, .sc-button-play.sc-button-focus, .sc-button-play:not(.playableTile__playButton .playButton):focus, .sc-button-play:not(.playableTile__playButton .playButton):hover, .sc-button-prev.sc-button-focus, .sc-button-prev:focus, .sc-button-prev:hover {
         background-color: var(--shd-accent-secondary);
@@ -4193,9 +4249,8 @@
     .insightsSidebarModule.sc-font { /*show/hide sidebar insights*/
         padding: 0;
         margin-top: 20px;
-        /*[[sin]]*/
+        height: 100%;
         overflow-y: clip;
-        transition-duration: 0.5s;
     }
     .insightsSidebarModule__plays {
         font-weight: 600;
@@ -4210,6 +4265,9 @@
     .insightsSidebarModule__title {
         font-size: 16px;
     }
+    
+    /*[[sin]]*/
+    
      /* gdpr aka cookie consent dickbar */
     
     #onetrust-consent-sdk #onetrust-banner-sdk,
@@ -4827,7 +4885,11 @@
         margin-top: 4px;
     }
     .soundTitle__title {
+        height: auto;
         padding-top: 4px;
+    }
+    .soundBadge.compact .soundTitle__title {
+        padding-top: 0;
     }
     .sc-classic .mobileAppsButtons.m-sidebar {
         padding: 0px;
@@ -5224,10 +5286,11 @@
     }
     
     @supports (selector(:has(*))) {
-        #app:not(body[marginwidth="0"][marginheight="0"] #app):not(:has(.playControls)),
-        #app:not(:has(.playControls)) header:not(.g-flex-row-spread),
-        #app:not(:has(.playControls)) div.g-z-index-modal-background,
-        body:not(:has(.playControls)) div.g-z-index-modal-background {
+        #app:not(body[marginwidth="0"][marginheight="0"] > #app):not(:has(> .playControls)),
+        #app:not(:has(> .playControls)) header:not(.g-flex-row-spread),
+        #app:not(:has(> .playControls)) div.g-z-index-modal-background,
+        body:not(:has(> #app > .playControls)) div.g-z-index-modal-background,
+        body:has(> #app > .playControls.m-queueVisible) div.g-z-index-modal-background {
             height: 100vh;
         }
     }
@@ -5281,7 +5344,7 @@
         border: 1px solid #333;
     }
     .commentItem__creator, .commentItem__creatorLink,
-    .sc-classic .commentItem__creator, .commentItem__creatorLink {
+    .sc-classic .commentItem__creator, .sc-classic .commentItem__creatorLink {
         background-color: #f502;
         border: 1px solid #f50;
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
@@ -6010,9 +6073,13 @@
     }
     
     /* sidebar class update */
-    .sidebarHeader__more__webi_style {
-        color: #ccc;
-        font-size: 12px;
+    .sc-classic .sidebarHeader {
+        display: flex;
+    }
+    
+    .sidebarHeader__more__webi_style, .sc-classic .sidebarHeader__more__webi_style {
+        color: #999;
+        font-size: 13px;
     }
     
     .sidebarHeader__actualTitle__webi__style, .sc-classic .sidebarHeader__actualTitle__webi__style {
@@ -6059,6 +6126,16 @@
     .setsModule .sidebarHeader__title:before, .soundInSetsModule .sidebarHeader__title:before {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cg fill='%23999' fill-rule='evenodd'%3E%3Cpath d='M2 6h10v10H2z'/%3E%3Cpath fill-opacity='.7' d='M5 2h11v10h-2V4H5z'/%3E%3C/g%3E%3C/svg%3E");
     }
+    
+    .sc-classic .whoToFollowModule .sidebarHeader__more__webi_style {
+        background-image: url(https://a-v2.sndcdn.com/assets/images/refresh-de07f592.svg);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0z'/%3E%3Cpath fill='%23999' fill-rule='nonzero' d='M14.7 5.29a6.66 6.66 0 1 0 1.73 6.38h-1.72a5 5 0 1 1-1.2-5.19L11 9h6V3l-2.3 2.29Z'/%3E%3C/g%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: 0;
+        padding-left: 20px;
+        background-size: 18px 18px
+    }
+
     
     /* artist tools */
     body[style="background-color:transparent"] .mui-12ojesd .MuiTypography-h5 {
@@ -6435,6 +6512,23 @@
         color: rgb(var(--brz-global-color1-pttk)) !important;
     }
     
+    /* minify & inline slow-loading icons */
+    /* 1260 B -> 769 B */
+    .sc-classic .m-light .profileMenu__stations:after {
+        background-image: url(https://a-v2.sndcdn.com/assets/images/stations-dark-9ffb9f94.svg);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23333' d='M3.87 3.11c.23.22.24.59 0 .81a5.68 5.68 0 0 0 .07 8.15c.23.22.23.59 0 .81a.6.6 0 0 1-.84 0 6.81 6.81 0 0 1-.06-9.76.6.6 0 0 1 .83 0zm9.02 0a6.85 6.85 0 0 1 .12 9.77.6.6 0 0 1-.83.01.57.57 0 0 1-.01-.81 5.7 5.7 0 0 0-.1-8.15.57.57 0 0 1-.01-.81.6.6 0 0 1 .82-.01zm-2 1.55a4.8 4.8 0 0 1 1.39 3.41c0 1.23-.45 2.38-1.24 3.25a.54.54 0 0 1-.79.02.61.61 0 0 1-.02-.83c.6-.66.93-1.52.93-2.44 0-.98-.38-1.9-1.04-2.56a.61.61 0 0 1-.02-.83.54.54 0 0 1 .79-.02zm-5.08 0c.23.23.24.6.02.84a3.6 3.6 0 0 0-.96 2.46c0 .96.37 1.86 1.02 2.53a.6.6 0 0 1 0 .83.56.56 0 0 1-.81 0 4.8 4.8 0 0 1-1.36-3.36c0-1.24.47-2.4 1.28-3.28a.56.56 0 0 1 .81-.02zM8 6.45a1.55 1.55 0 1 1 0 3.1 1.55 1.55 0 0 1 0-3.1z'/%3E%3C/svg%3E"); 
+    }
+    /* 1283 B -> 548 B */
+    .sc-classic .m-light .profileMenu__earnings:after {
+        background-image: url(https://a-v2.sndcdn.com/assets/images/paid-icon-dark-70613bef.svg);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 40'%3E%3Cpath fill='%23333' d='M8 35.74a11.64 11.64 0 0 1-8-5.14L4.17 27c1.8 1.89 3.86 3.6 7.05 3.6a8.2 8.2 0 0 0 4.02-.93c1.07-.61 1.9-1.71 1.87-2.92 0-3.2-3.69-4-6.99-4.7-2.34-.59-4.47-1.22-6.2-2.56-1.66-1.32-2.7-3.2-2.7-6.1 0-4.73 3.16-7.63 6.78-8.74V0h7v4.26c2.78.54 5.55 1.95 7.2 4.75l-4.3 3.4a7.14 7.14 0 0 0-5.94-3.01c-2.62 0-4.85 1.18-4.85 3.4 0 3.66 4.96 4.24 7.43 4.76 1.18.3 2.3.66 3.34 1.1a7.94 7.94 0 0 1 4.48 4.17c.92 2.12.9 5.72-.4 8-1.38 2.45-3.86 4.1-6.96 4.77V40H8v-4.26Z'/%3E%3C/svg%3E");
+    }
+    /* 1580 B -> 336 B */
+    .sc-button-medium.sc-button-startstation:before {
+        background-image: url(https://a-v2.sndcdn.com/assets/images/start-station-ea018c5a.svg);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 14'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='9' cy='7' r='2.5' fill='%23222'/%3E%3Cpath stroke='%23222' d='M15.03 13a8.47 8.47 0 0 0 .03-11.97m-2.16 9.84a5.48 5.48 0 0 0 .04-7.7M3.02.96a8.47 8.47 0 0 0 0 12.08'/%3E%3Cpath stroke='%23222' d='M5.1 3.12a5.48 5.48 0 0 0 .05 7.81'/%3E%3C/g%3E%3C/svg%3E"); 
+    }
+    
     
     /* new soundcloud ui redesign */
     
@@ -6739,6 +6833,17 @@
     .MuiOutlinedInput-root.Mui-focused /* focused input box */ {
         border-color: #999;
     }
+    ._11yjo622 ._11yjo626 td, .t0cm2o2 .t0cm2o6 td, /* selected tracks */
+    .MuiListSubheader-root, /* list subheader */
+    button[aria-label="Add artwork"], /* add artwork panel */
+    .MuiChip-filled, /* tag background */
+    .mupd0r6, .mupd0r3, footer.MuiBox-root, /* upload footer background */
+    .byzetif, /* review your track info */
+    .mui-1rc7l6, /* monetization upload flow */
+    #main table[aria-label="My Tracks"] > tbody > tr.t0cm2o7 td /* playing tracks */
+    {
+        background: var(--shd-bg-lighter);
+    }
     .mui-15yj62u:hover, /* tracks more button hover */
     .MuiIconButton-sizeSmall:hover, .MuiIconButton-sizeMedium:hover, /* generic button hover */
     .mui-fmfkj:hover, /* selected track bulk edit + add to playlist buttons */
@@ -6747,16 +6852,6 @@
     #main table[aria-label="My Tracks"] > tbody > tr:hover td /* hovered tracks */
     {
         background-color: #fff2;
-    }
-    ._11yjo622 ._11yjo626 td, .t0cm2o2 .t0cm2o6 td, /* selected tracks */
-    .MuiListSubheader-root, /* list subheader */
-    button[aria-label="Add artwork"], /* add artwork panel */
-    .MuiChip-filled, /* tag background */
-    .mupd0r6, .mupd0r3, footer.MuiBox-root, /* upload footer background */
-    .byzetif, /* review your track info */
-    .mui-1rc7l6 /* monetization upload flow */
-    {
-        background: var(--shd-bg-lighter);
     }
     ._1jk87g70, ._1i6f4ag0, /* uploaded track hd indicator */
     ._47gh084 /* upload completed checkmark */
@@ -6781,8 +6876,23 @@
         border-radius: 12px;
         border: 1px solid #4448;
         background-color: var(--shd-bg-dropdown);
-        backdrop-filter: blur();
-        color: #999;
+        backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
+        color: #ccc;
+    }
+    .MuiTypography-tooltipBody {
+        color: #bbb;
+    }
+    [d="M4.73 12V4h1.63v3.23h3.49V4h1.64v8H9.85V8.59H6.36V12H4.73Zm12.13 0h-2.08v-1.41h2c.51 0 .94-.1 1.3-.28.34-.18.6-.46.78-.85.18-.38.26-.87.26-1.47s-.09-1.08-.26-1.46a1.75 1.75 0 0 0-.79-.85 2.71 2.71 0 0 0-1.28-.27h-2.04V4h2.13c.8 0 1.5.16 2.07.48.58.32 1.03.78 1.34 1.38.31.59.47 1.3.47 2.13a4.6 4.6 0 0 1-.47 2.15c-.31.6-.76 1.06-1.34 1.38-.58.32-1.28.48-2.1.48Zm-1.18-8v8h-1.64V4h1.64Z"][fill="currentColor"] /* hd text */
+    {
+        fill: #fff !important;
+        filter: none !important;
+    }
+    .t0cm2ok svg.lvdtkr3 {
+        color: #fff;
+    }
+    .t0cm2ok svg.lvdtkr3 path {
+        stroke: #fff;
+        stroke-width: 0.2;
     }
     :is(.MuiMenu-paper.MuiPaper-root .MuiMenu-list .MuiButtonBase-root, /* dropdown menuitem hover */
         .mui-wakfts.MuiButtonBase-root
@@ -6915,7 +7025,7 @@
     }
     .waveform__layer.waveform__scene canvas:first-of-type:not(.visualAudible__waveform canvas) {
         /*filter: invert(1) hue-rotate(172deg) brightness(0.7) contrast(0.8) saturate(2.3);*//*[[widget]]*/
-        filter: contrast(0.8) brightness(1.3) brightness(0.9) saturate(2.2);
+        filter: contrast(0.8) brightness(1.15) saturate(2);
     }
     .waveform__layer.waveform__scene canvas:last-of-type:not(.visualAudible__waveform canvas) {
         filter: brightness(1.5);
@@ -6934,11 +7044,14 @@
         color: #eee;
     }
     .sc-button-small:not(.visualAudible .sc-button-small):before {
-        filter: invert(1) saturate(0) brightness(0.8);
+        filter: saturate(0) contrast(0) brightness(1.4);
         transition-duration: 0.2s;
     }
-    .sc-button-small.mouseover:not(.visualAudible .sc-button-small):before {
-        filter: invert(1) saturate(0) brightness(1);
+    .sc-button-small.mouseover:not(.visualAudible .sc-button-small, .sc-button-selected):before {
+        filter: saturate(0) contrast(0) brightness(1.8);
+    }
+    .sc-button-small.sc-button-selected.sc-button-lightfg::before, .sc-button-small.sc-button-selected.sc-button-visual::before, .sc-button-small.sc-button-selected::before {
+        filter: saturate(0) contrast(0) brightness(0.8) sepia(1) hue-rotate(-22deg) saturate(8) hue-rotate(/*[[hue]]*/deg);
     }
     .sc-ministats-small {
         color: #888;
@@ -7018,20 +7131,20 @@
     body {
         font: 12px/1.4 var(--font-main);
     }
-    .title__h1, .title__h2, .sc-font-light {
+    .title__h1, .title__h2, .sc-font-light, .sc-button {
         font-family: var(--font-main);
     }
-    .soundsTotal, .sc-font-light, .teaser__button.hearmore .hearmore__container .hearmore__right {
+    .soundsTotal, .sc-font-light, .teaser__button.hearmore .hearmore__container .hearmore__right, .sc-button {
         font-weight: 400;
     }
     .title__h1, .title__h2 {
         font-weight: 300;
     }
     @supports (font-variation-settings: normal) {
-        body, .title__h1, .title__h2, .sc-font-light {
+        body, .title__h1, .title__h2, .sc-font-light, .sc-button {
             font-family: var(--font-main);
         }
-        .soundsTotal, .sc-font-light, .teaser__button.hearmore .hearmore__container .hearmore__right {
+        .soundsTotal, .sc-font-light, .teaser__button.hearmore .hearmore__container .hearmore__right, .sc-button {
             font-weight: 400;
         }
         .title__h1, .title__h2 {
