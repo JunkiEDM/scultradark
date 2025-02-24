@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.52
+@version      0.9.53
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -34,7 +34,7 @@
     dist-off   "Hide" <<<EOT 
     --w1:0px;--w2:0px; EOT;
 }
-@advanced dropdown probdg "Next Pro profile badges" {
+@advanced dropdown probdg "Artist profile badges" {
     probdg-off    "Hide" <<<EOT 
     .proUnlimitedBadge, .creatorBadge {
         display: none;
@@ -901,7 +901,7 @@
         right: 15px;
         transition: right .2s, background .2s
     }
-    @media(max-width:1000px) {
+    @media only screen and (max-width:1000px) {
         #app .l-container.l-content .l-fluid-fixed .l-main {
             margin-right: 50px
         }
@@ -920,6 +920,12 @@
         }
         #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content .profileHeaderInfo__userName {
             max-width: calc(100vw - 590px) !important;
+        }
+        #app .l-container #content .soundBadge__additional {
+            background: linear-gradient(to right, transparent, #181818 17px) !important;
+        }
+        iframe.velvetCakeIframe {
+            filter: contrast(0.95) brightness(1.05);
         }
     }
     @media only screen and (max-width: 850px) {
@@ -961,6 +967,9 @@
         position: relative;
         margin-bottom: 90px;
         padding-bottom: 40px;
+    }
+    #app .l-container #content .l-search.l-fixed-fluid {
+        margin-bottom: 60px;
     }
     #app .l-container #content .l-about-rows,
     #app .l-container #content .listenEngagement {
@@ -1873,6 +1882,19 @@
         border: 1px solid #222;
         transition: border-color .1s
     }
+    .sc-input-large {
+        border-radius: 5px;
+        font-size: 16px;
+        line-height: 18px;
+        padding: 7px 8px;
+    }
+    .sc-select-large {
+        border-radius: 5px;
+        font-size: 16px;
+        line-height: 18px;
+        height: auto;
+        padding: 7px 4px;
+    }
     .sc-button-active:not(.sc-button-nostyle):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.sc-button-queue):not(.imageEditDropdownButton):not(.sc-button-dropdown):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-privacy):not(.sc-button-delete):not(.sc-button-icon),
     .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(:hover):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy):not(.sc-button-delete):not(.sc-button-icon) {
         border-color: var(--shd-bg-lighter);
@@ -2262,7 +2284,7 @@
         background: var(--shd-bg-darker)
     }
     .fullHero {
-        background: linear-gradient(to right, #1d0101, #200122)!important
+        background: linear-gradient(to right, #3a211e, #2e1d2e)!important
     }
     .queue,
     .sc-classic .queue {
@@ -2426,6 +2448,9 @@
         white-space: normal;
         height: auto;
     }
+    .spotlight.isMine.empty .spotlight__upsellBanner, .spotlight.isMine.empty .spotlight__upsellCTA {
+        /*[[gopro]]*/
+    }
     /* hide artist tools if user isnt subscribed */
     @supports (selector(:has(*))) {
         .sc-classic:has(
@@ -2435,6 +2460,10 @@
             iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"]
         ) {
             /*[[gopro]]*/
+        }
+        .spotlight.isMine.empty:has(>.spotlight__upsellBanner) {
+            /*[[gopro]]*/
+            flex-direction: column;
         }
     }
     
@@ -2494,8 +2523,8 @@
     #app .l-container #content .sc-button-small.sc-button-selected.sc-button-more:before {
         filter: invert(0)!important
     }
-    .sc-button-small.sc-button-icon:not(:disabled):not(.sc-button-stretch-icon),
-    .sc-button-small.sc-button-responsive:not(:disabled):not(.sc-button-stretch-icon) {
+    .sc-button-small.sc-button-icon:not(:disabled, .sc-button-cta, .sc-button-stretch-icon),
+    .sc-button-small.sc-button-responsive:not(:disabled, .sc-button-cta, .sc-button-stretch-icon) {
         background: initial
     }
     .playableTile__actions {
@@ -3226,7 +3255,7 @@
         z-index: 10;
         filter: drop-shadow(2px 4px 6px #000);
     }
-    .sc-button:disabled, .sc-button:disabled:hover {
+    .sc-button:disabled, .sc-button:disabled:hover, .sc-button.sc-button-disabled, .sc-button.sc-button-disabled:hover {
         border: 1px solid #0000;
         color: #666
     }
@@ -3287,9 +3316,6 @@
     }
     #app .l-container #content {
         overflow: visible;
-    }
-    .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional, .editTrackItem.m-dragging .editTrackItem__additional { /*Remove linear-gradient background on some selection areas*/
-        background: none;
     }
     .commentFormDisabled, .sc-classic .commentFormDisabled {
         background: #0003;
@@ -3456,7 +3482,9 @@
         margin-bottom: 1px; /* fix blur issues with hw acceleration on */
         border-bottom: 1px solid #111;
     }
-    .spotlightRemove, .sc-classic .spotlightRemove, .g-button-remove {
+    .spotlightRemove, .sc-classic .spotlightRemove, .g-button-remove, .compactUpload__cancel {
+        background-size: 100% !important;
+        background-position: 50% 50% !important;
         filter: brightness(0.55) contrast(6.4);
         border-radius: 100%;
         box-shadow: inset 0 -0.3px 3px 3px #d7d7d7;
@@ -3464,7 +3492,7 @@
         padding: 0;
         transition-duration: 0.25s;
     }
-    .spotlightRemove:hover, .sc-classic .spotlightRemove:hover, .g-button-remove:hover {
+    .spotlightRemove:hover, .sc-classic .spotlightRemove:hover, .g-button-remove:hover, .compactUpload__cancel:hover {
         filter: brightness(0.54) contrast(6.4);
     }
     /* dumbass insights update */
@@ -3731,10 +3759,6 @@
     .repostCaptionForm__loadingBar {
         background: #0007;
         height: 25px;
-    }
-    
-    .editTrackItem.m-active, .editTrackItem.m-hover {
-        background: linear-gradient(60deg, #563526 -10%, #48202b 160%)!important;
     }
     .sc-status-icon-verified.sc-status-icon-medium {
         width: 24px;
@@ -4419,25 +4443,78 @@
         filter: brightness(1) contrast(1.1);
     }*/
     
-    .editTrackList__list .sortable-placeholder {
+    .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional, .editTrackItem.m-dragging .editTrackItem__additional { /*Remove linear-gradient background on some selection areas*/
+        background: none;
+    }
+    .editTrackList__list .sortable-placeholder,
+    .sc-classic .editTrackList__list .sortable-placeholder {
         background: #060606;
         border-top: 1px solid var(--shd-bg-lighter);
     }
-    .editTrackItem.m-dragging {
-        background-color: #1c1c1c;
+    .editTrackItem.m-dragging,
+    .sc-classic .editTrackItem.m-dragging {
+/*         background-color: #1c1c1c; */
         padding: 1px 5px;
     }
+/*     .editTrackItem.m-dragging .editTrackItem__additional,
+    .sc-classic .editTrackItem.m-dragging .editTrackItem__additional {
+        background: #1c1c1c;
+        background: linear-gradient(90deg,#1c1c1c1c,#1c1c1c 17px);
+    } */
     .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional,
     .sc-classic .createPlaylistSuggestion__addContainer, .sc-classic .editTrackItem__additional, .sc-classic .editTrackItem.m-active .editTrackItem__additional, .sc-classic .editTrackItem.m-hover .editTrackItem__additional {
         background: var(--shd-bg-darker);
         background: linear-gradient(90deg,#0d0d0d11,#0d0d0d 17px);
     }
-    .editTrackItem.m-dragging .editTrackItem__additional {
-        background: #1c1c1c;
-        background: linear-gradient(90deg,#1c1c1c1c,#1c1c1c 17px);
+    .editTrackItem.m-active, .editTrackItem.m-hover,
+    .sc-classic .editTrackItem.m-active, .sc-classic .editTrackItem.m-hover {
+        background: linear-gradient(60deg, #563526 -10%, #48202b 160%) !important;
+    }
+    .editTrackItem.m-hover .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .m-active .editTrackItem__additional, .editTrackItem.m-dragging .editTrackItem__additional,
+    .sc-classic .editTrackItem.m-hover .editTrackItem__additional, .sc-classic .editTrackItem.m-active .editTrackItem__additional, .sc-classic .m-active .editTrackItem__additional, .sc-classic .editTrackItem.m-dragging .editTrackItem__additional {
+        background: #4E2929;
+        background: linear-gradient(90deg,#4E292911,#4E2929 17px);
+    }
+    .editTrackList__list.sortable-dragging-list .editTrackItem:is(.m-active, .m-hover) {
+        background: unset !important;
+        margin: unset !important;
+        padding: unset !important;
+    }
+    .editTrackList__list.sortable-dragging-list .editTrackItem:is(.m-active, .m-hover) .editTrackItem__additional {
+        background: var(--shd-bg-darker) !important;
+        background: linear-gradient(90deg,#0d0d0d11,#0d0d0d 17px) !important;
+        right: 0 !important;
+    }
+    .editTrackList__list.sortable-dragging-list .editTrackItem:is(.m-active, .m-hover) .editTrackItem__play {
+        display: none !important;
     }
     .editTrackItem {
-        transition: padding 0.3s;
+        transition-duration: 0.3s;
+        transition-property: padding, margin;
+    }
+    .editTrackItem .editTrackItem__additional {
+        transition-duration: 0.3s;
+        transition-property: right;
+    }
+    .editTrackItem.m-active .editTrackItem__content, .editTrackItem.m-active .editTrackItem__trackTitle,
+    .sc-classic .editTrackItem.m-active .editTrackItem__content, .sc-classic .editTrackItem.m-active .editTrackItem__trackTitle {
+        color: var(--special-color);
+        color: color-mix(in oklab, var(--special-color), #ccc 20%);
+    }
+    
+    @supports (selector(:has(*))) { /* remove hover styling if an item is being dragged */
+        .sc-classic .header__right:not(:has(.header__moreButton)) > .header__link {  
+            top: unset;
+            bottom: 0;
+            height: 46px;
+            padding: 0px 0px 0px var(--w2);
+        }
+        .sc-classic .header__right:not(:has(.header__moreButton)) > .header__link:before {
+            background-position: 50% 42%;
+        }
+        .sc-classic .header__inner .header__right:not(:has(.header__moreButton)) div.header__userNav .header__userNavUsernameButton {
+            width: 100%;
+        }
     }
     .linkMenu__groupTitle {
         font-size: 12px;
@@ -4492,7 +4569,8 @@
         top: -12px;
         transform: rotate(225deg);
     }
-    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):disabled {
+    .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):disabled,
+    .sc-button.sc-button-disabled:not(.sc-button-play):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge) {
         color: #999;
     }
     button.sc-button.moreActions__button.sc-button-medium {
@@ -4684,10 +4762,6 @@
         right: calc(50% - 404px);
         top: 144px;
         z-index: 1;
-    }
-    
-    .m-active .editTrackItem__additional {
-        background: linear-gradient(90deg,#4e292911,#4d2829 17px)!important;
     }
     .sc-classic .modal__modal .audibleEditForm {
         border: none;
@@ -5288,8 +5362,8 @@
     @supports (selector(:has(*))) {
         #app:not(body[marginwidth="0"][marginheight="0"] > #app):not(:has(> .playControls)),
         #app:not(:has(> .playControls)) header:not(.g-flex-row-spread),
-        #app:not(:has(> .playControls)) div.g-z-index-modal-background,
-        body:not(:has(> #app > .playControls)) div.g-z-index-modal-background,
+        #app:not(:has(> .playControlss.m-visible)) div.g-z-index-modal-background,
+        body:not(:has(> #app > .playControls.m-visible)) div.g-z-index-modal-background,
         body:has(> #app > .playControls.m-queueVisible) div.g-z-index-modal-background {
             height: 100vh;
         }
@@ -5862,18 +5936,21 @@
     }
     
     /* 2024 "get heard" */
-    .getHeard__container {
+    .getHeard__container,
+    .sc-classic .getHeard__container {
         background-color: var(--shd-bg-darker);
         padding: 20px 15px;
         margin-bottom: 20px;
     }
-    .getHeard__title {
+    .getHeard__title, .sc-classic .getHeard__title {
         color: #fff;
     }
-    .getHeard__subtitle, .getHeard__ctaContainer {
+    .getHeard__subtitle, .getHeard__ctaContainer,
+    .sc-classic .getHeard__subtitle, .sc-classic .getHeard__ctaContainer
+    {
         margin-top: 8px;
     }
-    .getHeard__firstFansMoreInfoLinkArrow {
+    .getHeard__firstFansMoreInfoLinkArrow, .sc-classic .getHeard__firstFansMoreInfoLinkArrow {
         filter: invert(1);
     }
     
@@ -6029,7 +6106,7 @@
     div[style*="z-index:2147483647;background-color:#ffffff"] {
         height: 100% !important;
         min-height: 360px !important;
-        max-height: 720px !important;
+        max-height: min(720px, 100%) !important;
         width: 720px !important;
         background-color: #111 !important;
         border: 1px solid #6663;
@@ -6527,6 +6604,23 @@
     .sc-button-medium.sc-button-startstation:before {
         background-image: url(https://a-v2.sndcdn.com/assets/images/start-station-ea018c5a.svg);
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 14'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='9' cy='7' r='2.5' fill='%23222'/%3E%3Cpath stroke='%23222' d='M15.03 13a8.47 8.47 0 0 0 .03-11.97m-2.16 9.84a5.48 5.48 0 0 0 .04-7.7M3.02.96a8.47 8.47 0 0 0 0 12.08'/%3E%3Cpath stroke='%23222' d='M5.1 3.12a5.48 5.48 0 0 0 .05 7.81'/%3E%3C/g%3E%3C/svg%3E"); 
+    }
+    
+    /* quota meter */
+    .sc-classic .quotaMeter__lightLine, .sc-classic .quotaMeter__upsellText {
+        color: #999;
+    }
+    .quotaMeter__link {
+        color: #ccc !important;
+    }
+    
+    /* spotlight */
+    .sc-classic .showSpotlightUpsellBanner.spotlightUpsellBanner {
+        border-color: var(--shd-bg-lighter)
+    }
+    .sc-classic .spotlightUpsellBanner__background {
+        width: 100%;
+        background: none;
     }
     
     
@@ -7160,7 +7254,7 @@
 
 @-moz-document regexp("https?:\\/\\/(www\\.)?secure\\.soundcloud\\.com\\/?((?!jobs|settings\\/connections)(.|[\\?\\&=\\-_\\/+])*)") {
     body[marginwidth="0"][marginheight="0"], body[marginwidth="0"][marginheight="0"].sc-classic {
-        background: #0000!important;
+        background: #090909;!important;
     }
     html:not([stylus-iframe="https://soundcloud.com"]):has(body:not([marginwidth="0"][marginheight="0"])),
     html:not([stylus-iframe="https://soundcloud.com"]) body div#app, 
@@ -7169,7 +7263,7 @@
     }
     div#app:first-of-type {
         background: #090909;
-        height: 100vh!important;
+/*         height: 100vh!important; */
         justify-content: center;
     }
     body[marginwidth="0"][marginheight="0"] div#app:not(a+div+div#app) {
@@ -7198,6 +7292,13 @@
     .sign-in-up-form-tabs li a, .app-attribution, .app-header-black-title {
         font-weight: 300;
     }
+    .app-header-orange__logo {
+        justify-items: center;
+        filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
+    }
+    .app-header-orange__logoLink-wordmark {
+        margin-left: -6px;
+    }
     ul.sign-in-up-form-tabs li a, ul.sign-in-up-form-tabs li span {
         color: #ccc;
     }
@@ -7219,6 +7320,15 @@
     /* "Tell me more" */
     .connect-layout-popup .tell-me-more .tell-me-more-text {
         background: var(--shd-bg-lighter);
+    }
+    
+    /* captcha/blocked */
+    
+    div[style*="z-index:2147483647;background-color:#ffffff"] {
+        width: 100% !important;
+        left: auto !important;
+        bottom: 0;
+        position: absolute;
     }
 }
 
@@ -7743,8 +7853,48 @@
         background-color: #111;
         background-color: #1110;
     }
-    body {
-        background-color: #1110;
+    body, .dark body {
+        background-color: #111;
+        -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
+        font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
+        font-variant-numeric: tabular-nums;
+    }
+    p[style*=" color: #121212"] {
+        color: #fff !important;
+    }
+    p[style*=" text-transform: uppercase"] {
+        text-transform: none !important;
+    }
+    p[style*=" font-size: 12px"] {
+        font-size: 14px !important
+    }
+    p[style*=" font-weight: 700"], .font-semibold {
+        font-weight: 400 !important
+    }
+    .mt-4 {
+        margin-top: 0.5rem;
+    }
+    .mb-3 {
+        margin-bottom: 0.5rem;
+    }
+    .bg-\[\#F5F5F5\] {
+        background-color: #fff1;
+        transition: background-color 0.1s ease-out
+    }
+    .bg-\[\#F5F5F5\]:hover {
+        background-color: #9991;
+    }
+    .text-\[\#121212\] {
+        color: #ccc;
+    }
+    .text-\[\#909090\], .text-\[\#959595\] {
+        color: #999;
+    }
+    .text-\[11px\] {
+        font-size: 12px;
+    }
+    .hover\:stroke-black:hover {
+        stroke: #ccc;
     }
     *, :before, :after {
         box-sizing: border-box;
@@ -7875,9 +8025,48 @@
         background-color: rgb(68, 68, 68);
         background-color: rgb(68 68 68 / var(--tw-bg-opacity));
     }
+
+    /* more uniform icon */
+    .flex.items-center.justify-between.gap-1\.5.border-b > .flex.items-center > svg {
+        display: none;        
+    }
+    .flex.items-center.justify-between.gap-1\.5.border-b > .flex.items-center, .flex.items-center.justify-between.gap-1\.5.border-b > .flex.items-center > p {
+        line-height: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .flex.items-center.justify-between.gap-1\.5.border-b > .flex.items-center > p:before {
+        display: inline-block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-size: 16px 16px;
+        vertical-align: top;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        margin-right: 4px;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.25 3.75V4.25M13.25 7.75V8.25M13.25 11.75V12.25M2.75 0.75H17.25C18.3546 0.75 19.25 1.64543 19.25 2.75V5.25C16.5 6 16.5 10 19.25 10.75V13.25C19.25 14.3546 18.3546 15.25 17.25 15.25H2.75C1.64543 15.25 0.75 14.3546 0.75 13.25V10.75C3.5 10 3.5 6 0.75 5.25V2.75C0.75 1.64543 1.64543 0.75 2.75 0.75Z' stroke='%23ccc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
+    }
+    .flex.items-center.justify-between.gap-1\.5.border-b > .flex.items-center > div:last-of-type {
+        margin-bottom: -2px;
+        margin-left: -1px
+    }
+    [data-popup] { /* tooltip */
+        border-radius: 12px;
+        border: 1px solid #4448;
+        background-color: var(--shd-bg-dropdown);
+        backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
+        color: #ccc;
+        padding: 15px;
+    }
+    [data-popup] .arrow {
+        border-color: #4448;
+        background-color: var(--shd-bg-lighter);
+    }
 }
 
-@-moz-document regexp("https?:\\/\\/(www\\.)?geo\\.captcha\\-delivery\\.com\\/captcha\\/.*(?=referer=http%3A%2F%2Fapi-v2\\.soundcloud\\.com|Domain=\\.?soundcloud\\.com).*") {
+@-moz-document regexp("https?:\\/\\/(www\\.)?geo\\.captcha\\-delivery\\.com\\/captcha\\/.*(?=referer=https?%3A%2F%2F(?:api-v2\\.|api-auth\\.)soundcloud\\.com|Domain=\\.?soundcloud\\.com).*") {
     /* captcha/blocked */
     @import url('https://rsms.me/inter/inter.css');
     *, *::before, *::after {
@@ -7887,8 +8076,17 @@
     html, body {
         overflow: hidden;
     }
+    html {
+        overflow-y: auto;
+    }
+    body {
+        height: 100vh;
+    }
     html, .captcha__header, .captcha__human, .captcha__footer {
         background-color: #111 !important;
+    }
+    .captcha__header__container {
+        padding: 8px;
     }
     .captcha__header, .captcha__footer {
         height: 0;
@@ -7899,10 +8097,10 @@
         padding: 0 24px;
     }
     .captcha__human {
-        padding: 20px 0 12px;
+        padding: 8px 0 !important;
     }
     .captcha__human__title {
-        font-size: 20px;
+        font-size: 16px;
     }
     .captcha__human__not_accessible_text.visually-hidden,
     .captcha__human__not_accessible_text.visually-hidden + .captcha__human__captcha-container:not(:has(>*)) {
@@ -7910,9 +8108,9 @@
     }
     .captcha__robot {
         background-color: #6662;
-        padding: 24px 32px;
+        padding: 18px 24px;
         border-radius: 18px;
-        height: 256px;
+        height: max(256px, 100%);
         overflow: auto;
         display: flex;
         flex-wrap: wrap;
@@ -7943,5 +8141,37 @@
     }
     .sliderbg {
         background-color: #fff1
+    }
+}
+@-moz-document regexp("https?:\\/\\/checkout\\.soundcloud\\.com\\/.*\\/inline-plan-picker.*") {
+    [style="background-color: white;"], html {
+        background: var(--shd-bg-darker) !Important;
+    }
+    .InlinePlanPicker__header {
+        color: #fff;
+    }
+    .InlinePlanPicker__subHeader, .PlanPickerBox__headerPlanPriceTerm, .PlanPicker .FeatureList .FeatureList__item {
+        color: #ccc;
+    }
+    .PlanPicker .FeatureList .FeatureList__item svg > path[stroke="black"] {
+        stroke: currentcolor !important
+    }
+    .CreditsBadge_creator-mid-tier {
+        background-color: #7564f533;
+        background-color: color-mix(in oklab, var(--creator-mid-tier-color), transparent 80%);
+    }
+    .CreditsBadge_pro-unlimited {
+        color: #ad915f;
+        background-color: #ad915f33;
+        background-color: color-mix(in oklab, #ad915f, transparent 80%);
+    }
+    .ContinueFreeBtn:hover {
+        color: #ccc;
+    }
+    .ContinueFreeBtn svg[stroke="black"] {
+        stroke: currentcolor !important;
+    }
+    a:hover {
+        color: #36d;
     }
 }
