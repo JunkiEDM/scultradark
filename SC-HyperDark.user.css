@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.53
+@version      0.9.54
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -2753,6 +2753,9 @@
     {
         padding: 3px 0
     }
+    .sc-classic .usersList.user-badge .usersList__item {
+        padding: 7px 0;
+    }
     .sidebarContent[style] {
         min-height: unset!important
     }
@@ -3076,18 +3079,6 @@
     }
     .sc-button-small.sc-button-follow.sc-button-icon-light:before {
         filter: invert(0);
-    }
-    .featuredProfiles {
-        z-index: 30;
-        border-radius: 12px;
-        backdrop-filter: blur(calc(12px * var(--blur-on, 1)));
-        transition-duration: 0.4s;
-        -webkit-transform: translateY(-220px);
-        transform: translateY(-220px);
-    }
-    .featuredProfiles:hover {
-        backdrop-filter: blur(calc(12px * var(--blur-on, 1)));
-        transition-duration: 0.2s
     }
     .modal.modalWhiteout {
         backdrop-filter: blur(calc(12px * var(--blur-on, 1)));
@@ -3641,24 +3632,65 @@
         font-size: 2em;
         opacity: 0.9;
     }
-    .featuredProfiles .featuredProfiles__title {
-        border-bottom: none!important;
-        color: #fff;
-        padding-left: 10px;
-        margin-bottom: -92%;
-        /*margin-bottom: -114%; 5 profiles */
-        margin-top: 118%;
+    .featuredProfiles, .sc-classic .featuredProfiles {
+        transition-property: -webkit-transform, transform, border-color, background-color;
+        transition-duration: 0.4s;
+        transition-timing-function: ease-out;
+        z-index: 30;
+        border-radius: 0 0 12px 12px;
+        background-color: #111;
+        border: 1px solid #1110;
+        backdrop-filter: blur(calc(32px* var(--blur-on, 1)));
+        -webkit-transform: translateY(-222px);
+        transform: translateY(-222px);
+        right: 6px !important;
+        height: 280px !important;
+        overflow: hidden;
     }
-    .featuredProfiles.expanded .featuredProfiles__title {
-        border-bottom: none!important;
+    .featuredProfiles:hover, .featuredProfiles.expanded, .sc-classic .featuredProfiles.expanded {
+        transition-duration: 0.2s;
+        border-color: #4448;
+        background-color: var(--shd-bg-dropdown);
+        -webkit-transform: translateY(20px)!important;
+        transform: translateY(20px)!important;
+    }
+    .featuredProfiles .featuredProfiles__title, .sc-classic .featuredProfiles .featuredProfiles__title {
+        border-bottom: none !important;
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        margin: 0 10px 4px 20px;
+        font-weight: 400;
+    }
+    .featuredProfiles.expanded .featuredProfiles__title, .sc-classic .featuredProfiles.expanded .featuredProfiles__title {
+        border-bottom: none !important;
+    }
+    .featuredProfiles__wrapper.g-scrollable-inner, .sc-classic .featuredProfiles__wrapper.g-scrollable-inner {
+        height: 280px !important;
+        display: flex !important;
+        flex-direction: column-reverse;
+    }
+    .featuredProfiles__list, .sc-classic .featuredProfiles__list {
+        height: 100%;
+        padding: 0 16px 0 20px;
+        width: auto;
+        margin: 0;
+        margin-bottom: 40px;
+        overflow-y: auto;
+    }
+    .featuredProfiles__item, .sc-classic .featuredProfiles__item {
+        border-bottom: none !important;
+        margin: 0;
+        margin-top: 10px;
+        padding-bottom: 0;
+    }
+    .userBadge.m-horizontal .userBadge__avatar {
+        margin-left: 0px;
     }
     .sc-icon-large.sc-icon-user {
         background-size: 18px 18px;
         margin-top: 3px;
         margin-right: 2px;
-    }
-    .featuredProfiles__item {
-        border-bottom: none!important;
     }
     .profileHeader__chooserWrapper.right {
         margin-right: 340px;
@@ -3672,20 +3704,10 @@
     /*.sound__content {
         overflow-x: visible!important;
     }*/
-    .userBadge.m-horizontal .userBadge__avatar {
-        margin-left: 10px;
-    }
-    .featuredProfiles {
-        right: 6px!important;
-        height: 420px!important;
-    }
     .profileHeader { 
         padding: 0!important;
         overflow: visible!important;
     }
-    /*.featuredProfiles {
-        right: 360px!important;
-    }*/
     .sc-button-group {
         display: inline-flex!important;
         flex-direction: row;
@@ -3700,13 +3722,6 @@
         background-size: auto 280px;
         width: calc(100vw - 580px);
         background-color: #1110!important;
-    }
-    .featuredProfiles.expanded {
-        -webkit-transform: translateY(60px)!important;
-        transform: translateY(60px)!important;
-    }
-    .featuredProfiles__wrapper.g-scrollable-inner {
-        height: 420px!important;
     }
     .l-fluid-fixed .l-sidebar-right {
         top: -240px!important;
@@ -3849,7 +3864,7 @@
     }
     .l-sidebar-right .l-fixed:before {
         content: "";
-        margin-bottom: -20%!important;
+        margin-bottom: -20% !important;
         height: fit-content;
     }
     .l-sidebar-right .l-fixed:after {
@@ -5280,9 +5295,6 @@
     .webAuthContainerWrapper[style*="left: 255px"] { /* login */
         margin-left: 230px;
     }
-    .webAuthContainerWrapper iframe {
-        filter: drop-shadow(2px 6px 9px #0006);
-    }
     /* captcha */
     .captcha, .captcha > div {
         display: flex;
@@ -6152,6 +6164,7 @@
     /* sidebar class update */
     .sc-classic .sidebarHeader {
         display: flex;
+        margin-left: -4px;
     }
     
     .sidebarHeader__more__webi_style, .sc-classic .sidebarHeader__more__webi_style {
@@ -7254,7 +7267,7 @@
 
 @-moz-document regexp("https?:\\/\\/(www\\.)?secure\\.soundcloud\\.com\\/?((?!jobs|settings\\/connections)(.|[\\?\\&=\\-_\\/+])*)") {
     body[marginwidth="0"][marginheight="0"], body[marginwidth="0"][marginheight="0"].sc-classic {
-        background: #090909;!important;
+        background: #0d0d0d !important;
     }
     html:not([stylus-iframe="https://soundcloud.com"]):has(body:not([marginwidth="0"][marginheight="0"])),
     html:not([stylus-iframe="https://soundcloud.com"]) body div#app, 
@@ -8046,7 +8059,7 @@
         background-repeat: no-repeat;
         background-position: 50%;
         margin-right: 4px;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.25 3.75V4.25M13.25 7.75V8.25M13.25 11.75V12.25M2.75 0.75H17.25C18.3546 0.75 19.25 1.64543 19.25 2.75V5.25C16.5 6 16.5 10 19.25 10.75V13.25C19.25 14.3546 18.3546 15.25 17.25 15.25H2.75C1.64543 15.25 0.75 14.3546 0.75 13.25V10.75C3.5 10 3.5 6 0.75 5.25V2.75C0.75 1.64543 1.64543 0.75 2.75 0.75Z' stroke='%23ccc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.25 3.75V4.25M13.25 7.75V8.25M13.25 11.75V12.25M2.75 0.75H17.25C18.3546 0.75 19.25 1.64543 19.25 2.75V5.25C16.5 6 16.5 10 19.25 10.75V13.25C19.25 14.3546 18.3546 15.25 17.25 15.25H2.75C1.64543 15.25 0.75 14.3546 0.75 13.25V10.75C3.5 10 3.5 6 0.75 5.25V2.75C0.75 1.64543 1.64543 0.75 2.75 0.75Z' stroke='%23999' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
     }
     .flex.items-center.justify-between.gap-1\.5.border-b > .flex.items-center > div:last-of-type {
         margin-bottom: -2px;
@@ -8058,11 +8071,26 @@
         background-color: var(--shd-bg-dropdown);
         backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
         color: #ccc;
-        padding: 15px;
     }
     [data-popup] .arrow {
         border-color: #4448;
         background-color: var(--shd-bg-lighter);
+    }
+    .p-4 {
+        padding: 15px;
+    }
+    .p-1 {
+        padding: 4px;
+    }
+    [data-popup] .bg-neutral-800 {
+        --tw-bg-opacity: 0;
+        border-radius: 8px;
+    }
+    [data-popup] .p-1 {
+        padding: 0px;
+    }
+    [data-popup] .rounded {
+        border-radius: .4rem;
     }
 }
 
