@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.54
+@version      0.9.55
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -208,6 +208,34 @@
     }
     .searchOptions__scrollable {
         height: 515px !important;
+    } EOT;
+}
+@advanced dropdown footer "Sidebar footer" {
+    footer-on   "Show" <<<EOT EOT;
+    footer-lang "Language selector only" <<<EOT
+    .l-fluid-fixed .l-sidebar-right .l-footer.standard, .sc-classic .l-fluid-fixed .l-sidebar-right .l-footer.standard {
+        padding-top: 0;
+        font-size: 0;
+        color: #0000;
+    }
+    .l-fluid-fixed .l-sidebar-right .l-footer.standard > *:not(.footer__localeSelector), .sc-classic .l-fluid-fixed .l-sidebar-right .l-footer.standard > *:not(.footer__localeSelector) {
+        display: none;
+    }
+    .l-fluid-fixed .l-sidebar-right .l-footer.standard > .footer__localeSelector, .sc-classic .l-fluid-fixed .l-sidebar-right .l-footer.standard > .footer__localeSelector {
+        font-size: 12px;
+        margin-top: 0;
+    } EOT;
+    footer-off "Hide" <<<EOT
+    .l-fluid-fixed .l-sidebar-right .l-footer.standard, .sc-classic .l-fluid-fixed .l-sidebar-right .l-footer.standard {
+        visibility: hidden;
+        margin-top: -16px;
+        padding-top: 0;
+        font-size: 0;
+        color: #0000;
+    }
+    .l-fluid-fixed .l-sidebar-right .l-footer.standard > *, .sc-classic .l-fluid-fixed .l-sidebar-right .l-footer.standard > * {
+        display: none;
+        margin: 0;
     } EOT;
 }
 @advanced color bg1 "Background color" #111
@@ -1931,6 +1959,7 @@
     .g-form-section-head, .sc-classic .g-form-section-head,
     .g-modal-title-h1, .sc-classic .g-modal-title-h1,
     .g-tabs, .sc-classic .g-tabs,
+    .tabs__heading, .sc-classic .tabs__heading,
     .mixedSelectionModule, .sc-classic .mixedSelectionModule,
     .sc-border-dark-bottom, .sc-classic .sc-border-dark-bottom,
     .sc-border-light-bottom, .sc-classic .sc-border-light-bottom,
@@ -2711,8 +2740,11 @@
     }
     .commentBadge__body {
         padding-left: 15px;
-        padding-top: 5px;
-        padding-bottom: 10px
+        padding-top: 4px;
+        padding-bottom: 2px
+    }
+    .sc-classic .commentBadgeList__item {
+        padding: 8px 0;
     }
     .sc-button-medium.sc-button-pageleft:before,
     .sc-button-medium.sc-button-pageright:before {
@@ -2769,10 +2801,12 @@
     .soundStats.sc-ministats-group {
         margin-top: -4px;
     }
-    .l-fluid-fixed .l-sidebar-right .l-footer {
+    .l-fluid-fixed .l-sidebar-right .l-footer, .sc-classic .l-fluid-fixed .l-sidebar-right .l-footer {
         top: 0;
-        padding-bottom: 95px
+        padding-top: 4px;
+        padding-bottom: 95px;
     }
+    /*[[footer]]*/
     .l-front {
         position: relative;
         margin: auto!important;
@@ -3176,10 +3210,10 @@
     .sc-artwork:not(.image__rounded), .visuals__container, .directSupport__box, .fullHero { 
         border-radius: 8px;
     }
-    .soundBadge__artwork>div>.sc-artwork:not(.image__rounded) {
-        border-radius: 6px
-    }
-    .trackItem__image>div>.sc-artwork:not(.image__rounded), div.compactTrackListItem__image>.sc-artwork:not(.image__rounded), .userAudibleSearchResultItem .sc-artwork:not(.image__rounded) {
+    .soundBadge__artwork > div > .sc-artwork:not(.image__rounded),
+    .trackItem__image > div > .sc-artwork:not(.image__rounded),
+    .compactTrackListItem__image > .sc-artwork:not(.image__rounded),
+    .userAudibleSearchResultItem .sc-artwork:not(.image__rounded) {
         border-radius: 4px;
     }
     /* slight blue shift */
@@ -3473,7 +3507,7 @@
         margin-bottom: 1px; /* fix blur issues with hw acceleration on */
         border-bottom: 1px solid #111;
     }
-    .spotlightRemove, .sc-classic .spotlightRemove, .g-button-remove, .compactUpload__cancel {
+    .spotlightRemove, .sc-classic .spotlightRemove, .g-button-remove, .compactUpload__cancel, .sc-classic .mobileApps__dismiss {
         background-size: 100% !important;
         background-position: 50% 50% !important;
         filter: brightness(0.55) contrast(6.4);
@@ -3483,7 +3517,7 @@
         padding: 0;
         transition-duration: 0.25s;
     }
-    .spotlightRemove:hover, .sc-classic .spotlightRemove:hover, .g-button-remove:hover, .compactUpload__cancel:hover {
+    .spotlightRemove:hover, .sc-classic .spotlightRemove:hover, .g-button-remove:hover, .compactUpload__cancel:hover,  .sc-classic .mobileApps__dismiss:hover {
         filter: brightness(0.54) contrast(6.4);
     }
     /* dumbass insights update */
@@ -3862,14 +3896,17 @@
         margin-bottom: 15px;
         margin-top: -15px;
     }
-    .l-sidebar-right .l-fixed:before {
+/*     .l-sidebar-right .l-fixed:before {
         content: "";
         margin-bottom: -20% !important;
         height: fit-content;
-    }
+    } */
     .l-sidebar-right .l-fixed:after {
         margin-bottom: 0;
         padding: 0;
+    }
+    .l-fluid-fixed .l-sidebar-right .l-fixed[style^="top: "]:not([style^="top: -"]) {
+        top: 0 !important;
     }
     .userSidebar:before, .userSidebar {
         transition: margin-bottom 0.1s, top 0.5s;
@@ -3886,11 +3923,11 @@
     }
     /* Reposition verified badges */
     .userDropbar__verifiedBadge .sc-status-icon-verified.sc-status-icon-medium {
-        width: 18px;
-        height: 18px;
-        background-size: 18px;
-        margin-top: -8px;
-        margin-left: -4px;
+        width: 15px;
+        height: 15px;
+        background-size: 100%;
+        margin-top: -4px;
+        margin-left: -2px;
     }
     .userBadge__verifiedBadge .sc-status-icon-verified.sc-status-icon-small {
         width: 14px;
@@ -6216,6 +6253,9 @@
     .setsModule .sidebarHeader__title:before, .soundInSetsModule .sidebarHeader__title:before {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cg fill='%23999' fill-rule='evenodd'%3E%3Cpath d='M2 6h10v10H2z'/%3E%3Cpath fill-opacity='.7' d='M5 2h11v10h-2V4H5z'/%3E%3C/g%3E%3C/svg%3E");
     }
+    .mobileApps .sidebarHeader__title:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23999' d='M17 19H7V5h10m0-4H7c-1.11 0-2 .89-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2'/%3E%3C/svg%3E");
+    }
     
     .sc-classic .whoToFollowModule .sidebarHeader__more__webi_style {
         background-image: url(https://a-v2.sndcdn.com/assets/images/refresh-de07f592.svg);
@@ -6224,6 +6264,11 @@
         background-position: 0;
         padding-left: 20px;
         background-size: 18px 18px
+    }
+    
+    /* dark playlist backgrounds */
+    .soundBadge.playlist .soundBadge__artwork {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='124' height='124' viewBox='0 0 512 512'%3E%3Cfilter id='a'%3E%3CfeGaussianBlur result='a' stdDeviation='3'/%3E%3CfeComposite in='SourceGraphic' in2='a' operator='out' result='b'/%3E%3CfeFlood flood-color='%23000' flood-opacity='.2' result='c'/%3E%3CfeComposite in='c' in2='b' operator='in' result='d'/%3E%3CfeComposite in='d' in2='SourceGraphic'/%3E%3C/filter%3E%3Cfilter id='b'%3E%3CfeMorphology radius='3'/%3E%3CfeGaussianBlur result='a' stdDeviation='3'/%3E%3CfeComposite in='SourceGraphic' in2='a' operator='out' result='b'/%3E%3CfeFlood flood-color='%23000' flood-opacity='.3' result='c'/%3E%3CfeComposite in='c' in2='b' operator='in' result='d'/%3E%3CfeComposite in='d' in2='SourceGraphic'/%3E%3C/filter%3E%3Cfilter id='c'%3E%3CfeMorphology radius='3'/%3E%3CfeGaussianBlur result='a' stdDeviation='3'/%3E%3CfeComposite in='SourceGraphic' in2='a' operator='out' result='b'/%3E%3CfeFlood flood-color='%23000' flood-opacity='.15' result='c'/%3E%3CfeComposite in='c' in2='b' operator='in' result='d'/%3E%3CfeComposite in='d' in2='SourceGraphic'/%3E%3C/filter%3E%3Cfilter id='d'%3E%3CfeDropShadow dx='0' dy='8' flood-opacity='.2' stdDeviation='8'/%3E%3C/filter%3E%3Cfilter id='e'%3E%3CfeDropShadow dx='0' dy='0' flood-opacity='.1' stdDeviation='3.5'/%3E%3C/filter%3E%3Cpath fill='%23222' d='m425.52 507.33 81.3-419.62L88.66 6.68 7.34 426.3l418.18 81.03Z' filter='url(%23c) url(%23e)'/%3E%3Cpath fill='%23333' d='m438.46 8.85 68.17 428.95-430.09 68.36L8.37 77.2 438.46 8.85Z' filter='url(%23b) url(%23e)'/%3E%3Cpath fill='%23333' d='M50 50h404v404H50z' filter='url(%23a) url(%23d)'/%3E%3C/svg%3E");
     }
 
     
@@ -6636,6 +6681,11 @@
         background: none;
     }
     
+    /* reposts filter (finally) */
+    .streamFilter__label {
+        color: #ccc;
+    }
+    
     
     /* new soundcloud ui redesign */
     
@@ -6663,7 +6713,7 @@
         --_4g70vmj: hsla(0,0%,100%,.4);
         --_4g70vmk: hsla(0,0%,100%,.15)
     }
-    :root,.mui-theme-light,.mui-theme-dark {
+    :root, .mui-theme-light, .mui-theme-dark {
         -webkit-print-color-scheme: dark;
         color-scheme: dark;
         --mui-palette-common-black: #000;
@@ -6677,6 +6727,7 @@
         --mui-palette-primary-light: #9E9E9E;
         --mui-palette-primary-contrastText: var(--shd-bg-primary);
         --mui-palette-primary-hover: rgba(255, 255, 255, 0.16);
+        --mui-palette-primary-disabled: rgba(255, 255, 255, 0.4);
         --mui-palette-primary-mainChannel: 255 255 255;
         --mui-palette-primary-lightChannel: 158 158 158;
         --mui-palette-primary-darkChannel: 255 255 255;
@@ -6756,8 +6807,11 @@
         --mui-palette-divider: rgba(255, 255, 255, 0.12);
         --mui-palette-background-paper: var(--shd-bg-primary);
         --mui-palette-background-default: var(--shd-bg-primary);
+        --mui-palette-background-tonal: #212121;
+        --mui-palette-background-dark: #212121;
         --mui-palette-background-defaultChannel: 18 18 18;
         --mui-palette-background-paperChannel: 18 18 18;
+        --mui-palette-background-darkChannel: 33 33 33;
         --mui-palette-action-active: #fff;
         --mui-palette-action-hover: rgba(255, 255, 255, 0.08);
         --mui-palette-action-hoverOpacity: 0.08;
@@ -6790,6 +6844,7 @@
         --mui-palette-surface-mainChannel: 18 18 18;
         --mui-palette-surface-darkChannel: 33 33 33;
         --mui-palette-artist-main: #7517E6;
+        --mui-palette-artist-main: #7564F5;
         --mui-palette-artist-dark: #311B92;
         --mui-palette-artist-light: #EEE8FE;
         --mui-palette-artist-hover: rgba(117, 100, 245, 0.16);
@@ -7288,6 +7343,9 @@
         background: #161616;
         border-color: #333;
     }
+    .classic-hiding-password-icon, .classic-showing-password-icon {
+        filter: invert(1);
+    }
     
     fieldset, form {
         background-color: #0000;
@@ -7304,6 +7362,9 @@
     }
     .sign-in-up-form-tabs li a, .app-attribution, .app-header-black-title {
         font-weight: 300;
+    }
+    .app-header-orange {
+        background-color: #0000;
     }
     .app-header-orange__logo {
         justify-items: center;
