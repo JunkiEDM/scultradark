@@ -3,7 +3,7 @@
 @description  A functional, modern redesign of the outdated Soundcloud UX.
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      0.9.55
+@version      0.9.56
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1968,7 +1968,7 @@
     .statsOverview__main:before, .sc-classic .statsOverview__main:before,
     .statsOverview__top:before, .sc-classic .statsOverview__top:before,
     .sc-classic .velvetCakeModule {
-        border-bottom-color: #181818
+        border-bottom-color: hsl(0deg 0% 50% / 7%)
     }
     .collection.m-overview .collection__section:not(:last-child) {
         margin-bottom: 10px
@@ -2772,7 +2772,7 @@
         padding-left: 5px
     }
     .sidebarHeader.g-flex-row-centered-spread.sc-link-light.sc-border-light-bottom {
-        border-bottom: 1px solid #181818
+        border-bottom: 1px solid hsl(0deg 0% 50% / 7%)
     }
     .userSuggestionList__item,
     .sc-classic .userSuggestionList__item {
@@ -6804,7 +6804,7 @@
         --mui-palette-text-icon: rgba(255, 255, 255, 0.5);
         --mui-palette-text-primaryChannel: 255 255 255;
         --mui-palette-text-secondaryChannel: 255 255 255;
-        --mui-palette-divider: rgba(255, 255, 255, 0.12);
+        --mui-palette-divider: hsl(0deg 0% 50% / 7%);
         --mui-palette-background-paper: var(--shd-bg-primary);
         --mui-palette-background-default: var(--shd-bg-primary);
         --mui-palette-background-tonal: #212121;
@@ -7071,7 +7071,8 @@
     .MuiMenuItem-root .MuiListItemIcon-root { /* menuitem icon */
         color: inherit;
     }
-    ._1htqjyq0 /* hover tooltip contents */
+    ._1htqjyq0, /* hover tooltip contents */
+    .ouxtlr0 /* embed background */
     { 
         background-color: #0000;
     }
@@ -7923,7 +7924,7 @@
     .h-screen.bg-white > .bg-cover {
         max-width: 100%;
     }
-    .h-screen.bg-white {
+    .h-screen.bg-white, .bg-white {
         background-color: #111;
         background-color: #1110;
     }
