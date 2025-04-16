@@ -1,9 +1,9 @@
 /* ==UserStyle==
 @name         Soundcloud Hyper Dark
-@description  A functional, modern redesign of the outdated Soundcloud UX.
+@description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.00.0
+@version      1.00.1
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -419,9 +419,30 @@
         --sc-old-follow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23FFF' d='M5.542 1.167c2.77 0 3.386 2.916 2.155 6.125 3.169 1.308 3.386 3.977 3.386 4.958H0c0-.981.218-3.65 3.387-4.958-1.232-3.218-.616-6.125 2.155-6.125zm0 1.166c-1.584 0-2.127 1.77-1.066 4.542.226.59-.06 1.254-.644 1.495-1.517.626-2.263 1.572-2.537 2.713h8.494c-.275-1.141-1.02-2.087-2.537-2.713a1.167 1.167 0 0 1-.644-1.496c1.06-2.764.516-4.54-1.066-4.54zm6.414-.583c.17 0 .294.13.294.292V3.5h1.458c.157 0 .292.132.292.294v.578c0 .17-.13.295-.292.295H12.25v1.458a.296.296 0 0 1-.294.292h-.578a.289.289 0 0 1-.295-.292V4.667H9.625a.296.296 0 0 1-.292-.295v-.578c0-.17.131-.294.292-.294h1.458V2.042c0-.157.132-.292.295-.292h.578z'/%3E%3C/svg%3E");
         --sc-old-follow-selected: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23FFF' fill-rule='evenodd' d='M5.542 1.167c2.107 0 2.795 2.246 1.61 5.332-.444.793.03 1.211.322 1.332 2.026.836 2.875 2.213 3.026 3.836v.583H.583v-.583c.151-1.623 1-3 3.026-3.836.292-.12.766-.54.322-1.331-1.184-3.095-.497-5.333 1.61-5.333zM13.47 3.18l.058.05.23.228a.415.415 0 0 1 .057.526l-.053.065-2.714 2.714a.409.409 0 0 1-.5.066l-.045-.03-.043-.038-1.472-1.472a.422.422 0 0 1-.051-.527l.054-.066.229-.23a.415.415 0 0 1 .528-.055l.065.053.942.943 2.182-2.183a.41.41 0 0 1 .533-.044z'/%3E%3C/svg%3E");
         --sc-old-follow-selected-orange: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23F50' fill-rule='evenodd' d='M5.542 1.167c2.107 0 2.795 2.246 1.61 5.332-.444.793.03 1.211.322 1.332 2.026.836 2.875 2.213 3.026 3.836v.583H.583v-.583c.151-1.623 1-3 3.026-3.836.292-.12.766-.54.322-1.331-1.184-3.095-.497-5.333 1.61-5.333zM13.47 3.18l.058.05.23.228a.415.415 0 0 1 .057.526l-.053.065-2.714 2.714a.409.409 0 0 1-.5.066l-.045-.03-.043-.038-1.472-1.472a.422.422 0 0 1-.051-.527l.054-.066.229-.23a.415.415 0 0 1 .528-.055l.065.053.942.943 2.182-2.183a.41.41 0 0 1 .533-.044z'/%3E%3C/svg%3E");
-        --sc-new-follow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='currentColor' d='M7 7.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM1.001 14.248C1.036 10.005 1.984 8.5 7 8.5s5.965 1.487 5.999 5.748a.25.25 0 0 1-.249.252H1.25a.25.25 0 0 1-.249-.252ZM12.25 7.25H11v-1.5h1.25V4.5h1.5v1.25H15v1.5h-1.25V8.5h-1.5V7.25Z'/%3E%3C/svg%3E");
+        --sc-old-distribute: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12' viewBox='0 0 16 12'%3E%3Cpath fill='%23fff' d='M1.62 10h12v2h-12v-2zm6.526-7v6H7.094V3h-1.58L7.62 0l2.105 3H8.146zm-5.99 1.257l2.867 4.096-.862.603-2.868-4.095L0 5.766l.003-3.665 3.446 1.25-1.294.906h.001zm12.05.582l-2.868 4.096-.863-.604 2.868-4.096-1.293-.905 3.445-1.25.004 3.665-1.293-.906z'/%3E%3C/svg%3E%0A");
+
+        --sc-new-follow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23FFF' d='M7 7.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM1.001 14.248C1.036 10.005 1.984 8.5 7 8.5s5.965 1.487 5.999 5.748a.25.25 0 0 1-.249.252H1.25a.25.25 0 0 1-.249-.252ZM12.25 7.25H11v-1.5h1.25V4.5h1.5v1.25H15v1.5h-1.25V8.5h-1.5V7.25Z'/%3E%3C/svg%3E");
         --sc-new-follow-selected: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23FFF' d='M10 4.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM7 8.5c-5.016 0-5.964 1.505-5.999 5.748a.25.25 0 0 0 .249.252h11.5a.25.25 0 0 0 .249-.252C12.965 9.987 12.016 8.5 7 8.5ZM14.47 4.47 12.5 6.44l-.97-.97-1.06 1.06 2.03 2.03 3.03-3.03-1.06-1.06Z'/%3E%3C/svg%3E");
         --sc-new-follow-selected-orange: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23F50' d='M10 4.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM7 8.5c-5.016 0-5.964 1.505-5.999 5.748a.25.25 0 0 0 .249.252h11.5a.25.25 0 0 0 .249-.252C12.965 9.987 12.016 8.5 7 8.5ZM14.47 4.47 12.5 6.44l-.97-.97-1.06 1.06 2.03 2.03 3.03-3.03-1.06-1.06Z'/%3E%3C/svg%3E");
+        --sc-new-station: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.395 5.01A7.25 7.25 0 013.21 2.559l.991 1.126a5.75 5.75 0 00-.007 8.626L3.2 13.434a7.25 7.25 0 01-1.806-8.423zM12.79 2.558a7.25 7.25 0 01.01 10.876l-.994-1.124a5.75 5.75 0 00-.007-8.626l.99-1.126z' fill='%23fff'%3E%3C/path%3E%3Cpath d='M10.808 4.81a4.25 4.25 0 01.005 6.376L9.82 10.06a2.75 2.75 0 00-.003-4.125l.99-1.126zM5.192 4.81a4.25 4.25 0 00-.005 6.375l.993-1.124a2.75 2.75 0 01.003-4.125l-.99-1.126zM8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-like: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.978 5c.653-1.334 1.644-2 2.972-2 1.992 0 3.405 1.657 2.971 4-.289 1.561-2.27 3.895-5.943 7C4.19 10.895 2.21 8.561 2.035 7c-.26-2.343.947-4 2.972-4 1.35 0 2.34.666 2.971 2z' fill='%23FFF'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-repost: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.08034 5.71966L4.05001 2.68933L1.01968 5.71966L2.08034 6.78032L3.30002 5.56065V9.75C3.30002 11.2688 4.53124 12.5 6.05002 12.5H8.05002V11H6.05002C5.35966 11 4.80002 10.4404 4.80002 9.75V5.56066L6.01968 6.78032L7.08034 5.71966Z' fill='%23fff'%3E%3C/path%3E%3Cpath d='M11.95 13.3107L8.91969 10.2803L9.98035 9.21968L11.2 10.4393L11.2 5.75C11.2 5.05964 10.6404 4.5 9.95001 4.5L7.95001 4.5L7.95001 3L9.95001 3C11.4688 3 12.7 4.23122 12.7 5.75L12.7 10.4394L13.9197 9.21968L14.9803 10.2803L11.95 13.3107Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-share: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 .94l3.03 3.03-1.06 1.06-1.22-1.22V10h-1.5V3.81L6.03 5.03 4.97 3.97 8 .94z' fill='%23fff'%3E%3C/path%3E%3Cpath d='M3.25 6v6c0 .69.56 1.25 1.25 1.25h7c.69 0 1.25-.56 1.25-1.25V6h1.5v6a2.75 2.75 0 01-2.75 2.75h-7A2.75 2.75 0 011.75 12V6h1.5z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-copy: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3.75A2.75 2.75 0 013.75 1h5.5a2.75 2.75 0 012.45 1.5H3.75c-.69 0-1.25.56-1.25 1.25v7.95A2.75 2.75 0 011 9.25v-5.5z' fill='%23fff'%3E%3C/path%3E%3Cpath d='M6.75 4A2.75 2.75 0 004 6.75v5.5A2.75 2.75 0 006.75 15h5.5A2.75 2.75 0 0015 12.25v-5.5A2.75 2.75 0 0012.25 4h-5.5zM5.5 6.75c0-.69.56-1.25 1.25-1.25h5.5c.69 0 1.25.56 1.25 1.25v5.5c0 .69-.56 1.25-1.25 1.25h-5.5c-.69 0-1.25-.56-1.25-1.25v-5.5z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-addtonextup: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.81 4.03L4.78 7.06 3.72 6l1.22-1.22H3.75c-.69 0-1.25.56-1.25 1.25v3.85H1V6.03a2.75 2.75 0 012.75-2.75h1.19L3.72 2.06 4.78 1l3.03 3.03zM15 4.75H9v-1.5h6v1.5zM15 9.88H7v-1.5h8v1.5zM1 15h14v-1.5H1V15z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-addtoplaylist: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.25 7V4.75H1v-1.5h2.25V1h1.5v2.25H7v1.5H4.75V7h-1.5zM9 4.75h6v-1.5H9v1.5zM15 9.875H1v-1.5h14v1.5zM1 15h14v-1.5H1V15z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-download: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 15A7 7 0 108 1a7 7 0 000 14zm3.47-7.53l1.06 1.06L8 13.06 3.47 8.53l1.06-1.06 2.72 2.72V3h1.5v7.19l2.72-2.72z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-buy: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M.417 1.833a.75.75 0 0 1 .75-.75h1.166a.75.75 0 0 1 .736.603l1.546 7.73h7.76l1.054-5.719a.75.75 0 1 1 1.475.272l-1.166 6.334a.75.75 0 0 1-.738.614H4a.75.75 0 0 1-.735-.603l-1.547-7.73h-.551a.75.75 0 0 1-.75-.75Zm4.916 10.75a.083.083 0 1 0 0 .167.083.083 0 0 0 0-.167Zm-1.583.084a1.583 1.583 0 1 1 3.167 0 1.583 1.583 0 0 1-3.167 0Zm7.583-.084a.083.083 0 1 0 0 .167.083.083 0 0 0 0-.167Zm-1.583.084a1.583 1.583 0 1 1 3.167 0 1.583 1.583 0 0 1-3.167 0Z' clip-rule='evenodd'%3E%3C/path%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M11 4.706 9.417 6.289V3.017h-1.5v3.272L6.333 4.706l-1.06 1.06 3.394 3.395 3.394-3.394L11 4.706Z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-buy-apple: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.157 2.399c.53-.648.797-1.349.797-2.099 0-.1-.004-.2-.015-.3-.37.02-.763.135-1.178.344-.417.211-.76.476-1.03.795-.54.63-.845 1.401-.845 2.122 0 .1.006.194.016.284.84.07 1.615-.375 2.255-1.146Zm2.825 10.74c.302-.443.563-.925.784-1.45.09-.222.176-.453.257-.695a3.313 3.313 0 0 1-1.01-.681c-.662-.633-1-1.43-1.01-2.386-.01-1.229.532-2.187 1.629-2.87-.613-.897-1.534-1.394-2.76-1.496-.452-.04-1.004.06-1.659.303-.692.261-1.1.392-1.22.392-.161 0-.529-.112-1.1-.333-.574-.22-1.036-.332-1.388-.332a3.494 3.494 0 0 0-1.794.52 3.775 3.775 0 0 0-1.327 1.383c-.423.726-.634 1.593-.634 2.599 0 .877.156 1.784.469 2.72a9.095 9.095 0 0 0 1.116 2.282c.422.614.774 1.047 1.055 1.3.441.422.883.623 1.326.604.292-.01.673-.113 1.146-.31.473-.197.915-.294 1.327-.294.392 0 .822.097 1.29.293.465.198.865.295 1.197.295.463-.011.894-.207 1.297-.588.26-.232.597-.65 1.01-1.255Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-edit: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.7626 1.57677C11.446 0.893354 12.554 0.893355 13.2374 1.57677L14.6517 2.99099C15.3351 3.6744 15.3351 4.78244 14.6517 5.46586L7.20733 12.9102C6.90545 13.2121 6.53743 13.4395 6.13241 13.5745L3.28636 14.5232C2.30916 14.8489 1.37949 13.9193 1.70522 12.9421L2.65391 10.096C2.78891 9.691 3.01636 9.32298 3.31824 9.0211L10.7626 1.57677ZM12.1768 2.63743C12.0791 2.5398 11.9209 2.5398 11.8232 2.63743L10.5858 3.87488L12.3535 5.64265L13.591 4.4052C13.6886 4.30757 13.6886 4.14928 13.591 4.05165L12.1768 2.63743ZM5.63604 8.82462L7.40381 10.5924L11.2929 6.70331L9.52512 4.93554L5.63604 8.82462ZM4.57538 9.88528L4.3789 10.0818C4.24168 10.219 4.1383 10.3863 4.07693 10.5704L3.28636 12.9421L5.65807 12.1515C5.84217 12.0901 6.00945 11.9867 6.14667 11.8495L6.34315 11.653L4.57538 9.88528Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-more: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 8c0-.832-.67-1.5-1.511-1.5C1.67 6.5 1 7.168 1 8s.67 1.5 1.489 1.5C3.33 9.5 4 8.832 4 8zm5.5 0c0-.832-.67-1.5-1.504-1.5C7.17 6.5 6.5 7.168 6.5 8s.67 1.5 1.496 1.5C8.831 9.5 9.5 8.832 9.5 8zM15 8c0-.832-.664-1.5-1.493-1.5C12.664 6.5 12 7.168 12 8s.664 1.5 1.507 1.5C14.336 9.5 15 8.832 15 8z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-delete: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.75 11.25V7.25H7.25V11.25H5.75Z' fill='%23fff'%3E%3C/path%3E%3Cpath d='M8.75 7.25V11.25H10.25V7.25H8.75Z' fill='%23fff'%3E%3C/path%3E%3Cpath d='M11.2388 3.5H14.5V5H13.25V12.25C13.25 13.7688 12.0188 15 10.5 15H5.5C3.98122 15 2.75 13.7688 2.75 12.25V5H1.5V3.5H4.76121C4.88752 2.09837 6.06549 1 7.5 1H8.5C9.93451 1 11.1125 2.09838 11.2388 3.5ZM4.25 5V12.25C4.25 12.9404 4.80964 13.5 5.5 13.5H10.5C11.1904 13.5 11.75 12.9404 11.75 12.25V5H4.25ZM9.725 3.5C9.60918 2.92944 9.10474 2.5 8.5 2.5H7.5C6.89526 2.5 6.39082 2.92944 6.275 3.5H9.725Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-comments: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2a1 1 0 00-1 1v8.174a1 1 0 001 1h2.23v1.9a.5.5 0 00.775.418l3.533-2.318H14a1 1 0 001-1V3a1 1 0 00-1-1H2zm11 3.75H3v-1.5h10v1.5zm-4 3H3v-1.5h6v1.5z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-plays: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.322 7.576a.5.5 0 0 1 0 .848l-6.557 4.098A.5.5 0 0 1 5 12.098V3.902a.5.5 0 0 1 .765-.424l6.557 4.098Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-play-24: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M20.346 11.58a.5.5 0 0 1 0 .84L7.77 20.506a.5.5 0 0 1-.77-.42V3.914a.5.5 0 0 1 .77-.42l12.576 8.084Z' fill='%23ccc'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-profile: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff'%3E%3Cpath d='M8 7.5a3 3 0 100-6 3 3 0 000 6zM2.001 14.248C2.036 10.005 2.984 8.5 8 8.5s5.965 1.487 5.999 5.748a.25.25 0 01-.249.252H2.25a.25.25 0 01-.249-.252z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+        --sc-new-notifications: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.681 7h.069v-.875c0-2.111-1.65-3.875-3.75-3.875s-3.75 1.764-3.75 3.875V7h.069a9.39 9.39 0 00-5.68 7.919l-.272 3.533a2.693 2.693 0 01-1.003 1.896c-1.824 1.46-.792 4.402 1.544 4.402h4.357v.043c-.023 2.686 2.056 4.934 4.708 4.957 2.651.022 4.768-2.19 4.791-4.876l.001-.124h4.327c2.336 0 3.368-2.942 1.544-4.402a2.694 2.694 0 01-1.003-1.896l-.272-3.533A9.39 9.39 0 0019.681 7zm-1.431-.478A9.402 9.402 0 0016 6.25c-.774 0-1.528.094-2.25.272v-.397c0-1.34 1.036-2.375 2.25-2.375s2.25 1.034 2.25 2.375v.397zM16 7.75a7.89 7.89 0 017.866 7.284l.272 3.533a4.193 4.193 0 001.561 2.953c.717.573.311 1.73-.607 1.73H6.908c-.918 0-1.324-1.157-.607-1.73a4.193 4.193 0 001.561-2.953l.272-3.533A7.889 7.889 0 0116 7.75zm-3.235 17h6.5v.11c-.017 1.917-1.513 3.405-3.28 3.39-1.766-.015-3.237-1.528-3.22-3.444v-.056z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-messages: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 10C2 7.79086 3.79086 6 6 6H26C28.2091 6 30 7.79086 30 10V22C30 24.2091 28.2091 26 26 26H6C3.79086 26 2 24.2091 2 22V10ZM6 7.5C4.80376 7.5 3.80375 8.34018 3.55789 9.46263L16 17.1193L28.4421 9.46264C28.1963 8.34018 27.1962 7.5 26 7.5H6ZM3.5 11.1883V22C3.5 23.3807 4.61929 24.5 6 24.5H26C27.3807 24.5 28.5 23.3807 28.5 22V11.1883L16 18.8806L3.5 11.1883Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
     }
 
     /* Required colours */
@@ -656,6 +677,29 @@
         --spacing-6x: 24px;
         --spacing-7x: 28px;
         --spacing-8x: 32px;
+        --artwork-1x-size: 8px;
+        --artwork-2x-size: 16px;
+        --artwork-3x-size: 24px;
+        --artwork-4x-size: 30px;
+        --artwork-5x-size: 40px;
+        --artwork-6x-size: 48px;
+        --artwork-8x-size: 64px;
+        --artwork-13x-size: 104px;
+        --artwork-15x-size: 120px;
+        --artwork-16x-size: 128px;
+        --artwork-18x-size: 144px;
+        --artwork-20x-size: 160px;
+        --artwork-25x-size: 200px;
+        --artwork-29x-size: 232px;
+        --artwork-40x-size: 352px;
+        --artwork-42x-size: 336px;
+        --artwork-45x-size: 360px;
+        --artwork-64x-size: 512px;
+        --breakpoints-xs: 480;
+        --breakpoints-sm: 768;
+        --breakpoints-md: 1152;
+        --breakpoints-lg: 1440;
+        --breakpoints-xl: 1920;
         --borderRadiuses-4: 4px;
         --borderRadiuses-8: 8px;
         --borderRadiuses-10: 10px;
@@ -685,6 +729,9 @@
         font-family: var(--font-main);
         -webkit-font-feature-settings: 'liga' 1, 'calt' 1;
         font-feature-settings: 'liga' 1, 'calt' 1;
+    }
+    :root {
+        background-color: var(--shd-bg-primary)
     }
     
     /*[[lowmotion]]*/
@@ -1993,7 +2040,7 @@
         background: var(--shd-accent-primary)
     }
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline .playbackTimeline__progressWrapper .playbackTimeline__progressHandle {
-        background: #c84200;
+        background: #c84200 !important;
         box-shadow: 2px 2px 2px var(--shd-bg-darker);
         position: relative;
         top: -4px;
@@ -3029,7 +3076,7 @@
     .sc-classic .statsBadge__recent {
         margin: 0
     }
-    .soundStats.sc-ministats-group {
+    .sc-classic .soundStats.sc-ministats-group {
         margin-top: -4px;
     }
     .l-fluid-fixed .l-sidebar-right .l-footer, .sc-classic .l-fluid-fixed .l-sidebar-right .l-footer {
@@ -3350,21 +3397,24 @@
         backdrop-filter: blur(calc(12px * var(--blur-on, 1)));
     }
     .g-tabs-link, .g-tabs-link:visited, .sc-classic .g-tabs-link, .sc-classic .g-tabs-link:visited {
-        color: #ccca!important;
-        transition-duration: 1s;
-    }
-    .g-tabs-link:hover {
-        color: #ccc;
+        color: #ccca !important;
         transition-duration: 0.25s;
     }
-    .sc-button:not(:disabled):not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.playbackSoundBadge__follow):not(.playbackSoundBadge__showQueue):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):not(.queue__hide):not(.volume__button):not(.commentItem__like > .sc-button-like):not(.playableTile__actionButton), .sc-button-group .sc-button-insights.sc-button-cta, .imageEditDropdown .sc-button, .uiEvoButton {
+    .g-tabs-link:hover {
+        color: #ccc !important;
+    }
+    .sc-button:not(:disabled):not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.playbackSoundBadge__follow):not(.playbackSoundBadge__showQueue):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):not(.queue__hide):not(.volume__button):not(.commentItem__like > .sc-button-like):not(.playableTile__actionButton):not(.userInfoBar__buttons>.sc-button-group>.sc-button),
+    .sc-button-group .sc-button-insights.sc-button-cta,
+    .imageEditDropdown .sc-button, .uiEvoButton {
         border: 1px solid var(--shd-bg-lighter);
         border-color: var(--shd-bg-lighter);
         background: var(--shd-bg-primary);
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button:not(:disabled):not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.playbackSoundBadge__follow):not(.playbackSoundBadge__showQueue):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):not(.queue__hide):not(.volume__button):not(.commentItem__like > .sc-button-like):not(.playableTile__actionButton):hover, .sc-button-group .sc-button-insights.sc-button-cta:hover, .imageEditDropdown .sc-button:hover .uiEvoButton:hover {
+    .sc-button:not(:disabled):not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.playbackSoundBadge__follow):not(.playbackSoundBadge__showQueue):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):not(.queue__hide):not(.volume__button):not(.commentItem__like > .sc-button-like):not(.playableTile__actionButton):not(.userInfoBar__buttons>.sc-button-group>.sc-button):hover,
+    .sc-button-group .sc-button-insights.sc-button-cta:hover,
+    .imageEditDropdown .sc-button:hover .uiEvoButton:hover {
         border: 1px solid #fff6;
         border-color: #fff6;
         background: #222;
@@ -3396,12 +3446,13 @@
     .sc-button-selected.addToPlaylistButton:hover,
     .sc-button-selected.createPlaylistSuggestion__add:hover,
     .uiEvoButton.uiEvoButton--isSelected:hover,
-    .sc-button-dropdown.sc-button-active:not(.sc-button-dropdown-plain),
+/*     .sc-button-dropdown.sc-button-active:not(.sc-button-dropdown-plain),
     .sc-button-dropdown:hover:not(.sc-button-dropdown-plain),
-    .sc-button-dropdown.sc-button-selected:not(.sc-button-dropdown-plain),
+    .sc-button-dropdown.sc-button-selected:not(.sc-button-dropdown-plain), */
     .sc-button.sc-button-secondary.sc-button-selected:active,
     .sc-button.sc-button-secondary.sc-button-selected.sc-button-more,
-    .sc-button-selected.playbackSoundBadge__follow:hover {
+    .sc-button-selected.playbackSoundBadge__follow:hover,
+    .sc-button.sc-button-secondary.sc-button-selected:hover {
         border: 1px solid #f506;
         border-color: #f506;
         color: #f50 !important;
@@ -3621,10 +3672,10 @@
         border-color: #555;
         background-color: #ee5a0f;
     }
-    .compactTrackListItem__user {
+    .sc-classic .compactTrackListItem__user, .compactTrackListItem__trackTitle {
         color: #ccc;
     }
-    .sc-classic .compactTrackListItem__number, .compactTrackListItem__number, .sc-classic .compactTrackListItem__trackTitle, .compactTrackListItem__trackTitle {
+    .sc-classic .compactTrackListItem__number, .compactTrackListItem__number, .sc-classic .compactTrackListItem__trackTitle, .compactTrackListItem__user {
         color: #999;
         -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
         font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
@@ -3903,7 +3954,7 @@
     .tileGallery.m-hasItemsBackward .tileGallery__sliderPeekBackward, .tileGallery.m-hasItemsForward .tileGallery__sliderPeekForward {
         display: block;
         opacity: 1;
-        width: 10%;
+        width: 6%;
         pointer-events: auto;
         transition-duration: 0.3s;
         transition-timing-function: ease-out;
@@ -3970,10 +4021,14 @@
     .featuredProfiles.expanded .featuredProfiles__title, .sc-classic .featuredProfiles.expanded .featuredProfiles__title {
         border-bottom: none !important;
     }
+    .featuredProfiles__scroll.g-scrollable>.g-scrollbar {
+        display: none;
+    }
     .featuredProfiles__wrapper.g-scrollable-inner, .sc-classic .featuredProfiles__wrapper.g-scrollable-inner {
         height: 280px !important;
         display: flex !important;
         flex-direction: column-reverse;
+        overflow-y: hidden;
     }
     .featuredProfiles__list, .sc-classic .featuredProfiles__list {
         height: 100%;
@@ -5016,7 +5071,7 @@
         box-shadow: 0 0 8px #000;
         border-radius: 6px;
     }
-    .sc-classic .gritter-image, body:not(.sc-classic) .gritter-image {
+    .sc-classic .gritter-image {
         position: relative;
         border-radius: 6px 0 0 6px;
         padding: 1px;
@@ -5029,8 +5084,7 @@
         margin-right: 0;
         border-radius: 6px; */
     }
-    .sc-classic .gritter-with-image, .sc-classic .gritter-without-image,
-    body:not(.sc-classic) .gritter-with-image, body:not(.sc-classic) .gritter-without-image {
+    .sc-classic .gritter-with-image, .sc-classic .gritter-without-image {
         padding: 6px;
     }
     .sc-classic .gritter-close, .sc-classic .gritter-close {
@@ -5476,8 +5530,12 @@
     .sc-button-medium.reportCopyright {
         margin-top: 12px;
     }
-    .sc-button-medium.reportCopyright:before {
-        left: 28px;
+    .listenArtistInfo__report .reportCopyright {
+        padding-left: 7px;
+    }
+    .listenArtistInfo__report .reportCopyright:before {
+        position: relative;
+        left: 0;
     }
 
     .g-stats-icon {
@@ -5726,7 +5784,7 @@
         left: 0 !important;
         width: 100%;
     }
-    .sc-button-small.sc-button-icon:not(.sc-button-stretch-icon) {
+    .sc-button-small.sc-button-responsive.sc-button-icon:not(.sc-button-stretch-icon) {
         padding: 0;
     }
 
@@ -6032,12 +6090,12 @@
 
     .sc-classic .commentForm.m-small .commentForm__wrapper,
     .sc-classic .commentForm.visible.m-small .commentForm__wrapper,
-    .sc-classic .commentForm .commentForm__wrapper,
-    .sc-classic .commentForm.visible .commentForm__wrapper,
+    .sc-classic .sound__content .commentForm .commentForm__wrapper,
+    .sc-classic .sound__content .commentForm.visible .commentForm__wrapper,
     body:not(.sc-classic) .commentForm.m-small .commentForm__wrapper,
     body:not(.sc-classic) .commentForm.visible.m-small .commentForm__wrapper,
-    body:not(.sc-classic) .commentForm .commentForm__wrapper,
-    body:not(.sc-classic) .commentForm.visible .commentForm__wrapper {
+    body:not(.sc-classic) .sound__content .commentForm .commentForm__wrapper,
+    body:not(.sc-classic) .sound__content .commentForm.visible .commentForm__wrapper {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -6047,39 +6105,39 @@
     }
 
     .sc-classic .commentForm.m-small .commentForm__inputWrapper,
-    .sc-classic .commentForm .commentForm__inputWrapper,
     .sc-classic .commentForm.m-small .commentForm__inputFieldWrapper,
-    .sc-classic .commentForm .commentForm__inputFieldWrapper,
+    .sc-classic .sound__content .commentForm .commentForm__inputWrapper,
+    .sc-classic .sound__content .commentForm .commentForm__inputFieldWrapper,
     body:not(.sc-classic) .commentForm.m-small .commentForm__inputWrapper,
-    body:not(.sc-classic) .commentForm .commentForm__inputWrapper,
     body:not(.sc-classic) .commentForm.m-small .commentForm__inputFieldWrapper,
-    body:not(.sc-classic) .commentForm .commentForm__inputFieldWrapper {
+    body:not(.sc-classic) .sound__content .commentForm .commentForm__inputWrapper,
+    body:not(.sc-classic) .sound__content .commentForm .commentForm__inputFieldWrapper {
         height: var(--comment-height-on);
         margin-left: 0;
         font-size: 14px;
     }
     .sc-classic .commentForm.m-small .commentForm__input,
-    .sc-classic .commentForm .commentForm__input,
+    .sc-classic .sound__content .commentForm .commentForm__input,
     body:not(.sc-classic) .commentForm.m-small .commentForm__input,
-    body:not(.sc-classic) .commentForm .commentForm__input {
+    body:not(.sc-classic) .sound__content .commentForm .commentForm__input {
         height: var(--comment-height);
         padding: 0 calc(var(--comment-height)*0.3);
     }
 
     .sc-classic .commentForm.m-small .commentForm__avatar,
-    .sc-classic .commentForm .commentForm__avatar,
+    .sc-classic .sound__content .commentForm .commentForm__avatar,
     body:not(.sc-classic) .commentForm.m-small .commentForm__avatar,
-    body:not(.sc-classic) .commentForm .commentForm__avatar {
+    body:not(.sc-classic) .sound__content .commentForm .commentForm__avatar {
         border-radius: unset;
     }
     .sc-classic .commentForm.m-small .commentForm__avatar,
     .sc-classic .commentForm.m-small .commentForm__avatar > .sc-artwork,
-    .sc-classic .commentForm .commentForm__avatar,
-    .sc-classic .commentForm .commentForm__avatar > .sc-artwork,
+    .sc-classic .sound__content .commentForm .commentForm__avatar,
+    .sc-classic .sound__content .commentForm .commentForm__avatar > .sc-artwork,
     body:not(.sc-classic) .commentForm.m-small .commentForm__avatar,
     body:not(.sc-classic) .commentForm.m-small .commentForm__avatar > .sc-artwork,
-    body:not(.sc-classic) .commentForm .commentForm__avatar,
-    body:not(.sc-classic) .commentForm .commentForm__avatar > .sc-artwork {
+    body:not(.sc-classic) .sound__content .commentForm .commentForm__avatar,
+    body:not(.sc-classic) .sound__content .commentForm .commentForm__avatar > .sc-artwork {
         height: var(--comment-height)!important;
         width: var(--comment-height)!important;
         transition: height 0.3s;
@@ -6110,11 +6168,11 @@
         pointer-events: none;
     }
     .sc-classic .commentPopover.small .commentPopover__body, .sc-classic .commentPopover.small .commentPopover__username,
-    .sc-classic .commentPopover .commentPopover__body, .sc-classic .commentPopover .commentPopover__username, .sc-classic .commentPopover.small .commentPopover__username, .sc-classic .commentPopover .commentPopover__username {
+    .sc-classic .sound__content .commentPopover .commentPopover__body, .sc-classic .commentPopover .commentPopover__username {
         padding-top: 3px;
     }
     .sc-classic .commentPopover.small.visible .commentPopover__body, .sc-classic .commentPopover.small.visible .commentPopover__username,
-    .sc-classic .commentPopover.visible .commentPopover__body, .sc-classic .commentPopover.visible .commentPopover__username, .sc-classic .commentPopover.small.visible .commentPopover__username, .sc-classic .commentPopover.visible .commentPopover__username {
+    .sc-classic .sound__content .commentPopover.visible .commentPopover__body, .sc-classic .sound__content .commentPopover.visible .commentPopover__username {
         padding-top: 6px;
     }
     
@@ -6403,7 +6461,7 @@
     }
     
     /* 2fa settings */
-    iframe#two-factor-iframe {
+    .sc-classic iframe#two-factor-iframe, .theme-light iframe#two-factor-iframe {
         filter: brightness(0.9335) invert(1) hue-rotate(180deg);
     }
     
@@ -7168,6 +7226,27 @@
         background-image: url(https://a-v2.sndcdn.com/assets/images/loader-dark-45940ae3d4.gif)
     }
     
+    /* keep your likes banner */
+    .l-listen-keep-your-likes-banner, .keep-your-likes-banner-container {
+        /*[[prban]]*/
+    }
+    .keep-your-likes-banner-container {
+        z-index: 1000;
+    }
+    .keep-your-likes-banner-container.m-offset {
+        transform: translate3d(0,-90px,0);
+    }
+    .keepYourLikes__wrapper {
+        width: 1240px !important;
+        margin: 0 auto !important;
+    }
+    .keepYourLikes__title {
+        font-weight: 600
+    }
+    .keepYourLikes__subtitle {
+        font-weight: 400;
+    }
+    
     /*----------------- the other soundcloud ui redesign (april 2025) ----------------*/
     
     body:not(.sc-classic) .l-content {
@@ -7352,10 +7431,12 @@
         width: 330px;
     }
     body:not(.sc-classic) .l-fluid-fixed .l-sidebar-right,
-    body:not(.sc-classic) .l-hero-fluid-fixed .l-sidebar-right {
+    body:not(.sc-classic) .l-hero-fluid-fixed .l-sidebar-right,
+    body:not(.sc-classic) .l-listen-wrapper .l-sidebar-right {
         margin-right: -12px;
     }
-    body:not(.sc-classic) .l-hero-fluid-fixed .l-sidebar-right .l-footer {
+    body:not(.sc-classic) .l-hero-fluid-fixed .l-sidebar-right .l-footer,
+    body:not(.sc-classic) .l-listen-wrapper .l-sidebar-right .l-footer {
         top: -5px;
         margin-left: 12px;
     }
@@ -7384,6 +7465,14 @@
     .soundBadge.compact {
         padding: var(--spacing-1x) var(--spacing-2x) 0;
     }
+    .soundBadgeList__item .soundBadge.compact .soundTitle__titleContainer .soundTitle__usernameTitleContainer {
+        margin-bottom: 0;
+    }
+    .soundBadgeList__item .soundBadge.compact .releaseDateCompact {
+        font-size: 12px;
+        line-height: 14px;
+        margin-top: -8px;
+    }
     .sc-ministats {
         color: #ccc !important;
         font-weight: 400;
@@ -7394,6 +7483,9 @@
     body:not(.sc-classic) .insightsSidebarModule {
         width: 320px
     }
+    body:not(.sc-classic) .l-listen-hero .soundTitle__usernameHeroContainer .verifiedBadge {
+        margin-left: 0;
+    }
     a.sc-link-secondary.sc-social-logo-interactive {
         color: #ccc;
     }
@@ -7403,27 +7495,52 @@
     a.sc-link-secondary.sc-social-logo-interactive[href*="bandcamp.com"]:hover svg {
         color: #1DA0C3;
     }
-    a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.bandsintown.com"]:hover svg {
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.bandsintown.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.bandsintown.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://bandsintown.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://bandsintown.com"]:hover svg {
         color: #00D2C9;
     }
-    a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.facebook.com"]:hover svg {
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.facebook.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.facebook.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://facebook.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://facebook.com"]:hover svg {
         color: #1877F2;
     }
-    a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.instagram.com"]:hover svg {
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.instagram.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.instagram.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://instagram.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://instagram.com"]:hover svg {
 /*        color: color-mix(in oklab, color-mix(in oklab, #E09B3D, #C74C4D 60%) 35%, color-mix(in oklab, #C21975 60%, #7024C4) 65%); */
         color: #BB3B84;
     }
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://linktr.ee"]:hover svg {
         color: #43E660;
     }
-    a.sc-link-secondary.sc-social-logo-interactive[href^="https://open.spotify.com"]:hover svg {
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://open.spotify.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://play.spotify.com"]:hover svg {
         color: #1ED760;
     }
-    a.sc-link-secondary.sc-social-logo-interactive[href^="https://twitter.com"]:hover svg {
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.twitter.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.twitter.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://twitter.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://twitter.com"]:hover svg {
         color: #1DA1F2;
     }
-    a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.youtube.com"]:hover svg {
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.youtube.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.youtube.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://youtube.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://youtube.com"]:hover svg {
         color: #D22222;
+    }
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.songkick.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.songkick.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://songkick.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://songkick.com"]:hover svg {
+        color: #DA2C4E;
+    }
+    a.sc-link-secondary.sc-social-logo-interactive[href^="/"]:hover svg {
+        color: var(--special-color);
     }
     .sc-social-logo-interactive > div[style] {
         margin-right: 4px !important;
@@ -7445,9 +7562,17 @@
         font-weight: 400;
         margin-bottom: 8px
     }
+
     /* queue */
     .theme-dark .queue__itemsHeight {
         background-image: unset;
+    }
+    body:not(.sc-classic) .queueItemView__dragHandle {
+        visibility: visible;
+        opacity: 0.2;
+    }
+    .queueItemView:not(.m-active):hover .queueItemView__dragHandle {
+        opacity: 1;
     }
     
     /* modals */
@@ -7479,8 +7604,15 @@
             width: calc-size(100%, size - 180px);
         }
     }
-    .tooltip, .g-z-index-overlay {
+    .modal__closeButton {
+        height: 32px;
+        width: 32px;
+    }
+    .tooltip, #gritter-notice-wrapper {
         z-index: 10000;
+    }
+    #gritter-notice-wrapper {
+        top: 30px;
     }
     
     /* user page header */
@@ -7582,6 +7714,14 @@
     .soundTitle:not(.m-visualSound) .soundTitle__titleContainer > .soundTitle__usernameTitleContainer > .soundTitle__title {
         line-height: 1;
     }
+    .sc-tag.sc-tag-small {
+        font-size: 12px;
+        height: 20px;
+        line-height: 1;
+        vertical-align: middle;
+        display: inline-flex;
+        align-items: center;
+    }
     .progressBar__bar {
         background-color: #f50;
     }
@@ -7616,8 +7756,31 @@
     .compactTrackListItem.clickToPlay.active, .compactTrackListItem.clickToPlay:focus, .compactTrackListItem.clickToPlay:hover {
         color: #999;
     }
-    .compactTrackList__moreLink {
+    a.compactTrackList__moreLink {
+        font: var(--typography-subheading-font);
+        color: #ccc;
         text-align: center;
+    }
+    a.compactTrackList__moreLink:hover {
+        color: #999;
+    }
+    
+    /* listen page */
+    .fullHero__parentLink {
+        margin-left: calc(64px + var(--spacing-2x))
+    }
+    /* system playlists */
+    body:not(.sc-classic) .systemPlaylistHero .fullHero__titleTextTitle .fullHero__titleTextText {
+        font-weight: 700;
+    }
+    body:not(.sc-classic) .systemPlaylistHero .fullHero__titleTextTitle {
+        display: inline-flex;
+    }
+    body:not(.sc-classic) .trackItem {
+        height: 44px;
+    }
+    .trackItem__actions {
+        margin: 6px;
     }
     
     /* messages */
@@ -7634,7 +7797,33 @@
         width: auto;
     }
     
+    /* notifications */
+    body:not(.sc-classic) .notificationBadge--unreadIndicator {
+        left: unset;
+        top: 1px;
+        right: 0;
+        width: 12px;
+        height: 12px;
+        margin: 0;
+        border-radius: 0;
+        border-top-right-radius: 4px;
+        background: linear-gradient(-135deg, var(--special-color) 50%, transparent 50%)
+    }
+    
     /* comments */
+    .commentsList .commentsList__title {
+        text-indent: 28px;
+    }
+    .commentsList .commentsList__title:before {
+        content: "";
+        display: block;
+        position: absolute;
+        background: #ccc;
+        mask: var(--sc-new-comments) 50% 50% no-repeat;
+        mask-size: 90%;
+        height: 24px;
+        width: 24px;
+    }
     .commentItem__read > * {
         padding-bottom: 0;
         line-height: 1rem
@@ -7649,6 +7838,16 @@
         background-color: unset;
     }
     
+    /* artist shortcuts / stories */
+    /* this isnt even a bug by me soundcloud just forgot to fix this */
+    body:not(.sc-classic) .storyItemInfo__iconRepost {
+        background: #999;
+        mask-image: var(--sc-new-repost);
+        mask-repeat: no-repeat;
+        mask-position: 40%;
+        mask-size: auto 18px;
+    }
+    
     /* library */
     body:not(.sc-classic) .collection .playableTile {
         padding-bottom: 0;
@@ -7659,10 +7858,6 @@
     }
     
     /* buttons */
-    .sc-button.sc-button-primary:hover {
-        color: #000;
-        background-color: #ccc;
-    }
     .sc-button-group>.sc-button, .sc-button-toolbar>.sc-button {
         margin-right: 8px;
     }
@@ -7741,12 +7936,12 @@
     .sc-radio-radio {
         margin-right: 4px;
     }
-    .radioGroup {
+    .radioGroup.horizontal {
         display: flex;
-        flex: 1;
         align-items: center;
+        flex: 1;
     }
-    .radioGroup.horizontal .radioGroup__radio {
+    .radioGroup .radioGroup__radio {
         display: flex;
         align-items: center;
     }
@@ -7768,14 +7963,117 @@
         stroke: currentColor;
         stroke-width: 1;
     }
-    .sc-button.sc-button-primary, .sc-button.sc-button-primary:hover, .sc-button.sc-button-primary:active {
+    .sc-toggle.sc-toggle-off:before {
+        opacity: 1;
+        background: #999;
+    }
+    .sc-button.sc-button-primary, .sc-button.sc-button-primary:hover, .sc-button.sc-button-primary:active, .sc-button.sc-button-primary.sc-button-disabled, .sc-button.sc-button-primary:disabled {
+        border: 1px solid #fff4;
         color: #fff;
+        transition-duration: 0.25s;
     }
     .sc-button.sc-button-primary, .sc-button.sc-button-primary:visited {
-        background-color: #fff2;
+        background-color: #ffffff1a;
     }
     .sc-button.sc-button-primary:hover, .sc-button.sc-button-primary:active {
+        border-color: #fff6;
         background-color: #fff3;
+        box-shadow: 2px 2px 16px #0006;
+    }
+    .sc-button.sc-button-primary.sc-button-disabled, .sc-button.sc-button-primary:disabled {
+        background-color: #fff1;
+    }
+    .soundTitle__playButtonHero, .systemPlaylistHero__titleButton, .fullHero__titleButton {
+        height: 64px;
+        width: 64px;
+    }
+    .sc-label.sc-label-error-color *, .sc-label.sc-label-link-color * {
+        color: #fff;
+        font-weight: 500;
+    }
+    .truncatedAudioInfo.m-overflow .truncatedAudioInfo__collapse {
+        text-align: center;
+        color: #ccc;
+        font-size: 14px;
+    }
+    .truncatedAudioInfo.m-overflow .truncatedAudioInfo__collapse:hover {
+        color: #999;
+    }
+    .linkMenu__item, .linkMenu__item>a {
+        color: #999 !important;
+    }
+    .linkMenu__activeItem, .linkMenu__activeItem>a, .linkMenu__item:hover, .linkMenu__item>a:hover {
+        color: #ccc !important;
+    }
+    .userInfoBar__buttons>.sc-button-group>.sc-button {
+        color: #fff;
+        transition-duration: 0.25s;
+    }
+    .userInfoBar__buttons>.sc-button-group>.sc-button:hover {
+        color: #fff;
+        filter: drop-shadow(2px 2px 6px #000);
+    }
+    .sc-ministats.sc-ministats-small.sc-ministats-plays>div[style] {
+        margin-right: 0.8px !important;
+    }
+    .sc-ministats.sc-ministats-small.sc-ministats-comments>div[style] {
+        margin-right: 3px !important;
+    }
+    
+    /* restore button text */
+    @media only screen and (min-width: 1383px) {
+        body:not(.sc-classic) .sound.streamContext .sound__soundActions .sc-button-copylink .sc-button-label,
+        body:not(.sc-classic) .sound.streamContext .sound__soundActions .sc-button-delete .sc-button-label,
+        body:not(.sc-classic) .sound.streamContext .sound__soundActions .sc-button-edit .sc-button-label,
+        body:not(.sc-classic) .sound.streamContext .sound__soundActions .sc-button-more .sc-button-label,
+        body:not(.sc-classic) .sound.streamContext .sound__soundActions .sc-button-share .sc-button-label {
+            display: block !important;
+            height: auto;
+            width: auto;
+            clip: unset;
+            position: relative;
+            margin: auto;
+            margin-left: var(--spacing-1x);
+        }
+        body:not(.sc-classic) .sound__soundActions .sc-button-secondary[aria-label]:not(
+            .sc-button-follow,
+            .sound.streamContext .sound__soundActions .sc-button-like,
+            .sound.streamContext .sound__soundActions .sc-button-repost,
+            .sound.streamContext .sound__soundActions .sc-button-copylink,
+            .sound.streamContext .sound__soundActions .sc-button-delete,
+            .sound.streamContext .sound__soundActions .sc-button-edit,
+            .sound.streamContext .sound__soundActions .sc-button-more,
+            .sound.streamContext .sound__soundActions .sc-button-share
+        ):after,
+        body:not(.sc-classic) .listenEngagement__actions .sc-button-secondary[aria-label]:after,
+        body:not(.sc-classic) .sound__footer .sound__soundActions .sc-button-tertiary[aria-label]:after,
+        body:not(.sc-classic) .listenEngagement__actions .sc-button-tertiary[aria-label]:after {
+            content: attr(aria-label);
+            display: inline-flex;
+            align-items: center;
+            font-size: 12px;
+            height: 0;
+            margin: 0;
+            margin-left: var(--spacing-1x);
+        }
+        body:not(.sc-classic) .sound__footer .sound__soundActions .sc-button-tertiary[aria-label]:after,
+        body:not(.sc-classic) .listenEngagement__actions .sc-button-tertiary[aria-label]:after {
+            margin-top: 2px;
+        }
+        body:not(.sc-classic):has(
+            .sound__soundActions .sc-button-secondary[aria-label]:not(
+                .sc-button-follow,
+                .sound.streamContext .sound__soundActions .sc-button-like,
+                .sound.streamContext .sound__soundActions .sc-button-repost
+            ):hover,
+            .listenEngagement__actions .sc-button-secondary[aria-label]:hover,
+            .listenEngagement__actions .sc-button-tertiary[aria-label]:hover,
+            .sound__soundActions .sc-button-tertiary[aria-label]:hover,
+            .sound__soundActions div[aria-describedby^="tooltip-"]:hover > .sc-button-tertiary[aria-label]
+        ) > .tooltip.m-is-visible {
+            opacity: 0;
+            display: none;
+        }
     }
     
     
@@ -7798,6 +8096,13 @@
         bottom: 0;
         margin: auto 0;
         left: 8px;
+    }
+    .userBadge.m-vertical .sc-button-follow:not(:has(> div > svg)) {
+        text-indent: 0;
+    }
+    .userBadge.m-vertical .sc-button-follow:not(:has(> div > svg)):before {
+        position: relative;
+        left: 0;
     }
     
 /*     .sc-button-small.sc-button-selected.sc-button-follow.sc-button-icon-light:before,
