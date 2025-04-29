@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.00.2
+@version      1.00.3
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -88,12 +88,12 @@
     wrap-reverse EOT;
 }
 @advanced dropdown compact "Compact mode" {
-    compact-off   "Off" <<<EOT 
-    /* EOT;
     compact-max   "Auto" <<<EOT 
     @media only screen and (max-width: /*[[cmth]]*\/) EOT;
     compact-on    "Always on" <<<EOT 
     @media only screen and (min-width: 0px) EOT;
+    compact-off   "Off" <<<EOT 
+    /* EOT;
 }
 @advanced range cmth "Compact mode auto threshold" [1200, 160, 2560, 40, "px"]
 @advanced dropdown at "Artist tools on sidebar" {
@@ -237,6 +237,13 @@
         display: none;
         margin: 0;
     } EOT;
+}
+@advanced dropdown tnum "Tabular nums" {
+    tnum-on   "Enabled" <<<EOT 
+    -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
+    font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
+    font-variant-numeric: tabular-nums; EOT;
+    tnum-off  "Disabled" <<<EOT EOT;
 }
 @advanced color bg1 "Background color" #111
 @advanced dropdown bgblur "Background blur" {
@@ -420,6 +427,7 @@
         --sc-old-follow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23FFF' d='M5.542 1.167c2.77 0 3.386 2.916 2.155 6.125 3.169 1.308 3.386 3.977 3.386 4.958H0c0-.981.218-3.65 3.387-4.958-1.232-3.218-.616-6.125 2.155-6.125zm0 1.166c-1.584 0-2.127 1.77-1.066 4.542.226.59-.06 1.254-.644 1.495-1.517.626-2.263 1.572-2.537 2.713h8.494c-.275-1.141-1.02-2.087-2.537-2.713a1.167 1.167 0 0 1-.644-1.496c1.06-2.764.516-4.54-1.066-4.54zm6.414-.583c.17 0 .294.13.294.292V3.5h1.458c.157 0 .292.132.292.294v.578c0 .17-.13.295-.292.295H12.25v1.458a.296.296 0 0 1-.294.292h-.578a.289.289 0 0 1-.295-.292V4.667H9.625a.296.296 0 0 1-.292-.295v-.578c0-.17.131-.294.292-.294h1.458V2.042c0-.157.132-.292.295-.292h.578z'/%3E%3C/svg%3E");
         --sc-old-follow-selected: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23FFF' fill-rule='evenodd' d='M5.542 1.167c2.107 0 2.795 2.246 1.61 5.332-.444.793.03 1.211.322 1.332 2.026.836 2.875 2.213 3.026 3.836v.583H.583v-.583c.151-1.623 1-3 3.026-3.836.292-.12.766-.54.322-1.331-1.184-3.095-.497-5.333 1.61-5.333zM13.47 3.18l.058.05.23.228a.415.415 0 0 1 .057.526l-.053.065-2.714 2.714a.409.409 0 0 1-.5.066l-.045-.03-.043-.038-1.472-1.472a.422.422 0 0 1-.051-.527l.054-.066.229-.23a.415.415 0 0 1 .528-.055l.065.053.942.943 2.182-2.183a.41.41 0 0 1 .533-.044z'/%3E%3C/svg%3E");
         --sc-old-follow-selected-orange: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23F50' fill-rule='evenodd' d='M5.542 1.167c2.107 0 2.795 2.246 1.61 5.332-.444.793.03 1.211.322 1.332 2.026.836 2.875 2.213 3.026 3.836v.583H.583v-.583c.151-1.623 1-3 3.026-3.836.292-.12.766-.54.322-1.331-1.184-3.095-.497-5.333 1.61-5.333zM13.47 3.18l.058.05.23.228a.415.415 0 0 1 .057.526l-.053.065-2.714 2.714a.409.409 0 0 1-.5.066l-.045-.03-.043-.038-1.472-1.472a.422.422 0 0 1-.051-.527l.054-.066.229-.23a.415.415 0 0 1 .528-.055l.065.053.942.943 2.182-2.183a.41.41 0 0 1 .533-.044z'/%3E%3C/svg%3E");
+        --sc-old-report-png: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAQAAACR313BAAAAnElEQVR4AZXNUQqDMBCE4TlWKApbiGBEpVYphQb6knvkaDnalLWK60uhfjA+5CfBX1+SBAvJiPKmCc7HizwZaQJ73MvEucx4FRtsPy+BA8c84pHtDetUcmXDwC53uGf7BBKcXFhTg7a0uJWFR4B0ChoMnLgGEhGBqEwQuAayQOmoLaihQS89vnQ2+w1ePHbwhgaVVDjoGE4cLLifPnBzeJR4+XAqAAAAAElFTkSuQmCC);
         --sc-old-distribute: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12' viewBox='0 0 16 12'%3E%3Cpath fill='%23fff' d='M1.62 10h12v2h-12v-2zm6.526-7v6H7.094V3h-1.58L7.62 0l2.105 3H8.146zm-5.99 1.257l2.867 4.096-.862.603-2.868-4.095L0 5.766l.003-3.665 3.446 1.25-1.294.906h.001zm12.05.582l-2.868 4.096-.863-.604 2.868-4.096-1.293-.905 3.445-1.25.004 3.665-1.293-.906z'/%3E%3C/svg%3E%0A");
 
         /* new icons */
@@ -427,6 +435,9 @@
         --sc-new-follow-selected: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23FFF' d='M10 4.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM7 8.5c-5.016 0-5.964 1.505-5.999 5.748a.25.25 0 0 0 .249.252h11.5a.25.25 0 0 0 .249-.252C12.965 9.987 12.016 8.5 7 8.5ZM14.47 4.47 12.5 6.44l-.97-.97-1.06 1.06 2.03 2.03 3.03-3.03-1.06-1.06Z'/%3E%3C/svg%3E");
         --sc-new-follow-selected-orange: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23F50' d='M10 4.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM7 8.5c-5.016 0-5.964 1.505-5.999 5.748a.25.25 0 0 0 .249.252h11.5a.25.25 0 0 0 .249-.252C12.965 9.987 12.016 8.5 7 8.5ZM14.47 4.47 12.5 6.44l-.97-.97-1.06 1.06 2.03 2.03 3.03-3.03-1.06-1.06Z'/%3E%3C/svg%3E");
         --sc-new-station: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.395 5.01A7.25 7.25 0 013.21 2.559l.991 1.126a5.75 5.75 0 00-.007 8.626L3.2 13.434a7.25 7.25 0 01-1.806-8.423zM12.79 2.558a7.25 7.25 0 01.01 10.876l-.994-1.124a5.75 5.75 0 00-.007-8.626l.99-1.126z' fill='%23fff'%3E%3C/path%3E%3Cpath d='M10.808 4.81a4.25 4.25 0 01.005 6.376L9.82 10.06a2.75 2.75 0 00-.003-4.125l.99-1.126zM5.192 4.81a4.25 4.25 0 00-.005 6.375l.993-1.124a2.75 2.75 0 01.003-4.125l-.99-1.126zM8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-messages-16: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.75 2.25C2.23122 2.25 1 3.48122 1 5V11C1 12.5188 2.23122 13.75 3.75 13.75H12.25C13.7688 13.75 15 12.5188 15 11V5C15 3.48122 13.7688 2.25 12.25 2.25H3.75ZM2.5 5C2.5 4.30964 3.05964 3.75 3.75 3.75H12.25C12.9404 3.75 13.5 4.30964 13.5 5V5.23476L8.65513 8.21622C8.25337 8.46346 7.74664 8.46346 7.34488 8.21622L2.5 5.23476V5ZM2.5 6.99603L6.55874 9.49371C7.44261 10.0376 8.5574 10.0376 9.44127 9.49371L13.5 6.99603V11C13.5 11.6904 12.9404 12.25 12.25 12.25H3.75C3.05964 12.25 2.5 11.6904 2.5 11V6.99603Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-block: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8ZM11.3226 12.3833L3.6167 4.67735C2.9159 5.60043 2.5 6.75164 2.5 8C2.5 11.0376 4.96243 13.5 8 13.5C9.24836 13.5 10.3996 13.0841 11.3226 12.3833ZM12.3833 11.3226C13.0841 10.3996 13.5 9.24835 13.5 8C13.5 4.96243 11.0376 2.5 8 2.5C6.75165 2.5 5.60044 2.9159 4.67736 3.61669L12.3833 11.3226Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-report: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.5 9L9 4H7l.5 5h1zM9 11a1 1 0 11-2 0 1 1 0 012 0z' fill='%23fff'%3E%3C/path%3E%3Cpath d='M15 8A7 7 0 111 8a7 7 0 0114 0zm-1.5 0a5.5 5.5 0 10-11 0 5.5 5.5 0 0011 0z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
         --sc-new-like: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.978 5c.653-1.334 1.644-2 2.972-2 1.992 0 3.405 1.657 2.971 4-.289 1.561-2.27 3.895-5.943 7C4.19 10.895 2.21 8.561 2.035 7c-.26-2.343.947-4 2.972-4 1.35 0 2.34.666 2.971 2z' fill='%23FFF'%3E%3C/path%3E%3C/svg%3E");
         --sc-new-repost: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.08034 5.71966L4.05001 2.68933L1.01968 5.71966L2.08034 6.78032L3.30002 5.56065V9.75C3.30002 11.2688 4.53124 12.5 6.05002 12.5H8.05002V11H6.05002C5.35966 11 4.80002 10.4404 4.80002 9.75V5.56066L6.01968 6.78032L7.08034 5.71966Z' fill='%23fff'%3E%3C/path%3E%3Cpath d='M11.95 13.3107L8.91969 10.2803L9.98035 9.21968L11.2 10.4393L11.2 5.75C11.2 5.05964 10.6404 4.5 9.95001 4.5L7.95001 4.5L7.95001 3L9.95001 3C11.4688 3 12.7 4.23122 12.7 5.75L12.7 10.4394L13.9197 9.21968L14.9803 10.2803L11.95 13.3107Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
         --sc-new-share: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 .94l3.03 3.03-1.06 1.06-1.22-1.22V10h-1.5V3.81L6.03 5.03 4.97 3.97 8 .94z' fill='%23fff'%3E%3C/path%3E%3Cpath d='M3.25 6v6c0 .69.56 1.25 1.25 1.25h7c.69 0 1.25-.56 1.25-1.25V6h1.5v6a2.75 2.75 0 01-2.75 2.75h-7A2.75 2.75 0 011.75 12V6h1.5z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
@@ -459,8 +470,9 @@
         --sc-new-promote: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.75 11L13.75 2.25H5.00001L5.00001 3.75L11.1894 3.75L2.46973 12.4697L3.53039 13.5303L12.25 4.81069L12.25 11L13.75 11Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
         --sc-new-distribute: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.96966 8.03033L0.939331 5L3.96966 1.96967L5.03032 3.03033L3.81065 4.25L6 4.25C6.78801 4.25 7.49862 4.58144 8 5.11253C8.50138 4.58144 9.21199 4.25 10 4.25L12.1894 4.25L10.9697 3.03033L12.0303 1.96967L15.0607 5L12.0303 8.03033L10.9697 6.96967L12.1893 5.75L10 5.75C9.30964 5.75 8.75 6.30964 8.75 7L8.75 12H7.25L7.25 7C7.25 6.30964 6.69036 5.75 6 5.75L3.81066 5.75L5.03032 6.96967L3.96966 8.03033Z' fill='%23fff'%3E%3C/path%3E%3Cpath d='M2 15V13.5H14V15H2Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
 
-        --sc-new-notifications: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.681 7h.069v-.875c0-2.111-1.65-3.875-3.75-3.875s-3.75 1.764-3.75 3.875V7h.069a9.39 9.39 0 00-5.68 7.919l-.272 3.533a2.693 2.693 0 01-1.003 1.896c-1.824 1.46-.792 4.402 1.544 4.402h4.357v.043c-.023 2.686 2.056 4.934 4.708 4.957 2.651.022 4.768-2.19 4.791-4.876l.001-.124h4.327c2.336 0 3.368-2.942 1.544-4.402a2.694 2.694 0 01-1.003-1.896l-.272-3.533A9.39 9.39 0 0019.681 7zm-1.431-.478A9.402 9.402 0 0016 6.25c-.774 0-1.528.094-2.25.272v-.397c0-1.34 1.036-2.375 2.25-2.375s2.25 1.034 2.25 2.375v.397zM16 7.75a7.89 7.89 0 017.866 7.284l.272 3.533a4.193 4.193 0 001.561 2.953c.717.573.311 1.73-.607 1.73H6.908c-.918 0-1.324-1.157-.607-1.73a4.193 4.193 0 001.561-2.953l.272-3.533A7.889 7.889 0 0116 7.75zm-3.235 17h6.5v.11c-.017 1.917-1.513 3.405-3.28 3.39-1.766-.015-3.237-1.528-3.22-3.444v-.056z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
-        --sc-new-messages: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 10C2 7.79086 3.79086 6 6 6H26C28.2091 6 30 7.79086 30 10V22C30 24.2091 28.2091 26 26 26H6C3.79086 26 2 24.2091 2 22V10ZM6 7.5C4.80376 7.5 3.80375 8.34018 3.55789 9.46263L16 17.1193L28.4421 9.46264C28.1963 8.34018 27.1962 7.5 26 7.5H6ZM3.5 11.1883V22C3.5 23.3807 4.61929 24.5 6 24.5H26C27.3807 24.5 28.5 23.3807 28.5 22V11.1883L16 18.8806L3.5 11.1883Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-notifications-32: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.681 7h.069v-.875c0-2.111-1.65-3.875-3.75-3.875s-3.75 1.764-3.75 3.875V7h.069a9.39 9.39 0 00-5.68 7.919l-.272 3.533a2.693 2.693 0 01-1.003 1.896c-1.824 1.46-.792 4.402 1.544 4.402h4.357v.043c-.023 2.686 2.056 4.934 4.708 4.957 2.651.022 4.768-2.19 4.791-4.876l.001-.124h4.327c2.336 0 3.368-2.942 1.544-4.402a2.694 2.694 0 01-1.003-1.896l-.272-3.533A9.39 9.39 0 0019.681 7zm-1.431-.478A9.402 9.402 0 0016 6.25c-.774 0-1.528.094-2.25.272v-.397c0-1.34 1.036-2.375 2.25-2.375s2.25 1.034 2.25 2.375v.397zM16 7.75a7.89 7.89 0 017.866 7.284l.272 3.533a4.193 4.193 0 001.561 2.953c.717.573.311 1.73-.607 1.73H6.908c-.918 0-1.324-1.157-.607-1.73a4.193 4.193 0 001.561-2.953l.272-3.533A7.889 7.889 0 0116 7.75zm-3.235 17h6.5v.11c-.017 1.917-1.513 3.405-3.28 3.39-1.766-.015-3.237-1.528-3.22-3.444v-.056z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        --sc-new-messages-32: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 10C2 7.79086 3.79086 6 6 6H26C28.2091 6 30 7.79086 30 10V22C30 24.2091 28.2091 26 26 26H6C3.79086 26 2 24.2091 2 22V10ZM6 7.5C4.80376 7.5 3.80375 8.34018 3.55789 9.46263L16 17.1193L28.4421 9.46264C28.1963 8.34018 27.1962 7.5 26 7.5H6ZM3.5 11.1883V22C3.5 23.3807 4.61929 24.5 6 24.5H26C27.3807 24.5 28.5 23.3807 28.5 22V11.1883L16 18.8806L3.5 11.1883Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        
     }
 
     /* Required colours */
@@ -1461,7 +1473,8 @@
         color: var(--shd-accent-primary)
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation,
-    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights {
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights,
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-follow {
         background: var(--shd-accent-primary);
         background: linear-gradient(#f60,#f40);
         box-shadow: inset 0px 0px 0px #c200;
@@ -1471,7 +1484,8 @@
         color: #fff;
     }
     #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-startstation:hover,
-    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights:hover {
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-insights:hover,
+    #app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-follow:hover {
         background: #ff3d00;
         background: linear-gradient(#f60,#f40);
         box-shadow: inset -2px -8px 16px #c20c;
@@ -2411,9 +2425,10 @@
     }
     a.playableTile__heading,
     a.playableTile__heading:hover,
+    a.userBadgeListItem__heading,
     .sc-classic .playableTile__mainHeading,
     .sc-classic .playableTile__mainHeading:hover {
-        font-size: 14px
+        font-size: 16px
     }
     .linkMenu, .sc-classic .linkMenu {
         box-shadow: 0 1px 8px var(--shd-bg-darker);
@@ -3386,11 +3401,11 @@
     /* .moreActions .moreActions__button.sc-button-medium.sc-button-like:before {
         filter: invert(1) brightness(0.5);
     } */
-    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):hover {
+    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.userInfoBar__buttons *):hover {
         background: var(--shd-accent-secondary) !important;
         transition-duration: 0.25s;
     }
-    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow):not(.playableTile__actionButton) {
+    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.userInfoBar__buttons *) {
         border-color: var(--shd-bg-lighter);
         border: 0;
         border-radius: 120px;
@@ -3911,7 +3926,7 @@
         justify-content: center;
     }
     /* make the discover tile carousel less empty */
-    .sc-classic .tileGallery__sliderPanel, body:not(.sc-classic) .mixedSelectionModule .tileGallery__sliderPanel {
+    .sc-classic .mixedSelectionModule .tileGallery__sliderPanel, body:not(.sc-classic) .mixedSelectionModule .tileGallery__sliderPanel {
         margin-right: 7.8vw;
     }
     .tileGallery .playableTile, .sc-classic .tileGallery .userBadgeListItem, body:not(.sc-classic) .tileGallery .userBadgeListItem {
@@ -3920,11 +3935,11 @@
     }
     .sc-classic .userBadgeListItem__action, 
     body:not(.sc-classic) .tileGallery .userBadgeListItem__action {
-        transform: scale(0.83);
-        transform-origin: 50% 80%;
+        transform: scale(0.875);
+        transform-origin: 50% 0%;
     }
     @media only screen and (min-width: 1880px) {
-        .sc-classic .tileGallery__sliderPanel, body:not(.sc-classic) .mixedSelectionModule .tileGallery__sliderPanel {
+        .sc-classic .mixedSelectionModule .tileGallery__sliderPanel, body:not(.sc-classic) .mixedSelectionModule .tileGallery__sliderPanel {
             margin-right: 148px;
         }
         .tileGallery .playableTile, .sc-classic .tileGallery .userBadgeListItem, body:not(.sc-classic) .tileGallery .userBadgeListItem {
@@ -4042,11 +4057,16 @@
         backdrop-filter: blur(calc(32px* var(--blur-on, 1)));
         -webkit-transform: translateY(-222px);
         transform: translateY(-222px);
+        width: 330px;
         height: 280px !important;
         overflow: hidden;
     }
     .sc-classic .featuredProfiles {
         right: 6px !important;
+    }
+    
+    .featuredProfiles__scroll, .sc-classic .featuredProfiles__scroll {
+        width: 330px;
     }
     .featuredProfiles:hover, .featuredProfiles.expanded, .sc-classic .featuredProfiles.expanded {
         transition-duration: 0.2s;
@@ -4061,6 +4081,7 @@
         position: absolute;
         bottom: 0;
         margin: 0 10px 4px 20px;
+        padding: 0;
         font-weight: 400;
     }
     .featuredProfiles.expanded .featuredProfiles__title, .sc-classic .featuredProfiles.expanded .featuredProfiles__title {
@@ -4655,8 +4676,7 @@
         .userInfoBar__buttons, .profileHeaderInfo__content.sc-media-content {
             margin-right: 80px!important;
         }
-    }
-    @media only screen and (max-width: 1000px) {
+        
         #app .l-container #content .l-listen-hero .soundTitle__usernameTitleContainer > * {
             overflow: hidden;
             display: -webkit-box;
@@ -5585,27 +5605,30 @@
         content: "";
         display: block;
         position: absolute;
-        background-repeat: no-repeat;
-        background-position: 50%;
         width: 20px;
         height: 20px;
         top: 0;
         bottom: 0;
         margin: auto 0;
         left: 4px;
-        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAQAAACR313BAAAAnElEQVR4AZXNUQqDMBCE4TlWKApbiGBEpVYphQb6knvkaDnalLWK60uhfjA+5CfBX1+SBAvJiPKmCc7HizwZaQJ73MvEucx4FRtsPy+BA8c84pHtDetUcmXDwC53uGf7BBKcXFhTg7a0uJWFR4B0ChoMnLgGEhGBqEwQuAayQOmoLaihQS89vnQ2+w1ePHbwhgaVVDjoGE4cLLifPnBzeJR4+XAqAAAAAElFTkSuQmCC);
-        background-size: 16px 16px;
-        filter: contrast(0) sepia(0) hue-rotate(-48deg) saturate(0) brightness(1) contrast(0)!important;
-        transition: filter 0.2s!important;
+        background: currentColor;
+        mask-repeat: no-repeat;
+        mask-position: 50%;
+        mask-image: var(--sc-old-report-png);
+        mask-size: 16px 16px;
+        mask-image: var(--sc-new-report);
+        mask-size: 14px 14px;
+/*         filter: contrast(0) sepia(0) hue-rotate(-48deg) saturate(0) brightness(1) contrast(0)!important; */
+/*         transition: filter 0.2s!important; */
     }
     .reportCopyright:hover {
         color: #f34!important;
         border-color: #f236!important;
         background: #301!important;
     }
-    .reportCopyright:hover:before {
+/*     .reportCopyright:hover:before {
         filter: contrast(0) sepia(1) hue-rotate(-49.95deg) saturate(12) brightness(1.71) contrast(1)!important;
-    }
+    } */
     .sc-button-medium.reportCopyright {
         margin-top: 12px;
     }
@@ -7159,7 +7182,10 @@
                 max-width: calc(100vw - 428px) !important;
             }
             
-            body:not(.sc-classic) .tileGallery .playableTile, .sc-classic .tileGallery .userBadgeListItem {
+            body:not(.sc-classic) .tileGallery .playableTile,
+            body:not(.sc-classic) .tileGallery .userBadgeListItem,
+            .sc-classic .tileGallery .playableTile,
+            .sc-classic .tileGallery .userBadgeListItem {
                 width: 14vw;
             }
             
@@ -7172,6 +7198,9 @@
             }
             .l-listen-hero .soundTitle__usernameTitleContainer {
                 margin-right: -65px;
+            }
+            .mixedSelectionModule .tileGallery__slider {
+                padding-bottom: 36px;
             }
         }
         .l-listen-hero .soundTitle__titleContainer {
@@ -7341,7 +7370,7 @@
     .playableTile__usernameHeading, a.playableTile__usernameHeading {
         font-weight: 300;
     }
-    body:not(.sc-classic) .tileGallery .userBadgeListItem__action, body:not(.sc-classic) .tileGaller .userBadgeListItem__title {
+/*     body:not(.sc-classic) .tileGallery .userBadgeListItem__action, body:not(.sc-classic) .tileGaller .userBadgeListItem__title {
         position: absolute;
         padding-top: 100%;
         top: -6px;
@@ -7360,7 +7389,10 @@
         top: 45px;
         z-index: 0;
         opacity: 0;
-    }
+    } */
+/*     body:not(.sc-classic) .tileGallery__sliderPanelSlide {
+        box-sizing: content-box;
+    } */
     body:not(.sc-classic) .tileGallery__sliderPanel:not(:has(.artistConnectItem)) {
         max-height: 230px;
     }
@@ -7371,6 +7403,35 @@
         body:not(.sc-classic) .playableTile {
             box-sizing: content-box;
         }
+    }
+    @media (max-width: 1079px) {
+        body:not(.sc-classic) .userBadgeListItem__subtitle .sc-ministats {
+            flex-direction: row;
+        }
+    }
+    @media (min-width: 1239px) {
+        .mixedSelectionModule .tileGallery__slider {
+            padding-bottom: calc(var(--spacing-6x) + 36px);
+        }
+    }
+    .mixedSelectionModule .tileGallery__slider {
+        margin-bottom: -36px;
+    }
+    body:not(.sc-classic) .mixedSelectionModule .userBadgeListItem__title {
+        margin-top: var(--spacing-1x);
+    }
+    @media only screen and (max-width: 720px) {
+        body:not(.sc-classic) .mixedSelectionModule .userBadgeListItem__subtitle .sc-ministats-followers > span:not(.sc-visuallyhidden) {
+            margin-right: -54px;
+            clip-path: margin-box;
+        }
+    }
+    /* optical centering - offset by -25% of icon width */
+    .userBadgeListItem__title .verifiedBadge {
+        margin-right: -4px;
+    }
+    .userBadgeListItem__subtitle .sc-ministats.sc-ministats-followers.g-flex-row-centered {
+        margin-left: -4px
     }
     
     /* user section */
@@ -7485,8 +7546,8 @@
         top: 28px;
     }
     .searchItem > .userItem .userItem__title > * {
-        font-size: 24px;
-        font-weight: 700 !important;
+        font-size: 22px;
+        font-weight: 600 !important;
     }
     .searchItem > .userItem {
         display: grid;
@@ -7558,9 +7619,16 @@
         line-height: 14px;
         margin-top: -8px;
     }
+    body:not(.sc-classic) .soundBadge.compact .soundBadge__playButton {
+        top: 8px;
+        right: 8px;
+        left: 8px;
+        bottom: 8px;
+    }
     .sc-ministats {
         color: #ccc !important;
         font-weight: 400;
+        /*[[tnum]]*/
     }
     body:not(.sc-classic) .sidebarContent .velvetCakeIframe {
         width: 310px;
@@ -7572,61 +7640,86 @@
     body:not(.sc-classic) .visualSound__wrapper .soundTitle__usernameHeroContainer .verifiedBadge {
         margin-left: 0;
     }
+    a.sc-link-secondary.sc-social-logo-interactive,
+    a.sc-link-secondary.sc-social-logo-interactive svg,
+    a.sc-link-secondary.sc-social-logo-interactive svg > path {
+        transition-duration: 0.1s;
+        transition-timing-function: ease-out;
+        transition-property: color, fill;
+    }
     a.sc-link-secondary.sc-social-logo-interactive {
         color: #ccc;
     }
     a.sc-link-secondary.sc-social-logo-interactive:hover {
         color: #fff;
     }
+    a.sc-link-secondary.sc-social-logo-interactive svg {
+        --brand-color: currentColor;
+        color: var(--brand-color);
+        /* try to make lightness more consistent */
+        /* color: oklch(from var(--brand-color) 0.6 c h); */
+    }
     a.sc-link-secondary.sc-social-logo-interactive[href*="bandcamp.com"]:hover svg {
-        color: #1DA0C3;
+        --brand-color: #1DA0C3;
     }
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.bandsintown.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.bandsintown.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://bandsintown.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://bandsintown.com"]:hover svg {
-        color: #00D2C9;
+        --brand-color: #00D2C9;
     }
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.facebook.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.facebook.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://facebook.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://facebook.com"]:hover svg {
-        color: #1877F2;
+        --brand-color: #1877F2;
     }
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.instagram.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.instagram.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://instagram.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://instagram.com"]:hover svg {
-/*        color: color-mix(in oklab, color-mix(in oklab, #E09B3D, #C74C4D 60%) 35%, color-mix(in oklab, #C21975 60%, #7024C4) 65%); */
-        color: #BB3B84;
+/*        --brand-color: color-mix(in oklab, color-mix(in oklab, #E09B3D, #C74C4D 60%) 35%, color-mix(in oklab, #C21975 60%, #7024C4) 65%); */
+        --brand-color: #BB3B84;
     }
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://linktr.ee"]:hover svg {
-        color: #43E660;
+        --brand-color: #43E660;
     }
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://open.spotify.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://play.spotify.com"]:hover svg {
-        color: #1ED760;
+        --brand-color: #1ED760;
     }
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.twitter.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.twitter.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://twitter.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://twitter.com"]:hover svg {
-        color: #1DA1F2;
+        --brand-color: #1DA1F2;
     }
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.youtube.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.youtube.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://youtube.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://youtube.com"]:hover svg {
-        color: #D22222;
+        --brand-color: #D22222;
     }
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.songkick.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.songkick.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="https://songkick.com"]:hover svg,
     a.sc-link-secondary.sc-social-logo-interactive[href^="http://songkick.com"]:hover svg {
-        color: #DA2C4E;
+        --brand-color: #DA2C4E;
+    }
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://www.mixcloud.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://www.mixcloud.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="https://mixcloud.com"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive[href^="http://mixcloud.com"]:hover svg {
+        --brand-color: #5000FF;
+        --brand-color: hsl(259, 100%, 65%); /* official brand color is too dark (contrast issues) */
+    }
+    a.sc-link-secondary.sc-social-logo-interactive[href^="mailto:"]:hover svg,
+    a.sc-link-secondary.sc-social-logo-interactive:hover svg > path[d="M8 2C4.688 2 2 4.688 2 8C2 11.312 4.688 14 8 14C11.312 14 14 11.312 14 8C14 4.688 11.312 2 8 2ZM7.4 12.758C5.03 12.464 3.2 10.448 3.2 8C3.2 7.628 3.248 7.274 3.326 6.926L6.2 9.8V10.4C6.2 11.06 6.74 11.6 7.4 11.6V12.758ZM11.54 11.234C11.384 10.748 10.94 10.4 10.4 10.4H9.8V8.62109C9.8 8.29109 9.53 8 9.2 8H5.6V6.8H6.8C7.13 6.8 7.4 6.53 7.4 6.2V5H8.6C9.26 5 9.8 4.46 9.8 3.8V3.554C11.558 4.268 12.8 5.99 12.8 8C12.8 9.248 12.32 10.382 11.54 11.234Z"] {
+        --brand-color: var(--shd-accent-blue);
+        color: var(--brand-color);
     }
     a.sc-link-secondary.sc-social-logo-interactive[href^="/"]:hover svg {
-        color: var(--special-color);
+        --brand-color: var(--special-color);
     }
     .sc-social-logo-interactive > div[style] {
         margin-right: 4px !important;
@@ -7710,8 +7803,14 @@
         }
     }
     .modal__closeButton {
+/*         position: sticky; */
+        float: right;
         height: 32px;
         width: 32px;
+    }
+    .textfield__clear {
+        height: 24px;
+        width: 16px;
     }
     .tooltip, #gritter-notice-wrapper {
         z-index: 10000;
@@ -7824,6 +7923,28 @@
     .soundTitle:not(.m-visualSound) .soundTitle__titleContainer > .soundTitle__usernameTitleContainer > .soundTitle__title {
         line-height: 1;
     }
+    .sound__header .soundTitle__usernameTitleContainer > .sc-text-secondary.sc-truncate {
+        display: inline-flex;
+        flex-wrap: wrap;
+        max-width: 102%;
+        min-width: 0;
+        gap: 4px;
+        margin-top: 0.5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        word-break: normal;
+    }
+    .sound__header .soundTitle__usernameTitleContainer > .sc-text-secondary.sc-truncate > .soundTitle__username {
+        max-width: 100%;
+    }
+    .sound__header .soundTitle__usernameTitleContainer > .sc-text-secondary.sc-truncate > .soundTitle__username > span.soundTitle__usernameText {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        word-break: normal;
+    }
     .sc-tag.sc-tag-small {
         font-size: 12px;
         height: 20px;
@@ -7834,6 +7955,31 @@
     }
     .progressBar__bar {
         background-color: #f50;
+    }
+    
+    /* user tooltip */
+    .userDialogBadge__stats .sc-ministats.sc-ministats-followers > div[style]:first-child,
+    .userDialogBadge__stats .sc-ministats.sc-ministats-followers > div[style]:first-child > svg {
+        width: 14px !important;
+        height: 14px !important;
+    }
+    .userDialogBadge__stats .sc-ministats.sc-ministats-followers {
+        font-size: 12px;
+    }
+    .userDialogBadge__description {
+        font-size: 16px;
+    }
+    .userDialogBadge > div,
+    .userDialogBadge > div p {
+        margin-bottom: 0;
+    }
+    @supports (selector(:has(*))) {
+        .userDialogBadge > div > div[style^="display: inline-block"]:not(:has(>*)) {
+            display: none !important;
+        }
+    }
+    .userDialogBadge > .userDialogBadge__action {
+        margin-top: 4px;
     }
     
     /* compact playlist */
@@ -7901,7 +8047,14 @@
         display: inline-flex;
     }
     body:not(.sc-classic) .trackItem {
-        height: 44px;
+        height: 40px;
+    }
+    .sc-artwork-4x ~ .trackItem__play {
+        top: calc((var(--artwork-4x-size) - 24px) / 2);
+        left: calc((var(--artwork-4x-size) - 24px) / 2);
+    }
+    .trackItem__image {
+        padding: 0;
     }
     .trackItem__actions {
         margin: 6px;
@@ -7950,7 +8103,10 @@
     }
     .commentItem__read > * {
         padding-bottom: 0;
-        line-height: 1rem
+        line-height: normal;
+    }
+    .commentItem__body {
+        margin-top: 0
     }
     .commentItem__avatarWrapper {
         line-height: 0;
@@ -9066,7 +9222,7 @@
     body:not(.sc-classic) .userBadgeListItem__action {
         transition: opacity 0.2s ease-out;
     }
-    .userBadgeListItem__subtitle .sc-ministats-followers > span:not(.sc-visuallyhidden) {
+    .sc-classic .userBadgeListItem__subtitle .sc-ministats-followers > span:not(.sc-visuallyhidden) {
         margin-right: -48px;
         clip-path: margin-box;
     }
