@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.00.4
+@version      1.00.5
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -433,6 +433,8 @@
         --sc-old-play-24: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M19.07 12 8.651 20.558 10.512 12 8.651 3.442 19.07 12Z'/%3E%3C/svg%3E");
         --sc-old-pause-24: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 43 43'%3E%3Cg fill='%23fff'%3E%3Crect x='15' y='12' width='5' height='19'%3E%3C/rect%3E%3Crect x='23' y='12' width='5' height='19'%3E%3C/rect%3E%3C/g%3E%3C/svg%3E");
         --sc-old-pause-24: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M7.163 4.93h3.721v14.14H7.163zm5.953 0h3.721v14.14h-3.721z'/%3E%3C/svg%3E");
+        --sc-old-calendar: url("https://a-v2.sndcdn.com/assets/images/calendar-96bbd47c.svg");
+        --sc-old-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 11'%3E%3Cg fill='%23fff'%3E%3Cpath d='M1 10h11V2H1v8ZM0 1h13v10H0V1Z'/%3E%3Cpath d='M4 2.5v-2a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0Z'/%3E%3Cpath d='M2 6h1v1H2zm2 0h1v1H4zM2 8h1v1H2zm2 0h1v1H4zm2 0h1v1H6zm0-2h1v1H6zm2 0h1v1H8zm0 2h1v1H8zm2 0h1v1h-1zm0-2h1v1h-1z'/%3E%3Cpath d='M1 5h11V4H1zm9-2.5v-2a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0Z'/%3E%3C/g%3E%3C/svg%3E");
         
         --sc-new-notifications-32: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 15'%3E%3Cpath fill='%23FFF' d='M1 9.6664V5.5C1 2.4686 3.4662 0 6.5083 0h.9834C10.5427 0 13 2.4587 13 5.4917v4.1747c.609.5511 1 1.3937 1 2.3336H0c0-.94.391-1.7825 1-2.3336ZM4 13l1.0122 1.0836S6.334 15 7.0041 15c.6286 0 2.015-.9813 2.015-.9813L10 13H4Z'/%3E%3C/svg%3E");
         --sc-new-messages-32: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 13'%3E%3Cpath d='M17.9658 12.2587A.9928.9928 0 0 0 18 12V1a.9928.9928 0 0 0-.0342-.2587L9.3536 9.3536 9 9.707l-.3536-.3535L.0342.7413A.9928.9928 0 0 0 0 1v11c0 .0894.0119.1761.0342.2587l5.6122-5.6123.7072.7072-5.6123 5.6122A.9928.9928 0 0 0 1 13h16a.9928.9928 0 0 0 .2587-.0342l-5.6123-5.6122.7072-.7072 5.6122 5.6123ZM.7413.0342A.9928.9928 0 0 1 1 0h16a.9928.9928 0 0 1 .2587.0342L8.6464 8.6464h.7072L.7413.0342Z' fill='%23FFF'/%3E%3C/svg%3E");
@@ -778,10 +780,16 @@
     :root {
         background-color: var(--shd-bg-primary)
     }
-    
+    @media screen and (prefers-reduced-motion: reduce) {
+        *, *:hover, *:focus, *:before, *:after {
+            transition: unset !important;
+            animation: none !important;
+        }
+    }
     /*[[lowmotion]]*/
     *, *:hover, *:focus, *:before, *:after {
         transition: unset !important;
+        animation: none !important;
     }
     /**/
 }
@@ -5285,9 +5293,10 @@
     }
 
     /* update datepicker */
-    .textfield.datefield .textfield__input {
-        background: url(https://a-v2.sndcdn.com/assets/images/calendar-96bbd47c.svg) no-repeat right 8px center, var(--shd-bg-primary);
+    .sc-classic .textfield.datefield .textfield__input {
+        background: url("https://a-v2.sndcdn.com/assets/images/calendar-96bbd47c.svg") no-repeat right 8px center, var(--shd-bg-primary);
     }
+    
     .sc-classic .ui-datepicker, body:not(.sc-classic) .ui-datepicker {
         background: var(--shd-bg-primary);
         border: 1px solid #222;
@@ -5295,14 +5304,18 @@
         border-radius: 0 0 8px 8px;
         width: calc(17em - 2px);
         margin-top: -4px;
-        display: flex !important;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        overflow-y: hidden;
+        interpolate-size: allow-keywords;
     }
     body:not(.sc-classic) .ui-datepicker {
         width: calc((var(--shd-modal-width) - 50px) / 3 - 6px);
-        padding: 0 !important;
+        padding: 12px 6px;
+    }
+    .sc-classic .ui-datepicker[style*="display: block"], body:not(.sc-classic) .ui-datepicker[style*="display: block"] {
+        display: flex !important;
     }
     body:not(.sc-classic) .ui-datepicker .ui-datepicker-header {
         display: flex;
@@ -5353,46 +5366,94 @@
 
     /* datepicker open animation */
     @keyframes calendar {
-        from {height: 0;padding-top:6px;padding-bottom:0px;}
-        to {height: 240px;padding:20px;}
+        from {
+            max-height: 0;
+            padding:6px 6px 0px;
+        }
+        to {
+            max-height: 248px;
+            padding:12px 6px;
+        }
+    }
+    @supports (height: calc-size(min-content, size)) {
+        @keyframes calendar {
+            from {
+                height: 0;
+                padding:6px 6px 0px;
+            }
+            to {
+                height: calc-size(min-content, 0px + size * 1);
+                padding:12px 6px;
+            }
+        }
+    }
+    @supports (interpolate-size: allow-keywords) {
+        @keyframes calendar {
+            from {
+                height: 0;
+                padding:6px 6px 0px;
+            }
+            to {
+                height: min-content;
+                padding:12px 6px;
+            }
+        }
     }
     @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
     .sc-classic .ui-datepicker, body:not(.sc-classic) .ui-datepicker {
+        --calendar-fade-opacity: 1;
         animation-name: calendar;
         animation-duration: 0.8s;
         animation-fill-mode: both;
+        transition: --calendar-fade-opacity 470ms;
     }
+    /* disabled because while it looks nice, its distracting when changing months */
     .sc-classic .ui-datepicker *, body:not(.sc-classic) .ui-datepicker * {
-        animation-name: fadeIn;
-        animation-duration: 0.6s;
+        /* animation-name: fadeIn; */
         animation-fill-mode: both;
+        animation-duration: 0.6s;
     }
     .sc-classic .ui-datepicker table thead,
     body:not(.sc-classic) .ui-datepicker table thead {
         animation-delay: 50ms;
+        transition-delay: 50ms;
     }
     .sc-classic .ui-datepicker table tbody tr:nth-of-type(1),
     body:not(.sc-classic) .ui-datepicker table tbody tr:nth-of-type(1) {
         animation-delay: 120ms;
+        transition-delay: 120ms;
     }
     .sc-classic .ui-datepicker table tbody tr:nth-of-type(2),
     body:not(.sc-classic) .ui-datepicker table tbody tr:nth-of-type(2) {
         animation-delay: 190ms;
+        transition-delay: 190ms;
     }
     .sc-classic .ui-datepicker table tbody tr:nth-of-type(3),
     body:not(.sc-classic) .ui-datepicker table tbody tr:nth-of-type(3) {
         animation-delay: 250ms;
+        transition-delay: 250ms;
     }
     .sc-classic .ui-datepicker table tbody tr:nth-of-type(4),
     body:not(.sc-classic) .ui-datepicker table tbody tr:nth-of-type(4) {
         animation-delay: 330ms;
+        transition-delay: 330ms;
     }
     .sc-classic .ui-datepicker table tbody tr:nth-of-type(5),
     body:not(.sc-classic) .ui-datepicker table tbody tr:nth-of-type(5) {
         animation-delay: 400ms;
+        transition-delay: 400ms;
+    }
+    .sc-classic .ui-datepicker table tbody tr:nth-of-type(6),
+    body:not(.sc-classic) .ui-datepicker table tbody tr:nth-of-type(6) {
+        animation-delay: 470ms;
+        transition-delay: 470ms;
     }
     
     .g-opacity-transition-500 {
@@ -5986,7 +6047,7 @@
     }
     .commentItem__verifiedBadge,
     .sc-classic .commentItem__verifiedBadge {
-        top: 3px;
+        margin-bottom: -3px;
         margin-left: 3px;
     }
     
@@ -7690,17 +7751,17 @@
     .soundBadge {
         min-height: unset;
     }
-    .soundBadgeList__item .soundBadge.compact .soundTitle__titleContainer .soundTitle__secondary > .soundTitle__username,
-    .soundBadgeList__item .soundBadge.compact .soundTitle__titleContainer .soundTitle__secondary {
+    .soundBadge.compact .soundTitle__titleContainer .soundTitle__secondary > .soundTitle__username,
+    .soundBadge.compact .soundTitle__titleContainer .soundTitle__secondary {
         line-height: 14px !important;
     }
     .soundBadge.compact {
         padding: var(--spacing-1x) var(--spacing-2x) 0;
     }
-    .soundBadgeList__item .soundBadge.compact .soundTitle__titleContainer .soundTitle__usernameTitleContainer {
+    .soundBadge.compact .soundTitle__titleContainer .soundTitle__usernameTitleContainer {
         margin-bottom: 0;
     }
-    .soundBadgeList__item .soundBadge.compact .releaseDateCompact {
+    .soundBadge.compact .releaseDateCompact {
         font-size: 12px;
         line-height: 14px;
         margin-top: -8px;
@@ -8042,6 +8103,10 @@
     }
     .progressBar__bar {
         background-color: #f50;
+    }
+    /* #notmybug */
+    .actorUser__username {
+        display: flex;
     }
     
     /* user tooltip */
@@ -8390,10 +8455,16 @@
         color: #fff;
         filter: drop-shadow(2px 2px 6px #000);
     }
-    .sc-ministats.sc-ministats-small.sc-ministats-plays>div[style] {
-        margin-right: 0.8px !important;
+    .sc-ministats.sc-ministats-plays>div[style] {
+        margin-right: -0.8px !important;
     }
-    .sc-ministats.sc-ministats-small.sc-ministats-comments>div[style] {
+    .sc-ministats.sc-ministats-plays>div[style] > svg {
+        width: 18px;
+        height: 18px;
+        margin: -1px;
+        margin-left: -4px;
+    }
+    .sc-ministats.sc-ministats-comments>div[style] {
         margin-right: 3px !important;
     }
     
