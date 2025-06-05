@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.00.5
+@version      1.00.6
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -124,7 +124,7 @@
 @advanced dropdown hin "Artist Insights on homepage" {
     hin-on  "Show Both" <<<EOT EOT;
     hin-a   "Latest Upload only" <<<EOT
-    .artistConnectExperimentWrapper {
+    .artistConnectExperimentWrapper, .artistConnectContainer, .mixedModularHome__item:has(.artistConnectExperimentWrapper, .artistConnectContainer) {
         display: none;
     } EOT;
     hin-b   "Artist Connect only" <<<EOT
@@ -132,7 +132,7 @@
         display: none;
     } EOT;
     hin-off "Hide Both" <<<EOT 
-    [classname*="latestUpload"], [classname*="artistConnect"], .artistConnectExperimentWrapper, .mixedModularHome__item:has(.artistConnectExperimentWrapper) {
+    [classname*="latestUpload"], [classname*="artistConnect"], .artistConnectExperimentWrapper, .artistConnectContainer, .mixedModularHome__item:has(.artistConnectExperimentWrapper, .artistConnectContainer) {
         display:none;
     } EOT;
 }
@@ -1149,7 +1149,7 @@
     }
     @media only screen and (max-width:1000px) {
         #app .l-container.l-content .l-fluid-fixed .l-main {
-            margin-right: 50px
+            margin-right: 80px
         }
         #app .l-container.l-content .l-fluid-fixed .l-sidebar-right {
             right: -260px!important;
@@ -2085,10 +2085,15 @@
         top: 45px;
         left: 25%
     }
-    .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline .playbackTimeline__duration,
-    .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline .playbackTimeline__timePassed {
-        color: #b3b3b3
+    .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline .playbackTimeline__timePassed,
+    .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline .playbackTimeline__duration {
+        color: #b3b3b3;
+        width: 54px;
     }
+    .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline .playbackTimeline__timePassed {
+        margin-left: -24px;
+    }
+    
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline .playbackTimeline__progressWrapper {
         top: -1px;
         cursor: default
@@ -4000,20 +4005,26 @@
     .tileGallery__sliderPeekForward {
         background: linear-gradient(to right, #0000 5%, #1119 60%, var(--shd-bg-primary) 80%);
         left: auto !important;
-        margin-right: 0 !important;
+        margin-right: -2px !important;
+        padding-right: 2px;
     }
     .tileGallery__sliderPeekBackward {
         background: linear-gradient(to left, #0000 10%, #1119 60%, var(--shd-bg-primary) 80%);
         right: auto !important;
         margin-left: 0 !important;
     }
-    .tileGallery__sliderButton, .tileGallery__sliderButton:not(.artistShortcutsGallery .tileGallery__sliderButton):focus { /* background-color: #333; */
+    .tileGallery__sliderButton, .tileGallery__sliderButton:not(.artistShortcutsGallery .tileGallery__sliderButton):focus {
+        /* background-color: #333; */
         border: none;
         outline: none;
         border-radius: 50%;
         transition: background-color 0.2s, transform 0.2s, brightness 0.4s;
         transform: scale(1.5);
         transform-origin: center;
+        top: 24px;
+    }
+    
+    .sc-classic .tileGallery__sliderButton, .sc-classic .tileGallery__sliderButton:not(.artistShortcutsGallery .tileGallery__sliderButton):focus {
         top: 48px;
     }
     .tileGallery__sliderPeek:hover .tileGallery__sliderButton, .tileGallery__sliderButton:hover {
@@ -4042,6 +4053,15 @@
         transition-duration: 0.3s;
         transition-timing-function: ease-out;
     }
+    .mixedSelectionModule .tileGallery__sliderPeek {
+        margin-bottom: 24px;
+    }
+    .artistConnectContainer .mixedSelectionModule .tileGallery__sliderPeek {
+        margin-bottom: calc(var(--spacing-6x) + 32px);
+    }
+    .artistShortcutsGallery .tileGallery__sliderButton {
+        top: 24px;
+    }
     .sc-classic .l-search .l-fixed-left, .l-search .l-fixed-left {
         z-index: 1000;
         position: fixed;
@@ -4055,9 +4075,29 @@
         margin-right: -10vw;
         padding-left: 4vw;
     }*/
+    body:not(.sc-classic) .createPlaylist__savedContainer {
+        padding-right: 80px
+    }
     .createPlaylist__savedContainer > div > div > .soundBadge__additional {
-        right: -200px;
         background: none;
+    }
+    .sc-classic .createPlaylist__savedContainer > div > div > .soundBadge__additional {
+        right: -200px;
+    }
+    .soundBadge__audibleAttributes>div {
+        margin-left: unset;
+    }
+    .soundBadge__audibleAttributes {
+        min-width: unset;
+    }
+    .soundBadge__hd {
+        min-width: unset;
+    }
+    .soundBadge__hd>div {
+        min-width: 25px;
+    }
+    .soundBadge__extraItem:has(>.sc-hidden) {
+        display: none;
     }
     .sc-classic .profileHeaderInfo__additional, .profileHeaderInfo__additional {
         margin-top: -8px;
@@ -6878,11 +6918,11 @@
     }
     
     /* events near you */
-    .velvetCakeModuleWrapper {
+    .velvetCakeModuleWrapper, .velvetCakeModule {
         /*[[evt]]*/
     }
     @supports (selector(:has(*))) {
-        .mixedModularHome__item:has(.velvetCakeModuleWrapper) {
+        .mixedModularHome__item:has(.velvetCakeModuleWrapper, .velvetCakeModule) {
             /*[[evt]]*/
         }
     }
@@ -7556,13 +7596,16 @@
             flex-direction: row;
         }
     }
+    .mixedSelectionModule .tileGallery__slider {
+        margin-bottom: -36px;
+    }
+    .artistConnectContainer .mixedSelectionModule .tileGallery__slider {
+        padding-bottom: calc(var(--spacing-6x) + 36px);
+    }
     @media (min-width: 1239px) {
         .mixedSelectionModule .tileGallery__slider {
             padding-bottom: calc(var(--spacing-6x) + 36px);
         }
-    }
-    .mixedSelectionModule .tileGallery__slider {
-        margin-bottom: -36px;
     }
     body:not(.sc-classic) .mixedSelectionModule .userBadgeListItem__title {
         margin-top: var(--spacing-1x);
@@ -8192,6 +8235,9 @@
     .tagInput__token {
         padding-left: 10px;
     }
+    .soundTitle__username > a > div[style="display: inline-block"]:not([class]):not(:has(>*)) {
+        display: none !important;
+    }
 
     /* system playlists */
     body:not(.sc-classic) .systemPlaylistHero .fullHero__titleTextTitle .fullHero__titleTextText {
@@ -8404,7 +8450,7 @@
         opacity: 1;
         background: #999;
     }
-    .sc-button.sc-button-primary, .sc-button.sc-button-primary:hover, .sc-button.sc-button-primary:active, .sc-button.sc-button-primary.sc-button-disabled, .sc-button.sc-button-primary:disabled,
+    .sc-button.sc-button-primary, .sc-button.sc-button-primary:visited, .sc-button.sc-button-primary:hover, .sc-button.sc-button-primary:active, .sc-button.sc-button-primary.sc-button-disabled, .sc-button.sc-button-primary:disabled,
     .g-opacity-transition.sc-button.sc-button-medium.loginButton {
         border: 1px solid #444;
         color: #fff;
@@ -8615,7 +8661,7 @@
     /* new soundcloud ui redesign */
     
     /* dark mode variables */
-    ._1bqm8km0,._1iz3r9b0 {
+    :root, .mui-theme-light, .mui-theme-dark, ._1bqm8km0, ._1iz3r9b0 {
         --_4g70vm0: var(--shd-accent-primary);
         --_4g70vm1: #00995c;
         --_4g70vm2: #d61348;
@@ -8636,7 +8682,13 @@
         --_4g70vmh: #303030;
         --_4g70vmi: #699fff;
         --_4g70vmj: hsla(0,0%,100%,.4);
-        --_4g70vmk: hsla(0,0%,100%,.15)
+        --_4g70vmk: hsla(0,0%,100%,.15);
+    }
+    ._82748y0 {
+        --cqco3p0: var(--_4g70vm0);
+        --cqco3pe: var(--_4g70vme);
+        --cqco3pj: #fff6;
+        --cqco3pk: #ffffff26;
     }
     :root, .mui-theme-light, .mui-theme-dark {
         --mui-spacing: 6px;
