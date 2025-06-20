@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.00.6
+@version      1.00.7
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -156,7 +156,7 @@
 }
 @advanced dropdown prpop "Promotion Pop-ups" {
     prpop-off    "Hide" <<<EOT 
-    display:none; EOT;
+    display:none;max-height:0;height:0!important; EOT;
     prpop-on     "Show" <<<EOT 
     display:block; EOT;
 }
@@ -2232,7 +2232,7 @@
         /*background: #111;*/
         border: 0;
         border-radius: 120px;
-        background: var(--shd-accent-primary) !important;
+        background: var(--shd-accent-primary);
         box-shadow: inset -1px -2px 8px #f40c;
         color: #fff !important;
         padding: 0 15px;
@@ -2244,7 +2244,7 @@
         border-color: #fff;
         border: 0;
         border-radius: 120px;
-        background: var(--shd-accent-primary) !important;
+        background: var(--shd-accent-primary);
         box-shadow: inset -1px -2px 8px #f40c;
         color: #fff !important;
         padding: 0 15px;
@@ -3429,7 +3429,9 @@
     /* .moreActions .moreActions__button.sc-button-medium.sc-button-like:before {
         filter: invert(1) brightness(0.5);
     } */
-    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.userInfoBar__buttons *):hover {
+    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.userInfoBar__buttons *):hover,
+    .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy):not(.sc-button-delete):not(.sc-button-icon):not(#app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-follow):hover {
+        border-color: var(--shd-accent-secondary) !important;
         background: var(--shd-accent-secondary) !important;
         transition-duration: 0.25s;
     }
@@ -3671,10 +3673,15 @@
         filter: brightness(0.225) hue-rotate(/*[[hue]]*/deg) hue-rotate(-5deg) brightness(1) contrast(1.3) saturate(1.4) var(--fil);
     }
     .progressBar__inner {
+        background-color: #f50;
         filter: hue-rotate(/*[[hue]]*/deg) hue-rotate(-5deg) saturate(1.5) var(--fil);
     }
     .progressBar.blue .progressBar__inner {
+        background-color: #1177ff;
         filter: hue-rotate(/*[[blu]]*/deg) hue-rotate(10deg) saturate(1.1) var(--fil);
+    }
+    .sc-label.sc-label-link-color span {
+        text-shadow: 0px 2px 2px #00000080;
     }
     /* spotlight editing */
     .spotlight.editing .spotlight__item, .sc-classic .spotlight.editing .spotlight__item {
@@ -7449,7 +7456,10 @@
     }*/
     
     /* promotion popups */
-    [id^="moe-onsite-campaign-"] {
+    #moe-osm-pusher {
+        max-height: 56px;
+    }
+    [id^="moe-onsite-campaign-"], #moe-osm-pusher {
         /*[[prpop]]*/
     }
     .brz-container,
@@ -7459,20 +7469,31 @@
     }
     .brz-row__container > .brz-row > .brz-columns:last-of-type, 
     .brz-row__container > .brz-row > .brz-columns:last-of-type .brz-bg * {
-        border-radius: 0 12px 12px 0;        
+        border-radius: 0 12px 12px 0;
+    }
+    .brz-popup2--fixed,
+    .brz-popup2--fixed .brz-bg > .brz-bg-color {
+        border-radius: 0;
+    }
+    .brz .brz-container > div > .brz-bg > .brz-bg-color {
+        background-color: hsl(350deg 25% 20%);
     }
     :root, .brz-root__container {
-        --brz-global-color1-pttk: 255, 255, 255;
-        --brz-global-color2-pttk: 115, 119, 127;
-        --brz-global-color3-pttk: 240, 240, 240;
-        --brz-global-color4-pttk: 219, 219, 219;
-        --brz-global-color5-pttk: 111, 114, 120;
-        --brz-global-color6-pttk: 77, 142, 255;
-        --brz-global-color7-pttk: 41, 41, 41;
-        --brz-global-color8-pttk: 17, 17, 17;
+        --brz-global-color1: 255, 255, 255;
+        --brz-global-color2: 115, 119, 127;
+        --brz-global-color3: 240, 240, 240;
+        --brz-global-color4: 219, 219, 219;
+        --brz-global-color5: 111, 114, 120;
+        --brz-global-color6: 77, 142, 255;
+        --brz-global-color7: 41, 41, 41;
+        --brz-global-color8: 17, 17, 17;
     }
-    [style^="color: rgb(25, 27, 33)"] {
-        color: rgb(var(--brz-global-color1-pttk)) !important;
+    [style^="color: rgb(25, 27, 33)"],
+    .brz .brz-container .brz-cp-color1, .brz .brz-container .brz-bcp-color1 {
+        color: rgb(var(--brz-global-color1)) !important;
+    }
+    .brz .brz-container__wrap .brz-popup2__close {
+        color: rgba(var(--brz-global-color1),1) !important;
     }
     
     /* minify & inline slow-loading icons */
@@ -8579,8 +8600,12 @@
 /*     .sc-button-medium.sc-button-addtoset, .sc-button-medium.sc-button-block, .sc-button-medium.sc-button-camera, .sc-button-medium.sc-button-copylink, .sc-button-medium.sc-button-delete, .sc-button-medium.sc-button-distribute, .sc-button-medium.sc-button-download, .sc-button-medium.sc-button-edit, .sc-button-medium.sc-button-follow, .sc-button-medium.sc-button-like, .sc-button-medium.sc-button-message, .sc-button-medium.sc-button-moderate, .sc-button-medium.sc-button-pageleft, .sc-button-medium.sc-button-pageright, .sc-button-medium.sc-button-privacy, .sc-button-medium.sc-button-refresh, .sc-button-medium.sc-button-reply, .sc-button-medium.sc-button-repost, .sc-button-medium.sc-button-share, .sc-button-medium.sc-button-start-station
     .sc-button-addtoset:before, .sc-button-block:before, .sc-button-buy:before, .sc-button-camera:before, .sc-button-copylink:before, .sc-button-delete:before, .sc-button-distribute:before, .sc-button-download:before, .sc-button-edit:before, .sc-button-follow:before, .sc-button-gotostats:before, .sc-button-insights:before, .sc-button-like:before, .sc-button-mastering:before, .sc-button-message:before, .sc-button-moderate:before, .sc-button-more:before, .sc-button-pageleft:before, .sc-button-pageright:before, .sc-button-privacy:before, .sc-button-queue:before, .sc-button-refresh:before, .sc-button-reply:before, .sc-button-report:before, .sc-button-repost:before, .sc-button-share:before, .sc-button-startstation:before, .sc-button-upload:before, .sc-button-viewonsoundcloud:before */
     
-    .sc-button-medium.sc-button-follow:not(:has(> div > svg)), .sc-button-medium.sc-button-refresh:not(:has(> div > svg)) {
+    .sc-button-medium.sc-button-follow:not(:has(> div > svg)),
+    .sc-button-medium.sc-button-refresh:not(:has(> div > svg)) {
         text-indent: 16px;
+    }
+    .sc-button-medium.sc-button-follow:not(:has(> div > svg)) .sc-button-alt-labels {
+        margin-left: 16px;
     }
     .sc-button-follow:not(:has(> div > svg)):before, .sc-button-refresh:not(:has(> div > svg)):before {
         content: "";
