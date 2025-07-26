@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.00.7
+@version      1.00.8
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -3161,13 +3161,38 @@
         background: var(--shd-bg-primary);
     }
     .header__loginMenu {
-        padding: 16px 6px 2px;
+        padding: 16px 0px 4px;
     }
     .header__loginMenu .loginButton {
         margin-right: 5px;
     }
     .header__loginMenu .signupButton {
         margin-left: 5px;
+    }
+    .l-signin .l-main {
+        border: none;
+    }
+
+    .header__loginMenu {
+        display: flex;
+        float: none;
+        justify-content: center;
+        justify-content: space-evenly;
+        gap: 8px;
+        padding: 0 8px;
+        height: 45px;
+        width: auto;
+    }
+    .header__loginMenu > .sc-button {
+        margin: 0;
+        display: block;
+        height: 31px;
+        height: calc-size(100%, size - 14px);
+        flex-grow: 1;
+        margin: 12px 0 0;
+    }
+    .header__loginMenu > .onetapAuthContainer {
+        position: absolute;
     }
 /*     .g-opacity-transition.sc-button.sc-button-medium.loginButton {
         border-color: #666!important;
@@ -4212,7 +4237,7 @@
         padding-top: 20px!important;
     }
     :not(.artistConnectContainerItem__userInfo)>.profileHeaderBackground > div {
-        border-radius: 0px 0px 32px 32px!important;
+        border-radius: 0px 0px 16px 16px;
         box-shadow: inset 0px -10px 24px 4px #1118;
         height: 69.5%;
         background-size: auto 280px;
@@ -4690,13 +4715,6 @@
     .inboxItem.active .conversationBadge {
         filter: hue-rotate(calc(/*[[hue]]*/deg * -1));
     }
-    .l-signin .l-main {
-        border: none;
-    }
-    .header__loginMenu {
-        padding: 10px 0px;
-        /*transform: scale(0.9);*/
-    }
     .playlistConsumerSubUpsell__messageBox, .sc-classic .playlistConsumerSubUpsell__messageBox {
         background-color: var(--shd-bg-darker);
         border: 1px solid var(--shd-bg-lighter);
@@ -4957,12 +4975,6 @@
     }
     .frontHero > * {
         filter: hue-rotate(calc(/*[[hue]]*/deg * -1));
-    }
-
-    .header__loginMenu {
-        display: flex;
-        float: none;
-        justify-content: center;
     }
     .story__track__artist {
         color: #ccc;
@@ -7206,6 +7218,7 @@
             opacity: 1;
         }
         .header__loginMenu {
+            height: auto;
             padding: 6px 0;
             display: flex;
             flex-direction: column;
@@ -7335,8 +7348,44 @@
             width: 225px;
             transition-duration: 0.25s;
         }
+        
         .dropdownMenu.g-z-index-header-menu[style*="width: 51px;"] {
             width: 225px !important;
+        }
+        .sc-classic .l-search .l-fixed-left, .l-search .l-fixed-left {
+            top: 470px;
+            width: 78px;
+            overflow-x: clip;
+            backdrop-filter: blur(calc(24px * var(--blur-on, 1)));
+            border-radius: 0 8px 8px 0;
+            background: #111d;
+            transition: width 0.4s ease-in-out;
+        }
+        .sc-classic .l-search .l-fixed-left:hover, .l-search .l-fixed-left:hover {
+            width: 220px;
+        }
+        .searchOptions__container > .searchTags {
+            width: 220px;
+        }
+        .searchOptions__scrollable {
+            width: 220px !important;
+            height: calc(100vh - 525px) !important;
+            border-radius: 0 8px 8px 0;
+        }
+        .searchOptions__scrollableInner {
+            height: 100% !important;
+            white-space: nowrap;
+            mask-image: linear-gradient(to right, #fff calc(100% - 16px),  #fff7 calc(100% - 4px), #fff4 calc(100% - 2px), #fff0 100%);
+            mask-size: 78px 100%;
+            mask-repeat: no-repeat;
+            mask-clip: no-clip;
+            transition: mask-size 0.4s ease-in-out;
+        }
+        .l-search .l-fixed-left:hover .searchOptions__scrollable > .searchOptions__scrollableInner {
+            mask-size: 240px 100%;
+        }
+        .searchOptions__container, .searchOptions__navigationItem {
+            width: auto !important;
         }
         
         .sc-classic .l-messages-left, .l-messages-left, body:not(.sc-classic) .l-messages-left {
@@ -8263,6 +8312,7 @@
     /* system playlists */
     body:not(.sc-classic) .systemPlaylistHero .fullHero__titleTextTitle .fullHero__titleTextText {
         font-weight: 700;
+        margin-right: 0;
     }
     body:not(.sc-classic) .systemPlaylistHero .fullHero__titleTextTitle {
         display: inline-flex;
@@ -8781,6 +8831,7 @@
         --mui-palette-success-dark: #388E3C;
         --mui-palette-success-light: #81C784;
         --mui-palette-success-contrastText: rgba(18, 18, 18, 0.87);
+        --mui-palette-success-contrastText: rgba(255, 255, 255, 0.87);
         --mui-palette-success-hover: rgba(102, 187, 106, 0.08);
         --mui-palette-success-outlinedBorder: rgba(102, 187, 106, 0.5);
         --mui-palette-success-mainChannel: 102 187 106;
