@@ -15,31 +15,31 @@
 @advanced text font "Font" "Inter"
 @advanced range avradius "Avatar Roundedness" [50, 0, 50, 2.5]
 @advanced dropdown mcis "Iconset (Media Controls)" {
-    phosphor    "Phosphor" <<<EOT 
+    phosphor    "Phosphor" <<<EOT
     ph EOT;
-    phosphorol  "Phosphor Outlined" <<<EOT 
+    phosphorol  "Phosphor Outlined" <<<EOT
     po EOT;
-    spoticons   "Spotify" <<<EOT 
+    spoticons   "Spotify" <<<EOT
     sp EOT;
-    fluentfill  "Fluent Filled" <<<EOT 
+    fluentfill  "Fluent Filled" <<<EOT
     ff EOT;
-    fluentreg   "Fluent Outlined" <<<EOT 
+    fluentreg   "Fluent Outlined" <<<EOT
     fo EOT;
-    picon       "Picon (Low quality)" <<<EOT 
+    picon       "Picon (Low quality)" <<<EOT
     pi EOT;
 }
 @advanced dropdown dist "Soundcloud for Artists Button" {
-    dist-on    "Show" <<<EOT 
+    dist-on    "Show" <<<EOT
     --w1:46px;--w2:46px; EOT;
-    dist-off   "Hide" <<<EOT 
+    dist-off   "Hide" <<<EOT
     --w1:0px;--w2:0px; EOT;
 }
 @advanced dropdown probdg "Artist profile badges" {
-    probdg-off    "Hide" <<<EOT 
+    probdg-off    "Hide" <<<EOT
     .proUnlimitedBadge, .creatorBadge {
         display: none;
     } EOT;
-    probdg-a     "Style A" <<<EOT 
+    probdg-a     "Style A" <<<EOT
     .proUnlimitedBadge, .creatorBadge {
         margin-right: 1px;
         margin-top: 7px;
@@ -58,7 +58,7 @@
     :is(.proUnlimitedBadge, .creatorBadge) svg > rect[fill^="#000"] {
         fill: #0000 !important;
     } EOT;
-    probdg-b     "Style B" <<<EOT 
+    probdg-b     "Style B" <<<EOT
     .proUnlimitedBadge, .creatorBadge {
         display: flex;
         position: absolute;
@@ -70,50 +70,50 @@
     } EOT;
 }
 @advanced dropdown widget "Style embeds" {
-    embeds-on   "Yes" <<<EOT 
+    embeds-on   "Yes" <<<EOT
     /**\/ EOT;
-    embeds-off  "No" <<<EOT 
+    embeds-off  "No" <<<EOT
     /* EOT;
 }
 @advanced dropdown sort-pl "Playlist sorting mode" {
-    sort-pl-reg "Normal" <<<EOT 
+    sort-pl-reg "Normal" <<<EOT
     column EOT;
-    sort-pl-rev "Reversed" <<<EOT 
+    sort-pl-rev "Reversed" <<<EOT
     column-reverse EOT;
 }
 @advanced dropdown sort-fol "Following list sorting mode" {
-    sort-fol-reg    "Normal" <<<EOT 
+    sort-fol-reg    "Normal" <<<EOT
     wrap EOT;
-    sort-fol-rev    "Reversed" <<<EOT 
+    sort-fol-rev    "Reversed" <<<EOT
     wrap-reverse EOT;
 }
 @advanced dropdown compact "Compact mode" {
-    compact-max   "Auto" <<<EOT 
+    compact-max   "Auto" <<<EOT
     @media only screen and (max-width: /*[[cmth]]*\/) EOT;
-    compact-on    "Always on" <<<EOT 
+    compact-on    "Always on" <<<EOT
     @media only screen and (min-width: 0px) EOT;
-    compact-off   "Off" <<<EOT 
+    compact-off   "Off" <<<EOT
     /* EOT;
 }
 @advanced range cmth "Compact mode auto threshold" [1200, 160, 2560, 40, "px"]
 @advanced dropdown at "Artist tools on sidebar" {
     at-on    "Show" <<<EOT EOT;
-    at-off   "Hide" <<<EOT 
+    at-off   "Hide" <<<EOT
     .sidebarModule:has(iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"]), iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"] {
         display: none;
     } EOT;
 }
 @advanced dropdown sin "Insights on sidebar" {
     stats-on    "Show" <<<EOT EOT;
-    stats-feed  "Feed only" <<<EOT 
+    stats-feed  "Feed only" <<<EOT
     .listenNetworkSidebar > div:has(iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/"]), iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/"] {
         display: none;
     } EOT;
-    stats-track "Track page only" <<<EOT 
+    stats-track "Track page only" <<<EOT
     .insightsSidebarModule.sc-font {
         height: 0;
     } EOT;
-    stats-off   "Hide Both" <<<EOT 
+    stats-off   "Hide Both" <<<EOT
     .listenNetworkSidebar > div:has(iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/"]), iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/"] {
         display: none;
     }
@@ -131,51 +131,51 @@
     .l-content > div > div[classname*="latestUpload"]:not(.modular-home-mixed-selection) > div:has(.mixedModularHome__item .latestUploadContainer) {
         display: none;
     } EOT;
-    hin-off "Hide Both" <<<EOT 
+    hin-off "Hide Both" <<<EOT
     [classname*="latestUpload"], [classname*="artistConnect"], .artistConnectExperimentWrapper, .artistConnectContainer, .mixedModularHome__item:has(.artistConnectExperimentWrapper, .artistConnectContainer) {
         display:none;
     } EOT;
 }
 @advanced dropdown gdpr "Cookie Notice" {
-    gdpr-on     "Show" <<<EOT 
+    gdpr-on     "Show" <<<EOT
     display:inherit; EOT;
-    gdpr-off    "Hide" <<<EOT 
+    gdpr-off    "Hide" <<<EOT
     display:none; EOT;
 }
 @advanced dropdown promoted "Promoted tracks" {
-    promo-off    "Hide" <<<EOT 
+    promo-off    "Hide" <<<EOT
     display:none; EOT;
-    promo-on     "Show" <<<EOT 
+    promo-on     "Show" <<<EOT
     display:revert; EOT;
 }
 @advanced dropdown prban "Promotion Banners" {
-    prban-off    "Hide" <<<EOT 
+    prban-off    "Hide" <<<EOT
     display:none; EOT;
-    prban-on     "Show" <<<EOT 
+    prban-on     "Show" <<<EOT
     display:block; EOT;
 }
 @advanced dropdown prpop "Promotion Pop-ups" {
-    prpop-off    "Hide" <<<EOT 
+    prpop-off    "Hide" <<<EOT
     display:none;max-height:0;height:0!important; EOT;
-    prpop-on     "Show" <<<EOT 
+    prpop-on     "Show" <<<EOT
     display:block; EOT;
 }
 @advanced dropdown gopro "Soundcloud Go/Artist Links" {
-    gopro-off    "Hide" <<<EOT 
+    gopro-off    "Hide" <<<EOT
     display:none; EOT;
-    gopro-on     "Show" <<<EOT 
+    gopro-on     "Show" <<<EOT
     display:flex; EOT;
 }
 @advanced dropdown adblk " Ads" {
-    adblk-off    "Hide" <<<EOT 
+    adblk-off    "Hide" <<<EOT
     display:none; EOT;
-    adblk-on     "Show" <<<EOT 
+    adblk-on     "Show" <<<EOT
     display:revert; EOT;
 }
 @advanced dropdown evt "Events on homepage" {
-    evt-on     "Show" <<<EOT 
+    evt-on     "Show" <<<EOT
     display:revert; EOT;
-    evt-off    "Hide" <<<EOT 
+    evt-off    "Hide" <<<EOT
     display:none; EOT;
 }
 @advanced dropdown msgwarn "First message warning" {
@@ -239,7 +239,7 @@
     } EOT;
 }
 @advanced dropdown tnum "Tabular nums" {
-    tnum-on   "Enabled" <<<EOT 
+    tnum-on   "Enabled" <<<EOT
     -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
     font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
     font-variant-numeric: tabular-nums; EOT;
@@ -247,40 +247,40 @@
 }
 @advanced color bg1 "Background color" #111
 @advanced dropdown bgblur "Background blur" {
-    blur-on   "Enabled" <<<EOT 
+    blur-on   "Enabled" <<<EOT
     /* EOT;
-    blur-off  "Disabled" <<<EOT 
+    blur-off  "Disabled" <<<EOT
     /**\/ EOT;
 }
 @advanced dropdown lowmotion "Reduce motion" {
-    lm-off  "No" <<<EOT 
+    lm-off  "No" <<<EOT
     /* EOT;
-    lm-on   "Yes" <<<EOT 
+    lm-on   "Yes" <<<EOT
     /**\/ EOT;
 }
 @advanced dropdown home "Home button style" {
-    regular     "Regular" <<<EOT 
+    regular     "Regular" <<<EOT
      EOT;
-    old         "Old" <<<EOT 
+    old         "Old" <<<EOT
     -old EOT;
 }
 @advanced dropdown feed "Feed button style" {
-    regular     "Regular" <<<EOT 
+    regular     "Regular" <<<EOT
      EOT;
-    old         "Old" <<<EOT 
+    old         "Old" <<<EOT
     -old EOT;
 }
 @advanced dropdown libs "Library button style" {
-    regular     "Regular" <<<EOT 
+    regular     "Regular" <<<EOT
      EOT;
-    old         "Old" <<<EOT 
+    old         "Old" <<<EOT
     -old EOT;
 }
 ==/UserStyle== *//* --- REMOVE THIS LINE TO SHOW ADVANCED FILTER CONTROLS ---
 @advanced dropdown adv "Enable Advanced Filters?" {
-    adv-off "Disabled" <<<EOT 
+    adv-off "Disabled" <<<EOT
     /* ---[ Disabled ]--- *\/ EOT;
-    adv-on "Enabled" <<<EOT 
+    adv-on "Enabled" <<<EOT
     /*[[fil]]*\/ EOT;
 }
 @advanced text fil "Advanced CSS Filters" "brightness(100%) contrast(100%) saturate(100%)"
@@ -288,11 +288,11 @@
 
 @-moz-document domain("soundcloud.com") {
 /*     @import url("https://a-v2.sndcdn.com/assets/css/app-283427fd0b885dd91287.css"); */
-    
+
     /* Font imports */
     @import url('https://rsms.me/inter/inter.css');
     @import url('https://style.sndcdn.com/css/interstate-a86f07cf94ae5a496b24.css');
-    
+
     /* Icon select */
     @import url('https://cdn.jsdelivr.net/gh/JunkiEDM/scultradark/spoticons.css');
     @font-face {
@@ -325,8 +325,8 @@
         font-family: picon;
         src: url(https://unpkg.com/picon);
     }
-    
-    
+
+
     /* navmenu icons */
     :root {
         --ic-old-home: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m16 3.08 14.44 10.31-.88 1.22-1.81-1.3v15.44h-8.5V21a3.25 3.25 0 1 0-6.5 0v7.75h-8.5V13.31l-1.81 1.3-.88-1.22L16 3.08Zm0 1.84L5.75 12.24v15.01h5.5V21a4.75 4.75 0 0 1 9.5 0v6.25h5.5v-15L16 4.91Z" fill="white" stroke="white"/></svg>');
@@ -335,7 +335,7 @@
         --ic-old-stream-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M12.99 2.25c-1.22 0-2.29.8-2.64 1.96L6 18.75h6L8.56 30.17l15.68-13.06a2.75 2.75 0 0 0-1.76-4.86H20l1.94-6.46a2.75 2.75 0 0 0-2.64-3.54H13Z" fill="white" stroke="white"/></svg>');
         --ic-old-library: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25A2.75 2.75 0 0 1 7.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 5 4.25Zm8 0A2.75 2.75 0 0 1 15.75 7v18a2.75 2.75 0 1 1-5.5 0V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53ZM5 5.75c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm8 0c-.69 0-1.25.56-1.25 1.25v18a1.25 1.25 0 0 0 2.5 0V7c0-.69-.56-1.25-1.25-1.25Zm7.68 0c-.74 0-1.27.7-1.1 1.4l.04.12 6.63 18.24a1.13 1.13 0 0 0 2.16-.66l-.03-.12L21.75 6.5a1.13 1.13 0 0 0-1.07-.74Z" fill="white" stroke="white"/></svg>');
         --ic-old-library-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 4.25a2.75 2.75 0 0 1 2.75 2.58V25a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 5 4.25Zm8 0a2.75 2.75 0 0 1 2.74 2.58l.01.17v18a2.75 2.75 0 0 1-5.5.17V7A2.75 2.75 0 0 1 13 4.25Zm7.68 0c1.05 0 1.99.62 2.4 1.56l.08.17 6.63 18.24a2.63 2.63 0 0 1-4.88 1.97l-.07-.17-6.63-18.24a2.63 2.63 0 0 1 2.47-3.53Z" fill="white" stroke="white"/></svg>');
-        
+
         --ic-home: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" stroke="white" stroke-width="0.38" d="M11.53 2.41a.75.75 0 0 1 .94 0l8.5 6.8c.18.13.28.35.28.58V21c0 .41-.34.75-.75.75h-6a.75.75 0 0 1-.75-.75v-4.5a1.75 1.75 0 1 0-3.5 0V21c0 .41-.34.75-.75.75h-6a.75.75 0 0 1-.75-.75V9.79c0-.23.1-.44.28-.59l8.5-6.79Zm-7.28 7.74v10.1h4.5V16.5a3.25 3.25 0 1 1 6.5 0v3.75h4.5v-10.1L12 3.96l-7.75 6.19Z"/></svg>');
         --ic-home-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" stroke="white" stroke-width="0.38" d="M12.47 2.41a.75.75 0 0 0-.94 0l-8.5 6.8a.75.75 0 0 0-.28.58V21c0 .41.34.75.75.75h6c.41 0 .75-.34.75-.75v-4.5a1.75 1.75 0 1 1 3.5 0V21c0 .41.34.75.75.75h6c.41 0 .75-.34.75-.75V9.79c0-.23-.1-.44-.28-.59l-8.5-6.79Z"/></svg>');
         --ic-stream: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="white" stroke="white" fill-rule="evenodd" d="M4.25 14.5c0-.69.56-1.25 1.25-1.25h21c.69 0 1.25.56 1.25 1.25v13c0 .69-.56 1.25-1.25 1.25h-21c-.69 0-1.25-.56-1.25-1.25v-13Zm1.5.25v12.5h20.5v-12.5H5.75ZM8.25 9c0-.414.336-.75.75-.75h14c.414 0 .75.336.75.75s-.336.75-.75.75H9c-.414 0-.75-.336-.75-.75Zm3-5c0-.414.336-.75.75-.75h8c.414 0 .75.336.75.75s-.336.75-.75.75h-8c-.414 0-.75-.336-.75-.75Z"/></svg>');
@@ -343,14 +343,14 @@
         --ic-library: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" stroke="white" stroke-width="0.3" d="M3.25 4c0-.41.34-.75.75-.75h3c.41 0 .75.34.75.75v16c0 .41-.34.75-.75.75H4a.75.75 0 0 1-.75-.75V4Zm1.5.75v14.5h1.5V4.75h-1.5Zm5-.75c0-.41.34-.75.75-.75h3c.41 0 .75.34.75.75v16c0 .41-.34.75-.75.75h-3a.75.75 0 0 1-.75-.75V4Zm1.5.75v14.5h1.5V4.75h-1.5Zm4.31 2.08a.76.76 0 0 0-.53.92l3.37 12.56c.1.4.52.64.92.53l2.9-.78c.4-.1.63-.51.52-.91L19.38 6.58a.75.75 0 0 0-.92-.53l-2.9.77Zm4.1 12.37L16.67 8.09l1.45-.39 2.97 11.1-1.45.4Z"/></svg>');
         --ic-library-active: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" stroke="white" stroke-width="0.3" d="M4 3.25a.75.75 0 0 0-.75.75v16c0 .41.34.75.75.75h3c.41 0 .75-.34.75-.75V4A.75.75 0 0 0 7 3.25H4Zm6.5 0a.75.75 0 0 0-.75.75v16c0 .41.34.75.75.75h3c.41 0 .75-.34.75-.75V4a.75.75 0 0 0-.75-.75h-3Zm5.06 3.58a.76.76 0 0 0-.53.92l3.37 12.56c.1.4.52.64.92.53l2.9-.78c.4-.1.63-.51.52-.91L19.38 6.58a.75.75 0 0 0-.92-.53l-2.9.77Z"/></svg>');
     }
-    
+
     /* upload icon */
     :root {
         --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23fff' viewBox='0 0 256 256'%3E%3Cpath d='M228,152v56a20,20,0,0,1-20,20H48a20,20,0,0,1-20-20V152a12,12,0,0,1,24,0v52H204V152a12,12,0,0,1,24,0ZM96.49,88.49,116,69v83a12,12,0,0,0,24,0V69l19.51,19.52a12,12,0,0,0,17-17l-40-40a12,12,0,0,0-17,0l-40,40a12,12,0,0,0,17,17Z'%3E%3C/path%3E%3C/svg%3E"); /* phosphor - simple */
         --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23ededed' viewBox='0 0 256 256'%3E%3Cpath d='M232,136v64a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V136a8,8,0,0,1,8-8H224A8,8,0,0,1,232,136Z' opacity='0.2'%3E%3C/path%3E%3Cpath d='M240,136v64a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V136a16,16,0,0,1,16-16H80a8,8,0,0,1,0,16H32v64H224V136H176a8,8,0,0,1,0-16h48A16,16,0,0,1,240,136ZM85.66,77.66,120,43.31V128a8,8,0,0,0,16,0V43.31l34.34,34.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,77.66ZM200,168a12,12,0,1,0-12,12A12,12,0,0,0,200,168Z'%3E%3C/path%3E%3C/svg%3E"); /* phosphor - duotone */
         --upload-button: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23222' fill-rule='evenodd' d='M3 11v2h10v-2H3Zm10-3H3l5-6 5 6ZM6 8v2h4V8H6Z'/%3E%3C/svg%3E"); /* soundcloud */
     }
-    
+
     /* media icons */
     :root {
         --ph-font: Phosphor-Fill;
@@ -435,7 +435,7 @@
         --sc-old-pause-24: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M7.163 4.93h3.721v14.14H7.163zm5.953 0h3.721v14.14h-3.721z'/%3E%3C/svg%3E");
         --sc-old-calendar: url("https://a-v2.sndcdn.com/assets/images/calendar-96bbd47c.svg");
         --sc-old-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 11'%3E%3Cg fill='%23fff'%3E%3Cpath d='M1 10h11V2H1v8ZM0 1h13v10H0V1Z'/%3E%3Cpath d='M4 2.5v-2a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0Z'/%3E%3Cpath d='M2 6h1v1H2zm2 0h1v1H4zM2 8h1v1H2zm2 0h1v1H4zm2 0h1v1H6zm0-2h1v1H6zm2 0h1v1H8zm0 2h1v1H8zm2 0h1v1h-1zm0-2h1v1h-1z'/%3E%3Cpath d='M1 5h11V4H1zm9-2.5v-2a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0Z'/%3E%3C/g%3E%3C/svg%3E");
-        
+
         --sc-new-notifications-32: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 15'%3E%3Cpath fill='%23FFF' d='M1 9.6664V5.5C1 2.4686 3.4662 0 6.5083 0h.9834C10.5427 0 13 2.4587 13 5.4917v4.1747c.609.5511 1 1.3937 1 2.3336H0c0-.94.391-1.7825 1-2.3336ZM4 13l1.0122 1.0836S6.334 15 7.0041 15c.6286 0 2.015-.9813 2.015-.9813L10 13H4Z'/%3E%3C/svg%3E");
         --sc-new-messages-32: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 13'%3E%3Cpath d='M17.9658 12.2587A.9928.9928 0 0 0 18 12V1a.9928.9928 0 0 0-.0342-.2587L9.3536 9.3536 9 9.707l-.3536-.3535L.0342.7413A.9928.9928 0 0 0 0 1v11c0 .0894.0119.1761.0342.2587l5.6122-5.6123.7072.7072-5.6123 5.6122A.9928.9928 0 0 0 1 13h16a.9928.9928 0 0 0 .2587-.0342l-5.6123-5.6122.7072-.7072 5.6122 5.6123ZM.7413.0342A.9928.9928 0 0 1 1 0h16a.9928.9928 0 0 1 .2587.0342L8.6464 8.6464h.7072L.7413.0342Z' fill='%23FFF'/%3E%3C/svg%3E");
 
@@ -481,7 +481,7 @@
 
         --sc-new-notifications-32: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.681 7h.069v-.875c0-2.111-1.65-3.875-3.75-3.875s-3.75 1.764-3.75 3.875V7h.069a9.39 9.39 0 00-5.68 7.919l-.272 3.533a2.693 2.693 0 01-1.003 1.896c-1.824 1.46-.792 4.402 1.544 4.402h4.357v.043c-.023 2.686 2.056 4.934 4.708 4.957 2.651.022 4.768-2.19 4.791-4.876l.001-.124h4.327c2.336 0 3.368-2.942 1.544-4.402a2.694 2.694 0 01-1.003-1.896l-.272-3.533A9.39 9.39 0 0019.681 7zm-1.431-.478A9.402 9.402 0 0016 6.25c-.774 0-1.528.094-2.25.272v-.397c0-1.34 1.036-2.375 2.25-2.375s2.25 1.034 2.25 2.375v.397zM16 7.75a7.89 7.89 0 017.866 7.284l.272 3.533a4.193 4.193 0 001.561 2.953c.717.573.311 1.73-.607 1.73H6.908c-.918 0-1.324-1.157-.607-1.73a4.193 4.193 0 001.561-2.953l.272-3.533A7.889 7.889 0 0116 7.75zm-3.235 17h6.5v.11c-.017 1.917-1.513 3.405-3.28 3.39-1.766-.015-3.237-1.528-3.22-3.444v-.056z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
         --sc-new-messages-32: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 10C2 7.79086 3.79086 6 6 6H26C28.2091 6 30 7.79086 30 10V22C30 24.2091 28.2091 26 26 26H6C3.79086 26 2 24.2091 2 22V10ZM6 7.5C4.80376 7.5 3.80375 8.34018 3.55789 9.46263L16 17.1193L28.4421 9.46264C28.1963 8.34018 27.1962 7.5 26 7.5H6ZM3.5 11.1883V22C3.5 23.3807 4.61929 24.5 6 24.5H26C27.3807 24.5 28.5 23.3807 28.5 22V11.1883L16 18.8806L3.5 11.1883Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
-        
+
         --sc-new-prev: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.44444 3C4.19898 3 4 3.20147 4 3.45V20.55C4 20.7985 4.19898 21 4.44444 21H6.22222C6.46768 21 6.66667 20.7985 6.66667 20.55V12.5625L19.32 20.5697C19.616 20.757 20 20.5415 20 20.1881V3.81191C20 3.45847 19.616 3.24299 19.32 3.43031L6.66667 11.4375V3.45C6.66667 3.20147 6.46768 3 6.22222 3H4.44444Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
         --sc-new-next: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.7778 3C17.5323 3 17.3333 3.20147 17.3333 3.45V11.4375L4.68 3.43031C4.38398 3.24299 4 3.45847 4 3.81191V20.1881C4 20.5415 4.38398 20.757 4.68 20.5697L17.3333 12.5625V20.55C17.3333 20.7985 17.5323 21 17.7778 21H19.5556C19.801 21 20 20.7985 20 20.55V3.45C20 3.20147 19.801 3 19.5556 3H17.7778Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
         --sc-new-shuffle: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.0303 7.03033L15.5607 4.5L13.0303 1.96967L11.9697 3.03033L12.6894 3.75H12.2443C10.9235 3.75 9.66227 4.29996 8.76351 5.26786L7.25 6.89779L5.73649 5.26786C4.83773 4.29996 3.57655 3.75 2.25572 3.75H1V5.25H2.25572C3.15945 5.25 4.02236 5.62629 4.6373 6.28853L6.22652 8L4.6373 9.71147C4.02236 10.3737 3.15945 10.75 2.25572 10.75H1V12.25H2.25572C3.57655 12.25 4.83773 11.7 5.73649 10.7321L7.25 9.10221L8.76351 10.7321C9.66227 11.7 10.9235 12.25 12.2443 12.25H12.6893L11.9697 12.9697L13.0303 14.0303L15.5607 11.5L13.0303 8.96967L11.9697 10.0303L12.6894 10.75H12.2443C11.3406 10.75 10.4776 10.3737 9.8627 9.71147L8.27348 8L9.8627 6.28853C10.4776 5.62629 11.3406 5.25 12.2443 5.25H12.6893L11.9697 5.96967L13.0303 7.03033Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
@@ -517,7 +517,7 @@
         --sin: /*[[sin]]*/;
         --gdpr: /*[[gdpr]]*/;
         --font: /*[[font]]*/;
-        
+
         --font-main: /*[[font]]*/Variable, /*[[font]]*/ var, /*[[font]]*/, "InterVariable", "Inter var", Inter, Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
     }
     /* soundcloud colors */
@@ -638,7 +638,7 @@
         --toggle-off-body-hover-color: #999;
         --toggle-off-handle-color: #fff;
         --toggle-off-handle-hover-color: rgba(255,255,255,.4);
-        
+
         --font-sans-serif-family: var(--font-main), var(--font-inter, SoundCloud Sans), system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, "Segoe UI", Roboto, "Lucida Grande", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
         --typography-root-font-size: 0.875em;
         --typography-display3-font-size: 2.2857142857142856rem;
@@ -755,7 +755,7 @@
         --borderRadiuses-50: 50px;
         --borderRadiuses-100: 100px;
     }
-    
+
     @supports not (font-variation-settings: normal) {
         :root {
             --font-main: /*[[font]]*/, Inter, Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
@@ -794,7 +794,7 @@
     /**/
 }
 @-moz-document regexp("http(?:s)?:\/\/(?:|www\.)?(?:|secure\.)?soundcloud\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
-    
+
     /* ----------- IMPORT ULTRA DARK (https://uso.kkx.one/style/176264) ----------- */
     /* Modification of SoundCloud Ultra Dark by IgChi: userstyles.org/styles/176264 */
     .l-collection,
@@ -878,7 +878,7 @@
         color: #fff
     }
     .sc-classic .badgeList__item, .badgeList__item {
-        width: 150px
+        width: 135px
     }
     .l-collection {
         margin-right: 15px
@@ -928,7 +928,7 @@
         padding: 5px 0;
         box-shadow: 2px 2px 12px #0006;
     }
-    .moreActions .moreActions__button.sc-button-medium, 
+    .moreActions .moreActions__button.sc-button-medium,
     .imageEditDropdown .sc-button
     {
         border: 0;
@@ -1058,7 +1058,7 @@
         opacity: 1;
     }
     @supports (selector(:has(*))) { /* move artists button to bottom if more button isn't found */
-        #app .header__right:not(:has(.header__moreButton)) > .header__link {  
+        #app .header__right:not(:has(.header__moreButton)) > .header__link {
             top: unset;
             bottom: 0;
             height: 46px;
@@ -1071,7 +1071,7 @@
             width: 100%;
         }
     }
-    
+
     #app .header__userNavAvatar:after {
         content: "/*[[user]]*/";
         position: absolute;
@@ -1091,7 +1091,7 @@
     #app .header__userNavUsernameButton:after {
         transition: opacity 0.2s;
     }
-    #app .header__userNavUsernameButton:hover .header__userNavAvatar:after, 
+    #app .header__userNavUsernameButton:hover .header__userNavAvatar:after,
     #app a.selected.header__userNavUsernameButton .header__userNavAvatar:after {
         opacity: 1;
     }
@@ -1173,7 +1173,7 @@
         iframe.velvetCakeIframe {
             filter: contrast(0.95) brightness(1.05);
         }
-        
+
         .playControls__inner .playControls__wrapper .playControls__elements .playControls__control.playControls__prev, .playControls__inner .playControls__wrapper .playControls__elements .sc-ir.playControls__prev {
             left: calc(50% - 16px - 8vw) !important;
         }
@@ -1375,7 +1375,7 @@
         width: 24px;
         height: 24px;
     }
-    
+
     #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content h4 {
         margin-top: -10px
     }
@@ -1596,7 +1596,7 @@
     }
 
     /*follow button*/
-    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected), 
+    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected),
     .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.playableTile__actionButton) {
         border: 0;
         border-radius: 120px;
@@ -1636,8 +1636,8 @@
         top: 6px
     }
     .sc-classic #app .l-container #content .soundBadge.active:not(.compact) .soundBadge__additional,
-    .sc-classic #app .l-container #content .soundBadge.hover:not(.compact) .soundBadge__additional, 
-    .sc-classic #app .l-container #content .soundBadge.selected:not(.compact) .soundBadge__additional, 
+    .sc-classic #app .l-container #content .soundBadge.hover:not(.compact) .soundBadge__additional,
+    .sc-classic #app .l-container #content .soundBadge.selected:not(.compact) .soundBadge__additional,
     .sc-classic #app .l-container #content .soundBadge:hover:not(.compact) .soundBadge__additional {
         background: linear-gradient(to right, transparent, var(--shd-bg-darker) 17px);
     }
@@ -1693,7 +1693,7 @@
         box-shadow: 2px 2px 24px #0003;
         transition-duration: 3s
     }
-    .g-dark input[type=search]:focus, 
+    .g-dark input[type=search]:focus,
     .sc-classic .frontContent__actions input[type=search]:focus {
         box-shadow: 2px 2px 12px 2px #0a0a0a;
         z-index: 99999;
@@ -2061,19 +2061,19 @@
         content: "\fdd2";
         content: var(--/*[[mcis]]*/-volume-0);
     }
-    .volume[data-level="1"] .volume__button:before, 
+    .volume[data-level="1"] .volume__button:before,
     .volume[data-level="2"] .volume__button:before,
-    .volume[data-level="3"] .volume__button:before, 
-    .volume[data-level="4"] .volume__button:before, 
+    .volume[data-level="3"] .volume__button:before,
+    .volume[data-level="4"] .volume__button:before,
     .volume[data-level="5"] .volume__button:before {
         content: "\fdcf";
         content: var(--/*[[mcis]]*/-volume-1);
     }
-    
+
     .volume[data-level="6"] .volume__button:before,
-    .volume[data-level="7"] .volume__button:before, 
-    .volume[data-level="8"] .volume__button:before, 
-    .volume[data-level="9"] .volume__button:before, 
+    .volume[data-level="7"] .volume__button:before,
+    .volume[data-level="8"] .volume__button:before,
+    .volume[data-level="9"] .volume__button:before,
     .volume[data-level="10"] .volume__button:before {
         content: "\f15e";
         content: "\fdce";
@@ -2093,7 +2093,7 @@
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline .playbackTimeline__timePassed {
         margin-left: -24px;
     }
-    
+
     .playControls__inner .playControls__wrapper .playControls__elements .playControls__timeline .playbackTimeline__progressWrapper {
         top: -1px;
         cursor: default
@@ -2178,8 +2178,6 @@
     .sc-classic .playControls__inner{
         width: 100%;
         border: 0;
-        background: var(--shd-bg-translucent);
-        border-top: 1px solid #222c;
         box-shadow: 0 0 5px var(--shd-bg-primary);
     }
     input,
@@ -2628,8 +2626,8 @@
         position: absolute;
         right: 100px
     }
-    .trackItem:active, .trackItem:hover, 
-    .trackItem.active, .trackItem.hover, 
+    .trackItem:active, .trackItem:hover,
+    .trackItem.active, .trackItem.hover,
     .sc-classic .trackItem.active, .sc-classic .trackItem.hover {
         background-color: var(--shd-bg-darker);
     }
@@ -2690,13 +2688,13 @@
         width: 100%
     }
     .sc-classic .header__link.uploadButton:not(
-        .sc-classic .header__link.header__goUpsell, 
-        .sc-classic .header__link.header__goUpsell_side_by_side_experience, 
+        .sc-classic .header__link.header__goUpsell,
+        .sc-classic .header__link.header__goUpsell_side_by_side_experience,
         .sc-classic .header__link.header__proUpsell_side_by_side_experience
     ),
     body:not(.sc-classic) .header__link.uploadButton:not(
-        body:not(.sc-classic) .header__link.header__goUpsell, 
-        body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience, 
+        body:not(.sc-classic) .header__link.header__goUpsell,
+        body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience,
         body:not(.sc-classic) .header__link.header__proUpsell_side_by_side_experience
     ) { /* center upload text dynamically for  languages */
         justify-content: center;
@@ -2728,14 +2726,14 @@
     .header__soundInput > .uploadButton.selected .uploadButton__title, .header__soundInput:hover .uploadButton__title {
         color: #fff;
     }
-    
-    .sc-classic .header__link.header__goUpsell, 
-    .sc-classic .header__link.header__goUpsell_side_by_side_experience, 
+
+    .sc-classic .header__link.header__goUpsell,
+    .sc-classic .header__link.header__goUpsell_side_by_side_experience,
     .sc-classic .header__link.header__proUpsell_side_by_side_experience,
     .sc-classic .header__upsellWrapper>.header__link,
     .sc-classic .header__upsellWrapper>.header__button,
-    body:not(.sc-classic) .header__link.header__goUpsell, 
-    body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience, 
+    body:not(.sc-classic) .header__link.header__goUpsell,
+    body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience,
     body:not(.sc-classic) .header__link.header__proUpsell_side_by_side_experience,
     body:not(.sc-classic) .header__upsellWrapper>.header__link,
     body:not(.sc-classic) .header__upsellWrapper>.header__button {
@@ -2749,14 +2747,14 @@
         line-height: 14px;
         text-align: center;
     }
-    .sc-classic .header__link.header__goUpsell:active, 
+    .sc-classic .header__link.header__goUpsell:active,
     .sc-classic .header__link.header__goUpsell:focus,
     .sc-classic .header__link.header__goUpsell:hover,
-    .sc-classic .header__link.header__goUpsell_side_by_side_experience:active, 
-    .sc-classic .header__link.header__goUpsell_side_by_side_experience:focus, 
-    .sc-classic .header__link.header__goUpsell_side_by_side_experience:hover, 
+    .sc-classic .header__link.header__goUpsell_side_by_side_experience:active,
+    .sc-classic .header__link.header__goUpsell_side_by_side_experience:focus,
+    .sc-classic .header__link.header__goUpsell_side_by_side_experience:hover,
     .sc-classic .header__link.header__proUpsell_side_by_side_experience:active,
-    .sc-classic .header__link.header__proUpsell_side_by_side_experience:focus, 
+    .sc-classic .header__link.header__proUpsell_side_by_side_experience:focus,
     .sc-classic .header__link.header__proUpsell_side_by_side_experience:hover,
     .sc-classic .header__upsellWrapper>.header__link:active,
     .sc-classic .header__upsellWrapper>.header__link:focus,
@@ -2764,14 +2762,14 @@
     .sc-classic .header__upsellWrapper>.header__button:active,
     .sc-classic .header__upsellWrapper>.header__button:focus,
     .sc-classic .header__upsellWrapper>.header__button:hover,
-    body:not(.sc-classic) .header__link.header__goUpsell:active, 
+    body:not(.sc-classic) .header__link.header__goUpsell:active,
     body:not(.sc-classic) .header__link.header__goUpsell:focus,
     body:not(.sc-classic) .header__link.header__goUpsell:hover,
-    body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience:active, 
-    body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience:focus, 
-    body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience:hover, 
+    body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience:active,
+    body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience:focus,
+    body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience:hover,
     body:not(.sc-classic) .header__link.header__proUpsell_side_by_side_experience:active,
-    body:not(.sc-classic) .header__link.header__proUpsell_side_by_side_experience:focus, 
+    body:not(.sc-classic) .header__link.header__proUpsell_side_by_side_experience:focus,
     body:not(.sc-classic) .header__link.header__proUpsell_side_by_side_experience:hover,
     body:not(.sc-classic) .header__upsellWrapper>.header__link:active,
     body:not(.sc-classic) .header__upsellWrapper>.header__link:focus,
@@ -2781,13 +2779,13 @@
     body:not(.sc-classic) .header__upsellWrapper>.header__button:hover {
         opacity: 1;
     }
-    .sc-classic .header__link.header__goUpsell:nth-of-type(2), 
-    .sc-classic .header__link.header__goUpsell_side_by_side_experience:nth-of-type(2), 
+    .sc-classic .header__link.header__goUpsell:nth-of-type(2),
+    .sc-classic .header__link.header__goUpsell_side_by_side_experience:nth-of-type(2),
     .sc-classic .header__link.header__proUpsell_side_by_side_experience:nth-of-type(2),
     .sc-classic .header__upsellWrapper>.header__link:nth-of-type(2),
     .sc-classic .header__upsellWrapper>.header__button:nth-of-type(2),
-    body:not(.sc-classic) .header__link.header__goUpsell:nth-of-type(2), 
-    body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience:nth-of-type(2), 
+    body:not(.sc-classic) .header__link.header__goUpsell:nth-of-type(2),
+    body:not(.sc-classic) .header__link.header__goUpsell_side_by_side_experience:nth-of-type(2),
     body:not(.sc-classic) .header__link.header__proUpsell_side_by_side_experience:nth-of-type(2),
     body:not(.sc-classic) .header__upsellWrapper>.header__link:nth-of-type(2),
     body:not(.sc-classic) .header__upsellWrapper>.header__button:nth-of-type(2) {
@@ -2837,7 +2835,7 @@
             flex-direction: column;
         }
     }
-    
+
     .sc-background-white {
         background: var(--shd-bg-primary)
     }
@@ -3011,13 +3009,13 @@
     .soundBadge.hover:not(.compact),
     .soundBadge.selected:not(.compact),
     .soundBadge:hover:not(.compact),
-    .sc-classic .soundBadge.active:not(.compact), 
-    .sc-classic .soundBadge.hover:not(.compact), 
-    .sc-classic .soundBadge.selected:not(.compact), 
+    .sc-classic .soundBadge.active:not(.compact),
+    .sc-classic .soundBadge.hover:not(.compact),
+    .sc-classic .soundBadge.selected:not(.compact),
     .sc-classic .soundBadge:hover:not(.compact),
     .topStats__wrapperEligible:focus,
     .topStats__wrapperEligible:hover,
-    .uploadTarget__frame, 
+    .uploadTarget__frame,
     .sc-classic .uploadTarget__frame{
         background: var(--shd-bg-darker)
     }
@@ -3103,7 +3101,7 @@
     .statsBadge .statsBadge__upsell.sc-border-light-top {
         display: none
     }
-    .tokenInput__token, .sc-classic .tokenInput__token { 
+    .tokenInput__token, .sc-classic .tokenInput__token {
         background: var(--shd-bg-dropdown);
         border: 1px solid #4448;
     }
@@ -3212,7 +3210,7 @@
         color: #fff!important;
         transition: color 0.25s;
     }
-    
+
     /*----------------------------------------------------------------- IMPORT QUITE DARK (https://33kk.github.io/uso-archive/?style=143738) -----------------------------------------------------------------*/
     /* Snippets from 'SoundCloud - Quite Dark' by pawelos076232: userstyles.org/styles/143738 */
     .g-dark-bg,
@@ -3255,7 +3253,7 @@
     }
     .dropdownContent__listItem,
     .dropdownContent__header,
-    .dropdownContent__main, 
+    .dropdownContent__main,
     .sc-classic .dropdownContent__listItem,
     .sc-classic .dropdownContent__header,
     .sc-classic .dropdownContent__main {
@@ -3332,9 +3330,9 @@
     }
 
 
-    
+
     /*--------------------------- BEGIN CUSTOM STYLING ---------------------------*/
-    
+
     .g-z-index-header-menu[style] {
         border-radius: 32px!important;
         border: none!important;
@@ -3529,7 +3527,7 @@
         background: var(--shd-bg-primary);
         transition-duration: 0.25s;
     }
-    .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton), 
+    .sc-button-active:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton),
     .sc-button-selected.sc-button-like:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):not(.moreActions__button):not(.commentItem__like > .sc-button-like):hover,
     .sc-button-selected.sc-button-repost:not(.playableTile__actionWrapper .sc-button-like):not(.sc-button-transparent):not(.moreActions__button):hover,
     .sc-button-selected.playbackSoundBadge__follow:hover, .sc-button-selected.sc-button-repost:not(.moreActions__button):not(.sc-button-icon):hover,
@@ -3574,17 +3572,17 @@
     }*/
     .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):not(.soundTitle__info),
     .g-type-shrinkwrap-inline,
-    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), 
-    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, 
-    .g-type-shrinkwrap-block:visited, 
-    .g-type-shrinkwrap-inline, 
-    .g-type-shrinkwrap-inline:hover, 
+    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName),
+    .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover,
+    .g-type-shrinkwrap-block:visited,
+    .g-type-shrinkwrap-inline,
+    .g-type-shrinkwrap-inline:hover,
     .g-type-shrinkwrap-inline:visited,
-    .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName), 
-    .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover, 
-    .sc-classic .g-type-shrinkwrap-block:visited, 
-    .sc-classic .g-type-shrinkwrap-inline, 
-    .sc-classic .g-type-shrinkwrap-inline:hover, 
+    .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName),
+    .sc-classic .g-type-shrinkwrap-block:not(.profileHeaderInfo__userName):hover,
+    .sc-classic .g-type-shrinkwrap-block:visited,
+    .sc-classic .g-type-shrinkwrap-inline,
+    .sc-classic .g-type-shrinkwrap-inline:hover,
     .sc-classic .g-type-shrinkwrap-inline:visited {
         background-color: rgba(0,0,0,.5);
         backdrop-filter: blur(calc(6px * var(--blur-on, 1)));
@@ -3593,7 +3591,7 @@
         border-radius: 6px;
     }
     /* rounded album art */
-    .sc-artwork:not(.image__rounded), .visuals__container, .directSupport__box, .fullHero { 
+    .sc-artwork:not(.image__rounded), .visuals__container, .directSupport__box, .fullHero {
         border-radius: 8px;
     }
     .soundBadge__artwork > div > .sc-artwork:not(.image__rounded),
@@ -3795,7 +3793,7 @@
     }
     input[type=date], input[type=email], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], select, textarea {
         transition-duration: 0.25s;
-    }    
+    }
     .comboBoxList { /* dark autocomplete */
         background-color: #333;
         border: 1px solid #222;
@@ -3860,8 +3858,8 @@
     .sc-classic .l-product-banners,
     body:not(.sc-classic) .l-product-banners { /* promotion banners */
         position: relative;
-        margin-left: inherit; 
-        margin-right: inherit; 
+        margin-left: inherit;
+        margin-right: inherit;
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
         backdrop-filter: blur(calc(64px * var(--blur-on, 1)));
         box-shadow: 2px 2px 24px #0003;
@@ -3884,7 +3882,7 @@
         width: 22px;
         height: 22px;
         filter: saturate(0) contrast(0) sepia(1) saturate(44.5);
-    } 
+    }
     .sc-classic .banner__content a,
     body:not(.sc-classic) .banner__content a {
         filter: hue-rotate(calc(/*[[hue]]*/deg * -1 - 10deg)) hue-rotate(/*[[blu]]*/deg) brightness(1.3) var(--fil);
@@ -3993,7 +3991,7 @@
         width: 11vw;
         height: 11vw;
     }
-    .sc-classic .userBadgeListItem__action, 
+    .sc-classic .userBadgeListItem__action,
     body:not(.sc-classic) .tileGallery .userBadgeListItem__action {
         transform: scale(0.875);
         transform-origin: 50% 0%;
@@ -4007,7 +4005,7 @@
             transform: unset;
             height: 11vw;
         }
-        .sc-classic .userBadgeListItem__action, 
+        .sc-classic .userBadgeListItem__action,
         body:not(.sc-classic) .tileGallery .userBadgeListItem__action {
             transform: unset;
         }
@@ -4055,7 +4053,7 @@
         transform-origin: center;
         top: 24px;
     }
-    
+
     .sc-classic .tileGallery__sliderButton, .sc-classic .tileGallery__sliderButton:not(.artistShortcutsGallery .tileGallery__sliderButton):focus {
         top: 48px;
     }
@@ -4159,7 +4157,7 @@
     .sc-classic .featuredProfiles {
         right: 6px !important;
     }
-    
+
     .featuredProfiles__scroll, .sc-classic .featuredProfiles__scroll {
         width: 330px;
     }
@@ -4225,7 +4223,7 @@
     /*.sound__content {
         overflow-x: visible!important;
     }*/
-    .profileHeader { 
+    .profileHeader {
         padding: 0!important;
         overflow: visible!important;
     }
@@ -4260,7 +4258,7 @@
         body:not(.sc-classic) .l-user-hero:has(>.profileHeader>.featuredProfiles.populated) ~ .l-fluid-fixed > .l-sidebar-right .l-fixed[style^="top: "]:not([style^="top: -"]) {
             top: 44px !important;
         }
-        
+
     }
     .profileHeader__link {
         left: 0!important;
@@ -4316,7 +4314,7 @@
         height: 24px;
         background-size: 24px;
     }
-    
+
     .profileHeaderInfo__avatar.sc-media-image {
         transition: filter 1s;
     }
@@ -4355,10 +4353,10 @@
     /*.audibleEditForm__form {
         margin-bottom: 96px;
     }*/
-    
+
     /* next pro badge */
     /*[[probdg]]*/
-    
+
     .sc-classic .sc-button-selected.playbackSoundBadge__follow.sc-button-follow:before {
         /*filter: brightness(0.5) sepia(1) contrast(2) saturate(24) hue-rotate(-2deg) saturate(1.1)!important;*/
         filter: invert(0) hue-rotate(8deg) brightness(1.1)!important;
@@ -4462,20 +4460,20 @@
         transition: color 0.2s;
     }
     /* Change font to Inter */
-    body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
+    body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover,
     body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header, .sc-classic .notificationBadge,
     .app-header-black-title, .sc-classic .header .creatorSubscriptionsButton {
         font-family: var(--font-main) !important;
     }
     .spotlightTitle, .sc-classic .spotlightTitle, .userstream__header, .sc-classic .userstream__header, .sc-font, .sc-classic .sc-font, input.headerSearch__input.sc-input.g-all-transitions-300::placeholder,
-    .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .sc-classic .velvetCakeModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell, .sc-classic .staticPage h2,  
+    .sidebarHeader__more, .sc-classic .sidebarHeader__more, .sc-font-light, .sc-classic .sc-font-light, .sc-type-medium, .sc-classic .sc-type-medium, .sc-type-small, .sc-classic .sc-type-small, .soundTitle__title, .sc-classic .soundTitle__title, .sc-ministats, .sc-classic .sc-ministats, .sc-input, .sc-input::placeholder, .header, .sc-classic .header, .mixedSelectionModule__titleText, .sc-classic .mixedSelectionModule__titleText, .sc-classic .velvetCakeModule__titleText, .notificationsPreferences__bodyCell, .sc-classic .notificationsPreferences__bodyCell, .notificationsPreferences__headerCell, .sc-classic .notificationsPreferences__headerCell, .sc-classic .staticPage h2,
     input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder, #onetrust-pc-sdk .ot-accordion-layout .ot-cat-header, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-pc-sdk #ot-pc-desc .privacy-notice-link, .sc-media-content .userItem__details,
     .sc-media-content .userItem__details, .sc-classic .frontContent__actions input[type=search]::placeholder, .sc-classic .tokenInput__input, .sc-classic ._10BTeIqCrlRC9qFdVckf7v, .sc-classic .l-footer.marketing a, .downloadLandingIntro__subheader, .sc-classic .downloadLanding__heading, .sc-classic .downloadLandingSection__header, .sc-classic .downloadLandingSection__copy, .sc-classic .commentForm .commentForm__input, .sc-select {
         font-weight: 300;
     }
-    body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .sc-classic .statsBadge__value, .infoStats__value, .sc-classic .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
+    body a, .sc-classic .header, .statsSummary__metricValue, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .sc-button, .sc-button-small:not(.sc-button-cta), .statsBadge__value, .sc-classic .statsBadge__value, .infoStats__value, .sc-classic .infoStats__value, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, .sc-classic .soundTitle.listenContext .soundTitle__title, .sc-classic .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover,
     body, .g-type-shrinkwrap-large-secondary, .g-type-shrinkwrap-large-secondary:visited, .g-type-shrinkwrap-secondary, .g-type-shrinkwrap-secondary:visited, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, .gritter-title, .sc-classic .g-form-section-title, .sc-classic .g-type-marketing-info, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .sc-type-large, .directSupport__copy, .signinRedirectMessage__text,
-    .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays), 
+    .sc-buylink-medium, .sc-classic .soundTitle__uploadTime, .sc-classic .headerSearch__input, .compactTrackListItem__trackTitle, .sc-classic .compactTrackListItem__trackTitle, button.headerSearch__submit.submit.sc-ir, form.headerSearch, #onetrust-banner-sdk #onetrust-policy-text, #onetrust-banner-sdk .ot-dpd-desc, #onetrust-banner-sdk .ot-b-addl-desc, .insightsSidebarModule.sc-font div:not(.insightsSidebarModule__plays),
     .sc-classic .g-type-shrinkwrap-large-secondary, .sc-classic .g-type-shrinkwrap-large-secondary:visited, .sc-classic .g-type-shrinkwrap-secondary, .sc-classic .g-type-shrinkwrap-secondary:visited, .sc-link-primary, .header__navWrapper .header__navMenu li a, .topStatsFullItem__count, .sc-label, .sc-classic .editTrackModalButton, .commentItem__createdAt, .commentItem__separator, .commentItem__timestamp, .commentItem__body, .sc-classic .commentItem__createdAt, .sc-classic .commentItem__separator, .sc-classic .commentItem__timestamp, .sc-classic .commentItem__body, .creatorLikeInline, .sc-classic .header .creatorSubscriptionsButton, .sidebarHeader__actualTitle__webi__style {
         font-weight: 400;
     }
@@ -4486,7 +4484,7 @@
         font-weight: 700;
     }
     @supports (font-variation-settings: normal) {
-        body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover, 
+        body, button, input, select, textarea, .soundTitle__uploadTime, .sc-type-light, .sc-tag, .sc-tag:visited, .soundTitle__title, .sc-font-light, .sc-button, .sc-button-small:not(.sc-button-cta), .sc-type-medium, .sc-type-small, .sc-ministats, .sc-font-body, .sc-input, .soundTitle.listenContext .soundTitle__title, .soundTitle.listenContext .soundTitle__title.g-type-shrinkwrap-inline:hover,
         body a, .sc-type-h1, .sc-type-h2, .sc-type-h3, .sc-type-h4, .sc-type-h5, .sc-type-h6, h1, h2, h3, h4, h5, h6, h7, h8, p, .sc-font, .mixedSelectionModule__titleText, .sc-classic .g-type-marketing-header,
         .app-header-black-title, .sc-classic .header .creatorSubscriptionsButton {
             font-family: var(--font-main)!important;
@@ -4498,7 +4496,7 @@
     .statsBadge__value, .infoStats__value {
         font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif!important;
     }
-    
+
     .sc-media-content .userItem__details {
         color: #ccc!important;
         font-weight: 300!important;
@@ -4764,7 +4762,7 @@
         .userInfoBar__buttons, .profileHeaderInfo__content.sc-media-content {
             margin-right: 80px!important;
         }
-        
+
         #app .l-container #content .l-listen-hero .soundTitle__usernameTitleContainer > * {
             overflow: hidden;
             display: -webkit-box;
@@ -4837,11 +4835,11 @@
     .insightsSidebarModule__title {
         font-size: 16px;
     }
-    
+
     /*[[sin]]*/
-    
+
      /* gdpr aka cookie consent dickbar */
-    
+
     #onetrust-consent-sdk #onetrust-banner-sdk,
     #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-info, #onetrust-consent-sdk #onetrust-pc-sdk .ot-acc-txt .ot-ven-dets {
         background-color: var(--shd-bg-primary);
@@ -4985,11 +4983,11 @@
     /*input[type=date]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=tel]::placeholder, input[type=text]::placeholder, input[type=url]::placeholder, select::placeholder, textarea::placeholder {
         font-weight: 300;
     }
-    .modal__modal { 
+    .modal__modal {
         background: #111;
         filter: brightness(1) contrast(1.1);
     }*/
-    
+
     .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional, .editTrackItem.m-dragging .editTrackItem__additional { /*Remove linear-gradient background on some selection areas*/
         background: none;
     }
@@ -5048,9 +5046,9 @@
         color: var(--special-color);
         color: color-mix(in oklab, var(--special-color), #ccc 20%);
     }
-    
+
     @supports (selector(:has(*))) { /* remove hover styling if an item is being dragged */
-        .sc-classic .header__right:not(:has(.header__moreButton)) > .header__link {  
+        .sc-classic .header__right:not(:has(.header__moreButton)) > .header__link {
             top: unset;
             bottom: 0;
             height: 46px;
@@ -5140,7 +5138,7 @@
         border: 1px solid #222;
         border-radius: 16px;
     }
-    
+
     @supports (selector(:has(*))) {
         .sc-classic .modal__modal, .sc-classic .modal__modal.transparentBackground,
         body:not(.sc-classic) .modal__modal, body:not(.sc-classic) .modal__modal.transparentBackground {
@@ -5355,7 +5353,7 @@
     .sc-classic .textfield.datefield .textfield__input {
         background: url("https://a-v2.sndcdn.com/assets/images/calendar-96bbd47c.svg") no-repeat right 8px center, var(--shd-bg-primary);
     }
-    
+
     .sc-classic .ui-datepicker, body:not(.sc-classic) .ui-datepicker {
         background: var(--shd-bg-primary);
         border: 1px solid #222;
@@ -5514,16 +5512,16 @@
         animation-delay: 470ms;
         transition-delay: 470ms;
     }
-    
+
     .g-opacity-transition-500 {
         transition: revert;
     }
-    
+
     .sc-button-follow.sc-button-lightfg.m-boldIcon:not(.sc-button-selected):before {
         background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZmlsbD0icmdiKDI1NSwgMjU1LCAyNTUpIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGQ9Ik0xMC41IDVjMy4yNSAwIDMuOTQ0IDMuMjM2IDIuNSA3IDMuNzE3IDEuNTM0IDQgNC44NSA0IDZINGMwLTEuMTUuMjgzLTQuNDY2IDQtNi0xLjQ0NS0zLjc3NS0uNzUtNyAyLjUtN3pNMTggNGExIDEgMCAwMTEgMXYxaDFhMSAxIDAgMDEwIDJoLTF2MWExIDEgMCAwMS0yIDBWNy45OTlMMTYgOGExIDEgMCAwMTAtMmwxLS4wMDFWNWExIDEgMCAwMTEtMXoiLz48L3N2Zz4K);
         filter: none;
     }
-    
+
     .sc-button-small.m-boldIcon.sc-button-follow:not(.sc-button-stretch-icon) {
         min-width: 25px;
     }
@@ -5533,7 +5531,7 @@
         background: inherit;
         transition-duration: inherit;
     }
-    
+
     div#searchMenuList {
         margin: 0 0px;
         border-radius: 8px;
@@ -5563,22 +5561,22 @@
     .autocompleteItem .sc-artwork:not(.image__rounded) {
         border-radius: 4px;
     }
-    
+
     .dropdownMenu .sc-list-nostyle .sc-button:hover,
-    .editTrackModalButton:not(:disabled):focus, 
+    .editTrackModalButton:not(:disabled):focus,
     .editTrackModalButton:not(:disabled):hover,
-    .sc-classic .editTrackModalButton:not(:disabled):focus, 
+    .sc-classic .editTrackModalButton:not(:disabled):focus,
     .sc-classic .editTrackModalButton:not(:disabled):hover {
         background: #2226;
         color: #fff;
 /*         transition-duration: 0.25s; */
     }
-    
+
     .sc-classic .linkMenu__activeItem,
     .sc-classic .linkMenu__item:hover {
         filter: hue-rotate(/*[[hue]]*/deg);
     }
-    
+
     .sc-button-dropdown.sc-button-dropdown-plain:not(.sc-button-disabled):not(:disabled) {
         border-color: #333;
         color: #ccc;
@@ -5590,7 +5588,7 @@
         background-color: #222;
         color: #ddd;
     }
-    
+
     .sc-classic .header__userNavButton,
     .sc-classic .header__userNavItem,
     .sc-classic .header__navMenu>li>a.header__moreButton,
@@ -5611,16 +5609,16 @@
         border-radius: 8px;
         box-shadow: inset 0 6px 16px #0009;
         transition-duration: 0.1s;
-    } 
+    }
     .header__userNavUsernameButton {
         height: 44px;
     }
-    
+
     .sc-classic .whoToFollowModule .sc-link-light:hover .sidebarHeader__more,
     .sc-classic .sc-link-light:hover .sidebarHeader__more__webi_style {
         filter: contrast(0.8) brightness(2);
     }
-    
+
     .soundTitle__titleHeroContainer {
         margin-top: 4px;
     }
@@ -5634,7 +5632,7 @@
     .sc-classic .mobileAppsButtons.m-sidebar {
         padding: 0px;
     }
-    
+
     /* navigation fix */
     .header__navMenu > li > a.header__moreButton.selected,
     .header__userNavButton.selected,
@@ -5656,7 +5654,7 @@
     .header__navMenu > li > a.header__moreButton:not(.selected):hover {
         filter: brightness(1.2);
     }
-    
+
     /* new navmenu */
     .header__navWrapper .header__navMenu li a {
         border: 0;
@@ -5688,7 +5686,7 @@
         transition-duration: 0.25s;
         filter: drop-shadow(0px 0px 6px #fff8);
     }
-    
+
     .header__navWrapper .header__navMenu li a:before {
         content: "";
         display: block;
@@ -5727,7 +5725,7 @@
     .header__navWrapper .header__navMenu li a.selected:before, .header__navWrapper .header__navMenu li a:hover:before, .header__navWrapper .header__navMenu>li>a:focus:before {
         opacity: 1;
     }
-    
+
     .profileHeader__edit {
         left: 232px!important;
     }
@@ -5736,7 +5734,7 @@
         margin-bottom: 24px;
         padding: 0;
     }
-    
+
     /* Report Button Fix */
     .reportCopyright {
         padding: 2px 9px 2px 24px;
@@ -5787,12 +5785,12 @@
         width: 20px;
         height: 18px;
     }
-    
+
     .sc-classic .sidebarInfoBox__body {
         background: var(--shd-bg-primary);
         border-radius: 4px;
     }
-    
+
     /* stats modal fix - see line 3728 */
     .sc-classic .modal__header ~ .modal__modal {
         padding: 25px;
@@ -5810,11 +5808,11 @@
     .stats__pager:before {
         filter: invert(1);
     }
-    
+
     .creatorsNavigation__onSoundCloudLink {
         background: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjY2NjYSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTExLDQgTDgsNCBMOCwzIEwxMywzIEwxMyw0IEwxMyw0IEwxMyw4IEwxMiw4IEwxMiw1IEw2LDEwIEw2LDEwIEwxMSw0IFoiPjwvcGF0aD4KICAgIDxwYXRoIGQ9Ik0zLDEyIEw5LDEyIEw5LDEzIEwzLDEzIEwzLDEyIFogTTMsMTIgTDMsNyBMNCw3IEw0LDEyIEwzLDEyIFogTTksMTMgTDksMTAgTDEwLDkgTDEwLDEzIEw5LDEzIFogTTMsNyBMMyw2IEw3LDYgTDYsNyBMMyw3IFoiPjwvcGF0aD4KPC9zdmc+) no-repeat 0 15px/16px 16px!important;
     }
-    
+
     .imageCrop__previewContainer.sc-artwork.sc-artwork-placeholder-9 {
         background-image: none;
     }
@@ -5833,7 +5831,7 @@
     .imageCrop__bottom.g-flex-row-centered-right {
         max-width: fit-content;
     }
-    
+
     /* Compact Messages area */
     .conversationBadge__image .image__lightOutline .image__full, .conversationBadge__image .image__lightOutline {
         height: 15px!important;
@@ -5848,7 +5846,7 @@
         margin-left: 19px;
     }
     /**/
-    
+
     .sc-classic .inboxItem {
         border-left: 4px solid transparent;
         border-radius: 4px;
@@ -5856,7 +5854,7 @@
     .sc-classic .inboxItem.active {
         background: linear-gradient(90deg, var(--shd-accent-primary) -400%, transparent);
     }
-    
+
     .paymentMethod__appleContent, .paymentMethod__editableContent, .paymentMethod__googlePlayContent,
     .currentPlan__planContainer, .currentPlan__planUpsell, .g-upsell-container,
     .sc-classic .paymentMethod__appleContent, .sc-classic .paymentMethod__editableContent, .sc-classic .paymentMethod__googlePlayContent,
@@ -5869,7 +5867,7 @@
     .sc-classic .editStatus__info {
         color: #eee;
     }
-    
+
     /* modal flexbox test */
     ul.g-tabs.g-tabs-large {
         display: flex;
@@ -5898,7 +5896,7 @@
     .sc-classic .tokenInput__label {
         padding-right: 8px;
     }
-    
+
     .sc-classic .tokenInput__input:not(.autoTagger *) {
         padding: 0;
         margin-right: -8px
@@ -5927,23 +5925,23 @@
     .baseFields__genreRow.g-flex-row-spread {
         margin: 0 0 8px;
     }
-    
+
     .sc-classic .activeUpload__shareContainer {
         background-color: initial;
     }
     .sc-visuallyhidden, .actorUser > .actorUser__username {
         user-select: none;
     }
-    
+
     .downloadLandingIntro {
         margin: 0 30px 160px;
     }
-    
+
     .trackList__list { /* Playlist sorting */
         display: flex;
         flex-direction: /*[[sort-pl]]*/;
     }
-    
+
     .dhG3yr_3xo0-P0NVkEUAf { /* edit preview */
         background-color: hsla(0,0%,7%,.7);
     }
@@ -5954,7 +5952,7 @@
     .sc-classic .imageSelect__hint { /* hint */
         color: #999;
     }
-    
+
     /* web auth */
     .webAuthContainerWrapper[style*="left: 255px"] { /* login */
         margin-left: 230px;
@@ -6039,7 +6037,7 @@
     .sc-classic .profileMenu .headerMenu__link:after {
         background-position: 50%;
     }
-    
+
     @supports (selector(:has(*))) {
         #app:not(body[marginwidth="0"][marginheight="0"] > #app):not(:has(> .playControls)),
         #app:not(:has(> .playControls)) header:not(.g-flex-row-spread),
@@ -6057,26 +6055,26 @@
         background: #000;
         border: 2px solid #000;
     }
-    
+
     .sc-classic button.editTrackModalButton {
         color: #b3b3b3;
         cursor: default;
     }
-    
+
     .l-main ~ .l-stats-footer {
         margin-bottom: 60px;
     }
     .l-main:last-child {
         margin-bottom: 60px;
     }
-    
+
     .announcements.m-offset {
         transform: translateY(-90px);
     }
     .crossfade-announcement {
         background: var(--shd-accent-blue) linear-gradient(180deg, #0005, #0004);
     }
-    
+
     /* 2023 comments update */
     .commentItem,
     .sc-classic .commentItem {
@@ -6109,7 +6107,7 @@
         margin-bottom: -3px;
         margin-left: 3px;
     }
-    
+
     .commentItem__timestampLink, .commentItem__timestampLink:hover, .commentItem__timestampLink:visited,
     .sc-classic .commentItem__timestampLink, .sc-classic .commentItem__timestampLink:hover, .sc-classic .commentItem__timestampLink:visited {
         background-color: #0000;
@@ -6121,7 +6119,7 @@
     .sc-classic .commentItem__createdAt, .sc-classic .commentItem__separator, .sc-classic .commentItem__timestamp {
         color: var(--font-secondary-color);
     }
-    
+
     .commentItem__controls,
     .sc-classic .commentItem__controls {
         visibility: visible;
@@ -6194,7 +6192,7 @@
         background-position: 50% 50%;
         filter: invert(1)
     }
-    
+
     .commentItem__replyButton:hover,
     .commentItem__replyButton:hover {
         border-color: #fff6;
@@ -6202,7 +6200,7 @@
         color: #eee !important;
         filter: drop-shadow(2px 2px 6px #000);
     }
-    
+
     .commentItem.m-isReply .commentForm.visible .commentForm__wrapper, .commentItem.m-isReply .commentForm.visible.m-small .commentForm__wrapper,
     .sc-classic .commentItem.m-isReply .sc-classic .commentForm.visible .commentForm__wrapper, .sc-classic .commentItem.m-isReply .commentForm.visible.m-small .commentForm__wrapper {
         border-radius: 12px !important;
@@ -6210,13 +6208,13 @@
     }
     /* Was going to try using an icon with the reply button but decided against it. */
     /* Un-comment The lines below to re-enable */
-    
+
 /*     .commentItem__replyButton, .commentItem__replyButton:hover, .commentItem__replyButton:visited,
     .sc-classic .commentItem__replyButton, .sc-classic .commentItem__replyButton:hover, .sc-classic .commentItem__replyButton:visited {
         text-indent: 17px;
     }
     .commentItem__replyButton:before,
-    .sc-classic .commentItem__replyButton:before { 
+    .sc-classic .commentItem__replyButton:before {
         content: "";
         display: block;
         position: absolute;
@@ -6231,7 +6229,7 @@
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%23ddd' fill-rule='evenodd' d='M5 3a2 2 0 0 0-2 2v3c0 1.1.9 2 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm0 7v3l3-3H5Z'/%3E%3C/svg%3E");
         background-size: 17px 17px;
     } */
-    
+
     /* feed comment fixes */
     .sc-classic .sound.streamContext .commentForm.m-small,
     .sc-classic .sound.streamContext .commentForm.visible.m-small,
@@ -6252,7 +6250,7 @@
         align-items: stretch;
     }
     /* !!! Uncomment below if you have issues with comment boxes not showing properly !!! */
-    /* .sc-classic .sound.streamContext .commentForm.visible.m-small, .sound.streamContext .commentForm.visible.m-small { 
+    /* .sc-classic .sound.streamContext .commentForm.visible.m-small, .sound.streamContext .commentForm.visible.m-small {
         --comment-height: 30px;
     } */
     @supports (selector(:has(*))) {
@@ -6276,7 +6274,7 @@
             opacity: 1;
             margin-top: 4px;
         }
-        
+
          .streamContext.visualSound.playing:not(.focused) .sound__waveform:has(.commentPlaceholder.visible) ~ .commentForm.visible.m-small,
          .streamContext.visualSound.playing:not(.focused) .sound__waveform:has(.commentPlaceholder.visible) ~ .commentForm.visible,
          body:not(.sc-classic) .streamContext.visualSound.playing:not(.focused) .sound__waveform:has(.commentPlaceholder.visible) ~ .commentForm.visible.m-small,
@@ -6321,9 +6319,9 @@
         opacity: 1;
         margin-top: 4px;
     }
-    .sc-classic .visualSound.streamContext .commentForm.visible, 
+    .sc-classic .visualSound.streamContext .commentForm.visible,
     .sc-classic .visualSound.streamContext .commentForm.visible.m-small,
-    body:not(.sc-classic) .visualSound.streamContext .commentForm.visible, 
+    body:not(.sc-classic) .visualSound.streamContext .commentForm.visible,
     body:not(.sc-classic) .visualSound.streamContext .commentForm.visible.m-small {
         margin-top: 25px;
     }
@@ -6393,16 +6391,16 @@
     body:not(.sc-classic) .commentForm .commentForm__avatar > .sc-artwork {
         border-radius: 8px;
     }
-    
+
     .visualSound.streamContext.playing .commentForm.visible + .sound__footer {
         margin-top: 12px;
         transition: none;
     }
-    
+
     .commentForm__transition {
         transition: opacity .6s;
     }
-    
+
     .commentForm .commentForm__newCommentWrapper, .commentForm__inputContainer {
         height: 100%;
     }
@@ -6420,11 +6418,11 @@
     .sc-classic .sound__content .commentPopover.visible .commentPopover__body, .sc-classic .sound__content .commentPopover.visible .commentPopover__username {
         padding-top: 6px;
     }
-    
+
     .visualSound.playing:not(.focused) .visualSound__progress {
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
-    
+
     /* comment like button */
 
     .uiEvoButton--isLight.commentItem__likeButton,
@@ -6532,7 +6530,7 @@
         opacity: 1;
         transform: scale(1.1);
     }
-    
+
     /* comment send button */
     .sc-classic .commentForm__submitButton, .commentForm__submitButton {
         -webkit-user-select: none;
@@ -6571,34 +6569,34 @@
         box-shadow: inset 0px 1px 6px 0px #0008, 2px 2px 6px #000;
         background-color: var(--shd-accent-secondary) !important;
     }
-    
+
     /* comment names */
     .commentItem__creatorLink, .commentItem__creatorLink:hover, .commentItem__creatorLink:visited, .commentItem__username, .commentItem__usernameLink, .commentItem__usernameLink:hover, .commentItem__usernameLink:visited,
     .sc-classic .commentItem__creatorLink, .sc-classic .commentItem__creatorLink:hover, .sc-classic .commentItem__creatorLink:visited, .sc-classic .commentItem__username, .sc-classic .commentItem__usernameLink, .sc-classic .commentItem__usernameLink:hover, .sc-classic .commentItem__usernameLink:visited {
         color: #fff;
     }
-    
+
     .image__rounded,
     .sc-classic .image__rounded,
     body:not(.sc-classic) .profileHeaderInfo__avatar .editImage__Overlay {
         border-radius: max(/*[[avradius]]*/%, calc(/*[[avradius]]*/px * 0.75));
     }
-    
+
     @supports (selector(:has(*))) { /* hide promoted tracks */
         .sc-classic li.soundList__item:has(.soundContext .sc-promoted-icon) {
             /*[[promoted]]*/
         }
     }
     /**/
-    
+
     /* adblock */
-    .sc-classic .playControlsPanel.sc-font-body.sc-background-darkgrey.is-active, 
+    .sc-classic .playControlsPanel.sc-font-body.sc-background-darkgrey.is-active,
     .playlistConsumerSubUpsell__messageBox, .sc-classic .playlistConsumerSubUpsell__messageBox,
     .sidebarModule.mobileApps {
         /*[[adblk]]*/
     }
     /**/
-    
+
     /* Homepage insights ("Your Latest Upload") */
     .sc-button-pinToProfile:before {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13' fill='none'%3E%3Cpath d='M3.40725 8.88557L0.460991 5.93931C0.265729 5.74405 0.265729 5.42746 0.460991 5.2322C1.28209 4.4111 2.41921 3.98692 3.57747 4.06965L3.95369 4.09652L6.82495 1.22526C7.54091 0.509303 8.70171 0.509303 9.41768 1.22526L11.7747 3.58229C12.4907 4.29825 12.4907 5.45905 11.7747 6.17501L8.90344 9.04627L8.93031 9.42249C9.01305 10.5807 8.58886 11.7179 7.76776 12.539C7.5725 12.7342 7.25592 12.7342 7.06065 12.539L4.11436 9.59268L1.75735 11.9497L1.05025 11.2426L3.40725 8.88557ZM7.53206 1.93237L4.49936 4.96507C4.39682 5.06761 4.25482 5.12058 4.11018 5.11025L3.50623 5.06711C2.80562 5.01707 2.11531 5.21424 1.55127 5.61537L7.38459 11.4487C7.78572 10.8847 7.9829 10.1943 7.93285 9.49374L7.88971 8.88978C7.87938 8.74514 7.93235 8.60314 8.03489 8.50061L11.0676 5.46791C11.393 5.14247 11.393 4.61483 11.0676 4.28939L8.71057 1.93237C8.38513 1.60693 7.8575 1.60693 7.53206 1.93237Z' fill='%23222' stroke='%23222' stroke-width='0.6'/%3E%3C/svg%3E%0A");
@@ -6611,7 +6609,7 @@
     .latestUploadModule__moreActionsButton.sc-button-active:before, .latestUploadModule__moreActionsButton.sc-button-selected:before {
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjE0cHgiIGhlaWdodD0iNHB4IiB2aWV3Qm94PSIwIDAgMTQgNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICA8dGl0bGU+bW9yZTwvdGl0bGU+CiAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9InJnYigyNTUsIDg1LCAwKSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxjaXJjbGUgY3g9IjIiIGN5PSIyIiByPSIyIi8+CiAgICA8Y2lyY2xlIGN4PSI3IiBjeT0iMiIgcj0iMiIvPgogICAgPGNpcmNsZSBjeD0iMTIiIGN5PSIyIiByPSIyIi8+CiAgPC9nPgo8L3N2Zz4K) !important;
     }
-    
+
     .latestUploadContainer__soundDetails {
         max-width: 100%;
     }
@@ -6639,9 +6637,9 @@
         height: auto;
         margin-bottom: 0;
     }
-    
+
     /*[[hin]]*/
-    
+
     /* fix queue buttons */
     .sc-classic .queueItemView__like.sc-button-small.sc-button-like:not(.sc-button-selected):before {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23ccc' fill-rule='evenodd' d='M10.8 3C8.78 3 8 5.34 8 5.34S7.21 3 5.2 3C3.5 3 1.75 4.1 2.03 6.51c.34 2.96 5.72 6.48 5.96 6.5.24 0 5.74-3.73 6-6.5C14.18 4.2 12.5 3 10.8 3Z'/%3E%3C/svg%3E");
@@ -6649,7 +6647,7 @@
     .sc-button-medium.sc-button-like:before {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23222' fill-rule='evenodd' d='M10.8 3C8.78 3 8 5.34 8 5.34S7.21 3 5.2 3C3.5 3 1.75 4.1 2.03 6.51c.34 2.96 5.72 6.48 5.96 6.5.24 0 5.74-3.73 6-6.5C14.18 4.2 12.5 3 10.8 3Z'/%3E%3C/svg%3E");
     }
-    
+
     /* better upload-in-progress button */
     .header__soundInput > .uploadButton.selected.active .uploadButton__title {
         font-size: 0;
@@ -6705,12 +6703,12 @@
         -webkit-text-stroke: thin;
         text-stroke: thin;
     }
-    
+
     /* 2fa settings */
     .sc-classic iframe#two-factor-iframe, .theme-light iframe#two-factor-iframe {
         filter: brightness(0.9335) invert(1) hue-rotate(180deg);
     }
-    
+
     /* textfield clear button */
     .sc-classic .textfield__clear {
         background: #444;
@@ -6722,7 +6720,7 @@
         width: 8px;
         margin-left: -4px;
     }
-    
+
     /* filter dropdown */
     .sc-classic .linkMenu__link {
         padding: 0 12px;
@@ -6730,7 +6728,7 @@
     .sc-classic .linkMenu__list {
         padding: 6px 0;
     }
-    
+
     /* 2024 "get heard" */
     .getHeard__container,
     .sc-classic .getHeard__container {
@@ -6749,7 +6747,7 @@
     .getHeard__firstFansMoreInfoLinkArrow, .sc-classic .getHeard__firstFansMoreInfoLinkArrow {
         filter: invert(1);
     }
-    
+
     /* homepage - artist connect */
     .artistConnectContainerItem__userInfo>.profileHeaderBackground,
     .artistConnectContainer .artistConnectContainerItem__userInfo>.profileHeaderBackground.artistConnectContainerItem__background.m-visualLoaded>.profileHeaderBackground__visual{
@@ -6855,12 +6853,12 @@
     .artistConnect.artistConnectContext.visualSound .soundTitle__username {
         display: none;
     }
-    .artistConnect.artistConnectContext .sound__coverArt .sc-artwork, 
+    .artistConnect.artistConnectContext .sound__coverArt .sc-artwork,
     .sound.artistConnectContext .sound__coverArt {
         height: 72px;
         width: 72px;
     }
-    
+
     .sound.artistConnectContext .sound__artwork {
         margin-right: 8px;
         margin-right: var(--spacing-1x);
@@ -6872,7 +6870,7 @@
     .artistConnect.artistConnectContext.sound:not(.focused) .soundTitle.m-visualSound.m-playing .soundTitle__username {
         opacity: 1;
     }
-    
+
     .artistConnectSoundBadge__commentAndTag .commentForm.commentForm__transition.m-small.visible .commentForm__wrapper {
         height: var(--comment-height);
         margin: 0;
@@ -6914,14 +6912,14 @@
             background-position: left;
         }
     }
-    
+
     .userStats__item:before {
         filter: contrast(0) brightness(1.2)
     }
     .userStats__item, .userStats__item:hover, .userStats__item:visited {
         color: #ccc !important;
     }
-    
+
     /* your first upload */
     .firstUploadNudge__soundArtwork.audibleTile.playableTile {
         max-width: 128px;
@@ -6935,7 +6933,7 @@
     .firstUploadNudge__soundDetails {
         overflow: unset;
     }
-    
+
     /* events near you */
     .velvetCakeModuleWrapper, .velvetCakeModule {
         /*[[evt]]*/
@@ -6965,16 +6963,16 @@
     .velvetCakeModule {
        container: eventsIframe / inline-size;
     }
-    
+
     /* on tour sidebar */
     /* hide if empty */
     .userSidebar > .sidebarModule:has(> .sidebarContent > .velvetCakeIframe.m-hidden) {
         display: none;
     }
-    
+
     /* hide logo option */
     /*[[logo]]*/
-    
+
     /* captcha/blocked */
     div[style*="z-index:2147483647;background-color:#ffffff"] {
         height: 100% !important;
@@ -6995,7 +6993,7 @@
         z-index: 3000 !important;
     }
     /* fancy transitions arent worth it for this but they're here if you want em */
-    /* div[style*="z-index:2147483647;background-color:#ffffff"] { 
+    /* div[style*="z-index:2147483647;background-color:#ffffff"] {
         opacity: 0.9;
         bottom: -120px;
         transform: scale(0.8);
@@ -7016,23 +7014,23 @@
         overflow: hidden;
         overflow-y: auto;
     }
-    
+
     /* your soundcloud 2024 */
     .ysc24-banner {
         background-size: cover;
     }
-    
+
     /* sidebar class update */
     .sc-classic .sidebarHeader, .sidebarHeader {
         display: flex;
         margin-left: -4px;
     }
-    
+
     .sidebarHeader__more__webi_style, .sc-classic .sidebarHeader__more__webi_style {
         color: #999;
         font-size: 13px;
     }
-    
+
     .sidebarHeader__actualTitle__webi__style, .sc-classic .sidebarHeader__actualTitle__webi__style {
         color: #fff;
         text-transform: none;
@@ -7080,7 +7078,7 @@
     .mobileApps .sidebarHeader__title:before {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23999' d='M17 19H7V5h10m0-4H7c-1.11 0-2 .89-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2'/%3E%3C/svg%3E");
     }
-    
+
     .sc-classic .whoToFollowModule .sidebarHeader__more__webi_style,
     .whoToFollowModule .sidebarHeader__more__webi_style {
         background-image: url(https://a-v2.sndcdn.com/assets/images/refresh-de07f592.svg);
@@ -7090,13 +7088,13 @@
         padding-left: 20px;
         background-size: 18px 18px
     }
-    
+
     /* dark playlist backgrounds */
     .soundBadge.playlist .soundBadge__artwork {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='124' height='124' viewBox='0 0 512 512'%3E%3Cfilter id='a'%3E%3CfeGaussianBlur result='a' stdDeviation='3'/%3E%3CfeComposite in='SourceGraphic' in2='a' operator='out' result='b'/%3E%3CfeFlood flood-color='%23000' flood-opacity='.2' result='c'/%3E%3CfeComposite in='c' in2='b' operator='in' result='d'/%3E%3CfeComposite in='d' in2='SourceGraphic'/%3E%3C/filter%3E%3Cfilter id='b'%3E%3CfeMorphology radius='3'/%3E%3CfeGaussianBlur result='a' stdDeviation='3'/%3E%3CfeComposite in='SourceGraphic' in2='a' operator='out' result='b'/%3E%3CfeFlood flood-color='%23000' flood-opacity='.3' result='c'/%3E%3CfeComposite in='c' in2='b' operator='in' result='d'/%3E%3CfeComposite in='d' in2='SourceGraphic'/%3E%3C/filter%3E%3Cfilter id='c'%3E%3CfeMorphology radius='3'/%3E%3CfeGaussianBlur result='a' stdDeviation='3'/%3E%3CfeComposite in='SourceGraphic' in2='a' operator='out' result='b'/%3E%3CfeFlood flood-color='%23000' flood-opacity='.15' result='c'/%3E%3CfeComposite in='c' in2='b' operator='in' result='d'/%3E%3CfeComposite in='d' in2='SourceGraphic'/%3E%3C/filter%3E%3Cfilter id='d'%3E%3CfeDropShadow dx='0' dy='8' flood-opacity='.2' stdDeviation='8'/%3E%3C/filter%3E%3Cfilter id='e'%3E%3CfeDropShadow dx='0' dy='0' flood-opacity='.1' stdDeviation='3.5'/%3E%3C/filter%3E%3Cpath fill='%23222' d='m425.52 507.33 81.3-419.62L88.66 6.68 7.34 426.3l418.18 81.03Z' filter='url(%23c) url(%23e)'/%3E%3Cpath fill='%23333' d='m438.46 8.85 68.17 428.95-430.09 68.36L8.37 77.2 438.46 8.85Z' filter='url(%23b) url(%23e)'/%3E%3Cpath fill='%23333' d='M50 50h404v404H50z' filter='url(%23a) url(%23d)'/%3E%3C/svg%3E");
     }
 
-    
+
     /* artist tools */
     body[style="background-color:transparent"] .mui-12ojesd .MuiTypography-h5 {
         display: flex;
@@ -7129,9 +7127,9 @@
         fill-opacity: 0.15
     }
 
-    
+
     /*[[at]]*/
-    
+
     /* compact mode */
     /*[[compact]]*/ {
         #app > header {
@@ -7348,7 +7346,7 @@
             width: 225px;
             transition-duration: 0.25s;
         }
-        
+
         .dropdownMenu.g-z-index-header-menu[style*="width: 51px;"] {
             width: 225px !important;
         }
@@ -7387,7 +7385,7 @@
         .searchOptions__container, .searchOptions__navigationItem {
             width: auto !important;
         }
-        
+
         .sc-classic .l-messages-left, .l-messages-left, body:not(.sc-classic) .l-messages-left {
             top: 8px !important;
             bottom: 0;
@@ -7424,14 +7422,14 @@
             #app .l-container #content .l-user-hero .profileHeader .profileHeaderInfo__content .profileHeaderInfo__userName {
                 max-width: calc(100vw - 428px) !important;
             }
-            
+
             body:not(.sc-classic) .tileGallery .playableTile,
             body:not(.sc-classic) .tileGallery .userBadgeListItem,
             .sc-classic .tileGallery .playableTile,
             .sc-classic .tileGallery .userBadgeListItem {
                 width: 14vw;
             }
-            
+
             #app .l-container #content .l-listen-hero .soundTitle__usernameTitleContainer > * {
                 overflow: hidden;
                 display: -webkit-box;
@@ -7503,7 +7501,7 @@
             right: max(calc(100vw - 298px), calc(698px - 100vw));
         }
     }*/
-    
+
     /* promotion popups */
     #moe-osm-pusher {
         max-height: 56px;
@@ -7516,7 +7514,7 @@
     .brz-row__container .brz-bg-color {
         border-radius: 12px;
     }
-    .brz-row__container > .brz-row > .brz-columns:last-of-type, 
+    .brz-row__container > .brz-row > .brz-columns:last-of-type,
     .brz-row__container > .brz-row > .brz-columns:last-of-type .brz-bg * {
         border-radius: 0 12px 12px 0;
     }
@@ -7544,12 +7542,12 @@
     .brz .brz-container__wrap .brz-popup2__close {
         color: rgba(var(--brz-global-color1),1) !important;
     }
-    
+
     /* minify & inline slow-loading icons */
     /* 1260 B -> 769 B */
     .sc-classic .m-light .profileMenu__stations:after {
         background-image: url(https://a-v2.sndcdn.com/assets/images/stations-dark-9ffb9f94.svg);
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23333' d='M3.87 3.11c.23.22.24.59 0 .81a5.68 5.68 0 0 0 .07 8.15c.23.22.23.59 0 .81a.6.6 0 0 1-.84 0 6.81 6.81 0 0 1-.06-9.76.6.6 0 0 1 .83 0zm9.02 0a6.85 6.85 0 0 1 .12 9.77.6.6 0 0 1-.83.01.57.57 0 0 1-.01-.81 5.7 5.7 0 0 0-.1-8.15.57.57 0 0 1-.01-.81.6.6 0 0 1 .82-.01zm-2 1.55a4.8 4.8 0 0 1 1.39 3.41c0 1.23-.45 2.38-1.24 3.25a.54.54 0 0 1-.79.02.61.61 0 0 1-.02-.83c.6-.66.93-1.52.93-2.44 0-.98-.38-1.9-1.04-2.56a.61.61 0 0 1-.02-.83.54.54 0 0 1 .79-.02zm-5.08 0c.23.23.24.6.02.84a3.6 3.6 0 0 0-.96 2.46c0 .96.37 1.86 1.02 2.53a.6.6 0 0 1 0 .83.56.56 0 0 1-.81 0 4.8 4.8 0 0 1-1.36-3.36c0-1.24.47-2.4 1.28-3.28a.56.56 0 0 1 .81-.02zM8 6.45a1.55 1.55 0 1 1 0 3.1 1.55 1.55 0 0 1 0-3.1z'/%3E%3C/svg%3E"); 
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23333' d='M3.87 3.11c.23.22.24.59 0 .81a5.68 5.68 0 0 0 .07 8.15c.23.22.23.59 0 .81a.6.6 0 0 1-.84 0 6.81 6.81 0 0 1-.06-9.76.6.6 0 0 1 .83 0zm9.02 0a6.85 6.85 0 0 1 .12 9.77.6.6 0 0 1-.83.01.57.57 0 0 1-.01-.81 5.7 5.7 0 0 0-.1-8.15.57.57 0 0 1-.01-.81.6.6 0 0 1 .82-.01zm-2 1.55a4.8 4.8 0 0 1 1.39 3.41c0 1.23-.45 2.38-1.24 3.25a.54.54 0 0 1-.79.02.61.61 0 0 1-.02-.83c.6-.66.93-1.52.93-2.44 0-.98-.38-1.9-1.04-2.56a.61.61 0 0 1-.02-.83.54.54 0 0 1 .79-.02zm-5.08 0c.23.23.24.6.02.84a3.6 3.6 0 0 0-.96 2.46c0 .96.37 1.86 1.02 2.53a.6.6 0 0 1 0 .83.56.56 0 0 1-.81 0 4.8 4.8 0 0 1-1.36-3.36c0-1.24.47-2.4 1.28-3.28a.56.56 0 0 1 .81-.02zM8 6.45a1.55 1.55 0 1 1 0 3.1 1.55 1.55 0 0 1 0-3.1z'/%3E%3C/svg%3E");
     }
     /* 1283 B -> 548 B */
     .sc-classic .m-light .profileMenu__earnings:after, .m-light .profileMenu__earnings:after {
@@ -7559,9 +7557,9 @@
     /* 1580 B -> 336 B */
     .sc-button-medium.sc-button-startstation:before {
         background-image: url(https://a-v2.sndcdn.com/assets/images/start-station-ea018c5a.svg);
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 14'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='9' cy='7' r='2.5' fill='%23222'/%3E%3Cpath stroke='%23222' d='M15.03 13a8.47 8.47 0 0 0 .03-11.97m-2.16 9.84a5.48 5.48 0 0 0 .04-7.7M3.02.96a8.47 8.47 0 0 0 0 12.08'/%3E%3Cpath stroke='%23222' d='M5.1 3.12a5.48 5.48 0 0 0 .05 7.81'/%3E%3C/g%3E%3C/svg%3E"); 
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 14'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='9' cy='7' r='2.5' fill='%23222'/%3E%3Cpath stroke='%23222' d='M15.03 13a8.47 8.47 0 0 0 .03-11.97m-2.16 9.84a5.48 5.48 0 0 0 .04-7.7M3.02.96a8.47 8.47 0 0 0 0 12.08'/%3E%3Cpath stroke='%23222' d='M5.1 3.12a5.48 5.48 0 0 0 .05 7.81'/%3E%3C/g%3E%3C/svg%3E");
     }
-    
+
     /* quota meter */
     .sc-classic .quotaMeter__lightLine, .sc-classic .quotaMeter__upsellText,
     .quotaMeter__lightLine, .quotaMeter__upsellText {
@@ -7570,7 +7568,7 @@
     .quotaMeter__link {
         color: #ccc !important;
     }
-    
+
     /* spotlight */
     .sc-classic .showSpotlightUpsellBanner.spotlightUpsellBanner,
    .showSpotlightUpsellBanner.spotlightUpsellBanner {
@@ -7582,16 +7580,16 @@
         width: 100%;
         background: none;
     }
-    
+
     /* reposts filter (finally) */
     .streamFilter__label {
         color: #ccc;
     }
-    
+
     .conversationMessage__scLinkPlaceholder {
         background-image: url(https://a-v2.sndcdn.com/assets/images/loader-dark-45940ae3d4.gif)
     }
-    
+
     /* keep your likes banner */
     .l-listen-keep-your-likes-banner, .keep-your-likes-banner-container {
         /*[[prban]]*/
@@ -7612,9 +7610,9 @@
     .keepYourLikes__subtitle {
         font-weight: 400;
     }
-    
+
     /*----------------- the other soundcloud ui redesign (april 2025) ----------------*/
-    
+
     body:not(.sc-classic) .l-content {
         margin-bottom: 30px;
     }
@@ -7622,7 +7620,7 @@
         margin-bottom: 0;
         padding-bottom: 90px;
     }
-    
+
     /* discover */
     .playableTile__usernameHeading, a.playableTile__usernameHeading {
         font-weight: 300;
@@ -7693,7 +7691,7 @@
     .userBadgeListItem__subtitle .sc-ministats.sc-ministats-followers.g-flex-row-centered {
         margin-left: -4px
     }
-    
+
     /* user section */
     .header__inner .header__logo .header__logoLink svg {
         display: none;
@@ -7752,13 +7750,13 @@
     .newItemBadge.newItems__some {
         color: #f50;
     }
-    
+
     /* nav section */
     body:not(.sc-classic) .header>li>a:focus, body:not(.sc-classic) .header__navMenu>li>a.selected {
         border-bottom: unset;
     }
-    
-    
+
+
     /* search */
     .sc-input {
         height: 32px;
@@ -8019,7 +8017,7 @@
     .queueItemView:not(.m-active):hover .queueItemView__dragHandle {
         opacity: 1;
     }
-    
+
     /* modals */
     .modal__content .tabs__tabs {
         padding: 10px 25px 0;
@@ -8078,7 +8076,7 @@
     #gritter-notice-wrapper {
         top: 30px;
     }
-    
+
     /* user page header */
     body:not(.sc-classic) .profileHeaderInfo__avatar {
         margin-right: 30px;
@@ -8102,7 +8100,7 @@
         right: 0;
         bottom: 9px;
     }
-    
+
     body:not(.sc-classic) .profileHeaderInfo__avatar .editImage__Overlay {
         background-color: hsla(0,0%,100%,.1);
     }
@@ -8112,7 +8110,7 @@
     .dropbar__content {
         padding: 0 30px;
     }
-    
+
     /* user page tabs */
     body:not(.sc-classic) .userInfoBar {
         display: block;
@@ -8129,7 +8127,7 @@
         font-size: 18px;
         line-height: 1.8;
     }
-    
+
     /* user likes/followed/following */
     body:not(.sc-classic) .l-fixed-top-one-column>.l-top {
         top: 0;
@@ -8157,7 +8155,7 @@
     .userNetwork .userBadgeListItem__action {
         z-index: 5;
     }
-    
+
     /* user page content */
     .soundTitle__info {
         font-size: 12px;
@@ -8221,7 +8219,7 @@
     .actorUser__username {
         display: flex;
     }
-    
+
     /* user tooltip */
     .userDialogBadge__stats .sc-ministats.sc-ministats-followers > div[style]:first-child,
     .userDialogBadge__stats .sc-ministats.sc-ministats-followers > div[style]:first-child > svg {
@@ -8248,7 +8246,7 @@
         margin-top: 3px;
         width: auto;
     }
-    
+
     /* compact playlist */
     .compactTrackListItem__image {
         margin: 0 5px 0 0;
@@ -8287,7 +8285,7 @@
     a.compactTrackList__moreLink:hover {
         color: #999;
     }
-    
+
     /* listen page */
     .fullHero__parentLink {
         margin-left: calc(64px + var(--spacing-2x))
@@ -8333,7 +8331,7 @@
     .trackItem__actions {
         margin: 6px;
     }
-    
+
     /* messages */
     body:not(.sc-classic) .send-message-button-container > h1 {
         font-size: 24px;
@@ -8347,7 +8345,7 @@
     body:not(.sc-classic) .conversation__messages {
         width: auto;
     }
-    
+
     /* notifications */
     body:not(.sc-classic) .notificationBadge--unreadIndicator {
         left: unset;
@@ -8360,7 +8358,7 @@
         border-top-right-radius: 4px;
         background: linear-gradient(-135deg, var(--special-color) 50%, transparent 50%)
     }
-    
+
     /* comments */
     .commentsList .commentsList__title {
         text-indent: 28px;
@@ -8385,13 +8383,13 @@
     .commentItem__avatarWrapper {
         line-height: 0;
     }
-    
+
     /* carousels */
-    body:not(.sc-classic) .tileGallery__sliderButton, 
+    body:not(.sc-classic) .tileGallery__sliderButton,
     body:not(.sc-classic) .tileGallery__sliderButton:active {
         background-color: unset;
     }
-    
+
     /* artist shortcuts / stories */
     /* this isnt even a bug by me soundcloud just forgot to fix this */
     body:not(.sc-classic) .storyItemInfo__iconRepost {
@@ -8401,7 +8399,7 @@
         mask-position: 40%;
         mask-size: auto 18px;
     }
-    
+
     /* library */
     body:not(.sc-classic) .collection .playableTile {
         padding-bottom: 0;
@@ -8410,7 +8408,7 @@
     .badgeList__item .playableTile__artwork {
         transform: scale(0.98);
     }
-    
+
     /* buttons */
     .sc-button-group>.sc-button, .sc-button-toolbar>.sc-button {
         margin-right: 8px;
@@ -8584,7 +8582,7 @@
     .sc-ministats.sc-ministats-comments>div[style] {
         margin-right: 3px !important;
     }
-    
+
     /* restore button text */
     @media only screen and (min-width: 1383px) {
         .sound.streamContext .sound__soundActions .sc-button-like .sc-button-label[style="display: none;"],
@@ -8644,12 +8642,12 @@
             display: none;
         }
     }
-    
-    
+
+
     /* restore follow icons */
 /*     .sc-button-medium.sc-button-addtoset, .sc-button-medium.sc-button-block, .sc-button-medium.sc-button-camera, .sc-button-medium.sc-button-copylink, .sc-button-medium.sc-button-delete, .sc-button-medium.sc-button-distribute, .sc-button-medium.sc-button-download, .sc-button-medium.sc-button-edit, .sc-button-medium.sc-button-follow, .sc-button-medium.sc-button-like, .sc-button-medium.sc-button-message, .sc-button-medium.sc-button-moderate, .sc-button-medium.sc-button-pageleft, .sc-button-medium.sc-button-pageright, .sc-button-medium.sc-button-privacy, .sc-button-medium.sc-button-refresh, .sc-button-medium.sc-button-reply, .sc-button-medium.sc-button-repost, .sc-button-medium.sc-button-share, .sc-button-medium.sc-button-start-station
     .sc-button-addtoset:before, .sc-button-block:before, .sc-button-buy:before, .sc-button-camera:before, .sc-button-copylink:before, .sc-button-delete:before, .sc-button-distribute:before, .sc-button-download:before, .sc-button-edit:before, .sc-button-follow:before, .sc-button-gotostats:before, .sc-button-insights:before, .sc-button-like:before, .sc-button-mastering:before, .sc-button-message:before, .sc-button-moderate:before, .sc-button-more:before, .sc-button-pageleft:before, .sc-button-pageright:before, .sc-button-privacy:before, .sc-button-queue:before, .sc-button-refresh:before, .sc-button-reply:before, .sc-button-report:before, .sc-button-repost:before, .sc-button-share:before, .sc-button-startstation:before, .sc-button-upload:before, .sc-button-viewonsoundcloud:before */
-    
+
     .sc-button-medium.sc-button-follow:not(:has(> div > svg)),
     .sc-button-medium.sc-button-refresh:not(:has(> div > svg)) {
         text-indent: 16px;
@@ -8677,7 +8675,7 @@
         position: relative;
         left: 0;
     }
-    
+
 /*     .sc-button-small.sc-button-selected.sc-button-follow.sc-button-icon-light:before,
     .sc-button-small.sc-button-selected.sc-button-follow:before {
         background-image: var(--sc-old-follow-selected-orange);
@@ -8731,10 +8729,10 @@
     .sc-button-cta.sc-button-insights:before {
         background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0icmdiKDI1NSwgMjU1LCAyNTUpIiBkPSJNMyA2LjVjMC0uMjc2LjIxNi0uNS40OTUtLjVoMi4wMWMuMjczIDAgLjQ5NS4yMjkuNDk1LjV2MTFjMCAuMjc2LS4yMTYuNS0uNDk1LjVoLTIuMDFDMy4yMjIgMTggMyAxNy43NzEgMyAxNy41di0xMXptNy00LjAwNGMwLS4yNzQuMjE2LS40OTYuNDk1LS40OTZoMi4wMWMuMjczIDAgLjQ5NS4yMjYuNDk1LjQ5NnYxNS4wMDhjMCAuMjc0LS4yMTYuNDk2LS40OTUuNDk2aC0yLjAxYy0uMjczIDAtLjQ5NS0uMjI2LS40OTUtLjQ5NlYyLjQ5NnptNyA3LjAxNGMwLS4yODIuMjE2LS41MS40OTUtLjUxaDIuMDFjLjI3MyAwIC40OTUuMjIyLjQ5NS41MXY3Ljk4YzAgLjI4Mi0uMjE2LjUxLS40OTUuNTFoLTIuMDFjLS4yNzMgMC0uNDk1LS4yMjItLjQ5NS0uNTFWOS41MXpNMi41IDIwaDE5Yy4yNzYgMCAuNS4yMjQuNS41djFjMCAuMjc2LS4yMjQuNS0uNS41aC0xOWMtLjI3NiAwLS41LS4yMjQtLjUtLjV2LTFjMC0uMjc2LjIyNC0uNS41LS41eiIvPgogICAgPC9nPgo8L3N2Zz4K)
     }
-    
-    
+
+
     /* new soundcloud ui redesign */
-    
+
     /* dark mode variables */
     :root, .mui-theme-light, .mui-theme-dark, ._1bqm8km0, ._1iz3r9b0 {
         --_4g70vm0: var(--shd-accent-primary);
@@ -8983,21 +8981,21 @@
         --mui-overlays-0: none;
     }
     /* this is going to be hell to maintain */
-    
+
     html._1iz3r9b0 > body:not(.sc-classic) {
         background: var(--shd-bg-primary) !important;
     }
-    
+
     button.MuiButton-containedPrimary /* black button text */
-    { 
+    {
         color: var(--variant-containedColor);
     }
-    
+
     .MuiButtonBase-root svg > path[fill="#000"] /* black button icons */
     {
         fill: currentColor !important;
     }
-    
+
     .MuiSwitch-colorSuccess.Mui-checked + .MuiSwitch-track, /* switch button */
     .MuiButton-containedSuccess /* generic green button (like continue button on upload page) */
     {
@@ -9143,7 +9141,7 @@
     }
     ._1htqjyq0, /* hover tooltip contents */
     .ouxtlr0 /* embed background */
-    { 
+    {
         background-color: #0000;
     }
     .MuiTooltip-tooltip .MuiTooltip-arrow /* hover tooltip arrow */
@@ -9237,7 +9235,7 @@
 }
 @-moz-document regexp("http(s)?:\\/\\/(www\\.)?w\\.soundcloud\\.com\\/?((?!jobs|settings\\/connections)(.|[\\?\\&=\\-_\\/+])*)") { /* widget/iframe */
     /*[[widget]]*/
-    
+
     .g-background-default {
         background-color: var(--shd-bg-primary);
     }
@@ -9335,19 +9333,19 @@
     .commentPopover__wrapper {
         max-width: 50rem;
     }
-    .logo__path { 
+    .logo__path {
         fill: #696969;
-        fill: url("#logo_hover_21")!important; 
+        fill: url("#logo_hover_21")!important;
         filter: saturate(0) contrast(0) brightness(1.6);
         transition-duration: 0.3s;
     }
-    .logo:hover .logo__path, .logo:focus .logo__path { 
-        fill: url("#logo_hover_21"); 
+    .logo:hover .logo__path, .logo:focus .logo__path {
+        fill: url("#logo_hover_21");
         filter: saturate(1) contrast(1) brightness(1);
     }
     .visualAudible .logo__path, .visualAudible .logo:hover .logo__path, .visualAudible .logo:focus .logo__path {
-        fill: url("#logo_hover_33")!important; 
-        fill: url("#logo_hover_54")!important; 
+        fill: url("#logo_hover_33")!important;
+        fill: url("#logo_hover_54")!important;
     }
     .g-border-bottom {
         border-bottom: 1px solid #222;
@@ -9384,11 +9382,11 @@
             font-weight: 300;
         }
     }
-    
+
     .playButton[style*="color: rgb(204, 68, 0);"], .sc-background-orange, .waveform__layer, .soundHeader__logo {
         filter: hue-rotate(/*[[hue]]*/deg);
     }
-    
+
 }
 
 @-moz-document regexp("https?:\\/\\/(www\\.)?secure\\.soundcloud\\.com\\/?((?!jobs|settings\\/connections)(.|[\\?\\&=\\-_\\/+])*)") {
@@ -9396,7 +9394,7 @@
         background: #0d0d0d !important;
     }
     html:not([stylus-iframe="https://soundcloud.com"]):has(body:not([marginwidth="0"][marginheight="0"])),
-    html:not([stylus-iframe="https://soundcloud.com"]) body div#app, 
+    html:not([stylus-iframe="https://soundcloud.com"]) body div#app,
     html:not([stylus-iframe="https://soundcloud.com"]) body.sc-classic div#app {
         background: var(--shd-bg-darker);
     }
@@ -9408,8 +9406,8 @@
     body[marginwidth="0"][marginheight="0"] div#app:not(a+div+div#app) {
         background: #0000!important;
     }
-    
-    .provider-buttons > .form-row > 
+
+    .provider-buttons > .form-row >
     .sc-button:not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):not(:hover) {
         background: #161616;
         border-color: #333;
@@ -9417,7 +9415,7 @@
     .classic-hiding-password-icon, .classic-showing-password-icon {
         filter: invert(1);
     }
-    
+
     fieldset, form {
         background-color: #0000;
     }
@@ -9427,7 +9425,7 @@
     a, a:visited {
         color: #59e;
     }
-    
+
     .app-attribution { /* connect */
         color: #ccc;
     }
@@ -9461,14 +9459,14 @@
     .sign-in-up-form-tabs {
         border-bottom: 1px solid #333;
     }
-    
+
     /* "Tell me more" */
     .connect-layout-popup .tell-me-more .tell-me-more-text {
         background: var(--shd-bg-lighter);
     }
-    
+
     /* captcha/blocked */
-    
+
     div[style*="z-index:2147483647;background-color:#ffffff"] {
         width: 100% !important;
         left: auto !important;
@@ -9520,7 +9518,7 @@
     .sc-classic .readMoreTile__tile .userBadgeListItem:hover {
         padding-bottom: 76px;
     }
-    .sc-classic .userBadgeListItem__action, 
+    .sc-classic .userBadgeListItem__action,
     body:not(.sc-classic) .userBadgeListItem__action {
         transition: opacity 0.2s ease-out;
     }
@@ -9608,7 +9606,7 @@
         --button-secondary-font-color: #ccc;
         --component-border-color: #333;
         --component-border: 0.114rem solid var(--component-border-color);
-        
+
     }
     html, body {
         background-color: #111111;
@@ -9708,7 +9706,7 @@
     .mui-1rtvqhv rect[fill="rgba(255, 255, 255, 0.16)"] {
         fill: rgba(0, 0, 0, 0.08);
     }
-    
+
     /* world map */
 /*     svg[class*="WorldMap_WorldMap_"] > path[style*="fill: rgb(243, 243, 243)"] {
         fill: rgb(48, 48, 48) !important;
@@ -9743,7 +9741,7 @@
     svg[class*="WorldMap_WorldMap_"][fill="rgb(243, 243, 243)"] {
         filter: contrast(0.78) invert() hue-rotate(180deg) saturate(2.8) brightness(1.28) saturate(0) contrast(1.6) sepia(1) contrast(0.625) hue-rotate(-25deg) saturate(11) hue-rotate(/*[[hue]]*/deg) hue-rotate(2deg);
     }
-    
+
     /* cards */
     [class*="DetailsPageLayout_Grid_"] [class*="Card_DetailsPageCard_"] {
         background-color: unset;
@@ -9753,7 +9751,7 @@
         border-bottom: 2px solid var(--highlight-color);
         margin-bottom: 2px;
     }
-    
+
     /* dropdown menu */
     .mui-1k5xlfx .MuiMenu-paper, .mui-1y2ffr5 .MuiMenu-paper  {
         border-radius: 12px;
@@ -9769,7 +9767,7 @@
     .mui-1y2ffr5 .MuiMenu-paper .MuiMenuItem-root.Mui-selected {
         color: #fff;
     }
-    
+
     /* calendar */
     .mui-d9ba2b, .mui-9fykwh {
         border-radius: 12px !important;
@@ -9836,7 +9834,7 @@
     .Mui-selected:is(.mui-126qsd2,.mui-zydket,.mui-4ydb6g):is(:focus,:hover) {
         background-color: rgb(178, 178, 178);
     }
-    
+
 }
 
 @-moz-document regexp("https?:\\/\\/(www\\.)?soundcloud\\.com\\/connect\\?.*") {
@@ -9893,7 +9891,7 @@
     html .icon-primary {
         filter: brightness(0) saturate(100%) invert(100%)
     }
-    
+
     .dark [alt="Notification Image"][src="https://s3.amazonaws.com/repost-prod-public/notifications/PAYMENT_SUCCESSFUL.svg"] {
         filter: invert(1);
     }
@@ -9910,7 +9908,7 @@
     .border-t-2, .border-t-thin {
         border-color: rgba(var(--color-primary), var(--tw-border-opacity));
     }
-    
+
     .dark\:border-0 {
         border-width: 0
     }
@@ -10048,13 +10046,13 @@
         border-style: solid;
         border-color: #181818;
     }
-    
+
     /* enforce dark mode */
     body {
         background-color: rgb(var(--color-surface-900));
         color: rgba(var(--theme-font-color-dark));
     }
-    
+
     ::-webkit-scrollbar-track {
         background-color: rgb(var(--color-surface-900)) !important;
     }
@@ -10064,18 +10062,18 @@
     ::-webkit-scrollbar-corner {
         background-color: rgb(var(--color-surface-900)) !important;
     }
-    
+
     hr:not(.divider) {
         border-color: rgb(var(--color-surface-600));
     }
-    
+
     ::-moz-placeholder {
         color: rgb(var(--color-surface-400));
     }
     ::placeholder {
         color: rgb(var(--color-surface-400));
     }
-    
+
     input::-webkit-calendar-picker-indicator {
         --tw-invert: invert(100%);
         filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
@@ -10088,7 +10086,7 @@
             var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
             var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
     }
-    
+
     progress {
         background-color: rgb(var(--color-surface-500));
     }
@@ -10101,7 +10099,7 @@
     ::-moz-progress-bar {
         background-color: rgb(var(--color-surface-50));
     }
-    
+
     input[type="file"]:not(.file-dropzone-input)::file-selector-button {
         background-color: rgb(var(--color-surface-50));
         color: rgb(var(--color-surface-900));
@@ -10109,7 +10107,7 @@
     [type="range"] {
         accent-color: rgb(var(--color-surface-50) / 1);
     }
-    
+
     .anchor {
         --tw-text-opacity: 1;
         color: rgb(var(--color-primary-500) / var(--tw-text-opacity));
@@ -10130,7 +10128,7 @@
         background-color: rgb(var(--color-surface-700));
         border-color: rgb(var(--color-surface-500));
     }
-    
+
     .select option {
         background-color: rgb(var(--color-surface-700));
     }
@@ -10142,14 +10140,14 @@
     .input-group select option {
         background-color: rgb(var(--color-surface-700));
     }
-    
+
     .placeholder {
         background-color: rgb(var(--color-surface-600));
     }
     .table {
         background-color: rgb(var(--color-surface-800));
     }
-    
+
     /* events sidebar */
     .text-black,
     .group:hover .group-hover\:text-black {
@@ -10159,11 +10157,11 @@
     .text-\[\#959595\] {
         color: rgb(179 179 179 / var(--tw-text-opacity));
     }
-    
+
     .text-\[\#959595\] svg > path[stroke="#959595"] {
         stroke: rgb(179 179 179);
     }
-    
+
     .bg-\[\#999999\] {
         background-color: rgb(102 102 102 / var(--tw-bg-opacity));
     }
@@ -10174,7 +10172,7 @@
 
     /* more uniform icon */
     .flex.items-center.justify-between.gap-1\.5.border-b > .flex.items-center > svg {
-        display: none;        
+        display: none;
     }
     .flex.items-center.justify-between.gap-1\.5.border-b > .flex.items-center, .flex.items-center.justify-between.gap-1\.5.border-b > .flex.items-center > p {
         line-height: 16px;
@@ -10286,7 +10284,7 @@
         color: hsl(calc(203deg + /*[[blu]]*/deg) 100% 65%);
         font-weight: bold;
     }
-    
+
     #captcha__frame {
         border-color: #fff2;
     }
