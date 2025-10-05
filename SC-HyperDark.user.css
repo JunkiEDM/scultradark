@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.00.8
+@version      1.00.9
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -205,9 +205,6 @@
     }
     .sc-classic .l-search .l-fixed-left, .l-search .l-fixed-left {
         top: 338px;
-    }
-    .searchOptions__scrollable {
-        height: 515px !important;
     } EOT;
 }
 @advanced dropdown footer "Sidebar footer" {
@@ -1575,7 +1572,7 @@
         background: 0 0;
         border: 0
     }
-    #app .l-container #content a:not(.sc-button-startstation,.sc-button-small):not(.sc-link-light):not(body:not(.sc-classic) .inbox .send-message-button):not(.trackItem__content>a),
+    #app .l-container #content a:not(.sc-button-startstation,.sc-button-small):not(.sc-link-light):not(body:not(.sc-classic) .inbox .send-message-button):not(.trackItem__content>a):not(.getHeard__cta),
     #app .l-container #content h1,
     #app .l-container #content h2,
     #app .l-container #content h3 {
@@ -2198,7 +2195,7 @@
         background: var(--shd-bg-lighter);
         transition: 3s
     }
-    .collectionSection__filters {
+    .sc-classic .collectionSection__filters {
         position: absolute;
         right: 120px
     }
@@ -2667,7 +2664,6 @@
     }*/
     .searchOptions__scrollable {
         width: 220px!important;
-        height: 465px!important
     }
     .header__left {
         position: absolute;
@@ -3396,7 +3392,7 @@
         background: var(--shd-bg-primary);
     }
     /* queue and dropdowns */
-    .sc-classic .dropdownContent__container, .dropdownContent__container, .sc-classic .headerMenu.m-light, .headerMenu.m-light, .sc-classic .dialog, .dialog, .playControls__queue, .sc-classic .playControls__queue {
+    .sc-classic .dropdownContent__container, .dropdownContent__container, .sc-classic .headerMenu.m-light, .headerMenu.m-light, .sc-classic .dialog, .dialog, .dialog.dialog-tooltip, .playControls__queue, .sc-classic .playControls__queue {
         border-radius: 12px;
         border: 1px solid #4448;
         background-color: var(--shd-bg-dropdown);
@@ -3995,8 +3991,9 @@
     }
     .sc-classic .userBadgeListItem__action, 
     body:not(.sc-classic) .tileGallery .userBadgeListItem__action {
+        transition: opacity .1s;
         transform: scale(0.875);
-        transform-origin: 50% 0%;
+        transform-origin: 50% -100%;
     }
     @media only screen and (min-width: 1880px) {
         .sc-classic .mixedSelectionModule .tileGallery__sliderPanel, body:not(.sc-classic) .mixedSelectionModule .tileGallery__sliderPanel {
@@ -4027,6 +4024,7 @@
     }
     .sc-classic .tileGallery .userBadgeListItem, body:not(.sc-classic) .tileGallery .userBadgeListItem {
         padding-bottom: 0;
+        margin-bottom: 24px;
     }
     .tileGallery {
         width: 100%;
@@ -4628,6 +4626,10 @@
     .imageCrop__zoomSlider, .sc-classic .imageCrop__zoomSlider {
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
+    .g-tabs-link.active > .sc-label {
+        filter: hue-rotate(calc(0deg - /*[[hue]]*/deg));
+        transition-duration: 0.25s;
+    }
     /* soundcloud stories */
     .uiEvoButton {
         border-radius: 5px;
@@ -4990,6 +4992,7 @@
         filter: brightness(1) contrast(1.1);
     }*/
     
+    /* edit playlist tracklist modal */
     .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional, .editTrackItem.m-dragging .editTrackItem__additional { /*Remove linear-gradient background on some selection areas*/
         background: none;
     }
@@ -5013,7 +5016,23 @@
         background: var(--shd-bg-darker);
         background: linear-gradient(90deg,#0d0d0d11,#0d0d0d 17px);
     }
-    .editTrackItem.m-active, .editTrackItem.m-hover,
+    .editTrackList__item.sc-py-1x.sc-px-2x {
+        padding: 0;
+        border-radius: 8px;
+    }
+    .editTrackList__item.sc-py-1x.sc-px-2x > .editTrackItem {
+        line-height: 30px;
+        border-radius: 8px;
+        padding: var(--spacing-0_75x) var(--spacing-1x);
+    }
+    .editTrackItem:not(.m-active) .editTrackItem__username, .editTrackItem .sc-text-secondary, .editTrackItem a.sc-link-secondary {
+        color: #fff8
+    }
+    .editTrackList__item:active .editTrackItem__additional, .editTrackList__list.sortable-dragging-list .editTrackList__item:hover {
+        background: var(--surface-color);
+        background: linear-gradient(90deg, color-mix(in oklab, var(--surface-color) 6.67%, transparent), var(--surface-color) 17px);
+    }
+    .editTrackItem.m-active, .editTrackItem.m-hover, .editTrackList__item:hover,
     .sc-classic .editTrackItem.m-active, .sc-classic .editTrackItem.m-hover {
         background: linear-gradient(60deg, #563526 -10%, #48202b 160%) !important;
     }
@@ -5022,10 +5041,10 @@
         background: #4E2929;
         background: linear-gradient(90deg,#4E292911,#4E2929 17px);
     }
-    .editTrackList__list.sortable-dragging-list .editTrackItem:is(.m-active, .m-hover) {
+    .editTrackList__list.sortable-dragging-list .editTrackItem:is(.m-active, .m-hover), .editTrackList__list.sortable-dragging-list > .editTrackList__item:is(:hover, :active) {
         background: unset !important;
-        margin: unset !important;
-        padding: unset !important;
+/*         margin: unset !important; */
+/*         padding: unset !important; */
     }
     .editTrackList__list.sortable-dragging-list .editTrackItem:is(.m-active, .m-hover) .editTrackItem__additional {
         background: var(--shd-bg-darker) !important;
@@ -5080,8 +5099,16 @@
     /*._1srmB4exym6W6iYDJh87lM:nth-of-type(2) {
         backdrop-filter: brightness(1.9) contrast(1.1);
     }*/
-    .editSnippet__playButton {
+    .sc-classic .editSnippet__playButton {
         margin-bottom: -16px;
+    }
+    .editSnippet__container {
+        align-items: center;
+    }
+    .editSnippet__playButton {
+        margin-bottom: 8px;
+        margin-left: var(--spacing-1x);
+        margin-right: var(--spacing-4x);
     }
     .tabs__tabNew {
         border-radius: 4px;
@@ -5133,19 +5160,25 @@
     .sc-button-small.sc-button-follow:not(.sc-button-stretch-icon) {
         min-width: 81px;
     }
+    
+    /* modal sizing & centering */
     .sc-classic .modal__modal, .sc-classic .modal__modal.transparentBackground,
     body:not(.sc-classic) .modal__modal, body:not(.sc-classic) .modal__modal.transparentBackground {
         padding: 25px;
         background: var(--shd-bg-darker);
         border: 1px solid #222;
         border-radius: 16px;
+        max-width: 100vw;
+        margin-top: 76px !important;
+        margin-top: clamp(0px, calc(100vw - var(--shd-modal-width)), 76px) !important;
     }
     
     @supports (selector(:has(*))) {
         .sc-classic .modal__modal, .sc-classic .modal__modal.transparentBackground,
         body:not(.sc-classic) .modal__modal, body:not(.sc-classic) .modal__modal.transparentBackground {
             width: var(--shd-modal-width)!important;
-            left: calc(50% - calc(var(--shd-modal-width) / 2))!important;
+            left: calc(50% - calc(min(var(--shd-modal-width), 100vw) / 2))!important;
+            left: max(calc(50% - calc(var(--shd-modal-width) / 2)), 0px)!important;
         }
         .sc-classic .modal__modal:has(.imageContent, .imageSelect), .sc-classic .modal__modal.transparentBackground:has(.imageContent, .imageSelect),
         body:not(.sc-classic) .modal__modal:has(.imageContent, .imageSelect),body:not(.sc-classic) .modal__modal.transparentBackground:has(.imageContent, .imageSelect) {
@@ -5154,6 +5187,8 @@
             left: 656px!important;*/
         }
     }
+    
+    /* tooltip arrows */
     .sc-classic .dialog__arrow,
     body:not(.sc-classic) .dialog__arrow {
         border: 1px solid #4448;
@@ -6513,6 +6548,7 @@
     }
     .creatorLikeInlineLikeIcon,
     .sc-classic .creatorLikeInlineLikeIcon {
+        color: #f50;
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
 
@@ -6552,6 +6588,7 @@
         margin-left: 6px;
         padding: 12px;
         width: 48px;
+        min-height: var(--comment-height-on);
         color: #ccc;
         box-shadow: inset 0px -3px 0px -6px #000;
         transition-duration: 0.1s;
@@ -6737,6 +6774,9 @@
         background-color: var(--shd-bg-darker);
         padding: 20px 15px;
         margin-bottom: 20px;
+    }
+    .getHeard__stationsIcon.eligibleBanner, .getHeard__expirationText {
+        filter: hue-rotate(/*[[hue]]*/deg);
     }
     .getHeard__title, .sc-classic .getHeard__title {
         color: #fff;
@@ -7406,6 +7446,29 @@
             padding-top: max(calc(320px - 10vw), 204px);
         }
         /*[[msgwarn]]*/
+        
+        #app:has(.l-messages-left) > header > .container#iframe-container {
+            display: flex !important;
+        }
+        #app > header > .container#iframe-container {
+            top: 480px !important;
+        }
+        #app > header > .container#iframe-container > .playlist-button {
+            text-indent: 0 !important;
+            margin-right: -8px;
+        }
+        #app > header > .container#iframe-container > .playlist-button:hover {
+            background: var(--shd-bg-primary);
+            padding-right: 4px;
+            border-radius: 8px;
+            max-width: 160px;
+            width: max-content;
+            text-wrap-mode: wrap !important;
+        }
+        #app > header > .container#iframe-container > .playlist-button:before {
+            content: unset !important;
+            display: none !important;
+        }
 
         @media only screen and (min-width: 1763px) {
             :not(.artistConnectContainerItem__userInfo)>.profileHeaderBackground > div {
@@ -7612,6 +7675,76 @@
     .keepYourLikes__subtitle {
         font-weight: 400;
     }
+    
+    /* soundfy userscript support */
+    #app:has(.searchOptions, .l-messages-left) > header > .container#iframe-container {
+        display: none;
+    }
+    #app > header > .container#iframe-container {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        position: absolute;
+        width: 100%;
+        top: 400px;
+        height: calc(100vh - 490px)
+    }
+    #app > header > .container#iframe-container > .playlist-button {
+        order: attr(id type(<number>), 0);
+        margin-left: 14px;
+        text-indent: 24px;
+        transition-property: color, background-color;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+        text-overflow: ellipsis;
+        text-wrap-mode: nowrap;
+        overflow-x: hidden;
+    }
+    #app > header > .container#iframe-container > .playlist-button:hover {
+        color: #fff;
+        transition-duration: 0.12s;
+        text-decoration: none;
+    }
+    #app > header > .container#iframe-container > .playlist-button:before {
+        content: "";
+        opacity: 0.825;
+        display: block;
+        position: absolute;
+        background: currentColor;
+        mask: var(--sc-new-playlists) no-repeat 50%;
+        mask-size: 16px;
+        width: 20px;
+        height: 20px;
+        margin: auto 0;
+    }
+    .collectionSection__top > .collectionSection__flexFill {
+        align-items: flex-end;
+        flex-direction: row;
+        justify-content: flex-end;
+        display: flex;
+        padding-right: 12px;
+    }
+    .collectionSection__top > .collectionSection__flexFill > .pinbutton {
+        margin-left: 12px;
+        height: 100%;
+        padding: 4px 12px;
+        padding: var(--spacing-1x) var(--spacing-2x);
+        border-radius: 7px;
+        border: 1px solid var(--input-default-border-color);
+        background: #fff1;
+        color: #ccc;
+        transition-duration: 0.25s;
+    }
+    .collectionSection__top > .collectionSection__flexFill > .pinbutton:hover {
+        text-decoration: none;
+        border: 1px solid #fff6;
+        border-color: #fff6;
+        background: #222;
+        color: #eee;
+        filter: drop-shadow(2px 2px 6px #000);
+        cursor: pointer;
+    }
+
     
     /*----------------- the other soundcloud ui redesign (april 2025) ----------------*/
     
@@ -8063,10 +8196,13 @@
         }
     }
     .modal__closeButton {
-/*         position: sticky; */
+        position: sticky;
+        z-index: 9999;
         float: right;
         height: 32px;
         width: 32px;
+        background: unset !important;
+        border: unset !important;
     }
     .textfield__clear {
         height: 24px;
@@ -8332,6 +8468,9 @@
     }
     .trackItem__actions {
         margin: 6px;
+    }
+    .sc-ministats.sc-ministats-medium {
+        text-wrap-mode: nowrap;
     }
     
     /* messages */
