@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.00.9
+@version      1.010
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -775,7 +775,8 @@
         font-feature-settings: 'liga' 1, 'calt' 1;
     }
     :root {
-        background-color: var(--shd-bg-primary)
+        background-color: var(--shd-bg-primary);
+        color: #ccc;
     }
     @media screen and (prefers-reduced-motion: reduce) {
         *, *:hover, *:focus, *:before, *:after {
@@ -4541,16 +4542,20 @@
     .listenContent__visual .commentFormDisabled {
         background: var(--shd-bg-lighter);
     }
+    
     .soundTitle.m-visualSound.listenContext .soundTitle__uploadTime,
     .sc-classic .soundTitle.m-visualSound.streamContext .soundTitle__uploadTime,
     body:not(.sc-classic) .soundTitle.m-visualSound.streamContext .soundTitle__uploadTime > .sc-text-secondary {
         color: #fff;
-        background: #0002;
+        background: #0005;
         backdrop-filter: blur(calc(6px * var(--blur-on, 1)));
         border-radius: 4px;
         padding: 1px 6px;
         margin-bottom: -2px;
         text-shadow: 0 2px 3px #000c;
+    }
+    body:not(.sc-classic) .soundTitle.m-visualSound.streamContext .soundTitle__uploadTime {
+        background: unset;
     }
     .sc-classic .m-light .headerMenu__link, .sc-classic .m-light .headerMenu__link:focus, .sc-classic .m-light .headerMenu__link:hover {
         color: #ccc;
@@ -8871,6 +8876,48 @@
         background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0icmdiKDI1NSwgMjU1LCAyNTUpIiBkPSJNMyA2LjVjMC0uMjc2LjIxNi0uNS40OTUtLjVoMi4wMWMuMjczIDAgLjQ5NS4yMjkuNDk1LjV2MTFjMCAuMjc2LS4yMTYuNS0uNDk1LjVoLTIuMDFDMy4yMjIgMTggMyAxNy43NzEgMyAxNy41di0xMXptNy00LjAwNGMwLS4yNzQuMjE2LS40OTYuNDk1LS40OTZoMi4wMWMuMjczIDAgLjQ5NS4yMjYuNDk1LjQ5NnYxNS4wMDhjMCAuMjc0LS4yMTYuNDk2LS40OTUuNDk2aC0yLjAxYy0uMjczIDAtLjQ5NS0uMjI2LS40OTUtLjQ5NlYyLjQ5NnptNyA3LjAxNGMwLS4yODIuMjE2LS41MS40OTUtLjUxaDIuMDFjLjI3MyAwIC40OTUuMjIyLjQ5NS41MXY3Ljk4YzAgLjI4Mi0uMjE2LjUxLS40OTUuNTFoLTIuMDFjLS4yNzMgMC0uNDk1LS4yMjItLjQ5NS0uNTFWOS41MXpNMi41IDIwaDE5Yy4yNzYgMCAuNS4yMjQuNS41djFjMCAuMjc2LS4yMjQuNS0uNS41aC0xOWMtLjI3NiAwLS41LS4yMjQtLjUtLjV2LTFjMC0uMjc2LjIyNC0uNS41LS41eiIvPgogICAgPC9nPgo8L3N2Zz4K)
     }
     
+    /* https://soundcloud.com/partner/subscriber-benefits */
+    .header-stack, .sticky-header {
+        background-color: var(--shd-bg-primary);
+        z-index: 1;
+    }
+    .sb-card-div {
+        background-color: #ffffff04;
+        border-color: #fff4;
+    }
+    .w-dyn-item .sb-category-label,
+    .w-dyn-item .sb-category-label:hover {
+        background-color: #0000;
+        border-color: #0000;
+    }
+    .w-dyn-item .sb-radio {
+        background-color: #ffffff06;
+        border-color: #fff4;
+    }
+    .w-dyn-item:hover .sb-radio {
+        background-color: #fff1;
+        border-color: #fff4;
+    }
+    .w-dyn-item .sb-radio.w--redirected-checked {
+        background-color: #fff1;
+        border-color: #fff4;
+        box-shadow: 0 0 2px #fff;
+    }
+    .sb-card-icon {
+        filter: invert(1);
+    }
+    .sb-card-div:hover {
+        border-color: #fff2;
+    }
+    .sb-card-image {
+        filter: invert(1) hue-rotate(180deg) contrast(0.85) brightness(1.1) saturate(2);
+        mix-blend-mode: lighten;
+        z-index: 0;
+    }
+    .sb-card-whitepill {
+        background-color: #fff1;
+        border-color: #444;
+    }
     
     /* new soundcloud ui redesign */
     
@@ -10473,5 +10520,34 @@
     }
     a:hover {
         color: #36d;
+    }
+}
+@-moz-document regexp("https?:\\/\\/help\\.soundcloud\\.com\\/.*") {
+    .Article__Breadcrumbs .breadcrumbs li a,
+    .related-articles > ul > li > a {
+        color: #ccc;
+    }
+    .Header__Announcement a,
+    .Article__Breadcrumbs .breadcrumbs li a:hover,
+    .related-articles > ul > li > a:hover {
+        color: var(--shd-accent-orange);
+    }
+    .Article__Content a:hover,
+    .Header__Announcement a:hover,
+    .Home__Promoted a:hover, .Home__Promoted a:active {
+        color: #fff;
+    }
+    [style^="color: #000000;"] {
+        color: #fff !Important;
+    }
+    .wysiwyg-color-green120 {
+        color: #5c5;
+    }
+    .Home__Browse__Wrapper {
+        background-color: #ffffff04;
+    }
+    .Status_Page .Article__Content table tr {
+        background-color: #ffffff04;
+        border-color: var(--shd-bg-primary);
     }
 }
