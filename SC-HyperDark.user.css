@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.010
+@version      1.011
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -7217,8 +7217,8 @@
         }
         .sc-classic .header__right > .header__link,
         .sc-classic .header__right > .header__link:before,
-        .header__right > .header__link,
-        .header__right > .header__link:before,
+        #app .header__right > .header__link,
+        #app .header__right > .header__link:before,
         .header__inner .header__right div.header__userNav .header__userNavUsernameButton {
             --w1:0px;--w2:0px;
         }
