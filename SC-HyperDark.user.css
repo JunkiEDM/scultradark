@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.012
+@version      1.013
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1874,8 +1874,8 @@
             text-overflow: ellipsis;
             word-break: normal;
 
-            transform: translateY(165px);
-            width: 160px;
+            transform: translateY(calc(11vw + 5px));
+            width: 11vw;
             font-size: 16px;
             font-weight: 400;
             text-align: center;
@@ -7622,6 +7622,13 @@
             .sc-classic .tileGallery .playableTile,
             .sc-classic .tileGallery .userBadgeListItem {
                 width: 14vw;
+            }
+            
+            @supports (content: attr(any)) {
+            .tileGallery__sliderPanelSlide:not(:has(> .systemPlaylistTile > .playableTile__description > .playableTile__heading)) .playableTile__artworkLink[href^="/discover/sets/your-moods"] span.sc-artwork[aria-label]::after {
+                    transform: translateY(calc(14vw + 5px));
+                    width: 14vw;
+                }
             }
             
             #app .l-container #content .l-listen-hero .soundTitle__usernameTitleContainer > * {
