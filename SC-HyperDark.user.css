@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.011
+@version      1.012
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -96,6 +96,95 @@
     /* EOT;
 }
 @advanced range cmth "Compact mode auto threshold" [1200, 160, 2560, 40, "px"]
+@advanced dropdown pinwav "Pin waveform seekbar to top of playlist view" {
+    pinwav-off  "Disabled" <<<EOT EOT;
+    pinwav-on   "Enabled" <<<EOT
+    @supports (animation-timeline: scroll(y)) {
+        @property --hero-height {
+            syntax: "<length>";
+            inherits: true;
+            initial-value: 384px;
+        }
+        @property --hero-height-pct {
+            syntax: "<length>";
+            inherits: true;
+            initial-value: 1;
+        }
+        @property --hero-art-width {
+            syntax: "<length>";
+            inherits: true;
+            initial-value: 352px;
+        }
+        @keyframes heightAnim {
+            0% {
+                --hero-height: 384px;
+            }
+            100% {
+                --hero-height: 212px;
+            }
+        }
+        #content:has(.fullHero__tracksSummary) {
+            --hero-height: 384px;
+            --hero-height-pct: calc((var(--hero-height) - 212px) / 172);
+            --hero-art-width: calc(336px + var(--hero-height-pct) * 16);
+            animation-name: heightAnim;
+            animation-range: 0px 384px;
+            animation-duration: 100ms;
+            animation-fill-mode: both;
+            animation-timeline: scroll(vertical);
+            animation-timeline: scroll(y);
+            .l-listen-hero, .l-hero-banner {
+                z-index: 100;
+                position: fixed;
+                top: 0;
+                width: calc(100vw - 230px);
+            }
+            .fullHero {
+                height: var(--hero-height);
+                padding-bottom: calc(384px - var(--hero-height));
+                margin-bottom: calc(var(--hero-height) - 384px);
+                background: none !important;
+                background: linear-gradient(-90deg, #111 368px, #1110 368px) !important;
+                mask-image: linear-gradient(0deg, #0000, #0006, #000 32px);
+                mask-size: 100% clamp(384px, calc(var(--hero-height) + 32px), 416px);
+                pointer-events: none;
+                & > * {
+                    pointer-events: auto;
+                }
+                .fullHero__foreground {
+                    height: calc(228px + var(--hero-height-pct) * 156);
+                }
+                .backgroundGradient {
+                    box-shadow: 0 16px 16px -8px #111;
+                }
+                &, .backgroundGradient, .backgroundGradient > .backgroundGradient__buffer {
+                    border-bottom-left-radius: 24px
+                }
+            }
+            div:is(.l-hero-content, .l-listen-wrapper) {
+                margin-top: 384px;
+                > .l-sidebar-right {
+                    margin-top: calc(min(384px, calc(var(--hero-art-width) + 32px)) - var(--hero-height));
+                }
+            }
+
+            .fullHero__artwork {
+                --_blur-radius: 32px;
+                --_blur-radius: calc(32px + var(--hero-height-pct) * -32);
+                top: 16px;
+                padding: 16px 16px 16px 32px;
+                margin: -16px -16px -16px -16px;
+                backdrop-filter: blur(32px);
+                backdrop-filter: blur(var(--_blur-radius));
+                mask-image: linear-gradient(90deg, #0000, #0006, #000 32px);
+                .sc-artwork-40x {
+                    width: var(--hero-art-width) !important;
+                    height: var(--hero-art-width) !important;
+                }
+            }
+        }
+    } EOT;
+}
 @advanced dropdown at "Artist tools on sidebar" {
     at-on    "Show" <<<EOT EOT;
     at-off   "Hide" <<<EOT 
@@ -112,6 +201,16 @@
     stats-track "Track page only" <<<EOT 
     .insightsSidebarModule.sc-font {
         height: 0;
+    } EOT;
+    stats-track-likes "Track page likes only" <<<EOT 
+    .listenNetworkSidebar > div:has(iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]), iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"], div[style]:has(>iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]) {
+        max-height: 48px !important;
+    }
+    .ouxtlr0 .mui-0 > .MuiBox-root {
+        display: none;
+    }
+    .insightsSidebarModule.sc-font {
+        height: 0px;
     } EOT;
     stats-off   "Hide Both" <<<EOT 
     .listenNetworkSidebar > div:has(iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/"]), iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/"] {
@@ -1752,13 +1851,38 @@
         height: 100%;
         background: rgba(0, 0, 0, .6);
         border-radius: 8px;
+        pointer-events: none;
     }
     body:not(.sc-classic) #app .l-container #content .playableTile__playButton .playButton {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        pointer-events: auto;
     }
     .sc-classic #app .l-container #content .playableTile__playButton {
+    }
+    /* show names for "Your Mix #" system playlists */
+    @supports (content: attr(any)) {
+        .tileGallery__sliderPanelSlide:not(:has(> .systemPlaylistTile > .playableTile__description > .playableTile__heading)) .playableTile__artworkLink[href^="/discover/sets/your-moods"] span.sc-artwork[aria-label]::after {
+            content: attr(aria-label);
+
+            display: block;
+            position: relative;
+
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            word-break: normal;
+
+            transform: translateY(165px);
+            width: 160px;
+            font-size: 16px;
+            font-weight: 400;
+            text-align: center;
+        }
+        .tileGallery__sliderPanelSlide > .systemPlaylistTile > .playableTile__description:not(:has(> .playableTile__heading)) > .playableTile__usernameHeadingContainer {
+            transform: translateY(18px);
+        }
     }
     #app .l-container #content .playableTile__playButton .playButton {
         border: 4px solid #fff;
@@ -8919,6 +9043,8 @@
         border-color: #444;
     }
     
+    /*[[pinwav]]*/
+    
     /* new soundcloud ui redesign */
     
     /* dark mode variables */
@@ -9413,6 +9539,24 @@
     .mui-yw6l3c svg path[fill="url(#xb0a5e3b8504f)"] /* post-upload using png for amazon music for some reason */
     {
         filter: invert(1);
+    }
+    
+    /* compact https://soundcloud.com/n/embeds iframe */
+    .mui-w2yvg3, .mui-1wduhak {
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+    ._16akh8s0 {
+        border-radius: max(/*[[avradius]]*/%, calc(/*[[avradius]]*/px * 0.75));
+    }
+    
+    .mui-c028g4, .mui-c028g4 img,
+    ._16akh8s0[width="40"][height="40"] {
+        height: 36px;
+        width: 36px;
+    }
+    .mui-c028g4 {
+        min-width: 48px;
     }
 }
 @-moz-document regexp("http(s)?:\\/\\/(www\\.)?soundcloud\\.com\\/.*\\/following\\/?") {
@@ -10549,5 +10693,50 @@
     .Status_Page .Article__Content table tr {
         background-color: #ffffff04;
         border-color: var(--shd-bg-primary);
+    }
+}
+@-moz-document regexp("https?:\\/\\/soundcloud\\.com\\/stories(\\/.*)?") {
+    .page-wrapper {
+        color: #fff;
+    }
+    .page-wrapper a {
+        color: #fff;
+    }
+    .page-wrapper .navigation a {
+        color: #000;
+    }
+    
+    .btn {
+        color: var(--white);
+    }
+    .btn.cc-secondary {
+        padding: .2em 1em .15em;
+    }
+    .btn.cc-secondary.cc-light {
+        border-color: var(--white);
+        color: var(--white);
+    }
+    .btn.cc-secondary.cc-light:hover {
+        background-color: var(--white);
+        color: var(--black);
+    }
+    
+    .w-dyn-empty {
+        background-color: #333;
+    }
+    
+    .subscribe-field {
+        border-color: #fff;
+    }
+    input.w-input {
+        color: #fff;
+    }
+    input.w-input::placeholder {
+        color: #fff4;
+    }
+    
+    .clipboard-copy:not(:hover), .shuffle-icon:not(:hover) {
+        filter: invert(1) contrast(0.5) brightness(2);
+        transition: all .2s;
     }
 }
