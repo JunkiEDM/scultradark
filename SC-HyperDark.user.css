@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.013
+@version      1.014
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -131,6 +131,7 @@
             animation-range: 0px 384px;
             animation-duration: 100ms;
             animation-fill-mode: both;
+            animation-timing-function: linear;
             animation-timeline: scroll(vertical);
             animation-timeline: scroll(y);
             .l-listen-hero, .l-hero-banner {
@@ -206,7 +207,7 @@
     .listenNetworkSidebar > div:has(iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]), iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"], div[style]:has(>iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]) {
         max-height: 48px !important;
     }
-    .ouxtlr0 .mui-0 > .MuiBox-root {
+    .ouxtlr0 .mui-0 > .MuiBox-root, .ouxtlr0 .mui-0 > .mui-tfkmr0 {
         display: none;
     }
     .insightsSidebarModule.sc-font {
@@ -1703,7 +1704,8 @@
         transition-duration: 0.25s;
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
-    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover, .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.m-boldIcon):hover {
+    #app .l-container #content .userBadge__actions .sc-button:not(.sc-button-selected):hover,
+    .sc-button-follow:not(.sc-button-cta):not(.sc-button-selected):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.m-boldIcon):hover {
         background: var(--shd-accent-secondary) !important;
         filter: drop-shadow(2px 2px 6px #000) hue-rotate(/*[[hue]]*/deg) var(--fil) !important;
         transition-duration: 0.25s;
@@ -3575,13 +3577,13 @@
     /* .moreActions .moreActions__button.sc-button-medium.sc-button-like:before {
         filter: invert(1) brightness(0.5);
     } */
-    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.userInfoBar__buttons *):hover,
+    :is(.sc-button-follow, .sc-button-support):not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.userInfoBar__buttons *):hover,
     .sc-button-selected:not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.sc-button-transparent):not(.sc-button-like):not(.sc-button-repost):not(.sc-button-more):not(.addToPlaylistButton):not(.playbackSoundBadge__follow):not(.sc-button-queue):not(.createPlaylistSuggestion__add):not(.hintButton):not(.sc-button-dropdown):not(.sc-button-privacy):not(.sc-button-delete):not(.sc-button-icon):not(#app .l-container #content .l-vertical-bar .userInfoBar .userInfoBar__buttons .sc-button-follow):hover {
         border-color: var(--shd-accent-secondary) !important;
         background: var(--shd-accent-secondary) !important;
         transition-duration: 0.25s;
     }
-    .sc-button-follow:not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.userInfoBar__buttons *) {
+    :is(.sc-button-follow, .sc-button-support):not(.sc-button-nostyle):not(.sc-button-transparent):not(.playbackSoundBadge__follow):not(.playableTile__actionButton):not(.userInfoBar__buttons *) {
         border-color: var(--shd-bg-lighter);
         border: 0;
         border-radius: 120px;
@@ -3614,7 +3616,7 @@
     .g-tabs-link:hover {
         color: #ccc !important;
     }
-    .sc-button:not(:disabled):not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.playbackSoundBadge__follow):not(.playbackSoundBadge__showQueue):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):not(.queue__hide):not(.volume__button):not(.commentItem__like > .sc-button-like):not(.playableTile__actionButton):not(.userInfoBar__buttons>.sc-button-group>.sc-button):not(.g-opacity-transition.sc-button.sc-button-medium.loginButton),
+    .sc-button:not(:disabled):not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.playbackSoundBadge__follow):not(.playbackSoundBadge__showQueue):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):not(.queue__hide):not(.volume__button):not(.commentItem__like > .sc-button-like):not(.playableTile__actionButton):not(.userInfoBar__buttons>.sc-button-group>.sc-button):not(.g-opacity-transition.sc-button.sc-button-medium.loginButton):not(.userDialogBadge button),
     .sc-button-group .sc-button-insights.sc-button-cta,
     .imageEditDropdown .sc-button, .uiEvoButton {
         border: 1px solid var(--shd-bg-lighter);
@@ -3623,7 +3625,7 @@
         color: #ccc;
         transition-duration: 0.25s;
     }
-    .sc-button:not(:disabled):not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.playbackSoundBadge__follow):not(.playbackSoundBadge__showQueue):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):not(.queue__hide):not(.volume__button):not(.commentItem__like > .sc-button-like):not(.playableTile__actionButton):not(.userInfoBar__buttons>.sc-button-group>.sc-button):not(.g-opacity-transition.sc-button.sc-button-medium.loginButton):hover,
+    .sc-button:not(:disabled):not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.playbackSoundBadge__follow):not(.playbackSoundBadge__showQueue):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):not(.queue__hide):not(.volume__button):not(.commentItem__like > .sc-button-like):not(.playableTile__actionButton):not(.userInfoBar__buttons>.sc-button-group>.sc-button):not(.g-opacity-transition.sc-button.sc-button-medium.loginButton):not(.userDialogBadge button):hover,
     .sc-button-group .sc-button-insights.sc-button-cta:hover,
     .imageEditDropdown .sc-button:hover .uiEvoButton:hover {
         border: 1px solid #fff6;
@@ -4015,12 +4017,12 @@
         width: 20px;
         height: 20px;
     }
-    .sc-classic .l-product-banners .banner.m-alert
+    .sc-classic .l-product-banners .banner.m-alert,
     body:not(.sc-classic) .l-product-banners .banner.m-alert {
         background-color: #221b1b;
         font-size: 15px;
     }
-    .sc-classic .l-product-banners .banner.m-alert > *
+    .sc-classic .l-product-banners .banner.m-alert > *,
     body:not(.sc-classic) .l-product-banners .banner.m-alert > * {
         transform: scale(0.92);
         transform-origin: bottom center;
@@ -5692,7 +5694,7 @@
         min-width: 25px;
     }
     .sc-button-follow.sc-button-transparent.sc-button-selected, .sc-button-selected.sc-button-transparent.sc-button-like, .sc-button-selected.sc-button-transparent.playbackSoundBadge__follow, .sc-button-selected.sc-button-transparent.sc-button-repost, .sc-button-selected.sc-button-transparent.addToPlaylistButton, .sc-button-selected.sc-button-transparent.createPlaylistSuggestion__add {
-        border-color: none;
+        border-color: #0000;
         border: none;
         background: inherit;
         transition-duration: inherit;
@@ -8516,7 +8518,8 @@
         }
     }
     .userDialogBadge > .userDialogBadge__action,
-    .userDialogBadge .sc-button-follow {
+    .userDialogBadge .sc-button-follow,
+    .userDialogBadge .sc-button-support {
         margin-top: 3px;
         width: auto;
     }
@@ -9005,6 +9008,22 @@
 
     .sc-button-cta.sc-button-insights:before {
         background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0icmdiKDI1NSwgMjU1LCAyNTUpIiBkPSJNMyA2LjVjMC0uMjc2LjIxNi0uNS40OTUtLjVoMi4wMWMuMjczIDAgLjQ5NS4yMjkuNDk1LjV2MTFjMCAuMjc2LS4yMTYuNS0uNDk1LjVoLTIuMDFDMy4yMjIgMTggMyAxNy43NzEgMyAxNy41di0xMXptNy00LjAwNGMwLS4yNzQuMjE2LS40OTYuNDk1LS40OTZoMi4wMWMuMjczIDAgLjQ5NS4yMjYuNDk1LjQ5NnYxNS4wMDhjMCAuMjc0LS4yMTYuNDk2LS40OTUuNDk2aC0yLjAxYy0uMjczIDAtLjQ5NS0uMjI2LS40OTUtLjQ5NlYyLjQ5NnptNyA3LjAxNGMwLS4yODIuMjE2LS41MS40OTUtLjUxaDIuMDFjLjI3MyAwIC40OTUuMjIyLjQ5NS41MXY3Ljk4YzAgLjI4Mi0uMjE2LjUxLS40OTUuNTFoLTIuMDFjLS4yNzMgMC0uNDk1LS4yMjItLjQ5NS0uNTFWOS41MXpNMi41IDIwaDE5Yy4yNzYgMCAuNS4yMjQuNS41djFjMCAuMjc2LS4yMjQuNS0uNS41aC0xOWMtLjI3NiAwLS41LS4yMjQtLjUtLjV2LTFjMC0uMjc2LjIyNC0uNS41LS41eiIvPgogICAgPC9nPgo8L3N2Zz4K)
+    }
+  
+    /* make sponsor icon fall more in line with other button icons */
+    .userBadge__actions .sc-button.sc-button-support svg {
+        margin-right: 4px;
+    }
+    .userDialogBadge .sc-button.sc-button-support svg {
+        margin-left: -4px;
+    }
+    .sc-button.sc-button-support svg > path[fill="#1B5E20"] {
+        fill: #fff;
+    }
+    .sc-button.sc-button-support svg > path[stroke="#E8F5E9"] {
+        stroke: #f50;
+        transform: scale(1.2) scaleX(1.3);
+        transform-origin: center;
     }
     
     /* https://soundcloud.com/partner/subscriber-benefits */
