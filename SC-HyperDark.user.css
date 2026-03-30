@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.014
+@version      1.015
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -29,10 +29,10 @@
     pi EOT;
 }
 @advanced dropdown dist "Soundcloud for Artists Button" {
-    dist-on    "Show" <<<EOT 
-    --w1:46px;--w2:46px; EOT;
     dist-off   "Hide" <<<EOT 
     --w1:0px;--w2:0px; EOT;
+    dist-on    "Show" <<<EOT 
+    --w1:46px;--w2:46px; EOT;
 }
 @advanced dropdown probdg "Artist profile badges" {
     probdg-off    "Hide" <<<EOT 
@@ -149,6 +149,9 @@
                 mask-image: linear-gradient(0deg, #0000, #0006, #000 32px);
                 mask-size: 100% clamp(384px, calc(var(--hero-height) + 32px), 416px);
                 pointer-events: none;
+                .customImage[style^="width: "] {
+                    width: auto !important;
+                }
                 & > * {
                     pointer-events: auto;
                 }
@@ -1170,6 +1173,9 @@
         }
     }
     
+    :root {
+        --shd-profile-name: "/*[[user]]*/";
+    }
     #app .header__userNavAvatar:after {
         content: "/*[[user]]*/";
         position: absolute;
@@ -1186,11 +1192,42 @@
         color: #fff;
         transition: opacity 0.2s;
     }
+    @supports (content: attr(aria-label)) {
+        #app .header__userNavAvatar > .image__rounded[aria-label]:after {
+            content: attr(aria-label);
+            content: "/*[[user]]*/";
+            position: absolute;
+            max-width: calc(140px - var(--w1));
+            white-space: nowrap;
+            overflow: hidden;
+            height: 100%;
+            align-self: center;
+            left: 36px;
+            top: 0;
+            display: flex;
+            align-items: center;
+            opacity: .75;
+            color: #fff;
+            transition: opacity 0.2s;
+/*             clip-path: inset(0 6.38ch 0 0); */
+        }
+        @container style(--shd-profile-name: "") or style(--shd-profile-name: "Profile") {
+            #app .header__userNavAvatar > .image__rounded[aria-label]:after {
+                content: attr(aria-label);
+                clip-path: inset(0 6.38ch 0 0);
+            }
+        }
+        #app .header__userNavAvatar:after {
+            content: unset !important;
+        }
+    }
     #app .header__userNavUsernameButton:after {
         transition: opacity 0.2s;
     }
     #app .header__userNavUsernameButton:hover .header__userNavAvatar:after, 
-    #app a.selected.header__userNavUsernameButton .header__userNavAvatar:after {
+    #app a.selected.header__userNavUsernameButton .header__userNavAvatar:after,
+    #app .header__userNavUsernameButton:hover .header__userNavAvatar > .image__rounded[aria-label]:after, 
+    #app a.selected.header__userNavUsernameButton .header__userNavAvatar > .image__rounded[aria-label]:after {
         opacity: 1;
     }
     #app .header__userNavUsernameButton:focus:not(:hover):not(.selected):after,
@@ -5764,7 +5801,7 @@
     body:not(.sc-classic) .header__userNavItem,
     body:not(.sc-classic) .header__navMenu>li>a.header__moreButton {
         transition-duration: 0.2s;
-        transition-property: background-color, box-shadow, filter;
+        transition-property: background-color, box-shadow, filter, color;
     }
     .sc-classic .header__navMenu>li>a.header__moreButton:not(.selected):hover,
     body:not(.sc-classic) .header__navMenu>li>a.header__moreButton:not(.selected):hover {
@@ -7312,6 +7349,9 @@
             width: calc(100% - 68px);
             left: 68px;
         }
+        #app .l-container #content .dropbar {
+            width: calc(100% - 68px);
+        }
         .profileHeaderBackground__visual, .profileHeader__link, :not(.artistConnectContainerItem__userInfo)>.profileHeaderBackground > div {
             width: calc(100vw - 418px);
         }
@@ -7327,7 +7367,8 @@
             height: 225px;
         }
         .sc-classic .header__userNavAvatar:after, .sc-classic .header__userNavUsernameButton:after,
-        #app .header__userNavAvatar:after, .header__userNavUsernameButton:after {
+        #app .header__userNavAvatar:after, .header__userNavUsernameButton:after,
+        #app .header__userNavAvatar > .image__rounded[aria-label]:after {
             content: unset;
             display: none;
         }
@@ -7671,7 +7712,7 @@
                 margin-right: -130px;
             }
         }
-        .l-fixed-fluid .sound .sc-button-responsive,.l-fluid-fixed .sound .sc-button-responsive,.l-fullwidth .sound .sc-button-responsive {
+        .l-fixed-fluid .sound .sc-button-responsive,.l-fullwidth .sound .sc-button-responsive {
             font-size: 12px;
             text-indent: 19px;
         }
@@ -7931,6 +7972,10 @@
         body:not(.sc-classic) .playableTile {
             box-sizing: content-box;
         }
+        
+        .l-fixed-fluid .sound .sc-button-responsive *+span, .l-fluid-fixed .sound .sc-button-responsive *+span, .l-fullwidth .sound .sc-button-responsive *+span {
+            margin-left: var(--spacing-1x);
+        }
     }
     @media (max-width: 1079px) {
         body:not(.sc-classic) .userBadgeListItem__subtitle .sc-ministats {
@@ -8003,6 +8048,15 @@
     }
     body:not(.sc-classic) .header, body:not(.sc-classic) .header a {
         color: #ccc;
+        transition: color 0.2s;
+    }
+    body:not(.sc-classic) .header, body:not(.sc-classic) .header a {
+        color: #ccc;
+    }
+    body:not(.sc-classic) .header a.selected,
+    body:not(.sc-classic) .header a:focus,
+    body:not(.sc-classic) .header a:hover {
+        color: var(--primary-color, #fff);
     }
     body:not(.sc-classic) .uploadButton {
         border-radius: 8px;
@@ -9748,8 +9802,12 @@
 }
 
 @-moz-document regexp("https?:\\/\\/(www\\.)?secure\\.soundcloud\\.com\\/?((?!jobs|settings\\/connections)(.|[\\?\\&=\\-_\\/+])*)") {
-    body[marginwidth="0"][marginheight="0"], body[marginwidth="0"][marginheight="0"].sc-classic {
+    body[marginwidth="0"][marginheight="0"]:not(.auth-ui-in-iframe),
+    body[marginwidth="0"][marginheight="0"]:not(.auth-ui-in-iframe).sc-classic {
         background: #0d0d0d !important;
+    }
+    :root:has(> body.auth-ui-in-iframe) {
+        background: unset !important;
     }
     html:not([stylus-iframe="https://soundcloud.com"]):has(body:not([marginwidth="0"][marginheight="0"])),
     html:not([stylus-iframe="https://soundcloud.com"]) body div#app, 
@@ -9830,6 +9888,17 @@
         left: auto !important;
         bottom: 0;
         position: absolute;
+    }
+    
+    .auth-ui > .l-content {
+        background-color: unset;
+    }
+    .auth-ui .footer__links {
+        background: #111;
+    }
+    .auth-ui .footer__links .footer-link,
+    .auth-ui .footer__links li {
+        font-weight: 400;
     }
 }
 
