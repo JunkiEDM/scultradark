@@ -149,7 +149,7 @@
                 mask-image: linear-gradient(0deg, #0000, #0006, #000 32px);
                 mask-size: 100% clamp(384px, calc(var(--hero-height) + 32px), 416px);
                 pointer-events: none;
-                .customImage[style^="width: "] {
+                [style^="width: "]:is(.customImage, .editImage) {
                     width: auto !important;
                 }
                 & > * {
