@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.016
+@version      1.017
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -147,7 +147,7 @@
                 background: none !important;
                 background: linear-gradient(-90deg, #111 368px, #1110 368px) !important;
                 mask-image: linear-gradient(0deg, #0000, #0006, #000 32px);
-                mask-size: 100% clamp(384px, calc(var(--hero-height) + 32px), 416px);
+                mask-size: 100% max(calc(384px + var(--hero-height-pct) * 16), calc(var(--hero-height) + 32px));
                 pointer-events: none;
                 [style^="width: "]:is(.customImage, .editImage) {
                     width: auto !important;
@@ -210,7 +210,7 @@
     .listenNetworkSidebar > div:has(iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]), iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"], div[style]:has(>iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]) {
         max-height: 48px !important;
     }
-    .ouxtlr0 .mui-0 > .MuiBox-root, .ouxtlr0 .mui-0 > .mui-tfkmr0 {
+    .ouxtlr0 .mui-0 > .MuiBox-root, .ouxtlr0 .mui-0 > .mui-tfkmr0, .ouxtlr0 .MuiStack-root > .MuiBox-root {
         display: none;
     }
     .insightsSidebarModule.sc-font {
@@ -2909,6 +2909,14 @@
         line-height: 14px;
         text-align: center;
     }
+    body:has(#iframe-container > .playlist-button) .header__link.header__goUpsell, 
+    body:has(#iframe-container > .playlist-button) .header__link.header__goUpsell_side_by_side_experience, 
+    body:has(#iframe-container > .playlist-button) .header__link.header__proUpsell_side_by_side_experience,
+    body:has(#iframe-container > .playlist-button) .header__upsellWrapper>.header__link,
+    body:has(#iframe-container > .playlist-button) .header__upsellWrapper>.header__button {
+        transform: translateY(calc(100vh - 193px));
+    }
+    
     .sc-classic .header__link.header__goUpsell:active, 
     .sc-classic .header__link.header__goUpsell:focus,
     .sc-classic .header__link.header__goUpsell:hover,
@@ -7485,6 +7493,9 @@
         .sc-classic .header__upsellWrapper>*, body:not(.sc-classic) .header__upsellWrapper>* {
             transform: unset !important;
         }
+        body:has(#iframe-container > .playlist-button) .header__upsellWrapper {
+            transform: translateY(calc(100vh - 211px)) scale(0.9);
+        }
 
         .header__left {
             top: 280px
@@ -7878,7 +7889,7 @@
         position: absolute;
         width: 100%;
         top: 400px;
-        height: calc(100vh - 490px)
+        max-height: calc(100vh - 490px)
     }
     #app > header > .container#iframe-container > .playlist-button {
         order: attr(id type(<number>), 0);
