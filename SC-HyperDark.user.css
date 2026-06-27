@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.017
+@version      1.018
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -210,8 +210,12 @@
     .listenNetworkSidebar > div:has(iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]), iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"], div[style]:has(>iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]) {
         max-height: 48px !important;
     }
-    .ouxtlr0 .mui-0 > .MuiBox-root, .ouxtlr0 .mui-0 > .mui-tfkmr0, .ouxtlr0 .MuiStack-root > .MuiBox-root {
+    .ouxtlr0 .mui-0 > .MuiBox-root, .ouxtlr0 .mui-0 > .mui-tfkmr0, .ouxtlr0 .MuiStack-root > .MuiBox-root,
+    body[style="background-color:transparent"] > div.MuiBox-root > div.MuiStack-root > div.MuiBox-root {
         display: none;
+    }
+    body[style="background-color:transparent"] > div.MuiBox-root > div.MuiStack-root {
+        padding-bottom: 0;
     }
     .insightsSidebarModule.sc-font {
         height: 0px;
@@ -904,7 +908,7 @@
         margin-right: 15px
     }
     #app:not(body[marginwidth="0"][marginheight="0"] #app),
-    #app header:not(.g-flex-row-spread) {
+    #app header.header:not(.g-flex-row-spread) {
         height: calc(100vh - 90px)
     }
     .g-z-index-header-menu[style] {
@@ -998,7 +1002,7 @@
         flex-direction: row;
         justify-content: center;
     }
-    #app header,
+    #app header.header,
     .header__inner {
         width: 230px;
         box-sizing: border-box
@@ -1055,7 +1059,7 @@
     #app {
         display: flex
     }
-    #app header {
+    #app header.header {
         background: 0
     }
     .header__inner {
@@ -1710,7 +1714,7 @@
         background: 0 0;
         border: 0
     }
-    #app .l-container #content a:not(.sc-button-startstation,.sc-button-small):not(.sc-link-light):not(body:not(.sc-classic) .inbox .send-message-button):not(.trackItem__content>a):not(.getHeard__cta),
+    #app .l-container #content a:not(.sc-button-startstation, .sc-button-small, .sc-link-light, body:not(.sc-classic) .inbox .send-message-button, .trackItem__content>a, .getHeard__cta, a.sc-button-secondary[href^="https://checkout.soundcloud.com"]),
     #app .l-container #content h1,
     #app .l-container #content h2,
     #app .l-container #content h3 {
@@ -2470,7 +2474,7 @@
         background: #131313
     }
     .playControls .g-z-index-control-bar .m-visible,
-    .playControls.m-visible .playControls__inner {
+    .playControls.m-visible:not(.m-queueVisible, body.crossfade-iframe-active .playControls) .playControls__inner {
         z-index: 9999
     }
     .l-sidebar-right:first-child[style] {
@@ -2482,7 +2486,7 @@
         z-index: 1;
         top: -15px
     }
-    .playControls:not(.m-queueVisible) {
+    .playControls:not(.m-queueVisible, body.crossfade-iframe-active .playControls) {
         z-index: 9999;
         overflow-x: visible;
     }
@@ -5138,10 +5142,12 @@
         font-weight: 200;
     }
 
-    a.frontContent__uploadButton.sc-button.sc-button-cta.sc-button-primary.sc-button-large {
+    .sc-classic a.frontContent__uploadButton.sc-button.sc-button-cta.sc-button-primary.sc-button-large {
         margin: auto;
         margin-top: 4px;
         margin-left: 8px;
+    }
+    a.frontContent__uploadButton.sc-button.sc-button-cta.sc-button-primary.sc-button-large {
         background-color: #f50;
         border-color: #c40;
     }
@@ -5171,6 +5177,18 @@
         background: #111;
         filter: brightness(1) contrast(1.1);
     }*/
+    
+    /* new landing page */
+    .l-front .trendingTracks .badgeList {
+        --surface-color: var(--shd-bg-primary);
+    }
+    .l-front .trendingTracks .badgeList .playableTile {
+        width: unset;
+        padding-bottom: unset;
+    }
+    .l-front .trendingTracks .badgeList .badgeList__item .playableTile__artwork {
+        transform: unset;
+    }
     
     /* edit playlist tracklist modal */
     .createPlaylistSuggestion__addContainer, .editTrackItem__additional, .editTrackItem.m-active .editTrackItem__additional, .editTrackItem.m-hover .editTrackItem__additional, .editTrackItem.m-dragging .editTrackItem__additional { /*Remove linear-gradient background on some selection areas*/
@@ -6257,7 +6275,7 @@
     
     @supports (selector(:has(*))) {
         #app:not(body[marginwidth="0"][marginheight="0"] > #app):not(:has(> .playControls)),
-        #app:not(:has(> .playControls)) header:not(.g-flex-row-spread),
+        #app:not(:has(> .playControls)) header.header:not(.g-flex-row-spread),
         #app:not(:has(> .playControlss.m-visible)) div.g-z-index-modal-background,
         body:not(:has(> #app > .playControls.m-visible)) div.g-z-index-modal-background,
         body:has(> #app > .playControls.m-queueVisible) div.g-z-index-modal-background {
@@ -6465,6 +6483,7 @@
         flex-direction: column;
         justify-content: space-evenly;
         align-items: stretch;
+        z-index: 11;
     }
     /* !!! Uncomment below if you have issues with comment boxes not showing properly !!! */
     /* .sc-classic .sound.streamContext .commentForm.visible.m-small, .sound.streamContext .commentForm.visible.m-small { 
@@ -6536,11 +6555,11 @@
         opacity: 1;
         margin-top: 4px;
     }
-    .sc-classic .visualSound.streamContext .commentForm.visible, 
-    .sc-classic .visualSound.streamContext .commentForm.visible.m-small,
-    body:not(.sc-classic) .visualSound.streamContext .commentForm.visible, 
-    body:not(.sc-classic) .visualSound.streamContext .commentForm.visible.m-small {
-        margin-top: 25px;
+    .sc-classic .visualSound.streamContext .commentForm.visible:is(.m-active, :focus-within, :focus, :active), 
+    .sc-classic .visualSound.streamContext .commentForm.visible.m-small:is(.m-active, :focus-within, :focus, :active),
+    body:not(.sc-classic) .visualSound.streamContext .commentForm.visible:is(.m-active, :focus-within, :focus, :active), 
+    body:not(.sc-classic) .visualSound.streamContext .commentForm.visible.m-small:is(.m-active, :focus-within, :focus, :active) {
+/*         margin-top: 25px; */
     }
     .sc-classic .g-input-validation.g-input-validation-hidden, .sc-classic .g-input-validation:empty,
     body:not(.sc-classic) .g-input-validation.g-input-validation-hidden, .g-input-validation:empty {
@@ -6638,6 +6657,9 @@
     
     .visualSound.playing:not(.focused) .visualSound__progress {
         filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
+    }
+    .listenContext.visualSound .visualSound__progress {
+        top: 390px;
     }
     
     /* comment like button */
@@ -8536,7 +8558,7 @@
         line-height: 1;
     }
     .sound__header .soundTitle__usernameTitleContainer > .sc-text-secondary.sc-truncate {
-        display: inline-flex;
+        display: flex;
         flex-wrap: wrap;
         max-width: 102%;
         min-width: 0;
@@ -9869,7 +9891,7 @@
         color: #ccc;
     }
     .sign-in-up-form-tabs li a, .app-attribution, .app-header-black-title {
-        font-weight: 300;
+        font-weight: 500;
     }
     .app-header-orange {
         background-color: #0000;
@@ -9881,6 +9903,20 @@
     .app-header-orange__logoLink-wordmark {
         margin-left: -6px;
     }
+    .app-header {
+        width: 100%;
+        background: #f50;
+        background: linear-gradient(#fe8000, #f83600);
+    }
+    .approve-authorize-form-buttons .sc-button {
+        border-radius: 8px;
+    }
+    .approve-authorize-form-buttons .sc-button:not(:hover) {
+        color: #ccc !important;
+        background: #111 !important;
+        border: 1px solid rgba(var(--primary-rgb), .16) !important;
+    }
+    
     ul.sign-in-up-form-tabs li a, ul.sign-in-up-form-tabs li span {
         color: #ccc;
     }
