@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.018
+@version      1.019
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -207,11 +207,14 @@
         height: 0;
     } EOT;
     stats-track-likes "Track page likes only" <<<EOT 
-    .listenNetworkSidebar > div:has(iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]), iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"], div[style]:has(>iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]) {
+    .listenNetworkSidebar > div:has(iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]),
+    iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"],
+    div[style]:has(>iframe[src^="https://soundcloud.com/n/embeds/right-hand-rail/soundcloud:tracks"]) {
         max-height: 48px !important;
     }
     .ouxtlr0 .mui-0 > .MuiBox-root, .ouxtlr0 .mui-0 > .mui-tfkmr0, .ouxtlr0 .MuiStack-root > .MuiBox-root,
-    body[style="background-color:transparent"] > div.MuiBox-root > div.MuiStack-root > div.MuiBox-root {
+    body[style="background-color:transparent"] > div.MuiBox-root > div.MuiStack-root > div.MuiBox-root,
+    body[style="background-color:transparent"] > div.MuiBox-root > div.MuiStack-root > div.MuiStack-root:not(:has(a[href*="/likes"])) {
         display: none;
     }
     body[style="background-color:transparent"] > div.MuiBox-root > div.MuiStack-root {
@@ -8991,7 +8994,9 @@
             .sound.streamContext .sound__soundActions .sc-button-more,
             .sound.streamContext .sound__soundActions .sc-button-share
         ):after,
-        body:not(.sc-classic) .listenEngagement__actions .sc-button-secondary[aria-label]:after,
+        body:not(.sc-classic) .listenEngagement__actions .sc-button-secondary[aria-label]:not(
+            :has(>span.sc-button-label)
+        ):after,
         body:not(.sc-classic) .sound__footer .sound__soundActions .sc-button-tertiary[aria-label]:after,
         body:not(.sc-classic) .listenEngagement__actions .sc-button-tertiary[aria-label]:after {
             content: attr(aria-label);
@@ -9019,6 +9024,14 @@
         ) > .tooltip.m-is-visible {
             opacity: 0;
             display: none;
+        }
+        body:not(.sc-classic) .listenEngagement__actions .sc-button-secondary[aria-label] > .sc-button-label.sc-visuallyhidden,
+        body:not(.sc-classic) .listenEngagement__actions .sc-button-secondary[aria-label] > .sc-button-label[style^="display: none"] {
+            clip: unset;
+            height: unset;
+            width: unset;
+            position: unset;
+            display: unset !important;
         }
     }
     
