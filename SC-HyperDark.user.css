@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.019
+@version      1.020
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -213,11 +213,11 @@
         max-height: 48px !important;
     }
     .ouxtlr0 .mui-0 > .MuiBox-root, .ouxtlr0 .mui-0 > .mui-tfkmr0, .ouxtlr0 .MuiStack-root > .MuiBox-root,
-    body[style="background-color:transparent"] > div.MuiBox-root > div.MuiStack-root > div.MuiBox-root,
-    body[style="background-color:transparent"] > div.MuiBox-root > div.MuiStack-root > div.MuiStack-root:not(:has(a[href*="/likes"])) {
+    body[style="background-color:transparent"]:has(h4.MuiTypography-root + button[variant="ghost"][aria-label][body]) > div.MuiBox-root > div.MuiStack-root > div.MuiBox-root,
+    body[style="background-color:transparent"]:has(h4.MuiTypography-root + button[variant="ghost"][aria-label][body]) > div.MuiBox-root > div.MuiStack-root > div.MuiStack-root:not(:has(a[href*="/likes"])) {
         display: none;
     }
-    body[style="background-color:transparent"] > div.MuiBox-root > div.MuiStack-root {
+    body[style="background-color:transparent"]:has(h4.MuiTypography-root + button[variant="ghost"][aria-label][body]) > div.MuiBox-root > div.MuiStack-root {
         padding-bottom: 0;
     }
     .insightsSidebarModule.sc-font {
@@ -4552,7 +4552,7 @@
         backdrop-filter: blur(calc(60px * var(--blur-on, 1)));
         filter: drop-shadow(2px 6px 12px #0009) hue-rotate(/*[[hue]]*/deg) var(--fil);
     }
-    .callout__bubble:before, .sc-classic .callout__bubble:before {
+    .callout__bubble:before, .sc-classic .callout__bubble:before, .callout__bubble:not(.ui-flipped-bottom):before {
         bottom: -12px;
         background-color: #191919;
         background: linear-gradient(-45deg, var(--shd-accent-primary) -50%, #191919 50%, #19191900 55%);
