@@ -7379,7 +7379,7 @@
     
     /* compact mode */
     /*[[compact]]*/ {
-        #app > header {
+        #app > header.header {
             width: 52px;
         }
         #app .l-container.l-content:not(.siteTakeoverOverlay) {
