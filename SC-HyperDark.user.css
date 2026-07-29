@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.021
+@version      1.022
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -2350,9 +2350,7 @@
         border-top: 1px solid #222c;
         box-shadow: 0 0 5px var(--shd-bg-primary);
     }
-    :is(input,
-    select,
-    textarea):not(.MuiInputBase-input) {
+    *:is(input, select, textarea):where(:not(.MuiInputBase-input)) {
         background: var(--shd-bg-primary);
         border-color: #333
     }
@@ -3963,9 +3961,9 @@
     }
     /* dark inputs */
     :is(
-    input[type=date]:focus, input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=text]:focus, input[type=url]:focus, select:focus, textarea:focus,
-    input[type=date]:hover, input[type=email]:hover, input[type=password]:hover, input[type=search]:hover, input[type=tel]:hover, input[type=text]:hover, input[type=url]:hover, select:hover, textarea:hover
-    ):not(.MuiInputBase-input){
+        input[type=date], input[type=email], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url],
+        select, textarea
+    ):where(:hover, :focus):where(:not(.MuiInputBase-input)) {
         border-color: #333;
         box-shadow: 0px 0px 12px #0008;
         transition-duration: 0.25s;
@@ -9728,12 +9726,26 @@
     .mui-1i3n52v:has(div[role="slider"][aria-label="Waveform"]) {
         margin-bottom: -32px;
     }
+    /* waveform */
     div[role="slider"][aria-label="Waveform"] > svg {
-/*         --mui-palette-contrast-contrastText: #f50; */
+        --mui-palette-contrast-light: #fffc;
+        --mui-palette-contrast-contrastText: #FF6F00;
         
         filter: hue-rotate(/*[[hue]]*/deg);
     }
-    div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-contrastText)"] {
+    div[role="slider"][aria-label="Waveform"] > svg g:is(:hover, :focus) {
+        opacity: 1 !important;
+    }
+    div[role="slider"][aria-label="Waveform"] > svg rect[fill^="var(--mui-palette-"] {
+        width: 2.8px;
+    }
+    div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-contrastText)"]:after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 100px;
+        width: 12px;
+        background: #fff;
     }
     div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-dark)"] {
         transform-origin: center;
@@ -9749,6 +9761,7 @@
         justify-content: flex-start
     } */
     body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label] {
+        height: 30px;
         border-radius: 4px;
         outline: 1px solid var(--shd-bg-lighter);
         outline-color: var(--shd-bg-lighter);
@@ -9797,6 +9810,12 @@
     body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Unlike"]:after {
         content: "Liked" !important;
     }
+    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Buy This Track"]:after {
+        content: "Buy" !important; /* this should be whatever the hover tooltip says but i cant access that */
+    }
+    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"])):has(.MuiTypography-body)[aria-label]:after {
+        content: unset !important;
+    }
     body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label] svg {
         width: 16px;
         height: 16px;
@@ -9807,17 +9826,78 @@
         stroke: currentColor;
         stroke-width: 2px !important;
     }
+    /* comment input */
+    body:not(.sc-classic) .mui-1nkneyc .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.MuiInputBase-adornedStart.MuiInputBase-adornedEnd {
+        height: 30px;
+        border-radius: 4px;
+        outline: 1px solid var(--shd-bg-lighter);
+        outline-color: var(--shd-bg-lighter);
+        border: 1px solid var(--shd-bg-lighter);
+        border-color: var(--shd-bg-lighter);
+        background: var(--shd-bg-primary);
+        transition-duration: 0.25s;
+        transition-property: background-color, color, border-color, outline-color, filter;
+        & input::placeholder, input::-webkit-input-placeholder {
+            transition-duration: 0.25s;
+            transition-property: opacity, color;
+            color: #ccc;
+        }
+        &:hover, &:focus, &:focus-within {
+            border: 1px solid #fff6;
+            border-color: #fff6;
+            background: #222;
+            color: #eee;
+            filter: drop-shadow(2px 2px 6px #000);
+            & input::placeholder, input::-webkit-input-placeholder {
+                color: var(--mui-palette-contrast-light);
+            }
+        }
+        & img, .MuiIconButton-sizeMedium {
+            border-radius: inherit !important;
+        }
+        & div.MuiStack-root {
+            height: 100%;
+            padding: 0;
+            &:first-of-type {
+                padding-left: 4px;
+            }
+        }
+        & .MuiIconButton-sizeMedium {
+            height: 100%;
+            width: 36px;
+            &:disabled, &[disabled] {
+                opacity: 0.75;
+            }
+            & > svg {
+                height: 18px;
+            }
+        }
+    }
     /* comment popover */
     .MuiPopper-root.MuiTooltip-popper.MuiTooltip-popperInteractive.mui-19yyybr[style^="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: "] {
         margin-top: -36px !important;
         margin-left: 36px !important;
     }
     /* ugly like icon */
-    [d="M7.88889 3C6.40208 3 4.91708 3.5977 3.80789 4.78484C2.69528 5.97563 2 7.71515 2 9.9375C2 13.2536 4.35114 16.0247 6.60732 17.8948C7.75539 18.8464 8.92652 19.6049 9.86432 20.1276C10.3331 20.3889 10.7508 20.5954 11.0849 20.7391C11.2513 20.8106 11.4053 20.8702 11.5397 20.9134C11.6489 20.9485 11.8246 21 12 21C12.1754 21 12.3511 20.9485 12.4603 20.9134C12.5947 20.8702 12.7487 20.8106 12.9151 20.7391C13.2492 20.5954 13.6669 20.3889 14.1357 20.1276C15.0735 19.6049 16.2446 18.8464 17.3927 17.8948C19.6489 16.0247 22 13.2536 22 9.9375C22 7.71515 21.3047 5.97563 20.1921 4.78484C19.0829 3.5977 17.5979 3 16.1111 3C14.6725 3 13.5214 3.43347 12.7319 3.86553C12.4386 4.02609 12.1935 4.18729 12 4.32781C11.8065 4.18729 11.5614 4.02609 11.2681 3.86553C10.4786 3.43347 9.32752 3 7.88889 3Z"] {
+    svg > path[d="M7.88889 3C6.40208 3 4.91708 3.5977 3.80789 4.78484C2.69528 5.97563 2 7.71515 2 9.9375C2 13.2536 4.35114 16.0247 6.60732 17.8948C7.75539 18.8464 8.92652 19.6049 9.86432 20.1276C10.3331 20.3889 10.7508 20.5954 11.0849 20.7391C11.2513 20.8106 11.4053 20.8702 11.5397 20.9134C11.6489 20.9485 11.8246 21 12 21C12.1754 21 12.3511 20.9485 12.4603 20.9134C12.5947 20.8702 12.7487 20.8106 12.9151 20.7391C13.2492 20.5954 13.6669 20.3889 14.1357 20.1276C15.0735 19.6049 16.2446 18.8464 17.3927 17.8948C19.6489 16.0247 22 13.2536 22 9.9375C22 7.71515 21.3047 5.97563 20.1921 4.78484C19.0829 3.5977 17.5979 3 16.1111 3C14.6725 3 13.5214 3.43347 12.7319 3.86553C12.4386 4.02609 12.1935 4.18729 12 4.32781C11.8065 4.18729 11.5614 4.02609 11.2681 3.86553C10.4786 3.43347 9.32752 3 7.88889 3Z"] {
+        display: none;
+    }
+    svg:has( > path[d="M7.88889 3C6.40208 3 4.91708 3.5977 3.80789 4.78484C2.69528 5.97563 2 7.71515 2 9.9375C2 13.2536 4.35114 16.0247 6.60732 17.8948C7.75539 18.8464 8.92652 19.6049 9.86432 20.1276C10.3331 20.3889 10.7508 20.5954 11.0849 20.7391C11.2513 20.8106 11.4053 20.8702 11.5397 20.9134C11.6489 20.9485 11.8246 21 12 21C12.1754 21 12.3511 20.9485 12.4603 20.9134C12.5947 20.8702 12.7487 20.8106 12.9151 20.7391C13.2492 20.5954 13.6669 20.3889 14.1357 20.1276C15.0735 19.6049 16.2446 18.8464 17.3927 17.8948C19.6489 16.0247 22 13.2536 22 9.9375C22 7.71515 21.3047 5.97563 20.1921 4.78484C19.0829 3.5977 17.5979 3 16.1111 3C14.6725 3 13.5214 3.43347 12.7319 3.86553C12.4386 4.02609 12.1935 4.18729 12 4.32781C11.8065 4.18729 11.5614 4.02609 11.2681 3.86553C10.4786 3.43347 9.32752 3 7.88889 3Z"]) {
+        background-color: currentColor;
         mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.978 5c.653-1.334 1.644-2 2.972-2 1.992 0 3.405 1.657 2.971 4-.289 1.561-2.27 3.895-5.943 7C4.19 10.895 2.21 8.561 2.035 7c-.26-2.343.947-4 2.972-4 1.35 0 2.34.666 2.971 2z'%3E%3C/path%3E%3C/svg%3E");
         mask-repeat: no-repeat;
         mask-position: center;
-        mask-size: 130%;
+        mask-size: 100%;
+    }
+    svg > path[d="M21.25 9.9375C21.25 15.8672 12.7708 20.25 12 20.25C11.2292 20.25 2.75 15.8672 2.75 9.9375C2.75 5.8125 5.31944 3.75 7.88889 3.75C10.4583 3.75 12 5.29688 12 5.29688C12 5.29688 13.5417 3.75 16.1111 3.75C18.6806 3.75 21.25 5.8125 21.25 9.9375Z"] {
+        display: none;
+    }
+    svg:has( > path[d="M21.25 9.9375C21.25 15.8672 12.7708 20.25 12 20.25C11.2292 20.25 2.75 15.8672 2.75 9.9375C2.75 5.8125 5.31944 3.75 7.88889 3.75C10.4583 3.75 12 5.29688 12 5.29688C12 5.29688 13.5417 3.75 16.1111 3.75C18.6806 3.75 21.25 5.8125 21.25 9.9375Z"]) {
+        background-color: currentColor;
+        mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' stroke='currentColor' stroke-width='1' d='M7.978 5c.653-1.334 1.644-2 2.972-2 1.992 0 3.405 1.657 2.971 4-.289 1.561-2.27 3.895-5.943 7C4.19 10.895 2.21 8.561 2.035 7c-.26-2.343.947-4 2.972-4 1.35 0 2.34.666 2.971 2z'%3E%3C/path%3E%3C/svg%3E");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: 100%;
     }
     /* follow button */
     [aria-label="Track sidebar"] .MuiStack-root .MuiButton-colorPrimary {
@@ -9827,6 +9907,35 @@
         &:hover {
             background-color: #b41;
         }
+    }
+    #desktop-menu > .MuiPopover-paper.MuiMenu-paper {
+        min-width: min-content;
+        border: 1px solid #6663;
+        border-radius: .5rem;
+        background: var(--shd-bg-translucent) !important;
+        backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
+        padding: 5px 0;
+        box-shadow: 2px 2px 12px #0006;
+    }
+    #desktop-menu > .MuiPopover-paper.MuiMenu-paper [role="menuitem"] {
+        height: 28px;
+        border: 0;
+        background: 0 0;
+        color: #b3b3b3;
+        cursor: default;
+        font-size: 14px !important;
+        transition-duration: .2s;
+        transition-property: color, border-color, background-color;
+        padding: var(--spacing-0_25x) var(--spacing-2_5x);
+        &:hover, &:focus {
+            cursor: pointer;
+            background: #090909;
+            color: #fff;
+        }
+    }
+    #desktop-menu > .MuiPopover-paper.MuiMenu-paper [role="menuitem"] :is(svg, .MuiListItemIcon-root) {
+        width: 16px !important;
+        height: 100% !important;
     }
     /* background shading */
 /*     section.MuiStack-root.mui-do582i:before, [aria-label="Track header"]:before {
