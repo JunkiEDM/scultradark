@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.022
+@version      1.023
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -1063,13 +1063,17 @@
         display: flex
     }
     #app header.header {
-        background: 0
+        background: 0;
+        pointer-events: none;
     }
     .header__inner {
-        background: var(--shd-bg-primary);
+/*         background: var(--shd-bg-primary); */
         display: flex;
         flex-direction: column;
-        height: 100%
+        height: 100%;
+    }
+    .header__inner > * {
+        pointer-events: auto;
     }
     .header__inner .header__logo {
         width: 100%;
@@ -7388,8 +7392,9 @@
     /* I HATE THE ANTICHRIST */
     .webiIframeV2Layout.playerVisible:not(.fullScreen) {
         margin-top: 16px;
-        width: calc(100% - 230px);
-        left: 230px;
+/*         width: calc(100% - 230px);
+        left: 230px; */
+        background: none;
     }
     
     /*[[at]]*/
@@ -7400,9 +7405,9 @@
             width: 52px;
         }
         #app .l-container.l-content:not(.siteTakeoverOverlay),
-        .webiIframeV2Layout.playerVisible:not(.fullScreen) {
-            width: calc(100% - 68px);
-            left: 68px;
+        body > #navigation-shell-right-side-container {
+            width: calc(100% - 68px) !important;
+            left: 68px !important;
         }
         #app .l-container #content .dropbar {
             width: calc(100% - 68px);
@@ -9720,6 +9725,15 @@
     }
     
     /* I HATE THE ANTICHRIST (new track page) */
+    body:has(> #navigation-shell-right-side-container),
+    html:has(> body > #navigation-shell-right-side-container) {
+        background: none;
+    }
+    #navigation-shell-right-side-container {
+        position: absolute;
+        width: calc(100% - 230px);
+        left: 230px;
+    }
     #navigation-shell-right-side-container > #main {
         width: calc(100% - 16px);
     }
@@ -9769,7 +9783,7 @@
         border-color: var(--shd-bg-lighter);
         background: var(--shd-bg-primary);
         transition-duration: 0.25s;
-        transition-property: background-color, color, border-color, outline-color, filter;
+        transition-property: background-color, color, border-color, outline-color, filter, opacity;
         filter: drop-shadow(0 0 0 #0000) hue-rotate(/*[[hue]]*/deg);
         &:hover {
             border: 1px solid #fff6;
@@ -9777,6 +9791,10 @@
             background: #222;
             color: #eee;
             filter: drop-shadow(2px 2px 6px #000) hue-rotate(/*[[hue]]*/deg);
+        }
+        &:active {
+            opacity: .4;
+            opacity: var(--button-active-opacity);
         }
         &[aria-label="Unlike"], &[aria-label="Unpost / Edit repost"] {
             color: #f50;
@@ -9809,6 +9827,9 @@
     }
     body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Unlike"]:after {
         content: "Liked" !important;
+    }
+    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Download track"]:after {
+        content: "Download" !important;
     }
     body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Buy This Track"]:after {
         content: "Buy" !important; /* this should be whatever the hover tooltip says but i cant access that */
@@ -9878,6 +9899,146 @@
         margin-top: -36px !important;
         margin-left: 36px !important;
     }
+    /* comment section */
+    img[src^="https://i1.sndcdn.com/avatars-"][style*="100px"][width] {
+        border-radius: max(/*[[avradius]]*/%, calc(/*[[avradius]]*/px * 0.75)) !important;
+        &[width="24"] {
+            border-radius: max(/*[[avradius]]*/%, calc(/*[[avradius]]*/px * 0.5)) !important;
+        }
+    }
+    ul[aria-label="Comments"] {
+        gap: 0;
+        &> li.MuiStack-root:not(:has(ul[aria-label="Replies"])) {
+            padding-bottom: calc(2 * var(--mui-spacing))
+        }
+    }
+    ul[aria-label="Replies"] {
+        gap: 0;
+        &> li.MuiStack-root {
+            padding-bottom: calc(1 * var(--mui-spacing))
+        }
+    }
+    ul[aria-label="Comments"] > li.MuiStack-root ul[aria-label="Replies"] > li.MuiStack-root:last-of-type {
+        padding-bottom: calc(2 * var(--mui-spacing))
+    }
+    
+    ul:is([aria-label="Comments"], [aria-label="Replies"]) > li.MuiStack-root {
+        gap: 8px;
+    }
+    ul:is([aria-label="Comments"], [aria-label="Replies"]) > li.MuiStack-root > div.MuiStack-root:nth-of-type(2) > div.MuiStack-root:nth-of-type(3) {
+        visibility: visible;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease, height 0.2s ease-out;
+        gap: 6px;
+        margin-top: calc(-0.5 * var(--mui-spacing));
+        overflow: hidden;
+    }
+    ul[aria-label="Comments"] > li.MuiStack-root:is(:hover, :focus, :focus-within):not(:has(ul[aria-label="Replies"] > li.MuiStack-root:is(:hover, :focus, :focus-within))) > div.MuiStack-root:nth-of-type(2) > div.MuiStack-root:nth-of-type(3),
+    ul[aria-label="Replies"] > li.MuiStack-root:is(:hover, :focus, :focus-within) > div.MuiStack-root:nth-of-type(2) > div.MuiStack-root:nth-of-type(3) {
+        visibility: visible;
+        height: 28px;
+        margin-top: 0;
+        opacity: 1;
+        & .MuiStack-root:has(> button.MuiIconButton-sizeSmall) {
+            opacity: 1;
+        }
+    }
+    [aria-label="Comments"] button.MuiButton-text.MuiButton-sizeSmall.MuiButton-colorPrimary.MuiButton-disableElevation {
+        text-decoration: none;
+        height: 26px;
+        margin: 0;
+        padding: 2px 11px 2px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        line-height: 20px;
+        white-space: nowrap;
+        text-align: center;
+        vertical-align: initial;
+        box-sizing: border-box;
+        font-size: 12px;
+        min-width: 31px;
+        float: left;
+        margin-right: 0;
+        border: 1px solid var(--shd-bg-lighter);
+        background: var(--shd-bg-primary);
+        color: #ccc;
+        filter: drop-shadow(0px 0px 0px #0000);
+        transition-duration: 0.25s;
+        &:hover {
+            border-color: #fff6;
+            background: #222;
+            color: #eee !important;
+            filter: drop-shadow(2px 2px 6px #000);
+        }
+    }
+    /* comment like button */
+    ul[aria-label="Comments"] > li.MuiStack-root [aria-label="Liked"] {
+        color: #f50;
+        filter: hue-rotate(/*[[hue]]*/deg);
+    }
+    ul[aria-label="Comments"] .MuiStack-root:has(> button.MuiIconButton-sizeSmall) {
+        margin-top: -16px;
+        align-items: center;
+        display: flex;
+        flex-direction: row-reverse;
+        transition-duration: 0.3s;
+        transition-property: opacity, filter, transform;
+        transform: scale(1);
+        opacity: 0.67;
+    }
+    ul[aria-label="Comments"] > li.MuiStack-root:is(:hover, :focus, :focus-within):not(:has(ul[aria-label="Replies"] > li.MuiStack-root:is(:hover, :focus, :focus-within))) > div.MuiStack-root > div.MuiStack-root > .MuiStack-root:has(> button.MuiIconButton-sizeSmall),
+    ul[aria-label="Replies"] > li.MuiStack-root:is(:hover, :focus, :focus-within) .MuiStack-root:has(> button.MuiIconButton-sizeSmall) {
+        opacity: 1;
+        transform: scale(1.1);
+        & > button.MuiIconButton-sizeSmall.MuiIconButton-colorError + .MuiBox-root {
+            opacity: 1;
+        }
+    }
+    ul[aria-label="Comments"] .MuiStack-root:has(> button.MuiIconButton-sizeSmall.MuiIconButton-colorError) {
+        opacity: 1;
+    }
+    ul[aria-label="Comments"] button.MuiIconButton-sizeSmall:hover {
+        background-color: unset;
+    }
+    ul[aria-label="Comments"] button.MuiIconButton-sizeSmall > svg {
+        transition: transform 0.3s ease;
+        width: 24px;
+        height: 24px;
+        color: #999;
+        margin-left: 2px;
+        padding: 0px;
+        filter: hue-rotate(/*[[hue]]*/deg);
+    }
+    ul[aria-label="Comments"] button.MuiIconButton-sizeSmall.MuiIconButton-colorError > svg {
+        color: #f50;
+    }
+    ul[aria-label="Comments"] button.MuiIconButton-sizeSmall:hover > svg {
+    transition: transform 0.8s linear(0 0%, 0.22 2.1%, 0.86 6.5%, 1.11 8.6%, 1.3 10.7%, 1.35 11.8%, 1.37 12.9%, 1.37 13.7%, 1.36 14.5%, 1.32 16.2%, 1.03 21.8%, 0.94 24%, 0.89 25.9%, 0.88 26.85%, 0.87 27.8%, 0.87 29.25%, 0.88 30.7%, 0.91 32.4%, 0.98 36.4%, 1.01 38.3%, 1.04 40.5%, 1.05 42.7%, 1.05 44.1%, 1.04 45.7%, 1 53.3%, 0.99 55.4%, 0.98 57.5%, 0.99 60.7%, 1 68.1%, 1.01 72.2%, 1 86.7%, 1 100%);
+    transform: scale(1.1);
+    }
+    ul[aria-label="Comments"] button.MuiIconButton-sizeSmall.MuiIconButton-colorError + .MuiBox-root {
+        opacity: 0.67;
+    }
+    ul[aria-label="Comments"] button.MuiIconButton-sizeSmall + .MuiBox-root {
+        text-align: center;
+        width: 100%;
+        top: 0;
+        position: relative;
+        & > span {
+            font-weight: 400;
+            font-size: 14px;
+        }
+    }
+    /* creator comment */
+    [aria-label="Comments"] a.MuiChip-filled, [aria-label="Comments"] a.mui-vee3f9 {
+        background-color: #f502;
+        border: 1px solid #f50;
+        color: #fff;
+        filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
+    }
     /* ugly like icon */
     svg > path[d="M7.88889 3C6.40208 3 4.91708 3.5977 3.80789 4.78484C2.69528 5.97563 2 7.71515 2 9.9375C2 13.2536 4.35114 16.0247 6.60732 17.8948C7.75539 18.8464 8.92652 19.6049 9.86432 20.1276C10.3331 20.3889 10.7508 20.5954 11.0849 20.7391C11.2513 20.8106 11.4053 20.8702 11.5397 20.9134C11.6489 20.9485 11.8246 21 12 21C12.1754 21 12.3511 20.9485 12.4603 20.9134C12.5947 20.8702 12.7487 20.8106 12.9151 20.7391C13.2492 20.5954 13.6669 20.3889 14.1357 20.1276C15.0735 19.6049 16.2446 18.8464 17.3927 17.8948C19.6489 16.0247 22 13.2536 22 9.9375C22 7.71515 21.3047 5.97563 20.1921 4.78484C19.0829 3.5977 17.5979 3 16.1111 3C14.6725 3 13.5214 3.43347 12.7319 3.86553C12.4386 4.02609 12.1935 4.18729 12 4.32781C11.8065 4.18729 11.5614 4.02609 11.2681 3.86553C10.4786 3.43347 9.32752 3 7.88889 3Z"] {
         display: none;
@@ -9900,7 +10061,9 @@
         mask-size: 100%;
     }
     /* follow button */
-    [aria-label="Track sidebar"] .MuiStack-root .MuiButton-colorPrimary {
+    [aria-label="Track sidebar"] .MuiStack-root .MuiButton-colorPrimary,
+    .MuiTooltip-popperArrow .MuiStack-root > .MuiButton-colorPrimary,
+    .MuiStack-root > button.MuiButton-contained.MuiButton-sizeMedium.MuiButton-colorPrimary.MuiButton-disableElevation {
         color: #fff;
         background-color: #f50;
         filter: hue-rotate(/*[[hue]]*/deg);
@@ -9908,6 +10071,7 @@
             background-color: #b41;
         }
     }
+    /* more menu */
     #desktop-menu > .MuiPopover-paper.MuiMenu-paper {
         min-width: min-content;
         border: 1px solid #6663;
@@ -9927,7 +10091,7 @@
         transition-duration: .2s;
         transition-property: color, border-color, background-color;
         padding: var(--spacing-0_25x) var(--spacing-2_5x);
-        &:hover, &:focus {
+        &:hover {
             cursor: pointer;
             background: #090909;
             color: #fff;
