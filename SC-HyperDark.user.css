@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.023
+@version      1.024
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -606,6 +606,7 @@
         --blur-on: 0;
         /**/
 
+        --shd-header-width: 230px;
         --shd-modal-width: 880px;
         --shd-accent-primary: #f50;
         --shd-accent-secondary: #f30;
@@ -7401,6 +7402,9 @@
     
     /* compact mode */
     /*[[compact]]*/ {
+        :root {
+            --shd-header-width: 68px;
+        }
         #app > header.header {
             width: 52px;
         }
@@ -9388,8 +9392,8 @@
         --mui-palette-highlight-mainChannel: 48 48 48;
         --mui-palette-border-main: rgba(255, 255, 255, 0.15);
         --mui-palette-border-mainChannel: 255 255 255;
-        --mui-palette-overlay-main: rgba(255, 255, 255, 0.4);
-        --mui-palette-overlay-mainChannel: 255 255 255;
+        --mui-palette-overlay-main: rgba(17, 17, 17, 0.4);
+        --mui-palette-overlay-mainChannel: 17 17 17;
         --mui-palette-special-main: rgb(255, 85, 0);
         --mui-palette-special-mainChannel: 255 85 0;
         --mui-palette-Alert-errorColor: rgb(249, 190, 202);
@@ -10060,6 +10064,22 @@
         mask-position: center;
         mask-size: 100%;
     }
+    /* related tracks */
+    .related-track-actions .MuiIconButton-sizeMedium[variant="ghost"] {
+        color: #999;
+        filter: hue-rotate(/*[[hue]]*/deg) var(--fil);
+        transform: scale(1);
+        transition: transform 0.3s ease, color 0.2s ease;
+        &:hover {
+            color: #ccc;
+            background-color: unset;
+            transform: scale(1.1);
+            transition: transform 0.8s linear(0 0%, 0.22 2.1%, 0.86 6.5%, 1.11 8.6%, 1.3 10.7%, 1.35 11.8%, 1.37 12.9%, 1.37 13.7%, 1.36 14.5%, 1.32 16.2%, 1.03 21.8%, 0.94 24%, 0.89 25.9%, 0.88 26.85%, 0.87 27.8%, 0.87 29.25%, 0.88 30.7%, 0.91 32.4%, 0.98 36.4%, 1.01 38.3%, 1.04 40.5%, 1.05 42.7%, 1.05 44.1%, 1.04 45.7%, 1 53.3%, 0.99 55.4%, 0.98 57.5%, 0.99 60.7%, 1 68.1%, 1.01 72.2%, 1 86.7%, 1 100%), color 0.2s ease;
+        }
+        &[aria-label="Unlike"] {
+            color: #f50;
+        }
+    }
     /* follow button */
     [aria-label="Track sidebar"] .MuiStack-root .MuiButton-colorPrimary,
     .MuiTooltip-popperArrow .MuiStack-root > .MuiButton-colorPrimary,
@@ -10100,6 +10120,38 @@
     #desktop-menu > .MuiPopover-paper.MuiMenu-paper [role="menuitem"] :is(svg, .MuiListItemIcon-root) {
         width: 16px !important;
         height: 100% !important;
+    }
+    /* add to playlist */
+    
+    .MuiDrawer-modal .MuiBox-root:has(>[data-testid="simple-paginator"]) {
+        position: fixed;
+        bottom: 12px;
+        padding-bottom: 8px;
+        width: min(648px, calc(100vw - var(--shd-header-width, 230px)));
+        margin-left: calc(-3 * var(--mui-spacing));
+        background: linear-gradient(#0000, var(--shd-bg-primary));
+        border: unset;
+        z-index: 2;
+        cursor: auto;
+        pointer-events: none;
+        & nav > * {
+            pointer-events: auto;
+        }
+    }
+    .MuiDrawer-modal #panel-content > .MuiBox-root {
+        cursor: auto;
+    }
+    .MuiDrawer-modal #panel-content > .MuiBox-root > .MuiStack-root {
+        cursor: pointer;
+    }
+    @media only screen and (max-width: 768px) {
+        .MuiDrawer-modal .MuiBox-root:has(>[data-testid="simple-paginator"]) {
+            margin-left: calc(-2 * var(--mui-spacing));
+        }
+        .MuiDrawer-modal .MuiDrawer-paper {
+            width: calc(100% - var(--shd-header-width, 230px));
+            left: var(--shd-header-width, 230px);
+        }
     }
     /* background shading */
 /*     section.MuiStack-root.mui-do582i:before, [aria-label="Track header"]:before {
