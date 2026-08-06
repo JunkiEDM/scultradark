@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.024
+@version      1.025
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -9747,15 +9747,43 @@
     /* waveform */
     div[role="slider"][aria-label="Waveform"] > svg {
         --mui-palette-contrast-light: #fffc;
-        --mui-palette-contrast-contrastText: #FF6F00;
+        --mui-palette-contrast-contrastText: #FF6F26;
         
         filter: hue-rotate(/*[[hue]]*/deg);
+        overflow: visible;
     }
-    div[role="slider"][aria-label="Waveform"] > svg g:is(:hover, :focus) {
-        opacity: 1 !important;
+    div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-dark)"] {
+        color: var(--mui-palette-contrast-dark);
+    }
+    div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-light)"] {
+        color: var(--mui-palette-contrast-light);
+    }
+    div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-contrastText)"] {
+        color: var(--mui-palette-contrast-contrastText);
+    }
+    @supports (color: attr(fill type(<color>), currentColor)) {
+        div[role="slider"][aria-label="Waveform"] > svg rect[fill^="var(--mui-palette-"] {
+            color: attr(fill type(<color>), currentColor);
+        }
+    }
+    @supports (color: color-mix(in oklab, currentColor, transparent)) {
+        div[role="slider"][aria-label="Waveform"] > svg g:is(:hover, :focus, [style^="opacity: 1"]) rect[fill^="var(--mui-palette-"],
+        div[role="slider"][aria-label="Waveform"] > svg:is(:hover, :focus) g rect[fill^="var(--mui-palette-"] {
+            filter: drop-shadow(0 0 2px color-mix(in oklab, currentColor 50%, transparent));
+        }
     }
     div[role="slider"][aria-label="Waveform"] > svg rect[fill^="var(--mui-palette-"] {
-        width: 2.8px;
+        width: 2.7px !important;
+    }
+    /* trading semantic classnames for janky javascript transitions is *always* a good idea! /s */
+    div[role="slider"][aria-label="Waveform"] > svg g {
+        transition: 200ms !important;
+        opacity: 0.75 !important;
+    }
+    div[role="slider"][aria-label="Waveform"] > svg g:is(:hover, :focus),
+    div[role="slider"][aria-label="Waveform"] > svg:is(:hover, :focus) g,
+    [aria-label="Track header"] div.MuiStack-root:has(>span[aria-label="Pause"]) + div.MuiBox-root div[role="slider"][aria-label="Waveform"] > svg g {
+        opacity: 1 !important;
     }
     div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-contrastText)"]:after {
         content: "";
@@ -9979,6 +10007,7 @@
         }
     }
     /* comment like button */
+    ul[aria-label="Comments"] > li.MuiStack-root .MuiBox-root.mui-jle1e5,
     ul[aria-label="Comments"] > li.MuiStack-root [aria-label="Liked"] {
         color: #f50;
         filter: hue-rotate(/*[[hue]]*/deg);
@@ -10052,6 +10081,21 @@
         d: path("M7.978 5c.653-1.334 1.644-2 2.972-2 1.992 0 3.405 1.657 2.971 4-.289 1.561-2.27 3.895-5.943 7C4.19 10.895 2.21 8.561 2.035 7c-.26-2.343.947-4 2.972-4 1.35 0 2.34.666 2.971 2z");
         transform: scale(1.5);
         stroke-width: 1;
+    }
+    /* colored play button */ 
+    section[aria-label="Track header"] button:is([aria-label="Pause"], [aria-label="Play"]) {
+        background-color: var(--shd-accent-primary);
+        background: linear-gradient(#f60, #f40);
+        filter: brightness(1) contrast(1) hue-rotate(-20deg) !important;
+        transition-duration: 0.5s;
+        transition-property: background-color, filter, box-shadow, color, border-color, outline-color;
+        &:hover {
+            background-color: var(--shd-accent-secondary);
+            background: linear-gradient(#f60, #f40);
+            box-shadow: inset -2px -8px 16px #c20c;
+            filter: brightness(0.9) contrast(1.3) hue-rotate(-20deg) hue-rotate(-2deg) !important;
+            transition-duration: 0.2s;
+        }
     }
     /* related tracks */
     .related-track-actions .MuiIconButton-sizeMedium[variant="ghost"] {
