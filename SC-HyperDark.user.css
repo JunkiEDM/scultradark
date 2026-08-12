@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.025
+@version      1.026
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -214,7 +214,8 @@
     }
     .ouxtlr0 .mui-0 > .MuiBox-root, .ouxtlr0 .mui-0 > .mui-tfkmr0, .ouxtlr0 .MuiStack-root > .MuiBox-root,
     body[style="background-color:transparent"]:has(h4.MuiTypography-root + button[variant="ghost"][aria-label][body]) > div.MuiBox-root > div.MuiStack-root > div.MuiBox-root,
-    body[style="background-color:transparent"]:has(h4.MuiTypography-root + button[variant="ghost"][aria-label][body]) > div.MuiBox-root > div.MuiStack-root > div.MuiStack-root:not(:has(a[href*="/likes"])) {
+    body[style="background-color:transparent"]:has(h4.MuiTypography-root + button[variant="ghost"][aria-label][body]) > div.MuiBox-root > div.MuiStack-root > div.MuiStack-root:not(:has(a[href*="/likes"])),
+    aside[aria-label="Track sidebar"] > div.MuiBox-root:not(:has(a[href*="/likes"])){
         display: none;
     }
     body[style="background-color:transparent"]:has(h4.MuiTypography-root + button[variant="ghost"][aria-label][body]) > div.MuiBox-root > div.MuiStack-root {
@@ -543,8 +544,11 @@
         --sc-old-calendar: url("https://a-v2.sndcdn.com/assets/images/calendar-96bbd47c.svg");
         --sc-old-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 11'%3E%3Cg fill='%23fff'%3E%3Cpath d='M1 10h11V2H1v8ZM0 1h13v10H0V1Z'/%3E%3Cpath d='M4 2.5v-2a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0Z'/%3E%3Cpath d='M2 6h1v1H2zm2 0h1v1H4zM2 8h1v1H2zm2 0h1v1H4zm2 0h1v1H6zm0-2h1v1H6zm2 0h1v1H8zm0 2h1v1H8zm2 0h1v1h-1zm0-2h1v1h-1z'/%3E%3Cpath d='M1 5h11V4H1zm9-2.5v-2a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0Z'/%3E%3C/g%3E%3C/svg%3E");
         
-        --sc-new-notifications-32: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 15'%3E%3Cpath fill='%23FFF' d='M1 9.6664V5.5C1 2.4686 3.4662 0 6.5083 0h.9834C10.5427 0 13 2.4587 13 5.4917v4.1747c.609.5511 1 1.3937 1 2.3336H0c0-.94.391-1.7825 1-2.3336ZM4 13l1.0122 1.0836S6.334 15 7.0041 15c.6286 0 2.015-.9813 2.015-.9813L10 13H4Z'/%3E%3C/svg%3E");
-        --sc-new-messages-32: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 13'%3E%3Cpath d='M17.9658 12.2587A.9928.9928 0 0 0 18 12V1a.9928.9928 0 0 0-.0342-.2587L9.3536 9.3536 9 9.707l-.3536-.3535L.0342.7413A.9928.9928 0 0 0 0 1v11c0 .0894.0119.1761.0342.2587l5.6122-5.6123.7072.7072-5.6123 5.6122A.9928.9928 0 0 0 1 13h16a.9928.9928 0 0 0 .2587-.0342l-5.6123-5.6122.7072-.7072 5.6122 5.6123ZM.7413.0342A.9928.9928 0 0 1 1 0h16a.9928.9928 0 0 1 .2587.0342L8.6464 8.6464h.7072L.7413.0342Z' fill='%23FFF'/%3E%3C/svg%3E");
+        --sc-old-sounds: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%23999' d='M8.667 2v12H7.333V2h1.334zM6 4v8H4.667V4H6zm5.333 1.333v5.334H10V5.333h1.333zm-8 1.334v2.666H2V6.667h1.333zm10.667 0v2.666h-1.333V6.667H14z'/%3E%3C/svg%3E");
+        --sc-old-insets: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cg fill='%23999' fill-rule='evenodd'%3E%3Cpath d='M2 6h10v10H2z'/%3E%3Cpath fill-opacity='.7' d='M5 2h11v10h-2V4H5z'/%3E%3C/g%3E%3C/svg%3E");
+        
+        --sc-old-notifications-32: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 15'%3E%3Cpath fill='%23FFF' d='M1 9.6664V5.5C1 2.4686 3.4662 0 6.5083 0h.9834C10.5427 0 13 2.4587 13 5.4917v4.1747c.609.5511 1 1.3937 1 2.3336H0c0-.94.391-1.7825 1-2.3336ZM4 13l1.0122 1.0836S6.334 15 7.0041 15c.6286 0 2.015-.9813 2.015-.9813L10 13H4Z'/%3E%3C/svg%3E");
+        --sc-old-messages-32: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 13'%3E%3Cpath d='M17.9658 12.2587A.9928.9928 0 0 0 18 12V1a.9928.9928 0 0 0-.0342-.2587L9.3536 9.3536 9 9.707l-.3536-.3535L.0342.7413A.9928.9928 0 0 0 0 1v11c0 .0894.0119.1761.0342.2587l5.6122-5.6123.7072.7072-5.6123 5.6122A.9928.9928 0 0 0 1 13h16a.9928.9928 0 0 0 .2587-.0342l-5.6123-5.6122.7072-.7072 5.6122 5.6123ZM.7413.0342A.9928.9928 0 0 1 1 0h16a.9928.9928 0 0 1 .2587.0342L8.6464 8.6464h.7072L.7413.0342Z' fill='%23FFF'/%3E%3C/svg%3E");
 
         /* new icons */
         --sc-new-follow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23FFF' d='M7 7.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM1.001 14.248C1.036 10.005 1.984 8.5 7 8.5s5.965 1.487 5.999 5.748a.25.25 0 0 1-.249.252H1.25a.25.25 0 0 1-.249-.252ZM12.25 7.25H11v-1.5h1.25V4.5h1.5v1.25H15v1.5h-1.25V8.5h-1.5V7.25Z'/%3E%3C/svg%3E");
@@ -9742,12 +9746,15 @@
         width: calc(100% - 16px);
     }
     .mui-1i3n52v:has(div[role="slider"][aria-label="Waveform"]) {
-        margin-bottom: -32px;
+        margin-bottom: -128px; /* align to bottom */
     }
     /* waveform */
     div[role="slider"][aria-label="Waveform"] > svg {
         --mui-palette-contrast-light: #fffc;
         --mui-palette-contrast-contrastText: #FF6F26;
+        --mui-palette-contrast-contrastText: #FF5F0F;
+        /* pure #F50 clashes with some background colors, #FF6F26 looks too washed out with other bg colors.
+           trying to find a balance or a way to change bg color */
         
         filter: hue-rotate(/*[[hue]]*/deg);
         overflow: visible;
@@ -9806,7 +9813,10 @@
 /*     [aria-label="Track header"] .mui-g4007c {
         justify-content: flex-start
     } */
+    /* waveform buttons */
     body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label] {
+        min-width: 33.45px;
+        min-height: 30px;
         height: 30px;
         border-radius: 4px;
         outline: 1px solid var(--shd-bg-lighter);
@@ -9839,35 +9849,40 @@
             }
         }
     }
-    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label]:after {
-        content: attr(aria-label);
-        display: inline-flex;
-        align-items: center;
-        font-size: 12px;
-        height: 0;
-        margin: 0;
-        margin-left: var(--spacing-1x);
-    }
-    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="add to playlist"]:after {
-        content: "Add to playlist" !important;
-    }
-    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="More menu"]:after {
-        content: "More" !important;
-    }
-    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Unpost / Edit repost"]:after {
-        content: "Reposted" !important;
-    }
-    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Unlike"]:after {
-        content: "Liked" !important;
-    }
-    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Download track"]:after {
-        content: "Download" !important;
-    }
-    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Buy This Track"]:after {
-        content: "Buy" !important; /* this should be whatever the hover tooltip says but i cant access that */
-    }
-    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"])):has(.MuiTypography-body)[aria-label]:after {
-        content: unset !important;
+    @media only screen and (min-width: 1383px) {
+        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label]:after {
+            content: attr(aria-label);
+            display: inline-flex;
+            align-items: center;
+            font-size: 12px;
+            height: 0;
+            margin: 0;
+            margin-left: var(--spacing-1x);
+        }
+        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="add to playlist"]:after {
+            content: "Add to playlist" !important;
+        }
+        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="More menu"]:after {
+            content: "More" !important;
+        }
+        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Unpost / Edit repost"]:after {
+            content: "Reposted" !important;
+        }
+        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Unlike"]:after {
+            content: "Liked" !important;
+        }
+        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Download track"]:after {
+            content: "Download" !important;
+        }
+        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Buy This Track"]:after {
+            content: "Buy" !important; /* this should be whatever the hover tooltip says but i cant access that */
+        }
+        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="More actions"]:after {
+            content: "More" !important;
+        }
+        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"])):has(.MuiTypography-body)[aria-label]:after {
+            content: unset !important;
+        }
     }
     body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label] svg {
         width: 16px;
@@ -9931,7 +9946,31 @@
         margin-top: -36px !important;
         margin-left: 36px !important;
     }
+    /* details icon */
+    section[aria-label="Track header"] + div > div > div:first-child .MuiTypography-h5:before {
+        content: "\e484";
+        font-family: "Phosphor";
+        font-size: 16px;
+        margin-right: 4px;
+        vertical-align: bottom;
+    }
     /* comment section */
+    [aria-label="Track header"] + div div:has(+ ul[aria-label="Comments"]) .MuiTypography-h5 {
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: currentColor;
+            mask-size: contain;
+            mask-position: 50% 50%;
+            mask-repeat: no-repeat;
+            mask-image: var(--sc-new-comments);
+        }
+    }
     img[src^="https://i1.sndcdn.com/avatars-"][style*="100px"][width] {
         border-radius: max(/*[[avradius]]*/%, calc(/*[[avradius]]*/px * 0.75)) !important;
         &[width="24"] {
@@ -10097,6 +10136,100 @@
             transition-duration: 0.2s;
         }
     }
+    /* make stats small again */
+    aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm {
+        position: absolute;
+        right: calc(336px + 9 * var(--mui-spacing, 8px));
+        margin-top: -4px;
+        .mui-qlq01x, .mui-1b20pbu {
+            padding: 0;
+            background: none;
+            color: inherit;
+        }
+        > div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 10px;
+        }
+        > div > * {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 2px;
+            color: #ccc;
+            transition-duration: 0.15s;
+            &:is(a):hover {
+                color: #fff;
+            }
+            &:before {
+                content: "";
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background-color: currentColor;
+                mask-size: contain;
+                mask-position: 50% 50%;
+                mask-repeat: no-repeat;
+            }
+        }
+        > div > *:nth-child(1):before {
+            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.322 7.576a.5.5 0 0 1 0 .848l-6.557 4.098A.5.5 0 0 1 5 12.098V3.902a.5.5 0 0 1 .765-.424l6.557 4.098Z' fill='currentColor'/%3E%3C/svg%3E");
+            mask-image: var(--sc-new-plays);
+        }
+        > div > a[href*="/likes"]:before {
+            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.978 5c.653-1.334 1.644-2 2.972-2 1.992 0 3.405 1.657 2.971 4-.289 1.561-2.27 3.895-5.943 7C4.19 10.895 2.21 8.561 2.035 7c-.26-2.343.947-4 2.972-4 1.35 0 2.34.666 2.971 2z' fill='currentColor'/%3E%3C/svg%3E");
+            mask-image: var(--sc-new-like);
+        }
+        > div > a[href*="/reposts"]:before {
+            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' fill='currentColor'%3E%3Cpath d='M7.08034 5.71966L4.05001 2.68933L1.01968 5.71966L2.08034 6.78032L3.30002 5.56065V9.75C3.30002 11.2688 4.53124 12.5 6.05002 12.5H8.05002V11H6.05002C5.35966 11 4.80002 10.4404 4.80002 9.75V5.56066L6.01968 6.78032L7.08034 5.71966Z'/%3E%3Cpath d='M11.95 13.3107L8.91969 10.2803L9.98035 9.21968L11.2 10.4393L11.2 5.75C11.2 5.05964 10.6404 4.5 9.95001 4.5L7.95001 4.5L7.95001 3L9.95001 3C11.4688 3 12.7 4.23122 12.7 5.75L12.7 10.4394L13.9197 9.21968L14.9803 10.2803L11.95 13.3107Z'/%3E%3C/svg%3E");
+            mask-image: var(--sc-new-repost);
+        }
+        .MuiTypography-h2 {
+            font-size: 13px;
+            font-weight: 400;
+            -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
+            font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
+            font-variant-numeric: tabular-nums;
+            color: inherit;
+        }
+        .MuiTypography-micro {
+            display: none;
+        }
+    }
+    /* sidebar title icons */
+    aside > div > div.MuiStack-root.mui-j7qwjs > div > div:has(+ span > a[href*="/recommended"]) > h2 {
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: currentColor;
+            mask-size: contain;
+            mask-position: 50% 50%;
+            mask-repeat: no-repeat;
+            mask-image: var(--sc-old-sounds);
+        }
+    }
+    aside > div > div.MuiStack-root.mui-j7qwjs > div > div:has(+ span > a[href*="/sets"]) > h2 {
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: currentColor;
+            mask-size: contain;
+            mask-position: 50% 50%;
+            mask-repeat: no-repeat;
+            mask-image: var(--sc-old-insets);
+        }
+    }
     /* related tracks */
     .related-track-actions .MuiIconButton-sizeMedium[variant="ghost"] {
         color: #999;
@@ -10125,7 +10258,7 @@
         }
     }
     /* more menu */
-    #desktop-menu > .MuiPopover-paper.MuiMenu-paper {
+    [id^="desktop-menu"] > .MuiPopover-paper.MuiMenu-paper {
         min-width: min-content;
         border: 1px solid #6663;
         border-radius: .5rem;
@@ -10134,7 +10267,7 @@
         padding: 5px 0;
         box-shadow: 2px 2px 12px #0006;
     }
-    #desktop-menu > .MuiPopover-paper.MuiMenu-paper [role="menuitem"] {
+    [id^="desktop-menu"] > .MuiPopover-paper.MuiMenu-paper [role="menuitem"] {
         height: 28px;
         border: 0;
         background: 0 0;
@@ -10150,7 +10283,7 @@
             color: #fff;
         }
     }
-    #desktop-menu > .MuiPopover-paper.MuiMenu-paper [role="menuitem"] :is(svg, .MuiListItemIcon-root) {
+    [id^="desktop-menu"] > .MuiPopover-paper.MuiMenu-paper [role="menuitem"] :is(svg, .MuiListItemIcon-root) {
         width: 16px !important;
         height: 100% !important;
     }
