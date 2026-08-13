@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.026
+@version      1.027
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -9780,16 +9780,16 @@
         }
     }
     div[role="slider"][aria-label="Waveform"] > svg rect[fill^="var(--mui-palette-"] {
-        width: 2.7px !important;
+        width: 2.2px !important;
     }
     /* trading semantic classnames for janky javascript transitions is *always* a good idea! /s */
-    div[role="slider"][aria-label="Waveform"] > svg g {
+    div[role="slider"][aria-label="Waveform"] > svg > g {
         transition: 200ms !important;
         opacity: 0.75 !important;
     }
-    div[role="slider"][aria-label="Waveform"] > svg g:is(:hover, :focus),
-    div[role="slider"][aria-label="Waveform"] > svg:is(:hover, :focus) g,
-    [aria-label="Track header"] div.MuiStack-root:has(>span[aria-label="Pause"]) + div.MuiBox-root div[role="slider"][aria-label="Waveform"] > svg g {
+    div[role="slider"][aria-label="Waveform"] > svg > g:is(:hover, :focus),
+    div[role="slider"][aria-label="Waveform"] > svg:is(:hover, :focus) > g,
+    [aria-label="Track header"] div.MuiStack-root:has(>span[aria-label="Pause"]) + div.MuiBox-root div[role="slider"][aria-label="Waveform"] > svg > g {
         opacity: 1 !important;
     }
     div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-contrastText)"]:after {
@@ -9971,9 +9971,10 @@
             mask-image: var(--sc-new-comments);
         }
     }
-    img[src^="https://i1.sndcdn.com/avatars-"][style*="100px"][width] {
+    img[src^="https://i1.sndcdn.com/avatars-"][style*="100px"][sizes],
+    img[src="https://a1.sndcdn.com/images/default_avatar_large.png"][style*="100px"][sizes]{
         border-radius: max(/*[[avradius]]*/%, calc(/*[[avradius]]*/px * 0.75)) !important;
-        &[width="24"] {
+        &[sizes="24px"] {
             border-radius: max(/*[[avradius]]*/%, calc(/*[[avradius]]*/px * 0.5)) !important;
         }
     }
