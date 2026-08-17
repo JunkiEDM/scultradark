@@ -9758,7 +9758,10 @@
         
         filter: hue-rotate(/*[[hue]]*/deg);
         overflow: visible;
+        /* fix waveform anti-aliasing */
+        shape-rendering: geometricprecision;
     }
+    
     div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-dark)"] {
         color: var(--mui-palette-contrast-dark);
     }
