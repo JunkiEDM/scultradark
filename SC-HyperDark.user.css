@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.027
+@version      1.028
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -9817,7 +9817,41 @@
         justify-content: flex-start
     } */
     /* waveform buttons */
-    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label] {
+    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label],
+    body:not(.sc-classic) .mui-1nkneyc > div > .MuiIconButton-sizeMedium[aria-label],
+    body:not(.sc-classic) .mui-1nkneyc > div > a[aria-label] {
+        display: -webkit-inline-box;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        position: relative;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        vertical-align: middle;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        color: inherit;
+        text-align: center;
+        -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        font-size: 1.5rem;
+        padding: var(--mui-spacing);
+        
         min-width: 33.45px;
         min-height: 30px;
         height: 30px;
@@ -9852,8 +9886,24 @@
             }
         }
     }
+    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label] svg,
+    body:not(.sc-classic) .mui-1nkneyc > div > a[aria-label] svg
+    {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+        stroke-width: .5px !important;
+    }
+    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label] > svg path[stroke-width="1.5"] {
+        stroke: currentColor;
+        stroke-width: 2px !important;
+    }
+    body:not(.sc-classic) .mui-1nkneyc > div > a[aria-label] > .MuiIconButton-sizeMedium {
+        display: contents;
+    }
     @media only screen and (min-width: 1383px) {
-        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label]:after {
+        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label]:after,
+        body:not(.sc-classic) .mui-1nkneyc > div > a[aria-label]:after {
             content: attr(aria-label);
             display: inline-flex;
             align-items: center;
@@ -9877,8 +9927,12 @@
         body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Download track"]:after {
             content: "Download" !important;
         }
-        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Buy This Track"]:after {
+        body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="Buy This Track"]:after,
+        body:not(.sc-classic) .mui-1nkneyc > div > a[aria-label="Buy This Track"]:after {
             content: "Buy" !important; /* this should be whatever the hover tooltip says but i cant access that */
+        }
+        body:not(.sc-classic) .mui-1nkneyc > div > a[aria-label="Buy This Track"][title]:after {
+            content: attr(title) !important;
         }
         body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium[aria-label="More actions"]:after {
             content: "More" !important;
@@ -9886,16 +9940,6 @@
         body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"])):has(.MuiTypography-body)[aria-label]:after {
             content: unset !important;
         }
-    }
-    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label] svg {
-        width: 16px;
-        height: 16px;
-        stroke: currentColor;
-        stroke-width: .5px !important;
-    }
-    body:not(.sc-classic) .mui-1nkneyc .MuiIconButton-sizeMedium:not(:has(>svg>path[d="M.174 3h23.574L11.671 23.53 8.322 11.593.174 3Zm4.653 2L9.41 9.834 18.133 5H4.827ZM19.28 6.65l-8.886 4.925 1.934 6.894L19.28 6.65Z"]))[aria-label] > svg path[stroke-width="1.5"] {
-        stroke: currentColor;
-        stroke-width: 2px !important;
     }
     /* comment input */
     body:not(.sc-classic) .mui-1nkneyc .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.MuiInputBase-adornedStart.MuiInputBase-adornedEnd {
@@ -9950,7 +9994,7 @@
         margin-left: 36px !important;
     }
     /* details icon */
-    section[aria-label="Track header"] + div > div > div:first-child .MuiTypography-h5:before {
+    section[aria-label="Track header"] + div > div > div:first-child:not(:last-child) .MuiTypography-h5:before {
         content: "\e484";
         font-family: "Phosphor";
         font-size: 16px;
@@ -10201,6 +10245,17 @@
             display: none;
         }
     }
+    
+    section[aria-label="Track header"] + div > div:has(>div:first-child:last-child) + div aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm > div:before {
+        content: "";
+        background: linear-gradient(to right, #fff0, #fff1, #fff0);
+        width: calc(100vw - 230px - (336px + 14 * var(--mui-spacing, 8px)));
+        height: 1px;
+    }
+    section[aria-label="Track header"] + div > div > div:first-child:last-child {
+        margin-top: 28px;
+    }
+    
     /* sidebar title icons */
     aside > div > div.MuiStack-root.mui-j7qwjs > div > div:has(+ span > a[href*="/recommended"]) > h2 {
         display: flex;
