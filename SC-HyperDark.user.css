@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.028
+@version      1.029
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -9344,6 +9344,13 @@
         --mui-palette-background-default: var(--shd-bg-primary);
         --mui-palette-background-tonal: #212121;
         --mui-palette-background-dark: #212121;
+        --mui-palette-background-selected: rgba(17, 17, 17, 0.15);
+        --mui-palette-background-selectedHover: rgba(17, 17, 17, 0.1);
+        --mui-palette-background-modalBackdrop: rgba(17, 17, 17, 0.4);
+        --mui-palette-background-low: #272727;
+        --mui-palette-background-mid: #303030;
+        --mui-palette-background-high: #454545;
+        --mui-palette-background-contrast: #ffffff;
         --mui-palette-background-defaultChannel: 18 18 18;
         --mui-palette-background-paperChannel: 18 18 18;
         --mui-palette-background-darkChannel: 33 33 33;
@@ -10099,7 +10106,8 @@
         color: #f50;
         filter: hue-rotate(/*[[hue]]*/deg);
     }
-    ul[aria-label="Comments"] .MuiStack-root:has(> button.MuiIconButton-sizeSmall) {
+    ul[aria-label="Comments"] .MuiStack-root:has(> button.MuiIconButton-sizeSmall),
+    ul[aria-label="Comments"] .MuiStack-root:has(> .MuiBox-root > button.MuiIconButton-sizeSmall) {
         margin-top: -16px;
         align-items: center;
         display: flex;
@@ -10110,14 +10118,17 @@
         opacity: 0.67;
     }
     ul[aria-label="Comments"] > li.MuiStack-root:is(:hover, :focus, :focus-within):not(:has(ul[aria-label="Replies"] > li.MuiStack-root:is(:hover, :focus, :focus-within))) > div.MuiStack-root > div.MuiStack-root > .MuiStack-root:has(> button.MuiIconButton-sizeSmall),
-    ul[aria-label="Replies"] > li.MuiStack-root:is(:hover, :focus, :focus-within) .MuiStack-root:has(> button.MuiIconButton-sizeSmall) {
+    ul[aria-label="Replies"] > li.MuiStack-root:is(:hover, :focus, :focus-within) .MuiStack-root:has(> button.MuiIconButton-sizeSmall),
+    ul[aria-label="Comments"] > li.MuiStack-root:is(:hover, :focus, :focus-within):not(:has(ul[aria-label="Replies"] > li.MuiStack-root:is(:hover, :focus, :focus-within))) > div.MuiStack-root > div.MuiStack-root > .MuiStack-root:has(> .MuiBox-root > button.MuiIconButton-sizeSmall),
+    ul[aria-label="Replies"] > li.MuiStack-root:is(:hover, :focus, :focus-within) .MuiStack-root:has(> .MuiBox-root > button.MuiIconButton-sizeSmall) {
         opacity: 1;
         transform: scale(1.1);
         & > button.MuiIconButton-sizeSmall.MuiIconButton-colorError + .MuiBox-root {
             opacity: 1;
         }
     }
-    ul[aria-label="Comments"] .MuiStack-root:has(> button.MuiIconButton-sizeSmall.MuiIconButton-colorError) {
+    ul[aria-label="Comments"] .MuiStack-root:has(> button.MuiIconButton-sizeSmall.MuiIconButton-colorError),
+    ul[aria-label="Comments"] .MuiStack-root:has(> .MuiBox-root > button.MuiIconButton-sizeSmall.MuiIconButton-colorError) {
         opacity: 1;
     }
     ul[aria-label="Comments"] button.MuiIconButton-sizeSmall:hover {
@@ -10139,10 +10150,12 @@
     transition: transform 0.8s linear(0 0%, 0.22 2.1%, 0.86 6.5%, 1.11 8.6%, 1.3 10.7%, 1.35 11.8%, 1.37 12.9%, 1.37 13.7%, 1.36 14.5%, 1.32 16.2%, 1.03 21.8%, 0.94 24%, 0.89 25.9%, 0.88 26.85%, 0.87 27.8%, 0.87 29.25%, 0.88 30.7%, 0.91 32.4%, 0.98 36.4%, 1.01 38.3%, 1.04 40.5%, 1.05 42.7%, 1.05 44.1%, 1.04 45.7%, 1 53.3%, 0.99 55.4%, 0.98 57.5%, 0.99 60.7%, 1 68.1%, 1.01 72.2%, 1 86.7%, 1 100%);
     transform: scale(1.1);
     }
-    ul[aria-label="Comments"] button.MuiIconButton-sizeSmall.MuiIconButton-colorError + .MuiBox-root {
+    ul[aria-label="Comments"] button.MuiIconButton-sizeSmall.MuiIconButton-colorError + .MuiBox-root,
+    ul[aria-label="Comments"] .MuiStack-root > .MuiBox-root:has(> button.MuiIconButton-sizeSmall.MuiIconButton-colorError) + .MuiBox-root {
         opacity: 0.67;
     }
-    ul[aria-label="Comments"] button.MuiIconButton-sizeSmall + .MuiBox-root {
+    ul[aria-label="Comments"] button.MuiIconButton-sizeSmall + .MuiBox-root,
+    ul[aria-label="Comments"] .MuiStack-root > .MuiBox-root:has(> button.MuiIconButton-sizeSmall) + .MuiBox-root {
         text-align: center;
         width: 100%;
         top: 0;
@@ -10316,7 +10329,7 @@
             background-color: #b41;
         }
     }
-    /* more menu */
+    /* more menu dropdown */
     [id^="desktop-menu"] > .MuiPopover-paper.MuiMenu-paper {
         min-width: min-content;
         border: 1px solid #6663;
@@ -10346,8 +10359,97 @@
         width: 16px !important;
         height: 100% !important;
     }
-    /* add to playlist */
+    /* repost */
+    body > .MuiPopover-root.MuiModal-root > .MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper {
+        min-width: min-content;
+        border: 1px solid #6663;
+        border-radius: 1rem;
+        background: var(--shd-bg-dropdown) !important;
+        backdrop-filter: blur(calc(32px * var(--blur-on, 1)));
+        box-shadow: 2px 2px 12px #0006;
+        & > div.MuiStack-root > .MuiFormControl-root,
+        & > div.MuiStack-root > div.MuiStack-root:not(:first-of-type) {
+            margin-top: calc(2.5 * var(--mui-spacing));
+        }
+        & .MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-adornedEnd {
+            min-height: 24px;
+            height: 36px;
+            background-color: var(--input-default-background-color);
+            color: var(--input-default-font-color);
+            caret-color: #ccc;
+            
+            font-family: var(--font-main);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            padding: 2px 7px;
+            border-radius: .5rem;
+            border: 1px solid var(--input-default-border-color);
+            transition: .1s;
+            &::-webkit-input-placeholder {
+                color: #666;
+                color: var(--input-placeholder-font-color);
+            }
+            &.Mui-focused {
+                box-shadow: 0px 0px 12px #0008;
+                transition-duration: 0.25s;
+                outline: 0;
+                border-color: #666;
+                border-color: var(--input-focused-border-color);
+                &:after {
+                    content: unset;
+                }
+            }
+            &:before {
+                content: unset;
+            }
+        }
+        & > div.MuiStack-root > div.MuiStack-root > button:not(.MuiIconButton-root) {
+            -webkit-appearance: button;
+            box-sizing: border-box;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+            align-self: start;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+
+            padding: calc(var(--spacing-0_75x) - 1px) var(--spacing-1_5x) calc(var(--spacing-0_75x) + 1px);
+            border-radius: 4px;
+            
+            min-height: 24px;
+            font: var(--typography-subheading-font);
+            
+            outline: unset;
+            &.MuiButton-contained.MuiButton-sizeMedium.MuiButton-colorPrimary.MuiButton-disableElevation {
+
+                background-color: #9993;
+                border: 1px solid #444;
+                color: #fff;
+                transition-duration: 0.25s;
+                box-shadow: 0 0 0 #0000;
+                text-shadow: 1px 1px 2px #0008;
+
+                &:hover:not(disabled) {
+
+                    border: 1px solid #444;
+                    color: #fff;
+                    transition-duration: 0.25s;
+                    text-shadow: 1px 1px 2px #0008;
+                    border-color: #666;
+                    background-color: #9994;
+                    box-shadow: 2px 2px 16px #0006;
+                }
+            }
+        }
+    }
     
+    /* add to playlist */
     .MuiDrawer-modal .MuiBox-root:has(>[data-testid="simple-paginator"]) {
         position: fixed;
         bottom: 12px;
