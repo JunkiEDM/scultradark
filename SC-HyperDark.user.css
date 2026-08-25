@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.029
+@version      1.030
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -188,6 +188,87 @@
             }
         }
     } EOT;
+}
+@advanced dropdown tstats "Track stats style" {
+    ts-old  "Old" <<<EOT
+    aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm {
+        position: absolute;
+        right: calc(336px + 9 * var(--mui-spacing, 8px));
+        margin-top: -4px;
+        .mui-qlq01x, .mui-1b20pbu {
+            padding: 0;
+            background: none;
+            color: inherit;
+        }
+        > div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 10px;
+        }
+        > div > * {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 2px;
+            color: #ccc;
+            transition-duration: 0.15s;
+            &:is(a):hover {
+                color: #fff;
+            }
+            &:before {
+                content: "";
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background-color: currentColor;
+                mask-size: contain;
+                mask-position: 50% 50%;
+                mask-repeat: no-repeat;
+            }
+        }
+        > div > *:nth-child(1):before {
+            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.322 7.576a.5.5 0 0 1 0 .848l-6.557 4.098A.5.5 0 0 1 5 12.098V3.902a.5.5 0 0 1 .765-.424l6.557 4.098Z' fill='currentColor'/%3E%3C/svg%3E");
+            mask-image: var(--sc-new-plays);
+        }
+        > div > a[href*="/likes"]:before {
+            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.978 5c.653-1.334 1.644-2 2.972-2 1.992 0 3.405 1.657 2.971 4-.289 1.561-2.27 3.895-5.943 7C4.19 10.895 2.21 8.561 2.035 7c-.26-2.343.947-4 2.972-4 1.35 0 2.34.666 2.971 2z' fill='currentColor'/%3E%3C/svg%3E");
+            mask-image: var(--sc-new-like);
+        }
+        > div > a[href*="/reposts"]:before {
+            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' fill='currentColor'%3E%3Cpath d='M7.08034 5.71966L4.05001 2.68933L1.01968 5.71966L2.08034 6.78032L3.30002 5.56065V9.75C3.30002 11.2688 4.53124 12.5 6.05002 12.5H8.05002V11H6.05002C5.35966 11 4.80002 10.4404 4.80002 9.75V5.56066L6.01968 6.78032L7.08034 5.71966Z'/%3E%3Cpath d='M11.95 13.3107L8.91969 10.2803L9.98035 9.21968L11.2 10.4393L11.2 5.75C11.2 5.05964 10.6404 4.5 9.95001 4.5L7.95001 4.5L7.95001 3L9.95001 3C11.4688 3 12.7 4.23122 12.7 5.75L12.7 10.4394L13.9197 9.21968L14.9803 10.2803L11.95 13.3107Z'/%3E%3C/svg%3E");
+            mask-image: var(--sc-new-repost);
+        }
+        .MuiTypography-h2 {
+            font-size: 13px;
+            font-weight: 400;
+            -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
+            font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
+            font-variant-numeric: tabular-nums;
+            color: inherit;
+        }
+        .MuiTypography-micro {
+            display: none;
+        }
+    }
+    
+    section[aria-label="Track header"] + div > div:has(>div:first-child:last-child) + div aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm > div:before,
+    section[aria-label="Track header"] + div > div:has(>div:first-child:not(.MuiStack-root)) + div aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm > div:before {
+        content: "";
+        background: linear-gradient(to right, #fff0, #6661, #fff0);
+        width: calc(100vw - 230px - (336px + 14 * var(--mui-spacing, 8px)));
+        height: 1px;
+    }
+    section[aria-label="Track header"] + div > div > div:first-child:last-child,
+    section[aria-label="Track header"] + div > div > div:first-child:not(.MuiStack-root) {
+        margin-top: 28px;
+    } EOT;
+    ts-new  "New" <<<EOT EOT;
+    ts-nr  "New Reversed" <<<EOT 
+aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
+    flex-direction: column-reverse;
+}
+    EOT;
 }
 @advanced dropdown at "Artist tools on sidebar" {
     at-on    "Show" <<<EOT EOT;
@@ -10001,7 +10082,8 @@
         margin-left: 36px !important;
     }
     /* details icon */
-    section[aria-label="Track header"] + div > div > div:first-child:not(:last-child) .MuiTypography-h5:before {
+    section[aria-label="Track header"] + div > div > div.MuiStack-root:first-child:not(:last-child) .MuiTypography-h5:before,
+    section[aria-label="Track header"] + div > div > div.MuiStack-root:not(div.MuiStack-root ~ div.MuiStack-root:last-child) .MuiTypography-h5:before {
         content: "\e484";
         font-family: "Phosphor";
         font-size: 16px;
@@ -10198,76 +10280,7 @@
         }
     }
     /* make stats small again */
-    aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm {
-        position: absolute;
-        right: calc(336px + 9 * var(--mui-spacing, 8px));
-        margin-top: -4px;
-        .mui-qlq01x, .mui-1b20pbu {
-            padding: 0;
-            background: none;
-            color: inherit;
-        }
-        > div {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            column-gap: 10px;
-        }
-        > div > * {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            column-gap: 2px;
-            color: #ccc;
-            transition-duration: 0.15s;
-            &:is(a):hover {
-                color: #fff;
-            }
-            &:before {
-                content: "";
-                display: inline-block;
-                width: 16px;
-                height: 16px;
-                background-color: currentColor;
-                mask-size: contain;
-                mask-position: 50% 50%;
-                mask-repeat: no-repeat;
-            }
-        }
-        > div > *:nth-child(1):before {
-            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.322 7.576a.5.5 0 0 1 0 .848l-6.557 4.098A.5.5 0 0 1 5 12.098V3.902a.5.5 0 0 1 .765-.424l6.557 4.098Z' fill='currentColor'/%3E%3C/svg%3E");
-            mask-image: var(--sc-new-plays);
-        }
-        > div > a[href*="/likes"]:before {
-            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.978 5c.653-1.334 1.644-2 2.972-2 1.992 0 3.405 1.657 2.971 4-.289 1.561-2.27 3.895-5.943 7C4.19 10.895 2.21 8.561 2.035 7c-.26-2.343.947-4 2.972-4 1.35 0 2.34.666 2.971 2z' fill='currentColor'/%3E%3C/svg%3E");
-            mask-image: var(--sc-new-like);
-        }
-        > div > a[href*="/reposts"]:before {
-            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' fill='currentColor'%3E%3Cpath d='M7.08034 5.71966L4.05001 2.68933L1.01968 5.71966L2.08034 6.78032L3.30002 5.56065V9.75C3.30002 11.2688 4.53124 12.5 6.05002 12.5H8.05002V11H6.05002C5.35966 11 4.80002 10.4404 4.80002 9.75V5.56066L6.01968 6.78032L7.08034 5.71966Z'/%3E%3Cpath d='M11.95 13.3107L8.91969 10.2803L9.98035 9.21968L11.2 10.4393L11.2 5.75C11.2 5.05964 10.6404 4.5 9.95001 4.5L7.95001 4.5L7.95001 3L9.95001 3C11.4688 3 12.7 4.23122 12.7 5.75L12.7 10.4394L13.9197 9.21968L14.9803 10.2803L11.95 13.3107Z'/%3E%3C/svg%3E");
-            mask-image: var(--sc-new-repost);
-        }
-        .MuiTypography-h2 {
-            font-size: 13px;
-            font-weight: 400;
-            -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
-            font-feature-settings: 'liga' 1, 'calt' 1, 'tnum' 1;
-            font-variant-numeric: tabular-nums;
-            color: inherit;
-        }
-        .MuiTypography-micro {
-            display: none;
-        }
-    }
-    
-    section[aria-label="Track header"] + div > div:has(>div:first-child:last-child) + div aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm > div:before {
-        content: "";
-        background: linear-gradient(to right, #fff0, #fff1, #fff0);
-        width: calc(100vw - 230px - (336px + 14 * var(--mui-spacing, 8px)));
-        height: 1px;
-    }
-    section[aria-label="Track header"] + div > div > div:first-child:last-child {
-        margin-top: 28px;
-    }
+    /*[[tstats]]*/
     
     /* sidebar title icons */
     aside > div > div.MuiStack-root.mui-j7qwjs > div > div:has(+ span > a[href*="/recommended"]) > h2 {
