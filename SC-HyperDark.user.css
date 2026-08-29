@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.030
+@version      1.031
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -9849,8 +9849,8 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
         /* fix waveform anti-aliasing */
         shape-rendering: geometricprecision;
     }
-    
-    div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-dark)"] {
+    /* commented out bc it looks good but is too resource-heavy */
+/*     div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-dark)"] {
         color: var(--mui-palette-contrast-dark);
     }
     div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-light)"] {
@@ -9869,7 +9869,7 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
         div[role="slider"][aria-label="Waveform"] > svg:is(:hover, :focus) g rect[fill^="var(--mui-palette-"] {
             filter: drop-shadow(0 0 2px color-mix(in oklab, currentColor 50%, transparent));
         }
-    }
+    } */
     div[role="slider"][aria-label="Waveform"] > svg rect[fill^="var(--mui-palette-"] {
         width: 2.2px !important;
     }
