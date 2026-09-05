@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.031
+@version      1.032
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -192,6 +192,8 @@
 @advanced dropdown tstats "Track stats style" {
     ts-old  "Old" <<<EOT
     aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm {
+        display: flex;
+        flex-direction: row-reverse;
         position: absolute;
         right: calc(336px + 9 * var(--mui-spacing, 8px));
         margin-top: -4px;
@@ -252,8 +254,8 @@
         }
     }
     
-    section[aria-label="Track header"] + div > div:has(>div:first-child:last-child) + div aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm > div:before,
-    section[aria-label="Track header"] + div > div:has(>div:first-child:not(.MuiStack-root)) + div aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm > div:before {
+    section[aria-label="Track header"] + div > div:has(>div:first-child:last-child) + div aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm:not(:has(>a)) > div:before,
+    section[aria-label="Track header"] + div > div:has(>div:first-child:not(.MuiStack-root)) + div aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm > .MuiStack-root.mui-bly4bm:not(:has(>a)) > div:before {
         content: "";
         background: linear-gradient(to right, #fff0, #6661, #fff0);
         width: calc(100vw - 230px - (336px + 14 * var(--mui-spacing, 8px)));
@@ -10368,9 +10370,23 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
             color: #fff;
         }
     }
-    [id^="desktop-menu"] > .MuiPopover-paper.MuiMenu-paper [role="menuitem"] :is(svg, .MuiListItemIcon-root) {
+    [id^="desktop-menu"] > .MuiPopover-paper.MuiMenu-paper .MuiDivider-root {
+        margin: calc(0.25 * var(--mui-spacing)) 0;
+        background-color: #fff2
+    }
+    [id^="desktop-menu"] > .MuiPopover-paper.MuiMenu-paper [role="menuitem"] :is(svg, .MuiListItemIcon-root, .MuiBox-root) {
         width: 16px !important;
         height: 100% !important;
+    }
+    [id^="desktop-menu"] > .MuiPopover-paper.MuiMenu-paper [role="menuitem"] .MuiListItemIcon-root {
+        margin-right: calc(1 * var(--mui-spacing));
+    }
+    [id^="desktop-menu"] > .MuiPopover-paper.MuiMenu-paper [role="menuitem"] svg path[fill]:not(
+        [d="M1.395 5.01A7.25 7.25 0 013.21 2.559l.991 1.126a5.75 5.75 0 00-.007 8.626L3.2 13.434a7.25 7.25 0 01-1.806-8.423zM12.79 2.558a7.25 7.25 0 01.01 10.876l-.994-1.124a5.75 5.75 0 00-.007-8.626l.99-1.126z"], 
+        [d="M10.808 4.81a4.25 4.25 0 01.005 6.376L9.82 10.06a2.75 2.75 0 00-.003-4.125l.99-1.126zM5.192 4.81a4.25 4.25 0 00-.005 6.375l.993-1.124a2.75 2.75 0 01.003-4.125l-.99-1.126zM8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"]
+    ) {
+        stroke: currentColor;
+        stroke-width: 0.8;
     }
     /* repost */
     body > .MuiPopover-root.MuiModal-root > .MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper {
@@ -10493,6 +10509,14 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
             left: var(--shd-header-width, 230px);
         }
     }
+    /* insights */
+    .mui-1xt1bx4, .MuiCard-root[color="gold"] {
+        background-color: #fff1;
+        & svg {
+            color: currentColor;
+        }
+    }
+    
     /* background shading */
 /*     section.MuiStack-root.mui-do582i:before, [aria-label="Track header"]:before {
         content: "";
