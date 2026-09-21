@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.032
+@version      1.033
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -7483,6 +7483,7 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
 /*         width: calc(100% - 230px);
         left: 230px; */
         background: none;
+        position: absolute;
     }
     
     /*[[at]]*/
