@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.033
+@version      1.034
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -229,14 +229,17 @@
                 mask-repeat: no-repeat;
             }
         }
-        > div > *:nth-child(1):before {
+        > div > *:nth-child(1):before,
+        > div > a[aria-label="See all plays"]:before {
             mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.322 7.576a.5.5 0 0 1 0 .848l-6.557 4.098A.5.5 0 0 1 5 12.098V3.902a.5.5 0 0 1 .765-.424l6.557 4.098Z' fill='currentColor'/%3E%3C/svg%3E");
             mask-image: var(--sc-new-plays);
         }
+        > div > *:nth-child(2):before,
         > div > a[href*="/likes"]:before {
             mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.978 5c.653-1.334 1.644-2 2.972-2 1.992 0 3.405 1.657 2.971 4-.289 1.561-2.27 3.895-5.943 7C4.19 10.895 2.21 8.561 2.035 7c-.26-2.343.947-4 2.972-4 1.35 0 2.34.666 2.971 2z' fill='currentColor'/%3E%3C/svg%3E");
             mask-image: var(--sc-new-like);
         }
+        > div > *:nth-child(3):before,
         > div > a[href*="/reposts"]:before {
             mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' fill='currentColor'%3E%3Cpath d='M7.08034 5.71966L4.05001 2.68933L1.01968 5.71966L2.08034 6.78032L3.30002 5.56065V9.75C3.30002 11.2688 4.53124 12.5 6.05002 12.5H8.05002V11H6.05002C5.35966 11 4.80002 10.4404 4.80002 9.75V5.56066L6.01968 6.78032L7.08034 5.71966Z'/%3E%3Cpath d='M11.95 13.3107L8.91969 10.2803L9.98035 9.21968L11.2 10.4393L11.2 5.75C11.2 5.05964 10.6404 4.5 9.95001 4.5L7.95001 4.5L7.95001 3L9.95001 3C11.4688 3 12.7 4.23122 12.7 5.75L12.7 10.4394L13.9197 9.21968L14.9803 10.2803L11.95 13.3107Z'/%3E%3C/svg%3E");
             mask-image: var(--sc-new-repost);
@@ -949,6 +952,8 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
         --borderRadiuses-20: 20px;
         --borderRadiuses-50: 50px;
         --borderRadiuses-100: 100px;
+        
+        --play-controls-height: 90px !important;
     }
     
     @supports not (font-variation-settings: normal) {
@@ -2029,6 +2034,8 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
     }
     .playControls__inner {
         height: 90px;
+        height: var(--play-controls-height);
+        height: var(--play-controls-height, 90px);
         position: relative
     }
     .playControls__inner .playControls__wrapper {
