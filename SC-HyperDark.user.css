@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.034
+@version      1.035
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -359,7 +359,7 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
 }
 @advanced dropdown gopro "Soundcloud Go/Artist Links" {
     gopro-off    "Hide" <<<EOT 
-    display:none; EOT;
+    display:none !important; EOT;
     gopro-on     "Show" <<<EOT 
     display:flex; EOT;
 }
@@ -3092,16 +3092,20 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
     @supports (selector(:has(*))) {
         .sc-classic:has(
             .header__upsellWrapper>.header__link[href^="https://checkout.soundcloud.com/artist"]
-        ) :is(
-            .sidebarModule:has(iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"]),
-            iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"]
         ),
         body:not(.sc-classic):has(
             .header__upsellWrapper>.header__link[href^="https://checkout.soundcloud.com/artist"]
-        ) :is(
+        ) {
             .sidebarModule:has(iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"]),
-            iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"]
-        ){
+            iframe[src^="https://soundcloud.com/n/embeds/credit-tracker"] {
+                /*[[gopro]]*/
+            }
+        }
+        #main > div.MuiStack-root > div.MuiStack-root > div.MuiStack-root > div.MuiStack-root:has(g[filter^="url(#amplify-badge-blur-"]),
+        .amplifyTrackButton,
+        li:has(> .creatorSubscriptionsButton),
+        li:has(> a[href^="https://checkout.soundcloud.com/"]),
+        li:has(> a[href^="/pages/membership"]) {
             /*[[gopro]]*/
         }
         .spotlight.isMine.empty:has(>.spotlight__upsellBanner) {
@@ -3456,12 +3460,12 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
         width: auto;
     }
     .header__loginMenu > .sc-button {
-        margin: 0;
         display: block;
         height: 31px;
         height: calc-size(100%, size - 14px);
         flex-grow: 1;
-        margin: 12px 0 0;
+        margin: 12px 0 0 !important;
+        border-radius: 4px;
     }
     .header__loginMenu > .onetapAuthContainer {
         position: absolute;
@@ -3764,6 +3768,19 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
     }
     .g-tabs-link:hover {
         color: #ccc !important;
+    }
+    .amplifyTrackButton.amplifyTrackButton--visible {
+        height: unset;
+        min-width: 24px;
+        min-height: 24px;
+        padding: 6px 12px;
+        padding: var(--spacing-0_75x) var(--spacing-1_5x);
+        border-radius: 4px;
+        font-weight: 400;
+        display: unset;
+        &:before {
+            content: unset;
+        }
     }
     .sc-button:not(:disabled):not(.sc-button-play):not(.sc-button-cta):not(.g-button-transparent-inverted):not(.sc-button-active):not(.sc-button-selected):not(.sc-button-nostyle):not(.playbackSoundBadge__like):not(.playbackSoundBadge__follow):not(.playbackSoundBadge__showQueue):not(.premiumContent__button):not(.premiumContent__hint):not(.sc-button-transparent):not(.hintButton):not(.tileGallery__sliderButton):not(.playbackSoundBadge__follow):not(.editSnippet__playButton .sc-button-xxlarge):not(.moreActions__button):not(.spotlightRemove):not(.queue__hide):not(.volume__button):not(.commentItem__like > .sc-button-like):not(.playableTile__actionButton):not(.userInfoBar__buttons>.sc-button-group>.sc-button):not(.g-opacity-transition.sc-button.sc-button-medium.loginButton):not(.userDialogBadge button),
     .sc-button-group .sc-button-insights.sc-button-cta,
@@ -5496,6 +5513,11 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
             /*width: 550px!important;
             left: 656px!important;*/
         }
+    }
+    
+    body:not(.sc-classic) .auth-modal .modal__modal {
+        background-color: initial;
+        border: none;
     }
     
     /* tooltip arrows */
@@ -10713,18 +10735,19 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
     :root:has(> body.auth-ui-in-iframe) {
         background: unset !important;
     }
-    html:not([stylus-iframe="https://soundcloud.com"]):has(body:not([marginwidth="0"][marginheight="0"])),
-    html:not([stylus-iframe="https://soundcloud.com"]) body div#app, 
-    html:not([stylus-iframe="https://soundcloud.com"]) body.sc-classic div#app {
-        background: var(--shd-bg-darker);
-    }
     div#app:first-of-type {
         background: #090909;
 /*         height: 100vh!important; */
         justify-content: center;
     }
     body[marginwidth="0"][marginheight="0"] div#app:not(a+div+div#app) {
-        background: #0000!important;
+        background: #0000;
+    }
+    body.auth-ui-in-iframe div#app,
+    html:not([stylus-iframe="https://soundcloud.com"]):has(body:not([marginwidth="0"][marginheight="0"])),
+    html:not([stylus-iframe="https://soundcloud.com"]) body div#app, 
+    html:not([stylus-iframe="https://soundcloud.com"]) body.sc-classic div#app {
+        background: var(--shd-bg-darker) !important;
     }
     
     .provider-buttons > .form-row > 
