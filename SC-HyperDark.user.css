@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.036
+@version      1.037
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -9172,7 +9172,8 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
             .sound.streamContext .sound__soundActions .sc-button-delete,
             .sound.streamContext .sound__soundActions .sc-button-edit,
             .sound.streamContext .sound__soundActions .sc-button-more,
-            .sound.streamContext .sound__soundActions .sc-button-share
+            .sound.streamContext .sound__soundActions .sc-button-share,
+            .sound.listenContext .sound__soundActions .sc-button-secondary:has(>span[class="sc-button-label"])
         ):after,
         body:not(.sc-classic) .listenEngagement__actions .sc-button-secondary[aria-label]:not(
             :has(>span.sc-button-label)
@@ -9966,7 +9967,9 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
         width: 12px;
         background: #fff;
     }
-    div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-dark)"] {
+    /* waveform reflection */
+    div[role="slider"][aria-label="Waveform"] > svg rect[fill="var(--mui-palette-contrast-dark)"],
+    div[role="slider"][aria-label="Waveform"] > svg g[fill="var(--mui-palette-contrast-dark)"] {
         transform-origin: center;
         transform: scaleY(0.5)
     }
@@ -10582,6 +10585,44 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
             left: var(--shd-header-width, 230px);
         }
     }
+    /* fix for clicking outside modal haphazardly not closing the modal */
+    button.sc-button.modal__closeButton {
+        align-items: start;
+        text-align: right;
+        justify-content: flex-end;
+        position: sticky;
+        z-index: 1;
+        float: right;
+        height: 32px;
+        width: 32px;
+        background: unset !important;
+        border: unset !important;
+        width: 100vw;
+        height: 100vh;
+        cursor: default;
+        padding: 16px;
+        margin: 0;
+        border-radius: 0;
+
+        & > div:has(> svg) {
+            box-sizing: border-box;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            align-self: start;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+
+            cursor: pointer;
+            height: 32px;
+            width: 32px;
+        }
+    }
+    
     /* insights */
     .mui-1xt1bx4, .MuiCard-root[color="gold"] {
         background-color: #fff1;
