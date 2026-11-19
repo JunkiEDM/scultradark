@@ -3,7 +3,7 @@
 @description  Giving soundcloud an overdue facelift
 @namespace    https://github.com/JunkiEDM
 @author       JunkiEDM, IgChi, pawelos076232, tadghh (ec719ea)
-@version      1.037
+@version      1.038
 @homepageURL  https://github.com/JunkiEDM/scultradark
 @supportURL   https://github.com/JunkiEDM/scultradark/issues
 @updateURL    https://raw.githubusercontent.com/JunkiEDM/scultradark/master/SC-HyperDark.user.css
@@ -9804,10 +9804,10 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
     {
         filter: invert(1);
     }
-    .MuiPaper-root.MuiPaper-elevation, /* generic elevated background selector */
+    .MuiPaper-root.MuiPaper-elevation:not([id^="soundcloud:sections:"] *), /* generic elevated background selector */
     .MuiModal-root > .MuiBox-root > .MuiBox-root[class*="mui-"] /* generic modal selector */
     {
-        background-color: var(--_4g70vme) !important;
+/*         background-color: var(--_4g70vme) !important; */
         color: var(--_4g70vmf);
     }
     svg.h2ki1a1 > path /* 808 cut in half */
@@ -10684,9 +10684,14 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
     } */
     
     /* missing track */
-    .mui-1dzpvnj, .entity-card__play-button {
+    .mui-1dzpvnj, .entity-card__play-button,
+    .mui-1v8opq5, .mui-1fuw3p8, .mui-r8owk2, .mui-5t26da,
+    .MuiIconButton-colorPrimary.MuiButton-contained {
         background-color: var(--shd-bg-primary);
         background-color: var(--mui-palette-primary-dark);
+    }
+    .mui-1v8opq5, .mui-1fuw3p8, .mui-r8owk2, .mui-5t26da {
+        background-color: #6664;
     }
 }
 @-moz-document regexp("http(s)?:\\/\\/(www\\.)?soundcloud\\.com\\/.*\\/following\\/?") {
