@@ -9807,8 +9807,10 @@ aside[aria-label="Track sidebar"] > .MuiStack-root.mui-bly4bm:first-child {
     .MuiPaper-root.MuiPaper-elevation:not([id^="soundcloud:sections:"] *), /* generic elevated background selector */
     .MuiModal-root > .MuiBox-root > .MuiBox-root[class*="mui-"] /* generic modal selector */
     {
-/*         background-color: var(--_4g70vme) !important; */
         color: var(--_4g70vmf);
+    }
+    .MuiPaper-root.MuiPaper-elevation:not([id^="soundcloud:sections:"] *, .MuiPaper-elevation0) {
+        background-color: var(--_4g70vme) !important;
     }
     svg.h2ki1a1 > path /* 808 cut in half */
     {
